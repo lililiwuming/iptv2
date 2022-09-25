@@ -1,0 +1,13 @@
+eval(getVar("qjs"));
+var filename="解析模式.txt";
+var mode=_.read(filename);
+if(mode.indexOf("本地")!=-1){
+    var text="自定义模式，配置的解析将生效";
+}else if(mode.indexOf("自带")!=-1){
+    var text="自带解析模式，配置的解析不生效";
+}else if(mode.indexOf("InMemory")!=-1){
+    var text="使用作者的解析，奔放吧";
+}else{
+    var text="当前未设置解析模式，默认自带的解析";
+}
+text;
