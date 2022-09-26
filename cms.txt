@@ -148,7 +148,11 @@ for (var i in code){
         var img="http://43.140.205.222/tupian.php?text="+title;
     }
     var readfile=readStr(title+".json");
-    var num="共【"+e2Arr(readfile,".json().json(data)").length+"】个接口";
+    var types=e2Arr(readfile,".json");
+    for(var k in types){
+        var lists=e2Rex(types[k],".json(data)");
+    }
+    var num="共【"+lists.length+"】个接口";
     items.push({title:title,img:img,url:rurl,rssurl:rssurl,num:num});
 }
 JSON.stringify(items);
