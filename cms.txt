@@ -279,8 +279,8 @@ if(源码.indexOf("<rss")!=-1){
     }else{
         var 图片规则='.xml(pic).t().z(\\S.*\\S).th( ##%20)';
     }
-    var 播放源规则='.c(<font color=\"#0997F7\"><b>).a(flag).ct(</b></font><br>)';
-    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).xml(note).t().ct(</font></p>)';
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).xml(dl).ty(flag=").tz(">).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).xml(type).t().ct(</font></p>)';
     通用列表();
 }else if(baseURL.indexOf("/videos")!=-1){
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
