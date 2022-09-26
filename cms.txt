@@ -151,10 +151,10 @@ for (var i in code){
     var types=e2Arr(readfile,".json()");
     for(var k in types){
         var lists=e2Arr(types[k],".json(data)");
-        var num=lists.length;
+        var num=lists.length;alert(num);
     }
-    var nums=Number(num)++
-    var nums="共【"+nums+"】个接口";
+    //var nums=Number(num)++;
+    var nums="共【"+num+"】个接口";
     items.push({title:title,img:img,url:rurl,rssurl:rssurl,num:nums});
 }
 JSON.stringify(items);
