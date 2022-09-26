@@ -1242,7 +1242,7 @@ if(原记录.indexOf(",http")!=-1){
 }
 writeStr(getVar("标题名")+".json",本地文件);
 writeStr("远程订阅索引.txt",新记录.join('\n'));
-if(getVar("文件名").indexOf(".json")!=-1||getVar("文件名").indexOf(".txt")!=-1){
+if(本地文件.indexOf("http")!=-1){
     alert(getVar("标题名")+"导入完成，本地导入的规则不支持更新订阅，订阅内订阅名称为："+getVar("标题名"));
 }else{
     alert("已创建空白订阅："+getVar("文件名"))
