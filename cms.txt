@@ -150,7 +150,7 @@ for (var i in code){
     var readfile=readStr(title+".json");
     var types=e2Arr(readfile,".json()");
     for(var k in types){
-        var lists=e2Rex(types[k],".json(data)");
+        var lists=e2Arr(types[k],".json(data)");
         var num=lists.length;
     }
     var nums="共【"+num+"】个接口";
