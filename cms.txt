@@ -552,8 +552,8 @@ if(类型.indexOf("资源采集")==-1){
         var 标题规则=".xml(name).ty(CDATA).tz2(])";
         var 地址规则=".c(?ac=videolist&ids=).xml(id).z(\\d+)";
         var 图片规则=".xml(pic).t().z(http.*\\S).th( ##%20)";
-        var 简介规则=".xml(dt).t().c().xml(last).t()";
-        var 作者规则=".xml(note).t().tx(·).xml(type).t()";
+        var 简介规则=".xml(last).t()";
+        var 作者规则=".xml(note).ty(flag=").tz(">).tx(·).xml(type).t()";
         搜索列表();
     }else if(URL.indexOf("feifei")!=-1){
         var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
