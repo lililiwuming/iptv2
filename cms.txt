@@ -1245,5 +1245,15 @@ if(_.read(getVar("文件名")).indexOf("http")!=-1){
     writeStr("远程订阅索引.txt",新记录.join('\n'));
     alert(getVar("标题名")+"导入完成，本地导入的规则不支持更新订阅，订阅内订阅名称为："+getVar("标题名"));
 }else{
+    var 原记录=readStr("远程订阅索引.txt");
+    var 记录=getVar("导入规则").match(/.+?,http.+/g);
+    if(原记录.indexOf(",http")!=-1){
+        var 旧记录=原记录.match(/.+?,http.+/g);
+        var 新记录=记录.concat(旧记录.filter(item=>item!=记录));
+    }else{
+        var 新记录=记录;
+    }
+    writeStr(getVar("标题名")+".json");
+    writeStr("远程订阅索引.txt",新记录.join('\n'));
     alert("已创建空白订阅："+getVar("文件名"))
 }
