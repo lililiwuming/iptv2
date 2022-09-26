@@ -1122,7 +1122,7 @@ if(key.length>10){
     alert(getVar("标题")+"\n订阅更新成功");
     readStr(filename);
 }else if(url.indexOf("192.168.1.1")!=-1){
-    var rule=e2Rex(rule,".th(https://gitcode.net/InMemory/iptv/-/raw/master/AppFile##http://43.140.205.222:3000/InMemory/iptv/raw/branch/master).th(http://1.117.152.239:39000/tupian.php##http://43.140.205.222/tupian.php).th(http://43.140.205.222/iptv/AppFile##http://43.140.205.222:3000/InMemory/iptv/raw/branch/master");
+    var rule=e2Rex(rule,".th(https://gitcode.net/InMemory/iptv/-/raw/master/AppFile##http://43.140.205.222:3000/InMemory/iptv/raw/branch/master).th(http://1.117.152.239:39000/tupian.php##http://43.140.205.222/tupian.php).th(http://43.140.205.222/iptv/AppFile##http://43.140.205.222:3000/InMemory/iptv/raw/branch/master)");
     writeStr(rtitle+".json",rule);
     alert("本地规则无法更新订阅，已更新图片地址");
 }else{
