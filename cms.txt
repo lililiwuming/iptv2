@@ -446,7 +446,7 @@ for(var j=0;j<分类.length;j++){
         }
         items.push(标题+"="+地址);
     }
-    var 合并=items.join("\n");
+    var 合并=items.sort(function(a,b){return a.localeCompare(b)}).join("\n");
     var 分类标题=e2Rex(分类[j],".json(title)");
     list.url=合并;
     list.title=分类标题;
