@@ -1253,7 +1253,7 @@ if(_.read(getVar("文件名")).indexOf("http")!=-1){
     }else{
         var 新记录=记录;
     }
-    writeStr(getVar("标题名")+".json");
+    writeStr(getVar("标题名")+".json","");
     writeStr("远程订阅索引.txt",新记录.join('\n'));
     alert("已创建空白订阅："+getVar("标题名"))
 }
