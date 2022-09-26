@@ -156,7 +156,7 @@ for (var i in code){
         num=lists.length;
         num=num2+num;
     }
-    var nums="共<"+num+">个接口";
+    var nums="共「"+num+"」个接口";
     items.push({title:title,img:img,url:rurl,rssurl:rssurl,num:nums});
 }
 JSON.stringify(items);
