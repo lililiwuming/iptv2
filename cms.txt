@@ -593,7 +593,7 @@ if(类型.indexOf("资源采集")==-1){
         var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
         var 图片规则=".json(vod_pic)";
         var 简介规则=".json(vod_actor)";
-        var 作者规则=".json(vod_remarks).tx(·).json(vod_play_from)";
+        var 作者规则=".json(vod_remarks).tx(·).json(vod_play_from).tx(·).json(vod_class)";
         搜索列表();
     }
 }
