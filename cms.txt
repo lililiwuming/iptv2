@@ -152,6 +152,7 @@ for (var i in code){
     for(var k in types){
         var lists=e2Arr(types[k],".json(data)");
         var num=lists.length;
+        Number(num)++;
     }
     var nums="共【"+num+"】个接口";
     items.push({title:title,img:img,url:rurl,rssurl:rssurl,num:nums});
