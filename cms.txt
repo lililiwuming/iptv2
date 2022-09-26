@@ -148,7 +148,7 @@ for (var i in code){
         var img="http://43.140.205.222/tupian.php?text="+title;
     }
     var readfile=readStr(title+".json");
-    var num=e2Arr(readfile,".json()").length;
+    var num=e2Arr(readfile,".json().json(data)").length;
     items.push({title:title,img:img,url:rurl,rssurl:rssurl,num:num});
 }
 JSON.stringify(items);
