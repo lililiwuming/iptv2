@@ -149,9 +149,10 @@ for (var i in code){
     }
     var readfile=readStr(title+".json");
     var types=e2Arr(readfile,".json()");
+    var num=0;var num2=0;
     for(var k=0;k<types.length;k++){
         var lists=e2Arr(types[k],".json(data)");
-        var num2=var num;
+        num2=num;
         num=lists.length;
         num=num2+num
     }
