@@ -153,7 +153,7 @@ for (var i in code){
         var lists=e2Arr(types[k],".json(data)");
         var num=lists.length;
     }
-    num=Number(num)++
+    Number(num)++
     var nums="共【"++"】个接口";
     items.push({title:title,img:img,url:rurl,rssurl:rssurl,num:nums});
 }
