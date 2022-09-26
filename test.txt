@@ -79,7 +79,7 @@ var name=e2Rex(getVar("QMINFO"),".xml(name).t()").replace(/\s/g,"");
 if(version==NewVersion&&sign==NewSign&&name==NewName){
     e2Rex(index,".json(data).i(0)");
 }else{
-    alert("【更新内容】\n\n·修复订阅列表长按菜单更新订阅问题\n·修复单个订阅搜索问题\n·")
+    alert("【更新内容】\n\n·写入单接口增加选择写入的订阅\n·修复订阅列表长按菜单更新订阅问题\n·修复单个订阅搜索问题\n·无聊的加个统计订阅内接口数量");
     e2Rex(index,".json(data).i(1)");
 }
 ######UA4
@@ -147,7 +147,17 @@ for (var i in code){
     }else{
         var img="http://43.140.205.222/tupian.php?text="+title;
     }
-    items.push({title:title,img:img,url:rurl,rssurl:rssurl});
+    var readfile=readStr(title+".json");
+    var types=e2Arr(readfile,".json()");
+    var num=0;
+    for(var k=0;k<types.length;k++){
+        var lists=e2Arr(types[k],".json(data)");
+        var num2=num;
+        num=lists.length;
+        num=num2+num;
+    }
+    var nums="共「"+num+"」个接口";
+    items.push({title:title,img:img,url:rurl,rssurl:rssurl,num:nums});
 }
 JSON.stringify(items);
 ######APP轮播图地址8
@@ -269,8 +279,8 @@ if(源码.indexOf("<rss")!=-1){
     }else{
         var 图片规则='.xml(pic).t().z(\\S.*\\S).th( ##%20)';
     }
-    var 播放源规则='.c(<font color=\"#0997F7\"><b>).a(flag).ct(</b></font><br>)';
-    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).xml(note).t().ct(</font></p>)';
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).xml(dl).ty(flag=").tz(">).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).xml(type).t().ct(</font></p>)';
     通用列表();
 }else if(baseURL.indexOf("/videos")!=-1){
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
@@ -542,8 +552,8 @@ if(类型.indexOf("资源采集")==-1){
         var 标题规则=".xml(name).ty(CDATA).tz2(])";
         var 地址规则=".c(?ac=videolist&ids=).xml(id).z(\\d+)";
         var 图片规则=".xml(pic).t().z(http.*\\S).th( ##%20)";
-        var 简介规则=".xml(dt).t().c().xml(last).t()";
-        var 作者规则=".xml(note).t()";
+        var 简介规则=".xml(last).t()";
+        var 作者规则='.xml(dl).ty(flag=").tz(">).tx(·).xml(type).t()';
         搜索列表();
     }else if(URL.indexOf("feifei")!=-1){
         var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
@@ -583,7 +593,7 @@ if(类型.indexOf("资源采集")==-1){
         var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
         var 图片规则=".json(vod_pic)";
         var 简介规则=".json(vod_actor)";
-        var 作者规则=".json(vod_remarks).tx(·).json(vod_play_from)";
+        var 作者规则=".json(vod_remarks).tx(·).json(vod_play_from).tx(·).json(vod_class)";
         搜索列表();
     }
 }
@@ -837,6 +847,8 @@ if(uu.indexOf("player.4kya.com")!=-1||uu.indexOf("netflixvip.4kya.com")!=-1){
             "web=http://43.140.205.222:4433/jiexi.php?url="+uu;
         }
     }
+}else if(uu.indexOf("dxcc.meijutt.top")!=-1){
+    JSON.stringify({name:"真实播放地址",url:uu,head:{"User-Agent":"Mozilla/5.0","Referer":"https://www.psinu.com/"}});
 }else if(uu.indexOf(".m3u8")!=-1||uu.indexOf(".mp4")!=-1||uu.indexOf("/obj/tos")!=-1||uu.indexOf("gw.crustapps.net")!=-1){
     JSON.stringify({name:"真实播放地址",url:uu});
 }else{
@@ -1122,7 +1134,7 @@ if(key.length>10){
     alert(getVar("标题")+"\n订阅更新成功");
     readStr(filename);
 }else if(url.indexOf("192.168.1.1")!=-1){
-    var rule=e2Rex(rule,".th(https://gitcode.net/InMemory/iptv/-/raw/master/AppFile##http://43.140.205.222:3000/InMemory/iptv/raw/branch/master).th(http://1.117.152.239:39000/tupian.php##http://43.140.205.222/tupian.php)");
+    var rule=e2Rex(rule,".th(https://gitcode.net/InMemory/iptv/-/raw/master/AppFile##http://43.140.205.222:3000/InMemory/iptv/raw/branch/master).th(http://1.117.152.239:39000/tupian.php##http://43.140.205.222/tupian.php).th(http://43.140.205.222/iptv/AppFile##http://43.140.205.222:3000/InMemory/iptv/raw/branch/master)");
     writeStr(rtitle+".json",rule);
     alert("本地规则无法更新订阅，已更新图片地址");
 }else{
@@ -1219,19 +1231,29 @@ if(记录.indexOf("http")!=-1){
 ZXZhbChmdW5jdGlvbihwLGEsYyxrLGUscil7ZT1mdW5jdGlvbihjKXtyZXR1cm4oYzw2Mj8nJzplKHBhcnNlSW50KGMvNjIpKSkrKChjPWMlNjIpPjM1P1N0cmluZy5mcm9tQ2hhckNvZGUoYysyOSk6Yy50b1N0cmluZygzNikpfTtpZignMCcucmVwbGFjZSgwLGUpPT0wKXt3aGlsZShjLS0pcltlKGMpXT1rW2NdO2s9W2Z1bmN0aW9uKGUpe3JldHVybiByW2VdfHxlfV07ZT1mdW5jdGlvbigpe3JldHVybicoWzIzNS05cUMtWl18MVxcdyknfTtjPTF9O3doaWxlKGMtLSlpZihrW2NdKXA9cC5yZXBsYWNlKG5ldyBSZWdFeHAoJ1xcYicrZShjKSsnXFxiJywnZycpLGtbY10pO3JldHVybiBwfSgnKDMoKXsyIF89e307MiBtPTEuMDsyIHI9MTAub3MuRW52aXJvbm1lbnQuZ2V0RXh0ZXJuYWxTdG9yYWdlRGlyZWN0b3J5KCk7MiBzPTEwLndlYmtpdC5NaW1lVHlwZU1hcC5nZXRTaW5nbGV0b24oKTsyIHQ9TS5pbzsyIHU9TS4xbjsyIHY9dC5OLnNlcGFyYXRvcjsyIHc9MW8oKSt2K1wncW1cJyt2K0MoKS4xMS5PKDAsNCkrXCckJCRcJytDKCkuMTIrdjtEPSgxcCk9PjFxIDFwPT09XCdzdHJpbmdcJzszIDEzKGEpe2NvbnN0IDE0PTFxIGE7NSBhIT1QJiYoMTQ9PVwnb2JqZWN0XCd8fDE0PT1cJzNcJyl9MiB5PU0udXRpbC5jb25jdXJyZW50OzIgej02IHkuRXhlY3V0b3JzLm5ld0NhY2hlZFRocmVhZFBvb2woKTszIFEoYSl7MXI9ezFzOjMoKXs1IGEoKX0sfTsyIGI9NiB5LkZ1dHVyZVRhc2soMXIpO3ouUihiKTs1IGJ9MyBTKGEsYil7RSBGPTA7RSAxNT1bXTtHKEY8YS44KXsxNS4xNihhLnNsaWNlKEYsRitiKSk7Ris9Yn01IDE1LmZpbHRlcigobyk9Pm8uOD4wKX0zIFIobCxuKXtjPVtdO1Q9UyhsLGwuOC9uKTsyIG49MDtHKG48VC44KXszIGwoeCl7NSAzIG8oKXsyIGE9W107MTcoRSBpPTA7aTxUW3hdLjg7aSsrKXthLjE2KFRbeF1baV0oKSl9NSBhfX1jLjE2KFEobChuKSkpO24rK301IGN9MyBVKGYpezIgYT1mLmdldFBhcmVudEZpbGUoKTs3KCFhLjF0KCkpYS5VKCl9MyA5KGEsYil7MiBjPTYgdC5OKHcrXCfmlbDmja5cJyt2K2IpO1UoYyk7MiBkPTYgdC5GaWxlV3JpdGVyKGMsMTgpO2QuOShhKTtkLkgoKX0zIEkoYSl7MiBiPTYgdC5OKHcrXCfmlbDmja5cJyt2K2EpOzIgYz0wOzcoIWIuMXQoKXx8KGM9Yi44KCkpPT0wKTVcJ1wnOzIgZD11LjF1LjF2LjF3KHUuMXguMXksYyk7MiBlPTYgdC5GaWxlSW5wdXRTdHJlYW0oYik7ZS5JKGQpO2UuSCgpOzUgNiB1LlN0cmluZyhkKX0yIEE9MXoub3JnLmpzb3VwOzIgQj1BLkNvbm5lY3Rpb24uTWV0aG9kOzMgVihvKXtFezE5LHEsSiwxYSwxYixXLHJlfT1vOzIgYT1BLkpzb3VwLmNvbm5lY3QoMTkpO2EuaWdub3JlQ29udGVudFR5cGUoWCk7YS5wb3N0RGF0YUNoYXJzZXQoMWIpO2EubWF4Qm9keVNpemUoMTA0ODU3NjAwMCk7cmU9PT0xOD9hLjFBKHJlKTphLjFBKFgpOzcoMTMocSkpMTcoeCBpbiBxKWEucSh4LHFbeF0pOzcoMTMoSikpezcoMWE9PT1YKWEucmVxdWVzdEJvZHkoSik7MUMgMTcocCBpbiBKKWEuZGF0YShwLEpbcF0pfTIgYjs3KDFhPT09WHx8Vz09XCdwb3N0XCcpYj1hLlcoQi5QT1NUKS4xRCgpOzFDIGI9YS5XKEIuR0VUKS4xRCgpOzUgYn0zIDFFKGEsYil7YS4xYihiKTs1IGEuYm9keSgpfTMgMUYoYSxiKXs1IGIrXCc9XCcrYS5jb29raWUoYil9MyAxRyhhKXsyIGI9XCdcJzsyIGM9YS5jb29raWVzKCkuMUgoKS4xSSgpO0coYy4xSigpKXsyIGQ9Yy4xSygpO2IrPWQuMUwoKStcJz1cJytkLjFNKCkrXCc7XCd9NSBifTMgMU4oYSxiKXs1IGEucShiKX0zIDFPKGEpezIgYj1cJ1wnOzIgYz1hLmhlYWRlcnMoKS4xSCgpLjFJKCk7RyhjLjFKKCkpezIgZD1jLjFLKCk7Yis9ZC4xTCgpK1wnPVwnK2QuMU0oKStcJztcJ301IGJ9MyAxZChhKXsyIGI9YS4xZShcJy9cJyk7NyhhLjgoKT09YisxKXthPWEuTygwLGIpOzUgMWQoYSl9NSBhLk8oMCxhLjFlKFwnLlwnKSl9MyAxZihvKXt0cnl7RXsxZywxUH09bzsyIGE9VihvKTsyIGI9MWQoYS4xOSgpLjFoKCkpOzIgYz1zLmdldEV4dGVuc2lvbkZyb21NaW1lVHlwZShhLmNvbnRlbnRUeXBlKCkuc3BsaXQoXCc7XCcpWzBdKTsyIGQ9Yi5PKGIuMWUoXCcvXCcpKzEpK1wnLlwnK2M7Sz1EKDFnKT8xZyt2K2Q6dytcJ+S4i+i9vVwnK3YrZDsyIGY9YS5ib2R5U3RyZWFtKCk7MiBnPTYgdS4xdS4xdi4xdyh1LjF4LjF5LDQwOTYpOzIgaD0wOzIgaT02IHQuQnl0ZUFycmF5T3V0cHV0U3RyZWFtKCk7RygoaD1mLkkoZykpIT0tMSl7aS45KGcsMCxoKX0yIGo9NiB0Lk4oSyk7VShqKTsyIGs9NiB0LkZpbGVPdXRwdXRTdHJlYW0oaik7ay45KGkudG9CeXRlQXJyYXkoKSk7NygxUD09PTE4KTUgSztMKFwn5LiL6L295oiQ5Yqf77yM6Lev5b6EOlwnK0spOzUgS31jYXRjaChlKXtZKGUpO0woXCfkuIvovb3lpLHotKUs6K+35omT5byA6LCD6K+V5Y+w5p+l55yL5YW35L2T5byC5bi45L+h5oGvXCcpfWZpbmFsbHl7NyhpIT1QKWkuSCgpOzcoayE9UClrLkgoKTs3KGYhPVApZi5IKCl9fTMgWShlKXtEKGUpP+aKpemUmShlKTrmiqXplJkoZS4xaCgpKX0zIEwoYSl7YWxlcnQoYSl9MyAxaSgpezYgMXouMTAuYXBwLkluc3RydW1lbnRhdGlvbigpLnNlbmRLZXlEb3duVXBTeW5jKDQpfTMgMW8oKXs1IHIuZ2V0QWJzb2x1dGVQYXRoKCkuMWgoKX0zIFooYSl7TS4xbi5UaHJlYWQuWihhKX0zIEMoKXtvPXt9O28uMTE9MWooMWsoXCcxbFwnKSxcJy4xbSgxMSkudCgpXCcpO28uMVE9MWooMWsoXCcxbFwnKSxcJy4xbSgxUSkudCgpXCcpO28uMTI9MWooMWsoXCcxbFwnKSxcJy4xbSgxMikudCgpXCcpOzUgb31fLlZFUlNJT049bTtfLkk9STtfLjk9OTtfLlo9WjtfLlE9UTtfLlI9UjtfLlM9UztfLjFpPTFpO18uRD1EO18uVj1WO18uYmQ9MUU7Xy5jaz0xRjtfLmNrcz0xRztfLmhkPTFOO18uaGRzPTFPO18uMWY9MWY7Xy5DPUM7Xy5MPUw7Xy5ZPVk7MVIuXz1ffS4xcygxUikpOycsW10sMTE2LCd8fHZhcnxmdW5jdGlvbnx8cmV0dXJufG5ld3xpZnxsZW5ndGh8d3JpdGV8fHx8fHx8fHx8fHx8fHx8fGhlYWRlcnx8fHx8fHx8fHx8fGluZm98aXNTdHJpbmd8bGV0fGluZGV4fHdoaWxlfGNsb3NlfHJlYWR8cGFyYW1zfHNhdmVwYXRofHRvYXN0fGphdmF8RmlsZXxzdWJzdHJpbmd8bnVsbHx0aHJlYWR8c3VibWl0fGNodW5rfGxpc3R8bWtkaXJzfGh0dHB8bWV0aG9kfHRydWV8ZXJyb3J8c2xlZXB8YW5kcm9pZHxzaWdufG5hbWV8aXNPYmplY3R8dHlwZXxyZXN8cHVzaHxmb3J8ZmFsc2V8dXJsfGpzb258Y2hhcnNldHx8dHJpbVV8bGFzdEluZGV4T2Z8ZG93bmxvYWR8c2V0cGF0aHx0b1N0cmluZ3xiYWNrfGUyUmV4fGdldFZhcnxRTUlORk98Z2V0fGxhbmd8cGF0aHx2YWx8dHlwZW9mfG9ianxjYWxsfGV4aXN0c3xyZWZsZWN0fEFycmF5fG5ld0luc3RhbmNlfEJ5dGV8VFlQRXxQYWNrYWdlc3xmb2xsb3dSZWRpcmVjdHN8fGVsc2V8ZXhlY3V0ZXxodHRwQm9keXxodHRwQ29va2llfGh0dHBDb29raWVzfGVudHJ5U2V0fGl0ZXJhdG9yfGhhc05leHR8bmV4dHxnZXRLZXl8Z2V0VmFsdWV8aHR0cEhlYWRlcnxodHRwSGVhZGVyc3x0aXBzfHZlcnNpb258dGhpcycuc3BsaXQoJ3wnKSwwLHt9KSk=
 ######导入本地26
 eval(getVar("工具"));
-var 本地文件=_.read(getVar("文件名"));
-var 原记录=readStr("远程订阅索引.txt");
-var 记录=getVar("导入规则").match(/.+?,http.+/g);
-if(原记录.indexOf(",http")!=-1){
-    var 旧记录=原记录.match(/.+?,http.+/g);
-    var 新记录=记录.concat(旧记录.filter(item=>item!=记录));
-}else{
-    var 新记录=记录;
-}
-writeStr(getVar("标题名")+".json",本地文件);
-writeStr("远程订阅索引.txt",新记录.join('\n'));
-if(getVar("文件名").indexOf(".json")!=-1||getVar("文件名").indexOf(".txt")!=-1){
+if(_.read(getVar("文件名")).indexOf("http")!=-1){
+    var 本地文件=_.read(getVar("文件名"));
+    var 原记录=readStr("远程订阅索引.txt");
+    var 记录=getVar("导入规则").match(/.+?,http.+/g);
+    if(原记录.indexOf(",http")!=-1){
+        var 旧记录=原记录.match(/.+?,http.+/g);
+        var 新记录=记录.concat(旧记录.filter(item=>item!=记录));
+    }else{
+        var 新记录=记录;
+    }
+    writeStr(getVar("标题名")+".json",本地文件);
+    writeStr("远程订阅索引.txt",新记录.join('\n'));
     alert(getVar("标题名")+"导入完成，本地导入的规则不支持更新订阅，订阅内订阅名称为："+getVar("标题名"));
 }else{
-    alert("已创建空白订阅："+getVar("文件名"))
+    var 原记录=readStr("远程订阅索引.txt");
+    var 记录=getVar("导入规则").match(/.+?,http.+/g);
+    if(原记录.indexOf(",http")!=-1){
+        var 旧记录=原记录.match(/.+?,http.+/g);
+        var 新记录=记录.concat(旧记录.filter(item=>item!=记录));
+    }else{
+        var 新记录=记录;
+    }
+    writeStr(getVar("标题名")+".json","");
+    writeStr("远程订阅索引.txt",新记录.join('\n'));
+    alert("已创建空白订阅："+getVar("标题名"))
 }
