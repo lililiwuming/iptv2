@@ -79,7 +79,7 @@ var name=e2Rex(getVar("QMINFO"),".xml(name).t()").replace(/\s/g,"");
 if(version==NewVersion&&sign==NewSign&&name==NewName){
     e2Rex(index,".json(data).i(0)");
 }else{
-    alert("【更新内容】\n\n·修复订阅列表长按菜单更新订阅问题\n·修复单个订阅搜索问题\n·无聊的加个统计订阅内接口数量");
+    alert("【更新内容】\n\n·写入单接口增加选择写入的订阅\n·修复订阅列表长按菜单更新订阅问题\n·修复单个订阅搜索问题\n·无聊的加个统计订阅内接口数量");
     e2Rex(index,".json(data).i(1)");
 }
 ######UA4
