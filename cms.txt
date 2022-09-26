@@ -151,8 +151,9 @@ for (var i in code){
     var types=e2Arr(readfile,".json()");
     for(var k=0;k<types.length;k++){
         var lists=e2Arr(types[k],".json(data)");
-        var num=lists.length;
-        ++num;
+        var num2=var num;
+        num=lists.length;
+        num=num2+num
     }
     var nums="共【"+num+"】个接口";
     items.push({title:title,img:img,url:rurl,rssurl:rssurl,num:nums});
