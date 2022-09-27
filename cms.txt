@@ -70,7 +70,7 @@
 }
 ######首页版本判断3
 var index=getVar("首页图标");
-var NewVersion="220926";
+var NewVersion="220927";
 var version=e2Rex(getVar("QMINFO"),".xml(version).t()").replace(/\s/g,"");
 var NewSign="af3a57d1248f8863151c7c66a16ed1d9";
 var sign=e2Rex(getVar("QMINFO"),".xml(sign).t()").replace(/\s/g,"");
@@ -79,7 +79,7 @@ var name=e2Rex(getVar("QMINFO"),".xml(name).t()").replace(/\s/g,"");
 if(version==NewVersion&&sign==NewSign&&name==NewName){
     e2Rex(index,".json(data).i(0)");
 }else{
-    alert("【更新内容】\n\n·写入单接口增加选择写入的订阅\n·修复订阅列表长按菜单更新订阅问题\n·修复单个订阅搜索问题\n·无聊的加个统计订阅内接口数量");
+    alert("【更新内容】\n\n·规则列表内复制到订阅>>复制到相应的分类\n·写入模块内写入资源采集单规则支持定义分类，例如：\n#分类名\nxx资源,http://xxx.com/api.php/provide/vod/\n#");
     e2Rex(index,".json(data).i(1)");
 }
 ######UA4
@@ -862,7 +862,7 @@ var rule=getVar("订阅规则");
 var 记录=[];
 //写入模块
 if(key.length>10){
-    if(key.indexOf(",http")!=-1&&key.indexOf("#")!=-1){
+    if(key.indexOf(",http")!=-1&&key.indexOf("#")!=-1&&key.indexOf("\n#")==-1){
         var subfilename='远程订阅索引.txt';
         var SubTitle=e2Rex(key,".tz(,)");
         var filename=SubTitle+".json";
@@ -954,6 +954,48 @@ if(key.length>10){
             alert(SubTitle+"\n订阅内容没有符合的规则或订阅地址失效");
         }
         alert("成功订阅："+SubTitle+"\n已写入本地");
+    }else if(key.indexOf(",http")!=-1&&key.indexOf("#")!=-1&&key.indexOf("\n#")!=-1){
+        if(getVar("文件名")!="null"){
+            var filename=getVar("文件名");
+        }else{
+            var filename='本地.json';
+        }
+        var 分类=e2Arr(key,'.z(#[\\s\\S]+?#)');
+        for(var k=0;k<分类.length;k++){
+            var 分类标题=e2Rex(分类[k],'.z2(#\\(.+\\))');
+            var 输入条目=分类[k].match(/.+,http.+/g);
+            for(var j=0;j<输入条目.length;j++){
+                var title=e2Rex(输入条目[j],".tz(,)");
+                var url=e2Rex(输入条目[j],".ty(,)");
+                var img="http://43.140.205.222/tupian.php?text="+title;
+                var murl="q:资源采集.mk";
+                var type=分类标题;
+                记录.push({title:title,url:url,img:img,murl:murl,type:type});
+            }
+        }
+        if(readStr(filename)){
+            var 新记录=JSON.parse(readStr(filename));
+        }else{
+            var 新记录=[];
+        }
+        for(var i in 记录){
+            var 当前条目=[];当前条目.push(记录[i]);
+            if(新记录.length==0){
+                新记录.push({title:记录[i].type,data:当前条目});
+            }else{
+                let res=新记录.some(item=>{
+                    if(item.title==记录[i].type){
+                        item.data=当前条目.concat(item.data.filter(d=>d.url!=记录[i].url));
+                        return true
+                    }
+                });
+                if(!res){
+                    新记录.push({title:记录[i].type,data:当前条目});
+                }
+            }
+        }
+        writeStr(filename,JSON.stringify(新记录));
+        alert(title+"\n规则写入成功");
     }else if(key.indexOf(",http")!=-1){
         if(getVar("文件名")!="null"){
             var filename=getVar("文件名");
