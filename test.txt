@@ -955,7 +955,7 @@ if(key.length>10){
         }
         alert("成功订阅："+SubTitle+"\n已写入本地");
     }else if(key.indexOf(",http")!=-1&&key.indexOf("#")!=-1&&key.indexOf("\n#")!=-1){
-        var 分类=e2Arr(rule,'.z(#[\\s\\S]+?#)');
+        var 分类=e2Arr(rule,'.z(#[\\s\\S]+?#)');alert(分类);
         for(var k=0;k<分类.length;k++){
             var 分类标题=e2Rex(分类[k],'.z2(#\\(.+\\))');
             var 输入条目=分类[k].match(/.+,http.+/g);
