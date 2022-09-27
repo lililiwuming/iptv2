@@ -79,7 +79,7 @@ var name=e2Rex(getVar("QMINFO"),".xml(name).t()").replace(/\s/g,"");
 if(version==NewVersion&&sign==NewSign&&name==NewName){
     e2Rex(index,".json(data).i(0)");
 }else{
-    alert("【更新内容】\n\n·规则列内复制到订阅>>复制到相应的分类\n·写入模块内写入资源采集单规则支持定义分类，例如：\n#分类名\nxx资源,http://xxx.com/api.php/provide/vod/\n#");
+    alert("【更新内容】\n\n·规则列表内复制到订阅>>复制到相应的分类\n·写入模块内写入资源采集单规则支持定义分类，例如：\n#分类名\nxx资源,http://xxx.com/api.php/provide/vod/\n#");
     e2Rex(index,".json(data).i(1)");
 }
 ######UA4
