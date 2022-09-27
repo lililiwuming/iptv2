@@ -862,7 +862,7 @@ var rule=getVar("订阅规则");
 var 记录=[];
 //写入模块
 if(key.length>10){
-    if(key.indexOf(",http")!=-1&&key.indexOf("#")!=-1){
+    if(key.indexOf(",http")!=-1&&key.indexOf("#")!=-1&&key.indexOf("\n#")==-1){
         var subfilename='远程订阅索引.txt';
         var SubTitle=e2Rex(key,".tz(,)");
         var filename=SubTitle+".json";
@@ -954,6 +954,20 @@ if(key.length>10){
             alert(SubTitle+"\n订阅内容没有符合的规则或订阅地址失效");
         }
         alert("成功订阅："+SubTitle+"\n已写入本地");
+    }else if(key.indexOf(",http")!=-1&&key.indexOf("#")!=-1&&key.indexOf("\n#")!=-1){
+        var 分类=e2Arr(rule,'.z(#[\\s\\S]+?#)');
+        for(var k=0;k<分类.length;k++){
+            var 分类标题=e2Rex(分类[k],'.z2(#\\(.+\\))');
+            var 输入条目=分类[k].match(/.+,http.+/g);
+            for(var j=0;j<输入条目.length;j++){
+                var title=e2Rex(输入条目[j],".tz(,)");
+                var url=e2Rex(输入条目[j],".ty(,)");
+                var img="http://43.140.205.222/tupian.php?text="+title;
+                var murl="q:资源采集.mk";
+                var type=分类标题;
+                记录.push({title:title,url:url,img:img,murl:murl,type:type});
+            }
+        }
     }else if(key.indexOf(",http")!=-1){
         if(getVar("文件名")!="null"){
             var filename=getVar("文件名");
