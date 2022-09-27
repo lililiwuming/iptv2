@@ -955,6 +955,11 @@ if(key.length>10){
         }
         alert("成功订阅："+SubTitle+"\n已写入本地");
     }else if(key.indexOf(",http")!=-1&&key.indexOf("#")!=-1&&key.indexOf("\n#")!=-1){
+        if(getVar("文件名")!="null"){
+            var filename=getVar("文件名");
+        }else{
+            var filename='本地.json';
+        }
         var 分类=e2Arr(key,'.z(#[\\s\\S]+?#)');
         for(var k=0;k<分类.length;k++){
             var 分类标题=e2Rex(分类[k],'.z2(#\\(.+\\))');
