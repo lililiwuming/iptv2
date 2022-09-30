@@ -464,8 +464,10 @@ if(URL.indexOf("search")!=-1){
 }else{
     URL=URL;
 }
-if(getVar("类型").indexOf("影视")!=-1||URL.search(/api\.php\/.*?\/vod/)!=-1&&getVar("地址").indexOf("&page")!=-1||URL.search(/api\.php\/.*?\/vod/)!=-1&&getVar("Url").indexOf("&page")!=-1||URL.indexOf("api.php/app/")!=-1||URL.indexOf("xgapp")!=-1||URL.indexOf("xgtv")!=-1||URL.indexOf(".vod")!=-1){
-    var 类型="APP";
+if(URL.indexOf("api.php/app/")!=-1||URL.indexOf("xgapp")!=-1||URL.indexOf("xgtv")!=-1||URL.indexOf(".vod")!=-1){
+    var 类型="APP影视";
+}else if(getVar("类型").indexOf("影视")!=-1||URL.search(/api\.php\/.*?\/vod/)!=-1&&getVar("地址").indexOf("&page")!=-1||URL.search(/api\.php\/.*?\/vod/)!=-1&&getVar("Url").indexOf("&page")!=-1){
+    var 类型="TV影视";
 }else{
     var 类型="资源采集";
 }
@@ -479,7 +481,7 @@ function 搜索列表(){
         var 图片=e2Rex(CODE,图片规则);
         var 简介=e2Rex(CODE,简介规则);
         var 作者=e2Rex(CODE,作者规则);
-        LIST.push({title:标题,url:地址,img:图片,content:简介,actor:作者});
+        LIST.push({title:标题,url:地址,img:图片,content:简介,actor:作者,type:类型});
     }
     var play_={};
     play_.list=LIST;
@@ -588,7 +590,7 @@ if(类型.indexOf("资源采集")==-1){
     }
 }
 ######选集20
-var lastCODE=getVar("上级源码");
+var 类型=e2Rex(getVar("上级源码"),".json(type)");
 var vCODE=getVar("源码");
 var URL=getVar("地址");
 if(URL.indexOf("api.php/app/")!=-1||URL.indexOf("xgapp")!=-1||URL.indexOf("xgtv")!=-1||URL.indexOf(".vod")!=-1){
