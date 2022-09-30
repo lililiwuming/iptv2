@@ -2,11 +2,6 @@
 {
     "data":[
         {
-        "url":"mapi:qm/http://43.140.205.222:3000/InMemory/iptv/raw/branch/master/mkz/APP影视.mkz",
-        "title":"安装新版APP影视轻站",
-        "img":"http://43.140.205.222:3000/InMemory/iptv/raw/branch/master/Icon/封印者2.jpg"
-        },
-        {
         "url":"http://43.140.205.222:3000/InMemory/iptv/raw/branch/master/教程.txt",
         "title":"本地规则教程，请认真看",
         "img":"http://43.140.205.222:3000/InMemory/iptv/raw/branch/master/Icon/封印者1.jpg"
