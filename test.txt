@@ -622,16 +622,9 @@ if(类型.indexOf("资源采集")==-1){
     }
 }
 ######选集20
-var 类型=e2Rex(getVar("上级源码"),".json(type)");alert(类型);
+var 类型=e2Rex(getVar("上级源码"),".json(type)");
 var vCODE=getVar("源码");
 var URL=getVar("地址");
-/*if(URL.indexOf("api.php/app/")!=-1||URL.indexOf("xgapp")!=-1||URL.indexOf("xgtv")!=-1||URL.indexOf(".vod")!=-1){
-    var 类型="APP影视";
-}else if(lastCODE.indexOf("nextlink")!=-1){
-    var 类型="TV影视";
-}else{
-    var 类型="资源采集";
-}*/
 function 选集列表(){
     var res={};var items=[];var detail=[];
     for(var i=0;i<分类.length;i++){
