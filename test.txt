@@ -620,7 +620,7 @@ if(类型.indexOf("资源采集")==-1){
     }
 }
 ######选集20
-var lastCODE=getVar("上级源码");
+var lastCODE=getVar("上级源码");alert(lastCODE);
 var vCODE=getVar("源码");
 var URL=getVar("地址");
 if(URL.indexOf("api.php/app/")!=-1||URL.indexOf("xgapp")!=-1||URL.indexOf("xgtv")!=-1||URL.indexOf(".vod")!=-1){
