@@ -260,7 +260,7 @@ function 通用列表(){
         }
         var 播放源=e2Rex(CODE,播放源规则);
         var 状态=e2Rex(CODE,状态规则);
-        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态});
+        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态,type,"资源采集"});
     }
     var play_={};
     play_.list=LIST;
