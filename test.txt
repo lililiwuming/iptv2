@@ -10,11 +10,6 @@
         "url":"https://7cc7cc.com/thread-902.htm",
         "title":"轻创社区反馈",
         "img":"http://43.140.205.222:3000/InMemory/iptv/raw/branch/master/Icon/封印者3.jpg"
-        },
-        {
-        "url":"http://43.140.205.222:3000/InMemory/iptv/raw/branch/master/声明.txt",
-        "title":"声明/更新日志",
-        "img":"http://43.140.205.222:3000/InMemory/iptv/raw/branch/master/Icon/封印者4.jpg"
         }
     ]
 }
