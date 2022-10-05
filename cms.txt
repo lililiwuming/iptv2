@@ -60,7 +60,7 @@
 }
 ######首页版本判断3
 var index=getVar("首页图标");
-var NewVersion="220927";
+var NewVersion="221005";
 var version=e2Rex(getVar("QMINFO"),".xml(version).t()").replace(/\s/g,"");
 var NewSign="af3a57d1248f8863151c7c66a16ed1d9";
 var sign=e2Rex(getVar("QMINFO"),".xml(sign).t()").replace(/\s/g,"");
@@ -69,7 +69,7 @@ var name=e2Rex(getVar("QMINFO"),".xml(name).t()").replace(/\s/g,"");
 if(version==NewVersion&&sign==NewSign&&name==NewName){
     e2Rex(index,".json(data).i(0)");
 }else{
-    alert("【更新内容】\n\n·规则列表内复制到订阅>>复制到相应的分类\n·写入模块内写入资源采集单规则支持定义分类，例如：\n#分类名\nxx资源,http://xxx.com/api.php/provide/vod/\n#");
+    alert("【更新内容】\n\n·试验性修复bug");
     e2Rex(index,".json(data).i(1)");
 }
 ######UA4
@@ -241,7 +241,23 @@ function 通用列表(){
         var CODE=列表[j];
         var 地址=e2Rex(CODE,地址规则).indexOf("http")==0?e2Rex(CODE,地址规则):baseURL+e2Rex(CODE,地址规则);
         var 标题=e2Rex(CODE,标题规则);
-        var 图片=e2Rex(CODE,图片规则);
+        var 预图片=e2Rex(CODE,图片规则);
+        if(预图片.indexOf("/mac:")!=-1){
+            var 图片="http:"+预图片.split("mac:")[1];
+        }else if(预图片.indexOf("mac:")!=-1){
+            var 图片="http:"+预图片.split("mac:")[1];
+        }else if(预图片.indexOf(".test.com")!=-1||预图片.indexOf(".maccms.com")!=-1||预图片.indexOf(".maccms.pro")!=-1){
+            var 图片=getVar("地址").match(/https?:\/\/.+?\//)[0]+预图片.split(/img\.[a-z]+?\.[a-z]+/)[1];
+            var 图片=图片.match(/.*(http.*)/)[1];
+        }else if(预图片.indexOf("http")!=-1){
+            var 图片=预图片.match(/.*(http.*[a-zA-Z])/)[1];
+        }else if(预图片==""){
+            var 图片="http://43.140.205.222:4433/mxtheme/images/load.gif";
+        }else if(预图片.indexOf("//")!=-1){
+            var 图片="http:"+预图片;
+        }else{
+            var 图片=getVar("地址").match(/https?:\/\/.+?\//)[0]+预图片;
+        }
         var 播放源=e2Rex(CODE,播放源规则);
         var 状态=e2Rex(CODE,状态规则);
         LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态,type:"资源采集"});
@@ -478,7 +494,23 @@ function 搜索列表(){
         var CODE=列表[j];
         var 地址=e2Rex(CODE,地址规则).indexOf("http")==0?e2Rex(CODE,地址规则):URL+e2Rex(CODE,地址规则);
         var 标题=e2Rex(CODE,标题规则);
-        var 图片=e2Rex(CODE,图片规则);
+        var 预图片=e2Rex(CODE,图片规则);
+        if(预图片.indexOf("/mac:")!=-1){
+            var 图片="http:"+预图片.split("mac:")[1];
+        }else if(预图片.indexOf("mac:")!=-1){
+            var 图片="http:"+预图片.split("mac:")[1];
+        }else if(预图片.indexOf(".test.com")!=-1||预图片.indexOf(".maccms.com")!=-1||预图片.indexOf(".maccms.pro")!=-1){
+            var 图片=getVar("地址").match(/https?:\/\/.+?\//)[0]+预图片.split(/img\.[a-z]+?\.[a-z]+/)[1];
+            var 图片=图片.match(/.*(http.*)/)[1];
+        }else if(预图片.indexOf("http")!=-1){
+            var 图片=预图片.match(/.*(http.*[a-zA-Z])/)[1];
+        }else if(预图片==""){
+            var 图片="http://43.140.205.222:4433/mxtheme/images/load.gif";
+        }else if(预图片.indexOf("//")!=-1){
+            var 图片="http:"+预图片;
+        }else{
+            var 图片=getVar("地址").match(/https?:\/\/.+?\//)[0]+预图片;
+        }
         var 简介=e2Rex(CODE,简介规则);
         var 作者=e2Rex(CODE,作者规则);
         LIST.push({title:标题,url:地址,img:图片,content:简介,actor:作者,type:类型});
@@ -593,13 +625,6 @@ if(类型.indexOf("资源采集")==-1){
 var 类型=e2Rex(getVar("上级源码"),".json(type)");
 var vCODE=getVar("源码");
 var URL=getVar("地址");
-if(URL.indexOf("api.php/app/")!=-1||URL.indexOf("xgapp")!=-1||URL.indexOf("xgtv")!=-1||URL.indexOf(".vod")!=-1){
-    var 类型="APP影视";
-}else if(lastCODE.indexOf("nextlink")!=-1){
-    var 类型="TV影视";
-}else{
-    var 类型="资源采集";
-}
 function 选集列表(){
     var res={};var items=[];var detail=[];
     for(var i=0;i<分类.length;i++){
