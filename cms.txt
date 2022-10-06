@@ -680,11 +680,7 @@ function 选集列表(){
                     if(选集地址.match(/.*(url|v|vid|php\?id)=/)){
                         var 接口=选集地址.match(/.*(url|v|vid|php\?id)=/)[0];
                         var 选集地址=选集地址.split(接口)[1];
-                        if(URL.indexOf("168.qxzm.cc")!=-1||URL.indexOf("xiaochou.bjhu")!=-1||URL.indexOf("8.142.23.147")!=-1||URL.indexOf("zjj.life")!=-1||URL.indexOf("yhzy")!=-1||URL.indexOf("zhenfy")!=-1||URL.indexOf("cztv")!=-1||URL.indexOf("1.14.63.101")!=-1||URL.indexOf("fit:8")!=-1||URL.indexOf("diliktv.xyz")!=-1||URL.indexOf("ppzhu.vip")!=-1||URL.indexOf("api.8d8q.com")!=-1||URL.indexOf("haokanju1.cc")!=-1||URL.indexOf("cztv")!=-1){
-                            var 选集地址=选集地址+"&app=10000&account=272775028&password=qq272775028";
-                        }else{
-                            var 选集地址=选集地址;
-                        }
+                        接口="";
                     }else{
                         var 选集地址=选集地址;
                         var 接口="";
