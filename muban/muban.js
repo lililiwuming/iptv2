@@ -93,14 +93,15 @@ if(类型.indexOf("网页")!=-1){
         var 地址规则=".css(a).a(href)";
         var 前="/index.php/vod/show/id/";
         var 后="/page/";
-        var 翻页后='.html'
+        var 翻页后='.html';
         头部导航();
     }else if(类型.indexOf("MX Pro")!=-1){
-        var 列表=e2Arr(源码,".json(list).json(type_name)");
-        var 标题规则=".json(type_name)";
-        var 地址规则=".json(type_id)";
-        var 前="&ac=videolist&t=";
-        var 后="&pg=#PN#";
+        var 列表=e2Arr(源码,".css(div.header-content div.nav ul li)");
+        var 标题规则=".t()";
+        var 地址规则=".css(a).a(href)";
+        var 前="/index.php/vod/show/id/";
+        var 后="/page/";
+        var 翻页后=".html";
         头部导航();
     }else if(类型.indexOf("MX(采集站)")!=-1){
         var 列表=e2Arr(源码,".json(list).json(type_name)");
