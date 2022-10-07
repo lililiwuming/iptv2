@@ -63,6 +63,7 @@ var 首页地址=getVar("首页地址");
 var 类型=getVar("类型");
 var UA=getVar("UA");
 function 头部导航(){
+    alert(列表);
     var res={};var items=[];
     if(列表){
         for(var j=0;j<列表.length;j++){
