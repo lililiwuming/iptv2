@@ -86,7 +86,7 @@ function 头部导航(){
 if(类型.indexOf("网页")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("MXone Pro")!=-1){
-        var 列表=e2Arr(源码,".css(div.sidebar).css(div).i(0).css(ul li a).i(1,5)");
+        var 列表=e2Arr(源码,".css(div.sidebar).css(div).i(0).css(ul li a).i(1,-4)");
         var 标题规则=".t()";
         var 地址规则=".css(a).a(href)";
         var 前="/index.php/vod/show/id/";
