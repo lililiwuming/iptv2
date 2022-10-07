@@ -200,8 +200,125 @@ if(类型.indexOf("网页")!=-1){
 var 源码=getVar("源");
 var 首页地址=getVar("首页地址");
 var 类型=getVar("类型");
-var 下页=Number(getVar("PN"))+1;
-var 上页=Number(getVar("PN"))-1;
+function 通用列表(){
+    var res={};var items=[];var LIST=[];
+    var LIMIT=列表.length;
+    for(var j=0;j<LIMIT;j++){
+        var CODE=列表[j];
+        if(类型.indexOf("iptv")!=-1){
+          var 地址=e2Rex(CODE,地址规则);
+        }else{
+          var 地址=首页地址+e2Rex(CODE,地址规则);
+        }
+        var 标题=e2Rex(CODE,标题规则);
+        var 图片=e2Rex(CODE,图片规则);
+        var 播放源=e2Rex(CODE,播放源规则);
+        var 状态=e2Rex(CODE,状态规则);
+        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态});
+    }
+    var play_={};
+    play_.list=LIST;
+    items.push(play_);
+    res.data=items;
+    return JSON.stringify(res);
+}
+if(类型.indexOf("xml")!=-1){
+    var 列表=e2Arr(源码,'.xml(list video)');
+    var 标题规则='.xml(name).ty(CDATA[).tz2(]])';
+    var 地址规则='.c(?ac=videolist&ids=).xml(id).z(\\d+)';
+    if(首页地址.indexOf("mac")!=-1){
+        var 图片规则='.xml(pic).t().z(\\S.*\\S).th( ##%20).ty(CDATA[).tz(])';
+    }else{
+        var 图片规则='.xml(pic).t().z(\\S.*\\S).th( ##%20)';
+    }
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).xml(dl).ty(flag=").tz(">).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).xml(type).t().ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("json")!=-1){
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
+    var 标题规则=".json(vod_name)";
+    var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
+    var 图片规则=".json(vod_pic)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_play_from).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("mc10")!=-1){
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
+    var 标题规则=".json(vod_name).or().json(art_name)";
+    var 地址规则=".c(?ac=videolist&ids=).json(vod_id).or().json(art_id)";
+    var 图片规则=".json(vod_pic).or().json(art_pic)";
+    var 播放源规则=".tx(<p style='background-color:#0997F7'><font color='white' size='40px'>).json(vod_play_from).or().json(art_from).ct(</font></p>)";
+    var 状态规则=".tx(<p style='background-color:#CC00FF'><font color='white'>).json(vod_remarks).or().json(type_name).ct(</font></p>)";
+    通用列表();
+}else if(类型.indexOf("app")!=-1){
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
+    var 标题规则=".json(vod_name)";
+    var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
+    var 图片规则=".json(vod_pic)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_score).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("v1")!=-1){
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
+    var 标题规则=".json(vod_name)";
+    var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
+    var 图片规则=".json(vod_pic)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_score).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("v2")!=-1){
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
+    var 标题规则=".json(vod_name)";
+    var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
+    var 图片规则=".json(vod_pic)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_score).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("vod")!=-1){
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data).json(list)");
+    var 标题规则=".json(vod_name)";
+    var 地址规则=".c(/detail?&vod_id=).json(vod_id)";
+    var 图片规则=".json(vod_pic)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_score).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("iptv")!=-1){
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
+    var 标题规则=".json(title)";
+    var 地址规则=".json(nextlink)";
+    var 图片规则=".json(pic)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(type).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(state).ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("MXone Pro")!=-1){
+    var 列表=e2Arr(源码,".css(div.content div.module a.module-poster-item.module-item)");
+    var 标题规则=".css(a).a(title)";
+    var 地址规则=".css(a).a(href)";
+    var 图片规则=".css(img).a(data-original)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).css(div.module-item-douban).t().ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).css(div.module-item-note).t().ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("MX Pro")!=-1){
+    var 列表=e2Arr(源码,".css(div.module-items div.module-item)");
+    var 标题规则=".css(div.module-item-style.video-name a).t()";
+    var 地址规则=".css(div.module-item-style.video-name a).a(href)";
+    var 图片规则=".css(img).a(data-src)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_play_from).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).css(div.module-item-text).t().ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("MX")!=-1){
+    var 列表=e2Arr(源码,".css(ul.stui-vodlist.clearfix li).i(1,-1)");
+    var 标题规则=".css(h3 a).a(title)";
+    var 地址规则=".css(h3 a).a(href)";
+    var 图片规则="http://43.140.205.222:4433/mxtheme/images/load.gif";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).css(span.time).t().ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).css(em).t().ct(</font></p>)';
+    通用列表();
+}
+######首页推荐7
+var 源码=getVar("源");
+var 首页地址=getVar("首页地址");
+var 类型=getVar("类型");
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     var LIMIT=列表.length;
