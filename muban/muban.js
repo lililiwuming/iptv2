@@ -96,7 +96,7 @@ if(类型.indexOf("网页")!=-1){
         var 翻页后='.html';
         头部导航();
     }else if(类型.indexOf("MX Pro")!=-1){
-        var 列表=e2Arr(源码,".css(ul.drop-content-items.grid-items li.grid-item)");
+        var 列表=e2Arr(源码,".css(ul.drop-content-items.grid-items li.grid-item).or().css(div.sidebar div ul li)");
         var 标题规则=".t()";
         var 地址规则=".css(a).a(href)";
         var 前="/index.php/vod/show/id/";
