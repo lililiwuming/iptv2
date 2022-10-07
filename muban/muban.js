@@ -75,7 +75,7 @@ function 头部导航(){
     }else if(类型.indexOf("网页")!=-1){
        for (var j = 0; j < 列表.length; j++) {
          var 标题 = e2Rex(列表[j], 标题规则);
-         var 地址 = e2Rex(列表[j], 地址规则);
+         var 地址 = e2Rex(列表[j], 地址规则).split("id")[1].split("page")[0];
          var 分类地址 = 首页地址 + 前 + 地址 + 后;
          items.push({ title: 标题, url: 分类地址, mode: "JSOUP", 翻页后: 翻页后 });
        }
