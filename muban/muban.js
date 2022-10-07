@@ -131,24 +131,24 @@ if(类型.indexOf("网页")!=-1){
         var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
-        var 前="&ac=videolist&t=";
-        var 后="&pg=";
+        var 前="video?tid=";
+        var 后="&class=&area=&lang=&year=&limit=&pg=";
         var 翻页后='';
         头部导航();
     }else if(类型.indexOf("v1")!=-1){
         var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
-        var 前="&ac=videolist&t=";
-        var 后="&pg=";
+        var 前="video?tid=";
+        var 后="&class=&area=&lang=&year=&limit=&pg=";
         var 翻页后='';
         头部导航();
     }else if(类型.indexOf("v2")!=-1){
         var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
-        var 前="&ac=videolist&t=";
-        var 后="&pg=";
+        var 前="video?tid=";
+        var 后="&class=&area=&lang=&year=&limit=&pg=";
         var 翻页后='';
         头部导航();
     }
