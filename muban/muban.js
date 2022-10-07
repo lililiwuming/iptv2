@@ -309,7 +309,7 @@ if(类型.indexOf("xml")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).css(div.module-item-text).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("MX")!=-1){
-    var 列表=e2Arr(源码,".css(ul.stui-vodlist.clearfix li.clearfix)");
+    var 列表=e2Arr(源码,".css(ul.stui-vodlist.clearfix li).i(1,-1)");
     var 标题规则=".css(h3 a).a(title)";
     var 地址规则=".css(h3 a).a(href)";
     var 图片规则="http://43.140.205.222:4433/mxtheme/images/load.gif";
