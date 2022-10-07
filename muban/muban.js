@@ -69,8 +69,8 @@ function 头部导航(){
         for(var j=0;j<列表.length;j++){
             var 标题=e2Rex(列表[j],标题规则)?e2Rex(列表[j],标题规则):e2Rex(列表[j],标题规则1);
             var 地址=e2Rex(列表[j],地址规则);
-            var 分类地址=首页地址+翻页前+地址+翻页后;
-            items.push({title:标题,url:分类地址,mode:"OKHTTP",翻页前:翻页前,翻页后:翻页后});
+            var 分类地址=首页地址+前+地址+后;
+            items.push({title:标题,url:分类地址,mode:"OKHTTP",翻页后:翻页后});
         }
     }else if(类型.indexOf("网页")!=-1){
        var 自定义数据="电影=1+电视剧=2+综艺=3+动漫=4+动作片=6+喜剧片=7+爱情片=8+科幻片=9+恐怖片=10+剧情片=11+国产剧=13+港台剧=14+日韩剧=15+欧美剧=16";
@@ -151,6 +151,7 @@ if(类型.indexOf("网页")!=-1){
         var 地址规则=".json(type_id)";
         var 前="?ac=videolist&t=";
         var 后="&pg=";
+        var 翻页后='';
         头部导航();
     }else if(类型.indexOf("xml")!=-1){
         var 列表=e2Arr(源码,".xml(class ty)");
