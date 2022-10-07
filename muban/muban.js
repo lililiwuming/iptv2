@@ -287,7 +287,7 @@ if(类型.indexOf("xml")!=-1){
 }else if(类型.indexOf("iptv")!=-1){
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
     var 标题规则=".json(title)";
-    var 地址规则=".json(netlink)";
+    var 地址规则=".json(nextlink)";
     var 图片规则=".json(pic)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(type).ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(state).ct(</font></p>)';
