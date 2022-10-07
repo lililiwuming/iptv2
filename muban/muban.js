@@ -210,6 +210,7 @@ function 通用列表(){
     var res={};var items=[];var LIST=[];
     var LIMIT=列表.length;
     for(var j=0;j<LIMIT;j++){
+      alert(列表[j]);
         var CODE=列表[j];
         var 地址=e2Rex(CODE,地址规则);
         var 标题=e2Rex(CODE,标题规则);
