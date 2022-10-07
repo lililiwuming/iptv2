@@ -60,7 +60,7 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-APP(iptv)")!=-1)){
 }
 ######站源分类4
 var 首页地址=getVar("首页地址");
-var 类型=getVar("类型");alert(类型);
+var 类型=getVar("类型");
 var UA=getVar("UA");
 function 头部导航(){
     var res={};var items=[];
@@ -93,7 +93,8 @@ if(类型.indexOf("网页")!=-1){
         "";
     }
 }else if(类型.indexOf("app")!=-1||类型.indexOf("v1")!=-1||类型.indexOf("v2")!=-1){
-    var 源码=JZ(JSON.stringify({url:首页地址+"nav",redirect:false,head:{"User-Agent":UA}}));
+    var URL=首页地址+"nav";
+    var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("app")!=-1){
         var 分类=e2Arr(源码,".json(list).json(type_name)");
     }else if(类型.indexOf("v1")!=-1){
@@ -102,10 +103,11 @@ if(类型.indexOf("网页")!=-1){
         var 分类=e2Arr(源码,".json(data).json(type_name)");
     }
 }else if(类型.indexOf("vod")!=-1){
-    var 源码=JZ(JSON.stringify({url:首页地址+"/types",redirect:false,head:{"User-Agent":UA}}));
+    var URL=首页地址+"/types";
+    var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码,".json(data).json(list).json(type_name)");
-}else if(类型.indexOf("cms")!=-1){
-    var URL=首页地址+"?ac=list";alert(URL);
+}else if(类型.indexOf("CMS")!=-1){
+    var URL=首页地址+"?ac=list";
     var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("json")!=-1){
         var 列表=e2Arr(源码,".json(class)");
@@ -130,7 +132,8 @@ if(类型.indexOf("网页")!=-1){
         头部导航();
     }
 }else if(类型.indexOf("iptv")!=-1){
-    var 源码=JZ(JSON.stringify({url:首页地址+"?ac=fillter",redirect:false,head:{"User-Agent":UA}}));
+    var URL=首页地址+"?ac=flitter";
+    var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     var 分类='';
 }
-分类;
+分类;alert(分类);
