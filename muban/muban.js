@@ -69,9 +69,8 @@ function 头部导航(){
         for(var j=0;j<列表.length;j++){
             var 标题=e2Rex(列表[j],标题规则)?e2Rex(列表[j],标题规则):e2Rex(列表[j],标题规则1);
             var 地址=e2Rex(列表[j],地址规则);
-            var 分类地址=首页地址+前+地址+后;
-            var 读取模式="OKHTTP";
-            items.push({title:标题,url:分类地址,mode:读取模式});
+            var 分类地址=首页地址+翻页前+地址+翻页后;
+            items.push({title:标题,url:分类地址,mode:"OKHTTP",翻页前:翻页前,翻页后:翻页后});
         }
     }else if(类型.indexOf("网页")!=-1){
        var 自定义数据="电影=1+电视剧=2+综艺=3+动漫=4+动作片=6+喜剧片=7+爱情片=8+科幻片=9+恐怖片=10+剧情片=11+国产剧=13+港台剧=14+日韩剧=15+欧美剧=16";
@@ -79,7 +78,7 @@ function 头部导航(){
         for(var i in Arr){
             var 标题=Arr[i].split("=")[0];var 地址=Arr[i].split("=")[1];
             var 分类地址=首页地址+前+地址+后;
-            items.push({title:标题,url:分类地址,mode:读取模式});
+            items.push({title:标题,url:分类地址,mode:读取模式,前:前,后:后});
         }
     }
     res.data=items;
@@ -151,7 +150,7 @@ if(类型.indexOf("网页")!=-1){
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
         var 前="?ac=videolist&t=";
-        var 后="&pg=#PN#";
+        var 后="&pg=";
         头部导航();
     }else if(类型.indexOf("xml")!=-1){
         var 列表=e2Arr(源码,".xml(class ty)");
