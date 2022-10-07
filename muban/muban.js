@@ -132,21 +132,21 @@ if(类型.indexOf("网页")!=-1){
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
         var 前="&ac=videolist&t=";
-        var 后="&pg=#PN#";
+        var 后="&pg=";
         头部导航();
     }else if(类型.indexOf("v1")!=-1){
         var 列表=e2Arr(源码,".json(data)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
         var 前="&ac=videolist&t=";
-        var 后="&pg=#PN#";
+        var 后="&pg=";
         头部导航();
     }else if(类型.indexOf("v2")!=-1){
         var 列表=e2Arr(源码,".json(data)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
         var 前="&ac=videolist&t=";
-        var 后="&pg=#PN#";
+        var 后="&pg=";
         头部导航();
     }
 }else if(类型.indexOf("vod")!=-1){
@@ -155,8 +155,9 @@ if(类型.indexOf("网页")!=-1){
     var 列表=e2Arr(源码,".json(data).json(list)");
     var 标题规则=".json(type_name)";
     var 地址规则=".json(type_id)";
-    var 前="ac=videolist&t=";
-    var 后="&pg=#PN#";
+    var 前="?ac=videolist&t=";
+    var 后="&pg=";
+    var 翻页后='';
     头部导航();
 }else if(类型.indexOf("CMS")!=-1){
     var URL=首页地址+"?ac=list";
@@ -174,14 +175,16 @@ if(类型.indexOf("网页")!=-1){
         var 标题规则=".t()";
         var 地址规则=".a(id)";
         var 前="?ac=videolist&t=";
-        var 后="&pg=#PN#";
+        var 后="&pg=";
+        var 翻页后='';
         头部导航();
     }else if(类型.indexOf("mc10")!=-1){
         var 列表=e2Arr(源码,".json(class)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
         var 前="?ac=videolist&t=";
-        var 后="&pg=#PN#";
+        var 后="&pg=";
+        var 翻页后='';
         头部导航();
     }
 }else if(类型.indexOf("iptv")!=-1){
@@ -191,7 +194,8 @@ if(类型.indexOf("网页")!=-1){
     var 标题规则=".json(type_name)";
     var 地址规则=".json(type_id)";
     var 前="&ac=videolist&t=";
-    var 后="&pg=#PN#";
+    var 后="&pg=";
+    var 翻页后='';
     头部导航();
 }
 ######分类地址判断
