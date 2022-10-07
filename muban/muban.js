@@ -211,7 +211,7 @@ function 通用列表(){
     var LIMIT=列表.length;
     for(var j=0;j<LIMIT;j++){
         var CODE=列表[j];
-        var 地址=e2Rex(CODE,地址规则).indexOf("http")==0?e2Rex(CODE,地址规则):baseURL+e2Rex(CODE,地址规则);
+        var 地址=e2Rex(CODE,地址规则).indexOf("http")==0?e2Rex(CODE,地址规则):首页地址+e2Rex(CODE,地址规则);
         var 标题=e2Rex(CODE,标题规则);
         var 预图片=e2Rex(CODE,图片规则);
         if(预图片.indexOf("/mac:")!=-1){
@@ -228,7 +228,7 @@ function 通用列表(){
         }else if(预图片.indexOf("//")!=-1){
             var 图片="http:"+预图片;
         }else{
-            var 图片=getVar("地址").match(/https?:\/\/.+?\//)[0]+预图片;
+            var 图片=getVar("首页地址").match(/https?:\/\/.+?\//)[0]+预图片;
         }
         var 播放源=e2Rex(CODE,播放源规则);
         var 状态=e2Rex(CODE,状态规则);
@@ -251,7 +251,7 @@ if(类型.indexOf("xml")!=-1){
     var 列表=e2Arr(源码,'.xml(list video)');
     var 标题规则='.xml(name).ty(CDATA[).tz2(]])';
     var 地址规则='.c(?ac=videolist&ids=).xml(id).z(\\d+)';
-    if(baseURL.indexOf("mac")!=-1){
+    if(首页地址.indexOf("mac")!=-1){
         var 图片规则='.xml(pic).t().z(\\S.*\\S).th( ##%20).ty(CDATA[).tz(])';
     }else{
         var 图片规则='.xml(pic).t().z(\\S.*\\S).th( ##%20)';
