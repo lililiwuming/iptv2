@@ -66,20 +66,19 @@ var UA=getVar("UA");
 function 头部导航(){
     var res={};var items=[];
     if(类型.indexOf("CMS")!=-1){
-        for(var j=0;j<列表.length;j++){
-            var 标题=e2Rex(列表[j],标题规则)?e2Rex(列表[j],标题规则):e2Rex(列表[j],标题规则1);
-            var 地址=e2Rex(列表[j],地址规则);
-            var 分类地址=首页地址+前+地址+后;
-            items.push({title:标题,url:分类地址,mode:"OKHTTP",翻页后:翻页后});
+        for (var j = 0; j < 列表.length; j++) {
+          var 标题 = e2Rex(列表[j], 标题规则) ? e2Rex(列表[j], 标题规则) : e2Rex(列表[j], 标题规则1);
+          var 地址 = e2Rex(列表[j], 地址规则);
+          var 分类地址 = 首页地址 + 前 + 地址 + 后;
+          items.push({ title: 标题, url: 分类地址, mode: "OKHTTP", 翻页后: 翻页后 });
         }
     }else if(类型.indexOf("网页")!=-1){
-       var 自定义数据="电影=1+电视剧=2+综艺=3+动漫=4+动作片=6+喜剧片=7+爱情片=8+科幻片=9+恐怖片=10+剧情片=11+国产剧=13+港台剧=14+日韩剧=15+欧美剧=16";
-        var Arr=自定义数据.split("+");
-        for(var i in Arr){
-            var 标题=Arr[i].split("=")[0];var 地址=Arr[i].split("=")[1];
-            var 分类地址=首页地址+前+地址+后;
-            items.push({title:标题,url:分类地址,mode:读取模式,前:前,后:后});
-        }
+       for (var j = 0; j < 列表.length; j++) {
+         var 标题 = e2Rex(列表[j], 标题规则) ? e2Rex(列表[j], 标题规则) : e2Rex(列表[j], 标题规则1);
+         var 地址 = e2Rex(列表[j], 地址规则).split("id/")[1].split('/page')[0];
+         var 分类地址 = 首页地址 + 前 + 地址 + 后;
+         items.push({ title: 标题, url: 分类地址, mode: "JSOUP", 翻页后: 翻页后 });
+       }
     }
     res.data=items;
     return JSON.stringify(res);
@@ -90,8 +89,9 @@ if(类型.indexOf("网页")!=-1){
         var 列表=e2Arr(源码,".css(div.sidebar>div>ul>li)");
         var 标题规则=".t()";
         var 地址规则=".css(a).a(href)";
-        var 前="&ac=videolist&t=";
-        var 后="&pg=#PN#";
+        var 前="/index.php/vod/show/id/";
+        var 后="/page/";
+        var 翻页后='.html'
         头部导航();
     }else if(类型.indexOf("MX Pro")!=-1){
         var 列表=e2Arr(源码,".json(list).json(type_name)");
