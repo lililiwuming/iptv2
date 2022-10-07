@@ -211,7 +211,7 @@ function 通用列表(){
     var LIMIT=列表.length;
     for(var j=0;j<LIMIT;j++){
         var CODE=列表[j];
-        var 地址=e2Rex(CODE,地址规则).indexOf("http")==0?e2Rex(CODE,地址规则):首页地址+e2Rex(CODE,地址规则);
+        var 地址=e2Rex(CODE,地址规则);
         var 标题=e2Rex(CODE,标题规则);
         var 预图片=e2Rex(CODE,图片规则);
         if(预图片.indexOf("/mac:")!=-1){
@@ -232,18 +232,18 @@ function 通用列表(){
         }
         var 播放源=e2Rex(CODE,播放源规则);
         var 状态=e2Rex(CODE,状态规则);
-        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态,type:"资源采集"});
+        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态});
     }
     var play_={};
     play_.list=LIST;
     items.push(play_);
     res.data=items;
     if(首页地址.indexOf("t=")!=-1){
-        res.下页=首页地址+"pg="+下页;
-        res.上页=headURL+"pg="+上页;
+        res.下一页=首页地址+"pg="+下页;
+        res.上一页=headURL+"pg="+上页;
     }else{
-        res.下页=首页地址+"?ac=videolist&pg="+下页;
-        res.上页=首页地址+"?ac=videolist&pg="+上页;
+        res.下一页=首页地址+"?ac=videolist&pg="+下页;
+        res.上一页=首页地址+"?ac=videolist&pg="+上页;
     }
     return JSON.stringify(res);
 }
@@ -267,7 +267,7 @@ if(类型.indexOf("xml")!=-1){
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_play_from).ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
     通用列表();
-}else if(类型.indexOf("json")!=-1){
+}else if(类型.indexOf("mc10")!=-1){
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
     var 标题规则=".json(vod_name).or().json(art_name)";
     var 地址规则=".c(?ac=videolist&ids=).json(vod_id).or().json(art_id)";
