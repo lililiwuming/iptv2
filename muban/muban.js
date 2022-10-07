@@ -1,4 +1,4 @@
-######模板列表
+######模板列表1
 网页-MXone Pro
 网页-Mx Pro
 网页-MX(采集站)
@@ -10,12 +10,12 @@
 接口-APP(v1)
 接口-APP(v2)
 接口-APP(iptv)
-######UA列表
+######UA列表2
 网页-Mozilla/5.0
 接口(cms/iptv)-Dalvik/2.1.0
 接口(vod)-okhttp/4.1.0
 接口(app/v1/v2)-Dart/2.14 (dart:io)
-######本地新增
+######本地新增3
 var key=getVar("输入内容");
 var 记录=[];
 if(key.indexOf("==http")!=-1&&key.indexOf("#KEY#")!=-1&&(key.indexOf("网页-MXone Pro")!=-1||key.indexOf("网页-MX Pro")!=-1||
@@ -58,7 +58,7 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-APP(iptv)")!=-1)){
 }else{
     alert("输入格式错误，请重新输入");
 }
-######站源分类
+######站源分类4
 var 首页地址=getVar("首页地址");
 var 类型=getVar("类型");
 var UA=getVar("UA");
@@ -134,4 +134,3 @@ if(类型.indexOf("网页")!=-1){
 }
 分类;
 alert(分类);
-######站源筛选
