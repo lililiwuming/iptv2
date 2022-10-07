@@ -1,6 +1,6 @@
 ######模板列表1
 网页-MXone Pro：/index.php/vod/search/page/#PN#/wd/#KEY#.html
-网页-Mx Pro：/index.php/vod/search/page/#PN#/wd/#KEY#.html
+网页-MX Pro：/index.php/vod/search/page/#PN#/wd/#KEY#.html
 网页-MX(采集站)：/index.php/vod/search/page/#PN#/wd/#KEY#.html
 接口-CMS(json)：?ac=videolist&wd=#KEY#&pg=#PN#
 接口-CMS(xml)：?ac=videolist&wd=#KEY#&pg=#PN#
