@@ -189,8 +189,8 @@ if(类型.indexOf("网页")!=-1){
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),'.z(\".*?\\]\\}\\])');
     var 标题规则='.z2(\"\\(.*?\\)\")';
     var 地址规则='.z2(\"\\(.*?\\)\")';
-    var 前="?ac=list&class=&area=&start=&type=";
-    var 后="&page=";
+    var 前="?ac=list&class=";
+    var 后="&area=&type=&start=&page=";
     var 翻页后='';
     头部导航();
 }
