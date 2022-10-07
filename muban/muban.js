@@ -128,7 +128,7 @@ if(类型.indexOf("网页")!=-1){
     var URL=首页地址+"nav";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("app")!=-1){
-        var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
+        var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");alert(列表);
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
         var 前="&ac=videolist&t=";
