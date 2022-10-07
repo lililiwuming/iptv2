@@ -63,21 +63,22 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-APP(iptv)")!=-1)){
 var 首页地址=getVar("首页地址");
 var 类型=getVar("类型");
 var UA=getVar("UA");
+var pn=getVar("PN");
 function 头部导航(){
     var res={};var items=[];
-    if(列表){
+    if(类型.indexOf("CMS")!=-1){
         for(var j=0;j<列表.length;j++){
             var 标题=e2Rex(列表[j],标题规则)?e2Rex(列表[j],标题规则):e2Rex(列表[j],标题规则1);
             var 地址=e2Rex(列表[j],地址规则);
-            分类地址=URL+前+地址+后;
+            分类地址=首页地址+前+地址规则+后;
             items.push({title:标题,url:分类地址});
         }
-    }else{
+    }else if(类型.indexOf("网页")!=-1){
        var 自定义数据="电影=1+电视剧=2+综艺=3+动漫=4+动作片=6+喜剧片=7+爱情片=8+科幻片=9+恐怖片=10+剧情片=11+国产剧=13+港台剧=14+日韩剧=15+欧美剧=16";
         var Arr=自定义数据.split("+");
         for(var i in Arr){
             var 标题=Arr[i].split("=")[0];var 地址=Arr[i].split("=")[1];
-            分类地址=URL+前+地址+后;
+            分类地址=首页地址+前+地址+后;
             items.push({title:标题,url:分类地址});
         }
     }
@@ -87,9 +88,9 @@ function 头部导航(){
 if(类型.indexOf("网页")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("MXone Pro")!=-1){
-        var 列表=e2Arr(源码,".json(list).json(type_name)");
-        var 标题规则=".json(type_name)";
-        var 地址规则=".json(type_id)";
+        var 列表=e2Arr(源码,".css(div.sidebar>div>ul>li)");
+        var 标题规则=".t()";
+        var 地址规则=".css(a).a(href)";
         var 前="&ac=videolist&t=";
         var 后="&pg=#PN#";
         头部导航();
@@ -139,7 +140,7 @@ if(类型.indexOf("网页")!=-1){
     var 列表=e2Arr(源码,".json(data).json(list)");
     var 标题规则=".json(type_name)";
     var 地址规则=".json(type_id)";
-    var 前="&ac=videolist&t=";
+    var 前="ac=videolist&t=";
     var 后="&pg=#PN#";
     头部导航();
 }else if(类型.indexOf("CMS")!=-1){
@@ -149,7 +150,7 @@ if(类型.indexOf("网页")!=-1){
         var 列表=e2Arr(源码,".json(class)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
-        var 前="&ac=videolist&t=";
+        var 前="?ac=videolist&t=";
         var 后="&pg=#PN#";
         头部导航();
     }else if(类型.indexOf("xml")!=-1){
@@ -163,7 +164,7 @@ if(类型.indexOf("网页")!=-1){
         var 列表=e2Arr(源码,".json(class)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
-        var 前="&ac=videolist&t=";
+        var 前="?ac=videolist&t=";
         var 后="&pg=#PN#";
         头部导航();
     }
