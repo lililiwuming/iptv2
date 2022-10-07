@@ -63,14 +63,13 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-APP(iptv)")!=-1)){
 var 首页地址=getVar("首页地址");
 var 类型=getVar("类型");
 var UA=getVar("UA");
-var pn=getVar("PN");
 function 头部导航(){
     var res={};var items=[];
     if(类型.indexOf("CMS")!=-1){
         for(var j=0;j<列表.length;j++){
             var 标题=e2Rex(列表[j],标题规则)?e2Rex(列表[j],标题规则):e2Rex(列表[j],标题规则1);
             var 地址=e2Rex(列表[j],地址规则);
-            分类地址=首页地址+前+地址+后;
+            var 分类地址='读源码(模式:"OKHTTP",地址:"首页地址+前+地址+后",UA:"UA",起始:,递增:1)';
             items.push({title:标题,url:分类地址});
         }
     }else if(类型.indexOf("网页")!=-1){
@@ -78,7 +77,7 @@ function 头部导航(){
         var Arr=自定义数据.split("+");
         for(var i in Arr){
             var 标题=Arr[i].split("=")[0];var 地址=Arr[i].split("=")[1];
-            分类地址=首页地址+前+地址+后;
+            var 分类地址=首页地址+前+地址+后;
             items.push({title:标题,url:分类地址});
         }
     }
@@ -178,3 +177,4 @@ if(类型.indexOf("网页")!=-1){
     var 后="&pg=#PN#";
     头部导航();
 }
+######分类地址判断
