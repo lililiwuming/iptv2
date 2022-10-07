@@ -86,26 +86,61 @@ function 头部导航(){
 if(类型.indexOf("网页")!=-1){
     var 源码=JZ(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("MXone Pro")!=-1){
-        "";
+        var 列表=e2Arr(源码,".json(list).json(type_name)");
+        var 标题规则=".json(type_name)";
+        var 地址规则=".json(type_id)";
+        var 前="&ac=videolist&t=";
+        var 后="&pg=#PN#";
+        头部导航();
     }else if(类型.indexOf("MX Pro")!=-1){
-        "";
+        var 列表=e2Arr(源码,".json(list).json(type_name)");
+        var 标题规则=".json(type_name)";
+        var 地址规则=".json(type_id)";
+        var 前="&ac=videolist&t=";
+        var 后="&pg=#PN#";
+        头部导航();
     }else if(类型.indexOf("MX(采集站)")!=-1){
-        "";
+        var 列表=e2Arr(源码,".json(list).json(type_name)");
+        var 标题规则=".json(type_name)";
+        var 地址规则=".json(type_id)";
+        var 前="&ac=videolist&t=";
+        var 后="&pg=#PN#";
+        头部导航();
     }
 }else if(类型.indexOf("app")!=-1||类型.indexOf("v1")!=-1||类型.indexOf("v2")!=-1){
     var URL=首页地址+"nav";
     var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("app")!=-1){
-        var 分类=e2Arr(源码,".json(list).json(type_name)");
+        var 列表=e2Arr(源码,".json(list).json(type_name)");
+        var 标题规则=".json(type_name)";
+        var 地址规则=".json(type_id)";
+        var 前="&ac=videolist&t=";
+        var 后="&pg=#PN#";
+        头部导航();
     }else if(类型.indexOf("v1")!=-1){
-        var 分类=e2Arr(源码,".json(data).json(type_name)");
+        var 列表=e2Arr(源码,".json(data)");
+        var 标题规则=".json(type_name)";
+        var 地址规则=".json(type_id)";
+        var 前="&ac=videolist&t=";
+        var 后="&pg=#PN#";
+        头部导航();
     }else if(类型.indexOf("v2")!=-1){
-        var 分类=e2Arr(源码,".json(data).json(type_name)");
+        var 列表=e2Arr(源码,".json(data)");
+        var 标题规则=".json(type_name)";
+        var 地址规则=".json(type_id)";
+        var 前="&ac=videolist&t=";
+        var 后="&pg=#PN#";
+        头部导航();
     }
 }else if(类型.indexOf("vod")!=-1){
     var URL=首页地址+"/types";
     var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
-    var 分类=e2Arr(源码,".json(data).json(list).json(type_name)");
+    var 列表=e2Arr(源码,".json(data).json(list)");
+    var 标题规则=".json(type_name)";
+    var 地址规则=".json(type_id)";
+    var 前="&ac=videolist&t=";
+    var 后="&pg=#PN#";
+    头部导航();
 }else if(类型.indexOf("CMS")!=-1){
     var URL=首页地址+"?ac=list";
     var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
@@ -134,6 +169,11 @@ if(类型.indexOf("网页")!=-1){
 }else if(类型.indexOf("iptv")!=-1){
     var URL=首页地址+"?ac=flitter";
     var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
-    var 分类='';
+    var 列表=e2Arr(源码,".json(list).json(type_name)");
+    var 标题规则=".json(type_name)";
+    var 地址规则=".json(type_id)";
+    var 前="&ac=videolist&t=";
+    var 后="&pg=#PN#";
+    头部导航();
 }
 分类;alert(分类);
