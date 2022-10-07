@@ -11,12 +11,48 @@
 接口-APP(v2)
 接口-APP(iptv)
 ######UA列表
-网页=Mozilla/5.0
-接口(vod)=okhttp/4.1.0
-接口(app/v1/v2)=Dart/2.14 (dart:io)
-接口(cms/iptv)=Dalvik/2.1.0
+网页：Mozilla/5.0
+接口(vod)：okhttp/4.1.0
+接口(app/v1/v2)：Dart/2.14 (dart:io)
+接口(cms/iptv)：Dalvik/2.1.0
 ######本地新增
-
+if(key.indexOf(",http")!=-1){
+    var filename='站源.json';
+    var 输入条目=key.match(/.+,http.+/g);
+    for(var j=0;j<输入条目.length;j++){
+        var title=e2Rex(输入条目[j],".tz(,)");
+        var url=e2Rex(输入条目[j],".ty(,)");
+        var img="http://43.140.205.222/tupian.php?text="+title;
+        var murl="q:资源采集.mk";
+        var type="资源采集";
+        记录.push({title:title,url:url,img:img,murl:murl,type:type});
+    }
+    if(readStr(filename)){
+        var 新记录=JSON.parse(readStr(filename));
+    }else{
+        var 新记录=[];
+    }
+    for(var i in 记录){
+        var 当前条目=[];当前条目.push(记录[i]);
+        if(新记录.length==0){
+            新记录.push({title:记录[i].type,data:当前条目});
+        }else{
+            let res=新记录.some(item=>{
+                if(item.title==记录[i].type){
+                    item.data=当前条目.concat(item.data.filter(d=>d.url!=记录[i].url));
+                    return true
+                }
+            });
+            if(!res){
+                新记录.push({title:记录[i].type,data:当前条目});
+            }
+        }
+    }
+    writeStr(filename,JSON.stringify(新记录));
+    alert(title+"\n规则写入成功");
+}else{
+    alert("输入格式错误，请重新输入");
+}
 ######导入订阅
 
 
