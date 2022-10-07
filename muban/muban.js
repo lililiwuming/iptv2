@@ -60,7 +60,7 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-APP(iptv)")!=-1)){
 }
 ######站源分类4
 var 首页地址=getVar("首页地址");
-var 类型=getVar("类型");
+var 类型=getVar("类型");alert(类型);
 var UA=getVar("UA");
 function 头部导航(){
     var res={};var items=[];
