@@ -128,21 +128,21 @@ if(类型.indexOf("网页")!=-1){
     var URL=首页地址+"nav";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("app")!=-1){
-        var 列表=e2Arr(源码,".json(list)");
+        var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
         var 前="&ac=videolist&t=";
         var 后="&pg=";
         头部导航();
     }else if(类型.indexOf("v1")!=-1){
-        var 列表=e2Arr(源码,".json(data)");
+        var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
         var 前="&ac=videolist&t=";
         var 后="&pg=";
         头部导航();
     }else if(类型.indexOf("v2")!=-1){
-        var 列表=e2Arr(源码,".json(data)");
+        var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
         var 前="&ac=videolist&t=";
@@ -152,7 +152,7 @@ if(类型.indexOf("网页")!=-1){
 }else if(类型.indexOf("vod")!=-1){
     var URL=首页地址+"/types";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".json(data).json(list)");
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data).json(list)");
     var 标题规则=".json(type_name)";
     var 地址规则=".json(type_id)";
     var 前="?type=";
@@ -163,7 +163,7 @@ if(类型.indexOf("网页")!=-1){
     var URL=首页地址+"?ac=list";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("json")!=-1){
-        var 列表=e2Arr(源码,".json(class)");
+        var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(class)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
         var 前="?ac=videolist&t=";
@@ -179,7 +179,7 @@ if(类型.indexOf("网页")!=-1){
         var 翻页后='';
         头部导航();
     }else if(类型.indexOf("mc10")!=-1){
-        var 列表=e2Arr(源码,".json(class)");
+        var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(class)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
         var 前="?ac=videolist&t=";
@@ -190,7 +190,7 @@ if(类型.indexOf("网页")!=-1){
 }else if(类型.indexOf("iptv")!=-1){
     var URL=首页地址+"?ac=flitter";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".json(list).json(type_name)");
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list).json(type_name)");
     var 标题规则=".json(type_name)";
     var 地址规则=".json(type_id)";
     var 前="&ac=videolist&t=";
