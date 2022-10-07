@@ -9,8 +9,8 @@
 接口-APP(app)：search?test=#KEY#&pg=#PN#
 接口-APP(v1)：search?test=#KEY#&pg=#PN#
 接口-APP(v2)：search?test=#KEY#&pg=#PN#
-接口-APP(iptv-zm)：?ac=list&zm=#KEY#&page=#PN#
-接口-APP(iptv-wd)：?ac=list&wd=#KEY#&page=#PN#
+接口-iptv(zm)：?ac=list&zm=#KEY#&page=#PN#
+接口-iptv(wd)：?ac=list&wd=#KEY#&page=#PN#
 ######UA列表2
 网页：Mozilla/5.0
 接口(cms/iptv)：Dalvik/2.1.0
