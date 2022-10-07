@@ -70,7 +70,7 @@ function 头部导航(){
         for(var j=0;j<列表.length;j++){
             var 标题=e2Rex(列表[j],标题规则)?e2Rex(列表[j],标题规则):e2Rex(列表[j],标题规则1);
             var 地址=e2Rex(列表[j],地址规则);
-            分类地址=首页地址+前+地址规则+后;
+            分类地址=首页地址+前+地址+后;
             items.push({title:标题,url:分类地址});
         }
     }else if(类型.indexOf("网页")!=-1){
