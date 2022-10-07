@@ -88,16 +88,16 @@ function 头部导航(){
 if(类型.indexOf("网页")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("MXone Pro")!=-1){
-        var 列表=e2Arr(源码,".css(div.sidebar).css(div).i(0).css(ul li a)");
-        var 标题规则=".t()";
+        var 列表=e2Arr(源码,".css(div.sidebar div ul>li)");
+        var 标题规则=".css(a).t()";
         var 地址规则=".css(a).a(href)";
         var 前="/index.php/vod/show/id/";
         var 后="/page/";
         var 翻页后='.html';
         头部导航();
     }else if(类型.indexOf("MX Pro")!=-1){
-        var 列表=e2Arr(源码,".css(ul.drop-content-items.grid-items li.grid-item).or().css(div.nav ul li)");
-        var 标题规则=".t()";
+        var 列表=e2Arr(源码,".css(ul.drop-content-items.grid-items>li.grid-item).or().css(div.nav ul>li)");
+        var 标题规则=".css(a).t()";
         var 地址规则=".css(a).a(href)";
         var 前="/index.php/vod/show/id/";
         var 后="/page/";
