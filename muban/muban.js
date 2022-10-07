@@ -198,4 +198,81 @@ if(类型.indexOf("网页")!=-1){
     var 翻页后='';
     头部导航();
 }
-######分类地址判断
+######筛选条件5
+
+######筛选列表6
+var 源码=getVar("源");
+var 首页地址=getVar("首页地址");
+var 类型=getVar("类型");
+var 下页=Number(getVar("PN"))+1;
+var 上页=Number(getVar("PN"))-1;
+function 通用列表(){
+    var res={};var items=[];var LIST=[];
+    var LIMIT=列表.length;
+    for(var j=0;j<LIMIT;j++){
+        var CODE=列表[j];
+        var 地址=e2Rex(CODE,地址规则).indexOf("http")==0?e2Rex(CODE,地址规则):baseURL+e2Rex(CODE,地址规则);
+        var 标题=e2Rex(CODE,标题规则);
+        var 预图片=e2Rex(CODE,图片规则);
+        if(预图片.indexOf("/mac:")!=-1){
+            var 图片="http:"+预图片.split("mac:")[1];
+        }else if(预图片.indexOf("mac:")!=-1){
+            var 图片="http:"+预图片.split("mac:")[1];
+        }else if(预图片.indexOf(".test.com")!=-1||预图片.indexOf(".maccms.com")!=-1||预图片.indexOf(".maccms.pro")!=-1){
+            var 图片=getVar("地址").match(/https?:\/\/.+?\//)[0]+预图片.split(/img\.[a-z]+?\.[a-z]+/)[1];
+            var 图片=图片.match(/.*(http.*)/)[1];
+        }else if(预图片.indexOf("http")!=-1){
+            var 图片=预图片;
+        }else if(预图片==""){
+            var 图片="http://43.140.205.222:4433/mxtheme/images/load.gif";
+        }else if(预图片.indexOf("//")!=-1){
+            var 图片="http:"+预图片;
+        }else{
+            var 图片=getVar("地址").match(/https?:\/\/.+?\//)[0]+预图片;
+        }
+        var 播放源=e2Rex(CODE,播放源规则);
+        var 状态=e2Rex(CODE,状态规则);
+        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态,type:"资源采集"});
+    }
+    var play_={};
+    play_.list=LIST;
+    items.push(play_);
+    res.data=items;
+    if(首页地址.indexOf("t=")!=-1){
+        res.下页=首页地址+"pg="+下页;
+        res.上页=headURL+"pg="+上页;
+    }else{
+        res.下页=首页地址+"?ac=videolist&pg="+下页;
+        res.上页=首页地址+"?ac=videolist&pg="+上页;
+    }
+    return JSON.stringify(res);
+}
+if(类型.indexOf("xml")!=-1){
+    var 列表=e2Arr(源码,'.xml(list video)');
+    var 标题规则='.xml(name).ty(CDATA[).tz2(]])';
+    var 地址规则='.c(?ac=videolist&ids=).xml(id).z(\\d+)';
+    if(baseURL.indexOf("mac")!=-1){
+        var 图片规则='.xml(pic).t().z(\\S.*\\S).th( ##%20).ty(CDATA[).tz(])';
+    }else{
+        var 图片规则='.xml(pic).t().z(\\S.*\\S).th( ##%20)';
+    }
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).xml(dl).ty(flag=").tz(">).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).xml(type).t().ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("json")!=-1){
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
+    var 标题规则=".json(vod_name)";
+    var 地址规则=".c(&ac=videolist&ids=).json(vod_id)";
+    var 图片规则=".json(vod_pic)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_play_from).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("json")!=-1){
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
+    var 标题规则=".json(vod_name).or().json(art_name)";
+    var 地址规则=".c(?ac=videolist&ids=).json(vod_id).or().json(art_id)";
+    var 图片规则=".json(vod_pic).or().json(art_pic)";
+    var 播放源规则=".tx(<p style='background-color:#0997F7'><font color='white' size='40px'>).json(vod_play_from).or().json(art_from).ct(</font></p>)";
+    var 状态规则=".tx(<p style='background-color:#CC00FF'><font color='white'>).json(vod_remarks).or().json(type_name).ct(</font></p>)";
+    通用列表();
+}
