@@ -27,7 +27,7 @@ if(key.indexOf("==http")!=-1&&key.indexOf("@@")!=-1&&key.indexOf("--")!=-1&&key.
         var search=e2Rex(输入条目[j],".ty(@@).tz(--)");
         var type=e2Rex(输入条目[j],".ty(--).tz(**)");
         var UA=e2Rex(输入条目[j],".tz(**)");
-        记录.push({"站名":name,"首页地址":index,"搜索地址":search,"类型":type,UA:UA});
+        记录.push({"站名":title,"首页地址":index,"搜索地址":search,"类型":type,UA:UA});
     }
     if(readStr(filename)){
         var 新记录=JSON.parse(readStr(filename));
