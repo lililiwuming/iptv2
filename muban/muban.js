@@ -194,11 +194,10 @@ if(类型.indexOf("网页")!=-1){
     var URL=首页地址+"?ac=flitter";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),'.z(\".*?\\]\\}\\])');
-    alert(URL);
     var 标题规则='.z2(\"\\(.*?\\)\")';
     var 地址规则='.z2(\"\\(.*?\\)\")';
-    var 前="&ac=videolist&t=";
-    var 后="&pg=";
+    var 前="?ac=list&class=&area=&start=&type=";
+    var 后="&page=";
     var 翻页后='';
     头部导航();
 }
