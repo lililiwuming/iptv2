@@ -210,27 +210,10 @@ function 通用列表(){
     var res={};var items=[];var LIST=[];
     var LIMIT=列表.length;
     for(var j=0;j<LIMIT;j++){
-      alert(列表[j]);
         var CODE=列表[j];
         var 地址=e2Rex(CODE,地址规则);
         var 标题=e2Rex(CODE,标题规则);
-        var 预图片=e2Rex(CODE,图片规则);
-        if(预图片.indexOf("/mac:")!=-1){
-            var 图片="http:"+预图片.split("mac:")[1];
-        }else if(预图片.indexOf("mac:")!=-1){
-            var 图片="http:"+预图片.split("mac:")[1];
-        }else if(预图片.indexOf(".test.com")!=-1||预图片.indexOf(".maccms.com")!=-1||预图片.indexOf(".maccms.pro")!=-1){
-            var 图片=getVar("地址").match(/https?:\/\/.+?\//)[0]+预图片.split(/img\.[a-z]+?\.[a-z]+/)[1];
-            var 图片=图片.match(/.*(http.*)/)[1];
-        }else if(预图片.indexOf("http")!=-1){
-            var 图片=预图片;
-        }else if(预图片==""){
-            var 图片="http://43.140.205.222:4433/mxtheme/images/load.gif";
-        }else if(预图片.indexOf("//")!=-1){
-            var 图片="http:"+预图片;
-        }else{
-            var 图片=getVar("首页地址").match(/https?:\/\/.+?\//)[0]+预图片;
-        }
+        var 图片=e2Rex(CODE,图片规则);
         var 播放源=e2Rex(CODE,播放源规则);
         var 状态=e2Rex(CODE,状态规则);
         LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态});
@@ -241,7 +224,7 @@ function 通用列表(){
     res.data=items;
     if(首页地址.indexOf("t=")!=-1){
         res.下一页=首页地址+"pg="+下页;
-        res.上一页=headURL+"pg="+上页;
+        res.上一页=首页地址+"pg="+上页;
     }else{
         res.下一页=首页地址+"?ac=videolist&pg="+下页;
         res.上一页=首页地址+"?ac=videolist&pg="+上页;
