@@ -17,7 +17,7 @@
 接口(app/v1/v2)-Dart/2.14 (dart:io)
 ######本地新增
 var key=getVar("输入内容");
-if(key.indexOf("==http")!=-1&&key.indexOf("@@")!=-1&&key.indexOf("--")!=-1&&key.indexOf("**")!=-1){
+if(key.indexOf("==http")!=-1&&key.indexOf("@@")!=-1&&key.indexOf("--")!=-1&&key.indexOf("**")!=-1&&key.indexOf("#KEY#")!=-1){
     var filename='站源.json';
     var 输入条目=key.match(/.+==http.+/g);
     for(var j=0;j<输入条目.length;j++){
