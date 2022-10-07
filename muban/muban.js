@@ -107,8 +107,9 @@ if(类型.indexOf("网页")!=-1){
         var 列表=e2Arr(源码,".css(ul.stui-header__menu.clearfix li)");
         var 标题规则=".t()";
         var 地址规则=".css(a).a(href)";
-        var 前="&ac=videolist&t=";
-        var 后="&pg=#PN#";
+        var 前="/index.php/vod/type/id/";
+        var 后="/page/";
+        var 翻页后='.html';
         头部导航();
     }
 }else if(类型.indexOf("app")!=-1||类型.indexOf("v1")!=-1||类型.indexOf("v2")!=-1){
