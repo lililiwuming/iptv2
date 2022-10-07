@@ -65,7 +65,7 @@ var 类型=getVar("类型");
 var UA=getVar("UA");
 function 头部导航(){
     var res={};var items=[];
-    if(类型.indexOf("接口")==-1){
+    if(类型.indexOf("接口")!=-1){
         for (var j=0;j<列表.length;j++){
           var 标题=e2Rex(列表[j],标题规则);
           var 地址=e2Rex(列表[j],地址规则);
