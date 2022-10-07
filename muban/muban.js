@@ -65,11 +65,11 @@ var UA=getVar("UA");
 if(类型.indexOf("网页")!=-1){
     var 源码=JZ(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("MXone Pro")!=-1){
-
+        "";
     }else if(类型.indexOf("MX Pro")!=-1){
-        
+        "";
     }else if(类型.indexOf("MX(采集站)")!=-1){
-
+        "";
     }
 }else if(类型.indexOf("app")!=-1||类型.indexOf("v1")!=-1||类型.indexOf("v2")!=-1){
     var 源码=JZ(JSON.stringify({url:首页地址+"nav",redirect:false,head:{"User-Agent":UA}}));
