@@ -63,7 +63,7 @@ var 首页地址=getVar("首页地址");
 var 类型=getVar("类型");
 var UA=getVar("UA");
 function 头部导航(){
-    alert(列表);
+    alert(源码);
     var res={};var items=[];
     if(列表){
         for(var j=0;j<列表.length;j++){
@@ -144,7 +144,7 @@ if(类型.indexOf("网页")!=-1){
     头部导航();
 }else if(类型.indexOf("CMS")!=-1){
     var URL=首页地址+"?ac=list";
-    var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
+    var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));alert(源码);
     if(类型.indexOf("json")!=-1){
         var 列表=e2Arr(源码,".json(class)");
         var 标题规则=".json(type_name)";
