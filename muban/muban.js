@@ -12,20 +12,21 @@
 接口-APP(iptv)
 ######UA列表
 网页-Mozilla/5.0
+接口(cms/iptv)-Dalvik/2.1.0
 接口(vod)-okhttp/4.1.0
 接口(app/v1/v2)-Dart/2.14 (dart:io)
-接口(cms/iptv)-Dalvik/2.1.0
 ######本地新增
-if(key.indexOf(",http")!=-1){
+var key=getVar("输入内容");
+if(key.indexOf("==http")!=-1&&key.indexOf("@@")!=-1&&key.indexOf("--")!=-1&&key.indexOf("**")!=-1){
     var filename='站源.json';
-    var 输入条目=key.match(/.+,http.+/g);
+    var 输入条目=key.match(/.+==http.+/g);
     for(var j=0;j<输入条目.length;j++){
-        var title=e2Rex(输入条目[j],".tz(,)");
-        var url=e2Rex(输入条目[j],".ty(,)");
-        var img="http://43.140.205.222/tupian.php?text="+title;
-        var murl="q:资源采集.mk";
-        var type="资源采集";
-        记录.push({title:title,url:url,img:img,murl:murl,type:type});
+        var name=e2Rex(输入条目[j],".tz(==)");
+        var index=e2Rex(输入条目[j],".ty(==).tz(@@)");
+        var search=e2Rex(输入条目[j],".ty(@@).tz(--)");
+        var type=e2Rex(输入条目[j],".ty(--).tz(**)");
+        var UA=e2Rex(输入条目[j],".tz(**)");
+        记录.push({name:name,index:index,search:search,type:type,UA:UA});
     }
     if(readStr(filename)){
         var 新记录=JSON.parse(readStr(filename));
