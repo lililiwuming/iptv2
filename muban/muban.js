@@ -69,8 +69,9 @@ function 头部导航(){
         for(var j=0;j<列表.length;j++){
             var 标题=e2Rex(列表[j],标题规则)?e2Rex(列表[j],标题规则):e2Rex(列表[j],标题规则1);
             var 地址=e2Rex(列表[j],地址规则);
-            var 分类地址='读源码(模式:"OKHTTP",地址:"'+首页地址+前+地址+后+'",UA:"'+UA+'",起始:0,递增:1)';
-            items.push({title:标题,url:分类地址});
+            var 分类地址=首页地址+前+地址+后;
+            var 读取模式="OKHTTP";
+            items.push({title:标题,url:分类地址,mode:读取模式});
         }
     }else if(类型.indexOf("网页")!=-1){
        var 自定义数据="电影=1+电视剧=2+综艺=3+动漫=4+动作片=6+喜剧片=7+爱情片=8+科幻片=9+恐怖片=10+剧情片=11+国产剧=13+港台剧=14+日韩剧=15+欧美剧=16";
@@ -78,7 +79,7 @@ function 头部导航(){
         for(var i in Arr){
             var 标题=Arr[i].split("=")[0];var 地址=Arr[i].split("=")[1];
             var 分类地址=首页地址+前+地址+后;
-            items.push({title:标题,url:分类地址});
+            items.push({title:标题,url:分类地址,mode:读取模式});
         }
     }
     res.data=items;
