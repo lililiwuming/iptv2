@@ -21,12 +21,12 @@ if(key.indexOf("==http")!=-1&&key.indexOf("@@")!=-1&&key.indexOf("--")!=-1&&key.
     var filename='站源.json';
     var 输入条目=key.match(/.+==http.+/g);
     for(var j=0;j<输入条目.length;j++){
-        var name=e2Rex(输入条目[j],".tz(==)");
+        var title=e2Rex(输入条目[j],".tz(==)");
         var index=e2Rex(输入条目[j],".ty(==).tz(@@)");
         var search=e2Rex(输入条目[j],".ty(@@).tz(--)");
         var type=e2Rex(输入条目[j],".ty(--).tz(**)");
         var UA=e2Rex(输入条目[j],".tz(**)");
-        记录.push({name:name,index:index,search:search,type:type,UA:UA});
+        记录.push({"站名":name,"首页地址":index,"搜索地址":search,"类型":type,UA:UA});
     }
     if(readStr(filename)){
         var 新记录=JSON.parse(readStr(filename));
@@ -36,16 +36,16 @@ if(key.indexOf("==http")!=-1&&key.indexOf("@@")!=-1&&key.indexOf("--")!=-1&&key.
     for(var i in 记录){
         var 当前条目=[];当前条目.push(记录[i]);
         if(新记录.length==0){
-            新记录.push({title:记录[i].type,data:当前条目});
+            新记录.push({title:记录[i].类型,data:当前条目});
         }else{
             let res=新记录.some(item=>{
-                if(item.title==记录[i].type){
-                    item.data=当前条目.concat(item.data.filter(d=>d.url!=记录[i].url));
+                if(item.title==记录[i].类型){
+                    item.data=当前条目.concat(item.data.filter(d=>d.首页地址!=记录[i].首页地址));
                     return true
                 }
             });
             if(!res){
-                新记录.push({title:记录[i].type,data:当前条目});
+                新记录.push({title:记录[i].类型,data:当前条目});
             }
         }
     }
