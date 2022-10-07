@@ -62,7 +62,7 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-APP(iptv)")!=-1)){
 var 首页地址=getVar("首页地址");
 var 类型=getVar("类型");
 var UA=getVar("UA");
-function 头部导航(){
+/*function 头部导航(){
     alert(源码);
     var res={};var items=[];
     if(列表){
@@ -83,7 +83,7 @@ function 头部导航(){
     }
     res.data=items;
     return JSON.stringify(res);
-}
+}*/
 if(类型.indexOf("网页")!=-1){
     var 源码=JZ(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("MXone Pro")!=-1){
@@ -144,7 +144,7 @@ if(类型.indexOf("网页")!=-1){
     头部导航();
 }else if(类型.indexOf("CMS")!=-1){
     var URL=首页地址+"?ac=list";
-    var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));alert(源码);
+    var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("json")!=-1){
         var 列表=e2Arr(源码,".json(class)");
         var 标题规则=".json(type_name)";
@@ -177,4 +177,4 @@ if(类型.indexOf("网页")!=-1){
     var 后="&pg=#PN#";
     头部导航();
 }
-分类;alert(分类);
+alert(源码);
