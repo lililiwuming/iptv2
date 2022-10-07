@@ -1,13 +1,26 @@
-######模板
-1、MXone Pro
-2、Mx Pro
+######模板列表
+网页-MXone Pro
+网页-Mx Pro
+网页-MX(采集站)
+接口-CMS(json)
+接口-CMS(xml)
+接口-CMS(mc10)
+接口-APP(vod)
+接口-APP(app)
+接口-APP(v1)
+接口-APP(v2)
+接口-APP(iptv)
+######UA列表
+网页=
+接口(vod)=okhttp/4.1.0
+接口(app/v1/v2)=Dart/2.14 (dart:io)
+接口(cms/iptv)=Dalvik/2.1.0
 ######本地新增
 
 ######导入订阅
 
-######搜索
 
-######站源首页轮播图
+######搜索
 
 ######站源首页推荐
 
