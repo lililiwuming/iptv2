@@ -144,8 +144,8 @@ if(类型.indexOf("网页")!=-1){
     头部导航();
 }else if(类型.indexOf("CMS")!=-1){
     var URL=首页地址+"?ac=list";
-    var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
-    if(类型.indexOf("json")!=-1){
+    var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));alert(源码);
+    /*if(类型.indexOf("json")!=-1){
         var 列表=e2Arr(源码,".json(class)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
@@ -166,7 +166,7 @@ if(类型.indexOf("网页")!=-1){
         var 前="&ac=videolist&t=";
         var 后="&pg=#PN#";
         头部导航();
-    }
+    }*/
 }else if(类型.indexOf("iptv")!=-1){
     var URL=首页地址+"?ac=flitter";
     var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
@@ -177,4 +177,3 @@ if(类型.indexOf("网页")!=-1){
     var 后="&pg=#PN#";
     头部导航();
 }
-alert(源码);
