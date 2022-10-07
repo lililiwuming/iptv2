@@ -94,7 +94,7 @@ if(类型.indexOf("网页")!=-1){
     }
 }else if(类型.indexOf("iptv")!=-1){
     var 源码=JZ(JSON.stringify({url:首页地址+"?ac=fillter",redirect:false,head:{"User-Agent":UA}}));
-    var 分类=["电影":"movie","连续剧":"tvplay","综艺":"tvshow","动漫":"comic"];
+    var 分类={"电影":"movie","连续剧":"tvplay","综艺":"tvshow","动漫":"comic"};
 }
 分类;
 alert(分类);
