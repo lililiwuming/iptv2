@@ -62,6 +62,27 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-APP(iptv)")!=-1)){
 var 首页地址=getVar("首页地址");
 var 类型=getVar("类型");
 var UA=getVar("UA");
+function 头部导航(){
+    var res={};var items=[];
+    if(列表){
+        for(var j=0;j<列表.length;j++){
+            var 标题=e2Rex(列表[j],标题规则)?e2Rex(列表[j],标题规则):e2Rex(列表[j],标题规则1);
+            var 地址=e2Rex(列表[j],地址规则);
+            分类地址=URL+前+地址+后;
+            items.push({title:标题,url:分类地址});
+        }
+    }else{
+       var 自定义数据="电影=1+电视剧=2+综艺=3+动漫=4+动作片=6+喜剧片=7+爱情片=8+科幻片=9+恐怖片=10+剧情片=11+国产剧=13+港台剧=14+日韩剧=15+欧美剧=16";
+        var Arr=自定义数据.split("+");
+        for(var i in Arr){
+            var 标题=Arr[i].split("=")[0];var 地址=Arr[i].split("=")[1];
+            分类地址=URL+前+地址+后;
+            items.push({title:标题,url:分类地址});
+        }
+    }
+    res.data=items;
+    return JSON.stringify(res);
+}
 if(类型.indexOf("网页")!=-1){
     var 源码=JZ(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("MXone Pro")!=-1){
@@ -86,15 +107,30 @@ if(类型.indexOf("网页")!=-1){
 }else if(类型.indexOf("cms")!=-1){
     var 源码=JZ(JSON.stringify({url:首页地址+"?ac=list",redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("json")!=-1){
-        var 分类=e2Arr(源码,".json(class).json(type_name)");
+        var 列表=e2Arr(源码,".json(class)");
+        var 标题规则=".json(type_name)";
+        var 地址规则=".json(type_id)";
+        var 前="&ac=videolist&t=";
+        var 后="&pg=#PN#";
+        头部导航();
     }else if(类型.indexOf("xml")!=-1){
-        var 分类=e2Arr(源码,".xml(class ty)");
+        var 列表=e2Arr(源码,".xml(class ty)");
+        var 标题规则=".t()";
+        var 地址规则=".a(id)";
+        var 前="?ac=videolist&t=";
+        var 后="&pg=#PN#";
+        头部导航();
     }else if(类型.indexOf("mc10")!=-1){
-        var 分类=e2Arr(源码,".json(class).json(type_name)");
+        var 列表=e2Arr(源码,".json(class)");
+        var 标题规则=".json(type_name)";
+        var 地址规则=".json(type_id)";
+        var 前="&ac=videolist&t=";
+        var 后="&pg=#PN#";
+        头部导航();
     }
 }else if(类型.indexOf("iptv")!=-1){
     var 源码=JZ(JSON.stringify({url:首页地址+"?ac=fillter",redirect:false,head:{"User-Agent":UA}}));
-    var 分类={"电影":"movie","连续剧":"tvplay","综艺":"tvshow","动漫":"comic"};
+    var 分类='';
 }
 分类;
 alert(分类);
