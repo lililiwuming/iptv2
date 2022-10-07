@@ -105,7 +105,8 @@ if(类型.indexOf("网页")!=-1){
     var 源码=JZ(JSON.stringify({url:首页地址+"/types",redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码,".json(data).json(list).json(type_name)");
 }else if(类型.indexOf("cms")!=-1){
-    var 源码=JZ(JSON.stringify({url:首页地址+"?ac=list",redirect:false,head:{"User-Agent":UA}}));
+    var URL=首页地址+"?ac=list";alert(URL);
+    var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("json")!=-1){
         var 列表=e2Arr(源码,".json(class)");
         var 标题规则=".json(type_name)";
@@ -133,4 +134,3 @@ if(类型.indexOf("网页")!=-1){
     var 分类='';
 }
 分类;
-alert(源码);
