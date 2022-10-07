@@ -306,7 +306,7 @@ if(类型.indexOf("xml")!=-1){
     var 地址规则=".css(div.module-item-style.video-name a).a(href)";
     var 图片规则=".css(img).a(data-src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_play_from).ct(</b></font><br>)';
-    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).css(module-item-text).t().ct(</font></p>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).css(div.module-item-text).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("MX")!=-1){
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
