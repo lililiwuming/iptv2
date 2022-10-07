@@ -207,7 +207,7 @@ function 通用列表(){
     var LIMIT=列表.length;
     for(var j=0;j<LIMIT;j++){
         var CODE=列表[j];
-        var 地址=e2Rex(CODE,地址规则);
+        var 地址=首页地址+e2Rex(CODE,地址规则);
         var 标题=e2Rex(CODE,标题规则);
         var 图片=e2Rex(CODE,图片规则);
         var 播放源=e2Rex(CODE,播放源规则);
@@ -218,13 +218,6 @@ function 通用列表(){
     play_.list=LIST;
     items.push(play_);
     res.data=items;
-    if(地址.indexOf("t=")!=-1){
-        res.nextpage=地址+"pg="+下页;
-        res.lastpage=地址+"pg="+上页;
-    }else{
-        res.下一页=首页地址+"?ac=videolist&pg="+下页;
-        res.上一页=首页地址+"?ac=videolist&pg="+上页;
-    }
     return JSON.stringify(res);
 }
 if(类型.indexOf("xml")!=-1){
