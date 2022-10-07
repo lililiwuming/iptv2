@@ -11,10 +11,10 @@
 接口-APP(v2)
 接口-APP(iptv)
 ######UA列表
-网页：Mozilla/5.0
-接口(vod)：okhttp/4.1.0
-接口(app/v1/v2)：Dart/2.14 (dart:io)
-接口(cms/iptv)：Dalvik/2.1.0
+网页-Mozilla/5.0
+接口(vod)-okhttp/4.1.0
+接口(app/v1/v2)-Dart/2.14 (dart:io)
+接口(cms/iptv)-Dalvik/2.1.0
 ######本地新增
 if(key.indexOf(",http")!=-1){
     var filename='站源.json';
