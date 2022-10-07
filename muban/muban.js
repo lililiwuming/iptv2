@@ -65,14 +65,7 @@ var 类型=getVar("类型");
 var UA=getVar("UA");
 function 头部导航(){
     var res={};var items=[];
-    if(类型.indexOf("网页")==-1){
-        for (var j=0;j<列表.length;j++){
-          var 标题=e2Rex(列表[j],标题规则);
-          var 地址=e2Rex(列表[j],地址规则);
-          var 分类地址=首页地址+前+地址+后;
-          items.push({title:标题,url:分类地址,mode:"OKHTTP",翻页后:翻页后});
-        }
-    }else if(类型.indexOf("vod")!=-1){
+    if(类型.indexOf("接口")==-1){
         for (var j=0;j<列表.length;j++){
           var 标题=e2Rex(列表[j],标题规则);
           var 地址=e2Rex(列表[j],地址规则);
