@@ -312,7 +312,7 @@ if(类型.indexOf("xml")!=-1){
     var 列表=e2Arr(源码,".css(ul.stui-vodlist.clearfix li)");
     var 标题规则=".css(h3 a).a(title)";
     var 地址规则=".css(h3 a).a(href)";
-    var 图片规则=".ct(p://43.140.205.222:4433/mxtheme/images/load.gif)";
+    var 图片规则=".tx(p://43.140.205.222:4433/mxtheme/images/load.gif)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).css(span.time).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).css(em).t().ct(</font></p>)';
     通用列表();
