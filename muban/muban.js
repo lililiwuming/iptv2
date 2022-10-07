@@ -75,7 +75,7 @@ function 头部导航(){
     }else if(类型.indexOf("网页")!=-1){
        for (var j = 0; j < 列表.length; j++) {
          var 标题 = e2Rex(列表[j], 标题规则) ? e2Rex(列表[j], 标题规则) : e2Rex(列表[j], 标题规则1);
-         var 地址 = e2Rex(列表[j], 地址规则).split("id/")[1].split('/page')[0];
+         var 地址 = e2Rex(列表[j], 地址规则).split("id")[1].split('page')[0];
          var 分类地址 = 首页地址 + 前 + 地址 + 后;
          items.push({ title: 标题, url: 分类地址, mode: "JSOUP", 翻页后: 翻页后 });
        }
@@ -89,8 +89,8 @@ if(类型.indexOf("网页")!=-1){
         var 列表=e2Arr(源码,".css(div.sidebar>div>ul>li)");
         var 标题规则=".t()";
         var 地址规则=".css(a).a(href)";
-        var 前="/index.php/vod/show/id/";
-        var 后="/page/";
+        var 前="/index.php/vod/show/id";
+        var 后="page/";
         var 翻页后='.html'
         头部导航();
     }else if(类型.indexOf("MX Pro")!=-1){
