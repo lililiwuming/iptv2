@@ -144,7 +144,7 @@ if(类型.indexOf("网页")!=-1){
     头部导航();
 }else if(类型.indexOf("CMS")!=-1){
     var URL=首页地址+"?ac=list";
-    var 源码=JZ(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));alert(源码);
+    var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));alert(源码);
     /*if(类型.indexOf("json")!=-1){
         var 列表=e2Arr(源码,".json(class)");
         var 标题规则=".json(type_name)";
