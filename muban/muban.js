@@ -207,7 +207,11 @@ function 通用列表(){
     var LIMIT=列表.length;
     for(var j=0;j<LIMIT;j++){
         var CODE=列表[j];
-        var 地址=首页地址+e2Rex(CODE,地址规则);
+        if(类型.indexOf("iptv")!=-1){
+          var 地址=e2Rex(CODE,地址规则);
+        }else{
+          var 地址=首页地址+e2Rex(CODE,地址规则);
+        }
         var 标题=e2Rex(CODE,标题规则);
         var 图片=e2Rex(CODE,图片规则);
         var 播放源=e2Rex(CODE,播放源规则);
@@ -273,19 +277,19 @@ if(类型.indexOf("xml")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("vod")!=-1){
-    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data).json(list)");
     var 标题规则=".json(vod_name)";
-    var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
+    var 地址规则=".c(/detail?&vod_id=).json(vod_id)";
     var 图片规则=".json(vod_pic)";
-    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_play_from).ct(</b></font><br>)';
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_score).ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("iptv")!=-1){
-    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
-    var 标题规则=".json(vod_name)";
-    var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
-    var 图片规则=".json(vod_pic)";
-    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_play_from).ct(</b></font><br>)';
-    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
+    var 标题规则=".json(title)";
+    var 地址规则=".json(netlink)";
+    var 图片规则=".json(pic)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(type).ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(state).ct(</font></p>)';
     通用列表();
 }
