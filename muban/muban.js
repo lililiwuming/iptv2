@@ -65,7 +65,7 @@ var 类型=getVar("类型");
 var UA=getVar("UA");
 function 头部导航(){
     var res={};var items=[];
-    if(类型.indexOf("CMS")!=-1){
+    if(类型.indexOf("网页")==-1){
         for (var j=0;j<列表.length;j++){
           var 标题=e2Rex(列表[j],标题规则);
           var 地址=e2Rex(列表[j],地址规则);
@@ -128,7 +128,7 @@ if(类型.indexOf("网页")!=-1){
     var URL=首页地址+"nav";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     if(类型.indexOf("app")!=-1){
-        var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");alert(列表);
+        var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
         var 标题规则=".json(type_name)";
         var 地址规则=".json(type_id)";
         var 前="&ac=videolist&t=";
