@@ -222,9 +222,9 @@ function 通用列表(){
     play_.list=LIST;
     items.push(play_);
     res.data=items;
-    if(首页地址.indexOf("t=")!=-1){
-        res.下一页=首页地址+"pg="+下页;
-        res.上一页=首页地址+"pg="+上页;
+    if(地址.indexOf("t=")!=-1){
+        res.nextpage=地址+"pg="+下页;
+        res.lastpage=地址+"pg="+上页;
     }else{
         res.下一页=首页地址+"?ac=videolist&pg="+下页;
         res.上一页=首页地址+"?ac=videolist&pg="+上页;
