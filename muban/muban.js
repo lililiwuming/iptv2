@@ -84,6 +84,7 @@ function 头部导航(){
               var 地址=e2Rex(列表[j],地址规则).split("vodtype/")[1].split(".html")[0];
               var 分类地址=首页地址+前+地址+后;
               items.push({title:标题,url:分类地址,mode:"JSOUP",翻页后:翻页后});
+          }
         }
     }
     res.data=items;
