@@ -316,9 +316,9 @@ if(类型.indexOf("xml")!=-1){
     通用列表();
 }
 ######首页推荐7
-var 源码=getVar("源");
 var 首页地址=getVar("首页地址");
 var 类型=getVar("类型");
+var UA=getVar("UA");
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     var LIMIT=列表.length;
