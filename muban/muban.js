@@ -346,7 +346,11 @@ function 通用列表(){
     return JSON.stringify(res);
 }
 if(类型.indexOf("xml")!=-1){
-    var 列表=e2Arr(源码,'.xml(list video)');
+    var URL=首页地址+"?ac=videolist"
+    var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
+    var 分类=e2Arr(源码.replace(/<.*?>/g,""),".c()");
+    var 分类标题规则="最新";
+    var 列表规则='.xml(list video)';
     var 标题规则='.xml(name).ty(CDATA[).tz2(]])';
     var 地址规则='.c(?ac=videolist&ids=).xml(id).z(\\d+)';
     if(首页地址.indexOf("mac")!=-1){
@@ -370,7 +374,11 @@ if(类型.indexOf("xml")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("mc10")!=-1){
-    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
+    var URL=首页地址+"?ac=videolist"
+    var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
+    var 分类=e2Arr(源码.replace(/<.*?>/g,""),".c()");
+    var 分类标题规则="最新";
+    var 列表规则=".json(list)";
     var 标题规则=".json(vod_name).or().json(art_name)";
     var 地址规则=".c(?ac=videolist&ids=).json(vod_id).or().json(art_id)";
     var 图片规则=".json(vod_pic).or().json(art_pic)";
