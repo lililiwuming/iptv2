@@ -582,58 +582,58 @@ function 选集列表(){
     return JSON.stringify(res);
 }
 if(类型.indexOf("xml")!=-1){
-    var 简介=e2Rex(vCODE,".c(类型:).xml(type).c(<br>演员表:).xml(actor).c(<br>简介:).xml(des)");
-    var 分类=e2Arr(vCODE,".get(dd)");
+    var 简介=e2Rex(源,".c(类型:).xml(type).c(<br>演员表:).xml(actor).c(<br>简介:).xml(des)");
+    var 分类=e2Arr(源,".get(dd)");
     var 标题规则=".a(flag)";
     var 列表规则=".z2(CDATA\\[\\([\\s\\S]*?\\)[#]*?\\]).fg(#)";
     var 选集规则=".tz($)";
     var 选集地址规则=".z2(\\$\\([^\$|&]*\\)).or().z(.*)";
     选集列表();
 }else if(类型.indexOf("飞飞")!=-1){
-    var 简介=e2Rex(vCODE,".c(演员表:).json(data).json(vod_actor).c(<br>简介:).json(data).json(vod_content)");
-    var 分类=e2Arr(vCODE.replace(/<.*?>/g,""),".json(data).json(vod_url).fg(\\$\\$\\$)");
-    var 线路=e2Arr(vCODE,".json(data).json(vod_play).fg(\\$\\$\\$)");
+    var 简介=e2Rex(源,".c(演员表:).json(data).json(vod_actor).c(<br>简介:).json(data).json(vod_content)");
+    var 分类=e2Arr(源.replace(/<.*?>/g,""),".json(data).json(vod_url).fg(\\$\\$\\$)");
+    var 线路=e2Arr(源,".json(data).json(vod_play).fg(\\$\\$\\$)");
     var 标题规则=".t()";
     var 列表规则=".fg(#)";
     var 选集规则=".tz($)";
     var 选集地址规则=".z2(\\$\\(.*\\)).or().z(.*)";
     选集列表();
 }else if(类型.indexOf("json")!=-1||类型.indexOf("mc10")!=-1){
-    var 简介=e2Rex(vCODE,".c(演员表:).json(list).json(vod_actor).c(<br>简介:).json(list).json(vod_content)");
-    var 分类=e2Arr(vCODE.replace(/<.*?>/g,""),".json(list).json(vod_play_url).fg(\\$\\$\\$)");
-    var 线路=e2Arr(vCODE.replace(/<.*?>/g,""),".json(list).json(vod_play_from).fg(\\$\\$\\$)");
+    var 简介=e2Rex(源,".c(演员表:).json(list).json(vod_actor).c(<br>简介:).json(list).json(vod_content)");
+    var 分类=e2Arr(源.replace(/<.*?>/g,""),".json(list).json(vod_play_url).fg(\\$\\$\\$)");
+    var 线路=e2Arr(源.replace(/<.*?>/g,""),".json(list).json(vod_play_from).fg(\\$\\$\\$)");
     var 标题规则=".t()";
     var 列表规则=".fg(#)";
     var 选集规则=".tz($)";
     var 选集地址规则=".z2(\\$\\(.*\\)).or().z(.*)";
     选集列表();
 }else if(类型.indexOf("app")!=-1){
-    var 简介=e2Rex(vCODE,'.json(data).json(vod_content)');
-    var 分类=e2Arr(vCODE,'.json(data).json(vod_url_with_player)');
+    var 简介=e2Rex(源,'.json(data).json(vod_content)');
+    var 分类=e2Arr(源,'.json(data).json(vod_url_with_player)');
     var 标题规则='.json(name).c(-).json(code)';
     var 列表规则='.json(url).ct(#).z(.*?\\$.*?#)';
     var 选集规则='.z2(\\(.+?\\)\\$)';
     var 选集地址规则='.z2(\\$\(.+?\\)[#|\"])';
     选集列表();
 }else if(URL.indexOf("v1")!=-1||URL.indexOf("v2")!=-1){
-    var 简介=e2Rex(vCODE,'.json(data).json(vod_info).json(vod_content)');
-    var 分类=e2Arr(vCODE,'.json(data).json(vod_info).json(vod_url_with_player)');
+    var 简介=e2Rex(源,'.json(data).json(vod_info).json(vod_content)');
+    var 分类=e2Arr(源,'.json(data).json(vod_info).json(vod_url_with_player)');
     var 标题规则='.json(name).c(-).json(code)';
     var 列表规则='.json(url).ct(#).z(.*?\\$.*?#)';
     var 选集规则='.z2(\\(.+?\\)\\$)';
     var 选集地址规则='.z2(\\$\\(.+?\\)[#|\"])';
     选集列表();
 }else if(类型.indexOf("vod")!=-1){
-    var 简介=e2Rex(vCODE,'.json(data).json(vod_content)');
-    var 分类=e2Arr(vCODE.replace(/\s+/g,""),'.json(data).json(vod_play_list)');
+    var 简介=e2Rex(源,'.json(data).json(vod_content)');
+    var 分类=e2Arr(源.replace(/\s+/g,""),'.json(data).json(vod_play_list)');
     var 标题规则='.json(player_info).json(show).c(-).json(player_info).json(from)';
     var 列表规则='.json(url).ct(#).z(.*?\\$.*?#)';
     var 选集规则='.z2(\\(.+?\\)\\$)';
     var 选集地址规则='.z2(\\$\\(.+?\\)[#|\"])';
     选集列表();
 }else if(类型.search("iptv")!=-1){
-    var 简介=e2Arr(vCODE,'.json(intro)');
-    var 分类=e2Arr(vCODE,'.json(videolist).z(\".*?\\])');
+    var 简介=e2Arr(源,'.json(intro)');
+    var 分类=e2Arr(源,'.json(videolist).z(\".*?\\])');
     var 标题规则='.z2(\"\\(.*?\\)\")';
     var 列表规则='.z(\\{.*?\\})';
     var 选集规则='.json(title)';
