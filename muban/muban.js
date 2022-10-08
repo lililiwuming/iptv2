@@ -323,7 +323,7 @@ function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<分类.length;j++){
       var 分类标题=e2Rex(分类[j],分类标题规则);
-      var 列表=e2Rex(分类[j],列表规则);
+      var 列表=e2Arr(分类[j],列表规则);
       for(var i=0;i<列表.length;i++){
         if(类型.indexOf("iptv")!=-1){
           var 地址=e2Rex(列表[i],地址规则);
@@ -377,7 +377,6 @@ if(类型.indexOf("xml")!=-1){
     var URL=首页地址+"index_video";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码.replace(/<.*?>/g,""),".json(list)";
-    alert(首页地址);
     var 分类标题规则=".json(type_name)";
     var 列表规则=".json(vlist)";
     var 标题规则=".json(vod_name)";
