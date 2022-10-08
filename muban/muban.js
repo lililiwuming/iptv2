@@ -346,7 +346,7 @@ function 通用列表(){
     return JSON.stringify(res);
 }
 if(类型.indexOf("xml")!=-1){
-    var URL=首页地址+"?ac=videolist"
+    var URL=首页地址+"?ac=videolist";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));;
     var 分类=e2Arr(源码,".c()");
     var 分类标题规则="最新";
@@ -362,7 +362,7 @@ if(类型.indexOf("xml")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).xml(type).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("json")!=-1){
-    var URL=首页地址+"?ac=videolist"
+    var URL=首页地址+"?ac=videolist";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码.replace(/<.*?>/g,""),".c()");
     var 分类标题规则="最新";
@@ -374,7 +374,7 @@ if(类型.indexOf("xml")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("mc10")!=-1){
-    var URL=首页地址+"?ac=videolist"
+    var URL=首页地址+"?ac=videolist";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码.replace(/<.*?>/g,""),".c()");
     var 分类标题规则="最新";
@@ -434,7 +434,11 @@ if(类型.indexOf("xml")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("iptv")!=-1){
-    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
+    var URL=首页地址+"?ac=list";
+    var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
+    var 分类=e2Arr(源码.replace(/<.*?>/g,""),".c()");
+    var 分类标题规则="最新";
+    var 列表规则=".json(data)";
     var 标题规则=".json(title)";
     var 地址规则=".json(nextlink)";
     var 图片规则=".json(pic)";
