@@ -156,7 +156,8 @@ if(类型.indexOf("xml")!=-1){
     头部导航();
 }else if(类型.indexOf("MXone Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".css(div.sidebar div ul>li)");
+    //var 列表=e2Arr(源码,".css(div.sidebar div ul>li)");
+    var 列表=e2Arr(源码,".get(a[href~=/vod/type/.+])");
     var 标题规则=".css(a).t()";
     var 地址规则=".css(a).a(href)";
     var 前="/index.php/vod/show/id/";
