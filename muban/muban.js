@@ -435,7 +435,7 @@ if(类型.indexOf("xml")!=-1){
     通用列表();
 }else if(类型.indexOf("MXone Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    if(分类.indexOf("追剧周表")!=-1&&分类.indexOf("热榜")!=-1){
+    if(源码.indexOf("追剧周表")!=-1&&源码.indexOf("热榜")!=-1){
         var 分类=e2Arr(源码,".css(div.content div.module).i(1,-2)");
     }else{
         var 分类=e2Arr(源码,".css(div.content div.module)");
