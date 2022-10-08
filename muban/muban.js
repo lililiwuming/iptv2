@@ -581,6 +581,7 @@ function 选集列表(){
     res.desc=detail;
     return JSON.stringify(res);
 }
+var 源=getVar("源");
 if(类型.indexOf("xml")!=-1){
     var 简介=e2Rex(源,".c(类型:).xml(type).c(<br>演员表:).xml(actor).c(<br>简介:).xml(des)");
     var 分类=e2Arr(源,".get(dd)");
