@@ -76,7 +76,7 @@ function 头部导航(){
         for(var j=0;j<列表.length;j++){
           if(e2Rex(列表[j],地址规则).indexOf("id")!=-1){
             var 标题=e2Rex(列表[j],标题规则);
-            var 地址=e2Rex(列表[j],地址规则);
+            var 地址=e2Rex(列表[j],地址规则).match(/[0-9]/);
             var 分类地址=首页地址+前+地址+后;
             items.push({title:标题,url:分类地址,mode:"JSOUP",翻页后:翻页后});
           }else if(e2Rex(列表[j],地址规则).indexOf("vodtype")!=-1){
