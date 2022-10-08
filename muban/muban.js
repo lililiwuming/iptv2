@@ -377,7 +377,7 @@ if(类型.indexOf("xml")!=-1){
     var URL=首页地址+"index_video"
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码.replace(/<.*?>/g,""),".json(list)";
-    alert(源码);
+    alert(URL);
     var 分类标题规则=".json(type_name)";
     var 列表规则=".json(vlist)";
     var 标题规则=".json(vod_name)";
