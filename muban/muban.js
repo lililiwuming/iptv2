@@ -374,7 +374,7 @@ if(类型.indexOf("xml")!=-1){
 }else if(类型.indexOf("app")!=-1){
     var URL=首页地址+"index_video"
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list).json(vlist)";
     var 标题规则=".json(vod_name)";
     var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
     var 图片规则=".json(vod_pic)";
