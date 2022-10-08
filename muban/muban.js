@@ -322,27 +322,29 @@ var UA=getVar("UA");
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<分类.length;j++){
-      var 分类标题=e2Rex(分类[j],分类标题规则);
-      var 列表=e2Arr(分类[j],列表规则);
-      for(var i=0;i<列表.length;i++){
-        if(类型.indexOf("iptv")!=-1){
-          var 地址=e2Rex(列表[i],地址规则);
-        }else{
-          var 地址=首页地址+e2Rex(列表[i],地址规则);
+        var 分类标题=e2Rex(分类[j],分类标题规则);
+        var 列表=e2Arr(分类[j],列表规则);
+        var LIST=[];
+        for(var i=0;i<列表.length;i++){
+            if(类型.indexOf("iptv")!=-1){
+                var 地址=e2Rex(列表[i],地址规则);
+            }else{
+                var 地址=首页地址+e2Rex(列表[i],地址规则);
+            }
+            var 标题=e2Rex(列表[i],标题规则);
+            var 图片=e2Rex(列表[i],图片规则);
+            var 播放源=e2Rex(列表[i],播放源规则);
+            var 状态=e2Rex(列表[i],状态规则);
+            LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态});
         }
-        var 标题=e2Rex(列表[i],标题规则);
-        var 图片=e2Rex(列表[i],图片规则);
-        var 播放源=e2Rex(列表[i],播放源规则);
-        var 状态=e2Rex(列表[i],状态规则);
-        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态});
+        var play_={};
+        play_.list=LIST;
+        play_.title=分类标题;
+        items.push(play_);
     }
-    var play_={};
-    play_.list=LIST;
-    play_.title=分类标题;
-    items.push(play_);
     res.data=items;
     return JSON.stringify(res);
-} }
+}
 if(类型.indexOf("xml")!=-1){
     var 列表=e2Arr(源码,'.xml(list video)');
     var 标题规则='.xml(name).ty(CDATA[).tz2(]])';
