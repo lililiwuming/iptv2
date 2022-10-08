@@ -382,7 +382,7 @@ if(类型.indexOf("xml")!=-1){
     var 分类标题规则=".json(type_name)";
     var 列表规则=".json(vlist)";
     var 标题规则=".json(vod_name)";
-    var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
+    var 地址规则=".c(video_detail?id=).json(vod_id)";
     var 图片规则=".json(vod_pic)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_score).ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
@@ -394,7 +394,7 @@ if(类型.indexOf("xml")!=-1){
     var 分类标题规则=".json(type_name)";
     var 列表规则=".json(vlist)";
     var 标题规则=".json(vod_name)";
-    var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
+    var 地址规则=".c(video_detail?id=).json(vod_id)";
     var 图片规则=".json(vod_pic)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_score).ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
@@ -403,16 +403,20 @@ if(类型.indexOf("xml")!=-1){
     var URL=首页地址+"index_video";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
-    var 分类标题规则=".json(type_name)";
+    var 分类标题规则=".json(name)";
     var 列表规则=".json(vlist)";
     var 标题规则=".json(vod_name)";
-    var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
+    var 地址规则=".c(video_detail?id=).json(vod_id)";
     var 图片规则=".json(vod_pic)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_score).ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("vod")!=-1){
-    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data).json(list)");
+    var URL=首页地址+"/vodPhbAll";
+    var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
+    var 分类=e2Arr(源码.replace(/<.*?>/g,""),".json(data).json(list)");
+    var 分类标题规则=".json(vod_type_name)";
+    var 列表规则=".json(vod_list)";
     var 标题规则=".json(vod_name)";
     var 地址规则=".c(/detail?&vod_id=).json(vod_id)";
     var 图片规则=".json(vod_pic)";
