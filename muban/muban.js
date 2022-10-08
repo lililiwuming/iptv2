@@ -360,7 +360,7 @@ if(类型.indexOf("xml")!=-1){
 }else if(类型.indexOf("json")!=-1){
     var URL=首页地址+"?ac=videolist"
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
-    var 分类=e2Arr(源码.replace(/<.*?>/g,""),".json()");
+    var 分类=e2Arr(源码.replace(/<.*?>/g,""),".c()");
     var 分类标题规则="最新";
     var 列表规则=".json(list)";
     var 标题规则=".json(vod_name)";
