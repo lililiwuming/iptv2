@@ -473,7 +473,7 @@ if(类型.indexOf("xml")!=-1){
 
 ######重组选集9
 var 类型=getVar("类型");
-var 首页地址=getVar("首页地址");
+var URL=getVar("地址");
 function 选集列表(){
     var res={};var items=[];var detail=[];
     for(var i=0;i<分类.length;i++){
@@ -484,7 +484,7 @@ function 选集列表(){
         }else{
             var 标题=e2Rex(分类CODE,标题规则);
         }
-        if(URL.indexOf(".vod")!=-1){
+        if(类型.indexOf("vod")!=-1){
             var PARSE=e2Rex(分类CODE,".json(player_info).json(parse)").split(",");
             var PARSE2=e2Rex(分类CODE,".json(player_info).json(parse2)").split(",");
             var 总接口=PARSE2.concat(PARSE).filter(item => item.search(/\/.+\?.+=/)!=-1);
@@ -503,7 +503,7 @@ function 选集列表(){
             }else{
                 var 接口="";
             }
-        }else if(URL.indexOf("api.php/app")!=-1||URL.indexOf("xgapp")!=-1||URL.indexOf("xgtv")!=-1){
+        }else if(类型.indexOf("app")!=-1||类型.indexOf("v1")!=-1||类型.indexOf("v2")!=-1){
             var 接口=e2Rex(分类CODE,".json(parse_api)");
         }else{
             var 接口="";
@@ -616,7 +616,7 @@ if(类型.indexOf("xml")!=-1){
     var 选集规则='.z2(\\(.+?\\)\\$)';
     var 选集地址规则='.z2(\\$\(.+?\\)[#|\"])';
     选集列表();
-}else if(URL.indexOf("v1")!=-1||URL.indexOf("v2")!=-1){
+}else if(类型.indexOf("v1")!=-1||类型.indexOf("v2")!=-1){
     var 简介=e2Rex(源,'.json(data).json(vod_info).json(vod_content)');
     var 分类=e2Arr(源,'.json(data).json(vod_info).json(vod_url_with_player)');
     var 标题规则='.json(name).c(-).json(code)';
