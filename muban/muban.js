@@ -158,8 +158,8 @@ if(类型.indexOf("xml")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     //var 列表=e2Arr(源码,".css(div.sidebar div ul>li)");
     var 列表=e2Arr(源码,".get(div.sidebar a[href~=/vod/type/.+])");
-    var 标题规则=".css(a).t()";
-    var 地址规则=".css(a).a(href).z([0-9])";
+    var 标题规则=".get(a).t()";
+    var 地址规则=".get(a[href~=[0-9]])";
     var 前="/index.php/vod/show/id/";
     var 后="/page/";
     var 翻页后='.html';
