@@ -76,7 +76,7 @@ function 头部导航(){
         for(var j=0;j<列表.length;j++){
           if(e2Rex(列表[j],地址规则).indexOf("id")!=-1){
             var 标题=e2Rex(列表[j],标题规则);
-            var 地址=e2Rex(列表[j],地址规则).split("id/")[1].split(".html")[0];
+            var 地址=e2Rex(列表[j],地址规则);
             var 分类地址=首页地址+前+地址+后;
             items.push({title:标题,url:分类地址,mode:"JSOUP",翻页后:翻页后});
           }else if(e2Rex(列表[j],地址规则).indexOf("vodtype")!=-1){
@@ -157,9 +157,9 @@ if(类型.indexOf("xml")!=-1){
 }else if(类型.indexOf("MXone Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     //var 列表=e2Arr(源码,".css(div.sidebar div ul>li)");
-    var 列表=e2Arr(源码,".get(a[href~=/vod/type/.+])");
+    var 列表=e2Arr(源码,".get(div.sidebar a[href~=/vod/type/.+])");
     var 标题规则=".css(a).t()";
-    var 地址规则=".css(a).a(href)";
+    var 地址规则=".css(a).a(href).z2(^[0-9]*$)";
     var 前="/index.php/vod/show/id/";
     var 后="/page/";
     var 翻页后='.html';
