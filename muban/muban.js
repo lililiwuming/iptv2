@@ -69,7 +69,7 @@ function 头部导航(){
         for (var j=0;j<列表.length;j++){
           var 标题=e2Rex(列表[j],标题规则);
           var 地址=e2Rex(列表[j],地址规则);
-          var 分类地址=首页地址+e2Rex(CODE,地址规则);
+          var 分类地址=首页地址+e2Rex(列表[j],地址规则);
           items.push({title:标题,url:分类地址,mode:"OKHTTP",翻页后:翻页后});
         }
     }else if(类型.indexOf("网页")!=-1){
