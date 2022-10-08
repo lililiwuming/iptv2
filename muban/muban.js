@@ -159,7 +159,7 @@ if(类型.indexOf("xml")!=-1){
     //var 列表=e2Arr(源码,".css(div.sidebar div ul>li)");
     var 列表=e2Arr(源码,".get(div.sidebar a[href~=/vod/type/.+])");
     var 标题规则=".css(a).t()";
-    var 地址规则=".css(a).a(href).z2(^[0-9]*$)";
+    var 地址规则=".css(a).a(href).z2([1-9])";
     var 前="/index.php/vod/show/id/";
     var 后="/page/";
     var 翻页后='.html';
