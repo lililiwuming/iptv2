@@ -348,7 +348,7 @@ function 通用列表(){
 if(类型.indexOf("xml")!=-1){
     var URL=首页地址+"?ac=videolist"
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
-    var 分类=e2Arr(源码.replace(/<.*?>/g,""),".c()");
+    var 分类=e2Arr(源码.replace(/<.*?>/g,""),".t()");
     var 分类标题规则="最新";
     var 列表规则='.xml(list video)';
     var 标题规则='.xml(name).ty(CDATA[).tz2(]])';
