@@ -202,7 +202,12 @@ function 通用列表(){
         var 图片=e2Rex(CODE,图片规则);
         var 播放源=e2Rex(CODE,播放源规则);
         var 状态=e2Rex(CODE,状态规则);
-        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态});
+        if(类型.indexOf("网页")!=-1){
+            var mode="JSOUP";
+        }else{
+            var mode="OKHTTP";
+        }
+        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态,mode:mode});
     }
     var play_={};
     play_.list=LIST;
@@ -323,7 +328,12 @@ function 通用列表(){
             var 图片=e2Rex(列表[i],图片规则);
             var 播放源=e2Rex(列表[i],播放源规则);
             var 状态=e2Rex(列表[i],状态规则);
-            LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态});
+            if(类型.indexOf("网页")!=-1){
+                var mode="JSOUP";
+            }else{
+                var mode="OKHTTP";
+            }
+            LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态,mode:mode});
         }
         var play_={};
         play_.list=LIST;
