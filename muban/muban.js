@@ -321,22 +321,24 @@ var 类型=getVar("类型");
 var UA=getVar("UA");
 function 通用列表(){
     var res={};var items=[];var LIST=[];
-    var LIMIT=列表.length;
-    for(var j=0;j<LIMIT;j++){
-        var CODE=列表[j];
+    for(var j=0;j<分类.length;j++){
+      var 分类标题=e2Rex(分类[j],分类标题规则);
+      var 列表=e2Rex(分类[j],列表规则);
+      for(var i=0;i<列表.length;i++){
         if(类型.indexOf("iptv")!=-1){
-          var 地址=e2Rex(CODE,地址规则);
+          var 地址=e2Rex(列表[i],地址规则);
         }else{
-          var 地址=首页地址+e2Rex(CODE,地址规则);
+          var 地址=首页地址+e2Rex(列表[i],地址规则);
         }
-        var 标题=e2Rex(CODE,标题规则);
-        var 图片=e2Rex(CODE,图片规则);
-        var 播放源=e2Rex(CODE,播放源规则);
-        var 状态=e2Rex(CODE,状态规则);
+        var 标题=e2Rex(列表[i],标题规则);
+        var 图片=e2Rex(列表[i],图片规则);
+        var 播放源=e2Rex(列表[i],播放源规则);
+        var 状态=e2Rex(列表[i],状态规则);
         LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态});
     }
     var play_={};
     play_.list=LIST;
+    play_.title=分类标题;
     items.push(play_);
     res.data=items;
     return JSON.stringify(res);
@@ -374,7 +376,9 @@ if(类型.indexOf("xml")!=-1){
 }else if(类型.indexOf("app")!=-1){
     var URL=首页地址+"index_video"
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list).json(vlist)";
+    var 分类=e2Arr(源码.replace(/<.*?>/g,""),".json(list)";
+    var 分类标题规则=".json(type_name)";
+    var 列表规则=".json(vlist)";
     var 标题规则=".json(vod_name)";
     var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
     var 图片规则=".json(vod_pic)";
