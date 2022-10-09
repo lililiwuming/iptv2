@@ -102,7 +102,7 @@ function 头部导航(){
     }else if(类型.indexOf("网页")!=-1){
         for(var j=0;j<列表.length;j++){
             var 标题=e2Rex(列表[j],标题规则);
-            var ID=e2Rex(列表[j],地址规则);
+            var ID=e2Rex(列表[j],地址规则).match('/[0-9]/');
             var 分类地址=首页地址+分类url.replace('#ID',ID).split('#PN#')[0]+分类url.split('#PN#')[1].split('.html')[0];
             items.push({title:标题,url:分类地址,mode:"JSOUP",翻页后:翻页后});
         }
