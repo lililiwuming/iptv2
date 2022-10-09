@@ -484,6 +484,7 @@ if(类型.indexOf("xml")!=-1){
 
 ######重组选集9
 var 类型=getVar("类型");
+var 首页地址=getVar("首页地址");
 var URL=getVar("地址");
 function 选集列表(){
     var res={};var items=[];var detail=[];
@@ -533,7 +534,7 @@ function 选集列表(){
                 }else{
                     选集=j+1;
                 }
-            }else{
+            }else if(类型.indexOf("接口")!=-1){
                 if(类型.search("iptv")!=-1){
                     var 选集=e2Rex(列表[j],选集规则);
                     var 选集地址=e2Rex(列表[j],选集地址规则);
@@ -550,6 +551,10 @@ function 选集列表(){
                     var 选集地址=e2Rex(列表[j],选集地址规则);
                     var 接口=接口;
                 }
+            }else if(类型.indexOf("网页")!=-1){
+                var 选集=e2Rex(列表[j],选集规则);
+                var 选集地址=首页地址+e2Rex(列表[j],选集地址规则);
+                var 接口="";
             }
             if(接口.indexOf("cache.tegouys.com")!=-1||接口.indexOf("lswwe.com")!=-1||接口.indexOf("x-n.cc")!=-1||接口.indexOf("20.239.162.68")!=-1||接口.indexOf("jhsj.manduhu.com")!=-1||接口.indexOf("v.jhdyw.vip/nhdz666")!=-1||接口.indexOf("svip.jhyun.jx.cn")!=-1||接口.indexOf("svip.jhdyw.vip")!=-1||接口.indexOf("api.xvtt.cn")!=-1||接口.indexOf("svip.jiexi.de")!=-1){
                 接口="";
