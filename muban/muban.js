@@ -666,7 +666,7 @@ if(类型.indexOf("xml")!=-1){
     var 线路=e2Arr(源,'.z(data-dropdown-value=".+?")');
     var 标题规则='.ty(").tz(")';
     var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+])';
-    var 选集规则='.get(span).t()';
+    var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
 }
