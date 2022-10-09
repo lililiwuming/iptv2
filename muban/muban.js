@@ -1,5 +1,5 @@
 ######模板列表1
-$$$$网页-1
+####网页-1
 **模板类型
 网页-MXone Pro--1
 **分类地址
@@ -8,8 +8,8 @@ $$$$网页-1
 /index.php/vod/search/page/#PN#/wd/#KEY#.html
 **UA
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50
-$$$$
-$$$$网页-2
+
+####网页-2
 **模板类型
 网页-MXone Pro--2
 **分类地址
@@ -18,8 +18,8 @@ $$$$网页-2
 /vodsearch/#KEY#----------#PN#---.html
 **UA
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50
-$$$$
-$$$$网页-3
+
+####网页-3
 **模板类型
 网页-MX Pro--1
 **分类地址
@@ -28,8 +28,8 @@ $$$$网页-3
 /index.php/vod/search/page/#PN#/wd/#KEY#.html
 **UA
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50
-$$$$
-$$$$网页-4
+
+####网页-4
 **模板类型
 网页-MX(采集站)
 **分类地址
@@ -38,8 +38,8 @@ $$$$网页-4
 /index.php/vod/search/page/#PN#/wd/#KEY#.html
 **UA
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50
-$$$$
-$$$$采集接口-5
+
+####采集接口-5
 **模板类型
 接口-CMS(json)
 **分类地址
@@ -48,8 +48,8 @@ $$$$采集接口-5
 ?ac=videolist&wd=#KEY#&pg=#PN#
 **UA
 Dalvik/2.1.0
-$$$$
-$$$$采集接口-6
+
+####采集接口-6
 **模板类型
 接口-CMS(xml)
 **分类地址
@@ -58,8 +58,8 @@ $$$$采集接口-6
 ?ac=videolist&wd=#KEY#&pg=#PN#
 **UA
 Dalvik/2.1.0
-$$$$
-$$$$采集接口-7
+
+####采集接口-7
 **模板类型
 接口-CMS(mc10)
 **分类地址
@@ -68,8 +68,8 @@ $$$$采集接口-7
 ?ac=videolist&wd=#KEY#&pg=#PN#
 **UA
 Dalvik/2.1.0
-$$$$
-$$$$APP-8
+
+####APP-8
 **模板类型
 接口-APP(app)
 **分类地址
@@ -78,8 +78,8 @@ video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#
 search?test=#KEY#&pg=#PN#
 **UA
 Dart/2.14 (dart:io)
-$$$$
-$$$$APP-9
+
+####APP-9
 **模板类型
 接口-APP(v1)
 **分类地址
@@ -88,8 +88,8 @@ video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#
 search?test=#KEY#&pg=#PN#
 **UA
 Dart/2.14 (dart:io)
-$$$$
-$$$$APP-10
+
+####APP-10
 **模板类型
 接口-APP(v2)
 **分类地址
@@ -98,8 +98,8 @@ video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#
 search?test=#KEY#&pg=#PN#
 **UA
 Dart/2.14 (dart:io)
-$$$$
-$$$$APP-11
+
+####APP-11
 **模板类型
 接口-APP(vod)
 **分类地址
@@ -108,8 +108,8 @@ $$$$APP-11
 ?wd=#KEY#&page=#PN#
 **UA
 okhttp/4.1.0
-$$$$
-$$$$APP-12
+
+####APP-12
 **模板类型
 接口-iptv(zm)
 **分类地址
@@ -118,8 +118,8 @@ $$$$APP-12
 ?ac=list&zm=#KEY#&page=#PN#
 **UA
 Dalvik/2.1.0
-$$$$
-$$$$APP
+
+####APP
 **模板类型
 接口-iptv(wd)
 **分类地址
@@ -128,7 +128,7 @@ $$$$APP
 ?ac=list&wd=#KEY#&page=#PN#
 **UA
 Dalvik/2.1.0
-$$$$
+
 ######UA列表2
 
 ######本地新增3
