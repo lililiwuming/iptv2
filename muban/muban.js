@@ -667,11 +667,27 @@ if(类型.indexOf("xml")!=-1){
     选集列表();
 }else if(类型.search("MXone Pro")!=-1){
     var 简介=e2Arr(源,'.get(div.module-info-introduction-content).t()');
-    //var 分类=e2Arr(源,'.get(div.module-play-list)');
     var 分类=e2Arr(源,'.get(div[id~=panel.*])');
     var 线路=e2Arr(源,'.z(data-dropdown-value=".+?")');
     var 标题规则='.ty(").tz(")';
     var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+])';
+    var 选集规则='.get(a).t()';
+    var 选集地址规则='.get(a).a(href)';
+    选集列表();
+}else if(类型.search("MX Pro")!=-1){
+    var 简介=e2Arr(源,'.get(div.video-info-items).t()');
+    var 分类=e2Arr(源,'.get(div[id~=glist.*])');
+    var 线路=e2Arr(源,'.z(data-dropdown-value=".+?")');
+    var 标题规则='.ty(").tz(")';
+    var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+])';
+    var 选集规则='.get(a).t()';
+    var 选集地址规则='.get(a).a(href)';
+    选集列表();
+}else if(类型.search("MX(采集站)")!=-1){
+    var 简介=e2Arr(源,'.get(div[id~=desc.*]).t()');
+    var 分类=e2Arr(源,'.get(div[id~=playlist.*])');
+    var 标题规则='.get(h3).t()';
+    var 列表规则='.get(li)';
     var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
