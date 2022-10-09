@@ -102,7 +102,7 @@ function 头部导航(){
     }else if(类型.indexOf("网页")!=-1){
         for(var j=0;j<列表.length;j++){
             var 标题=e2Rex(列表[j],标题规则);
-            var ID=e2Rex(列表[j],地址规则).match(/[0-9]/);
+            var ID=e2Rex(列表[j],地址规则);
             var 分类地址=首页地址+分类url;
             items.push({title:标题,ID:ID,url:分类地址,mode:"JSOUP",翻页后:翻页后});
         }
@@ -180,8 +180,6 @@ if(类型.indexOf("xml")!=-1){
     var 列表=e2Arr(源码,".get(div.sidebar a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vodtype/.+]).or().get(div.sidebar a[href~=/type/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则='.get(a).a(href)';
-    var 前="/index.php/vod/show/id/";
-    var 后="/page/";
     var 翻页后='';
     头部导航();
 }else if(类型.indexOf("MX Pro")!=-1){
@@ -189,8 +187,6 @@ if(类型.indexOf("xml")!=-1){
     var 列表=e2Arr(源码,".get(div.nav-menu-item a[href~=/vod/type/.+]).or().get(div.nav ul>li)");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 前="/index.php/vod/show/id/";
-    var 后="/page/";
     var 翻页后='';
     头部导航();
 }else if(类型.indexOf("MX(采集站)")!=-1){
@@ -198,8 +194,6 @@ if(类型.indexOf("xml")!=-1){
     var 列表=e2Arr(源码,".get(div.container div ul.stui-header__menu.clearfix>li)");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 前="/index.php/vod/type/id/";
-    var 后="/page/";
     var 翻页后='';
     头部导航();
 }
