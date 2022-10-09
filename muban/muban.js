@@ -581,7 +581,7 @@ function 选集列表(){
                 接口="";
                 选集地址=选集地址.replace("CMV-","https://cokemv.me/vodplay/")+".html";
             }else if(类型.indexOf("网页")!=-1){
-                接口=接口;
+                接口="";
                 选集地址=选集地址;
             }else{
                 接口=接口;
