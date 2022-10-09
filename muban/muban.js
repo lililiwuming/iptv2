@@ -465,7 +465,7 @@ if(类型.indexOf("xml")!=-1){
     通用列表();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".get(div.module.module-wrapper)");
+    var 分类=e2Arr(源码,".get(div.content div.module.module-wrapper)");
     var 标题规则=".get(h2).t()";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-src)";
@@ -474,7 +474,7 @@ if(类型.indexOf("xml")!=-1){
     通用列表();
 }else if(类型.indexOf("MX")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".css(ul.stui-vodlist.clearfix li).i(1,-1)");
+    var 分类=e2Arr(源码,".css(ul.stui-vodlist.clearfix li).i(1,-1)");
     var 标题规则=".css(h3 a).a(title)";
     var 地址规则=".css(h3 a).a(href)";
     var 图片规则="http://43.140.205.222:4433/mxtheme/images/load.gif";
