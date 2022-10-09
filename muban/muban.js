@@ -466,8 +466,9 @@ if(类型.indexOf("xml")!=-1){
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码,".get(div.content div.module.module-wrapper)");
-    var 标题规则=".get(h2).t()";
+    var 分类标题规则=".css(h2).t()";
     var 列表规则=".css(div.module-item)";
+    var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(psan.video-class).t().ct(</b></font><br>)';
@@ -476,8 +477,9 @@ if(类型.indexOf("xml")!=-1){
 }else if(类型.indexOf("MX")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码,".css(ul.stui-vodlist.clearfix li).i(1,-1)");
-    var 标题规则=".css(h3).a(title)";
+    var 分类标题规则=".css(h3).a(title)";
     var 列表规则=".css(div.module-items a)";
+    var 标题规则=".css(a).a(title)";
     var 地址规则=".css(h3 a).a(href)";
     var 图片规则="http://43.140.205.222:4433/mxtheme/images/load.gif";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).css(span.time).t().ct(</b></font><br>)';
