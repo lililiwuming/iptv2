@@ -301,7 +301,7 @@ if(类型.indexOf("xml")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(state).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("MXone Pro")!=-1){
-    var 列表=e2Arr(源码,".get(div.content div.module div.module-poster-item.module-item)");
+    var 列表=e2Arr(源码,".get(a[href~=/vod/detail/.+]).or().get(a[href~=/voddetail/.+])");
     var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original)";
