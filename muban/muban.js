@@ -96,7 +96,9 @@ function 头部导航(){
         for (var j=0;j<列表.length;j++){
           var 标题=e2Rex(列表[j],标题规则);
           var 地址=e2Rex(列表[j],地址规则);
-          var 分类地址=首页地址+e2Rex(列表[j],地址规则);
+          var ID=e2Rex(列表[j],地址规则);
+          var 分类地址=首页地址+分类url.replace('#ID#',ID);
+          分类地址=分类地址.split('#PN#')[0]+分类url.split('#PN#')[1];
           items.push({title:标题,url:分类地址,mode:"OKHTTP",翻页后:翻页后});
         }
     }else if(类型.indexOf("网页")!=-1){
@@ -124,7 +126,7 @@ if(类型.indexOf("xml")!=-1){
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(class)");
     var 标题规则=".json(type_name)";
-    var 地址规则=".c(?ac=videolist&t=).json(type_id).ct(&pg=)";
+    var 地址规则=".json(type_id)";
     var 翻页后='';
     头部导航();
 }else if(类型.indexOf("mc10")!=-1){
