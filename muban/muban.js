@@ -3,124 +3,40 @@
 @@网页-MXone Pro-1@@@@/index.php/vod/show/id/#ID#/page/#PN#.html@@@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@Mozilla/5.0@@
 
 ####网页-2
-@@模板类型
-网页-MXone Pro-2
-@@分类地址
-/vodshow/#ID#--------#PN#---.html
-@@搜索地址
-/vodsearch/#KEY#----------#PN#---.html
-@@UA
-Mozilla/5.0
+@@网页-MXone Pro-2@@@@/vodshow/#ID#--------#PN#---.html@@@@/vodsearch/#KEY#----------#PN#---.html@@@@Mozilla/5.0@@
 
 ####网页-3
-@@模板类型
-网页-MX Pro-1
-@@分类地址
-/index.php/vod/show/id/#ID#/page/#PN#.html
-@@搜索地址
-/index.php/vod/search/page/#PN#/wd/#KEY#.html
-@@UA
-Mozilla/5.0
+@@网页-MX Pro-1@@@@/index.php/vod/show/id/#ID#/page/#PN#.html@@@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@Mozilla/5.0@@
 
 ####网页-4
-@@模板类型
-网页-MX(采集站)
-@@分类地址
-/index.php/vod/type/id/#ID#/page/#PN#.html
-@@搜索地址
-/index.php/vod/search/page/#PN#/wd/#KEY#.html
-@@UA
-Mozilla/5.0
+@@网页-MX(采集站)@@@@/index.php/vod/type/id/#ID#/page/#PN#.html@@@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@Mozilla/5.0@@
 
 ####采集接口-5
-@@模板类型
-接口-CMS(json)
-@@分类地址
-?ac=videolist&t=#ID#&pg=#PN#
-@@搜索地址
-?ac=videolist&wd=#KEY#&pg=#PN#
-@@UA
-Dalvik/2.1.0
+@@接口-CMS(json)@@@@?ac=videolist&t=#ID#&pg=#PN#@@@@?ac=videolist&wd=#KEY#&pg=#PN#@@@@Dalvik/2.1.0@@
 
 ####采集接口-6
-@@模板类型
-接口-CMS(xml)
-@@分类地址
-?ac=videolist&t=#ID#&pg=#PN#
-@@搜索地址
-?ac=videolist&wd=#KEY#&pg=#PN#
-@@UA
-Dalvik/2.1.0
+@@接口-CMS(xml)@@@@?ac=videolist&t=#ID#&pg=#PN#@@@@?ac=videolist&wd=#KEY#&pg=#PN#@@@@Dalvik/2.1.0@@
 
 ####采集接口-7
-@@模板类型
-接口-CMS(mc10)
-@@分类地址
-?ac=videolist&t=#ID#&pg=#PN#
-@@搜索地址
-?ac=videolist&wd=#KEY#&pg=#PN#
-@@UA
-Dalvik/2.1.0
+@@接口-CMS(mc10)@@@@?ac=videolist&t=#ID#&pg=#PN#@@@@?ac=videolist&wd=#KEY#&pg=#PN#@@@@Dalvik/2.1.0@@
 
 ####APP-8
-@@模板类型
-接口-APP(app)
-@@分类地址
-video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#
-@@搜索地址
-search?test=#KEY#&pg=#PN#
-@@UA
-Dart/2.14 (dart:io)
+@@接口-APP(app)@@@@video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#@@@@search?test=#KEY#&pg=#PN#@@@@Dart/2.14 (dart:io)@@
 
 ####APP-9
-@@模板类型
-接口-APP(v1)
-@@分类地址
-video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#
-@@搜索地址
-search?test=#KEY#&pg=#PN#
-@@UA
-Dart/2.14 (dart:io)
+@@接口-APP(v1)@@@@video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#@@@@search?test=#KEY#&pg=#PN#@@@@Dart/2.14 (dart:io)@@
 
 ####APP-10
-@@模板类型
-接口-APP(v2)
-@@分类地址
-video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#
-@@搜索地址
-search?test=#KEY#&pg=#PN#
-@@UA
-Dart/2.14 (dart:io)
+@@接口-APP(v2)@@@@video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#@@@@search?test=#KEY#&pg=#PN#@@@@Dart/2.14 (dart:io)@@
 
 ####APP-11
-@@模板类型
-接口-APP(vod)
-@@分类地址
-?type=#ID#&class=&area=&lang=&year=&by=hits&limit=&page=#PN#
-@@搜索地址
-?wd=#KEY#&page=#PN#
-@@UA
-okhttp/4.1.0
+@@接口-APP(vod)@@@@?type=#ID#&class=&area=&lang=&year=&by=hits&limit=&page=#PN#@@@@?wd=#KEY#&page=#PN#@@@@okhttp/4.1.0@@
 
 ####APP-12
-@@模板类型
-接口-iptv(zm)
-@@分类地址
-?ac=list&class=#ID#&area=&type=&start=&page=#PN#
-@@搜索地址
-?ac=list&zm=#KEY#&page=#PN#
-@@UA
-Dalvik/2.1.0
+@@接口-iptv(zm)@@@@?ac=list&class=#ID#&area=&type=&start=&page=#PN#@@@@?ac=list&zm=#KEY#&page=#PN#@@@@Dalvik/2.1.0@@
 
 ####APP-13
-@@模板类型
-接口-iptv(wd)
-@@分类地址
-?ac=list&class=#ID#&area=&type=&start=&page=#PN#
-@@搜索地址
-?ac=list&wd=#KEY#&page=#PN#
-@@UA
-Dalvik/2.1.0
+@@接口-iptv(wd)@@@@?ac=list&class=#ID#&area=&type=&start=&page=#PN#@@@@?ac=list&wd=#KEY#&page=#PN#@@@@Dalvik/2.1.0@@
 
 ######切割列表2
 网页：#IOS
