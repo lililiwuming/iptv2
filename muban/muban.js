@@ -663,7 +663,7 @@ if(类型.indexOf("xml")!=-1){
     var 简介=e2Arr(源,'.json(intro)');
     var 分类=e2Arr(源,'.get(div.module-play-list)');
     var 标题规则='.z2(\"\\(.*?\\)\")';
-    var 列表规则='.get(a[href~=/vodplay/.+])';
+    var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+])';
     var 选集规则='.get(span).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();  
