@@ -181,7 +181,7 @@ if(类型.indexOf("xml")!=-1){
     var 地址规则='.get(a).a(href)';
     var 前="/index.php/vod/show/id/";
     var 后="/page/";
-    var 翻页后='.html';
+    var 翻页后='';
     头部导航();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
@@ -190,7 +190,7 @@ if(类型.indexOf("xml")!=-1){
     var 地址规则=".get(a).a(href)";
     var 前="/index.php/vod/show/id/";
     var 后="/page/";
-    var 翻页后=".html";
+    var 翻页后='';
     头部导航();
 }else if(类型.indexOf("MX(采集站)")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
@@ -199,7 +199,7 @@ if(类型.indexOf("xml")!=-1){
     var 地址规则=".get(a).a(href)";
     var 前="/index.php/vod/type/id/";
     var 后="/page/";
-    var 翻页后='.html';
+    var 翻页后='';
     头部导航();
 }
 ######筛选条件5
