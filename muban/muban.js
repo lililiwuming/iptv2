@@ -232,7 +232,7 @@ function 通用列表(){
     res.data=items;
     return JSON.stringify(res);
 }
-alert(res);
+alert(items);
 if(类型.indexOf("xml")!=-1){
     var 列表=e2Arr(源码,'.xml(list video)');
     var 标题规则='.xml(name).ty(CDATA[).tz2(]])';
