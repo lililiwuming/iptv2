@@ -660,9 +660,9 @@ if(类型.indexOf("xml")!=-1){
     var 选集地址规则='.json(url)';
     选集列表();
 }else if(类型.search("MXone Pro")!=-1){
-    var 简介=e2Arr(源,'.json(intro)');
+    var 简介=e2Arr(源,'.get(div.module-info-introduction-content).t()');
     //var 分类=e2Arr(源,'.get(div.module-play-list)');
-    var 分类=e2Arr(源,'.z(id=\"panel)');
+    var 分类=e2Arr(源,'.get(div[id~=panel.*])');
     var 线路=e2Arr(源,'.z(data-dropdown-value=".+?")');
     var 标题规则='.ty(").tz(")';
     var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+])';
