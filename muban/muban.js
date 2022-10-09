@@ -662,7 +662,7 @@ if(类型.indexOf("xml")!=-1){
 }else if(类型.search("MXone Pro")!=-1){
     var 简介=e2Arr(源,'.json(intro)');
     var 分类=e2Arr(源,'.get(div.module-play-list)');
-    var 线路=e2Arr(源,'.get(div.module-tab-item tab-item span).t()');
+    var 线路=e2Arr(源,'.get(div.module-tab-item tab-item span)');
     var 标题规则='.z2(\"\\(.*?\\)\")';
     var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+])';
     var 选集规则='.get(span).t()';
