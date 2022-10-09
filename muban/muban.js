@@ -688,7 +688,7 @@ if(类型.indexOf("xml")!=-1){
     var 分类=e2Arr(源,'.get(div[id~=playlist.*])');
     var 标题规则='.get(h3).t()';
     var 列表规则='.get(li)';
-    var 选集规则='.get(a).t()';
+    var 选集规则='.get(a.copy_text).tz($)';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
 }
