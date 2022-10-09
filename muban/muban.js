@@ -87,7 +87,7 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-iptv")!=-1)){
 }
 ######站源分类4
 var 首页地址=getVar("首页地址");
-var 分类地址=getVar("分类地址");
+var 分类url=getVar("分类地址");
 var 类型=getVar("类型");
 var UA=getVar("UA");
 function 头部导航(){
@@ -103,8 +103,8 @@ function 头部导航(){
         for(var j=0;j<列表.length;j++){
             var 标题=e2Rex(列表[j],标题规则);
             var ID=e2Rex(列表[j],地址规则).match(/[0-9]/);
-            var 地址=首页地址+分类地址;
-            items.push({title:标题,ID:ID,url:地址,mode:"JSOUP",翻页后:翻页后});
+            var 分类地址=首页地址+分类url;
+            items.push({title:标题,ID:ID,url:分类地址,mode:"JSOUP",翻页后:翻页后});
         }
     }
     res.data=items;
