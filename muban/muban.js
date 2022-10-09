@@ -8,7 +8,7 @@
 /index.php/vod/search/page/#PN#/wd/#KEY#.html
 **UA
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50
-XXXX
+
 ####网页-2
 **模板类型
 网页-MXone Pro--2
@@ -18,7 +18,7 @@ XXXX
 /vodsearch/#KEY#----------#PN#---.html
 **UA
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50
-XXXX
+
 ####网页-3
 **模板类型
 网页-MX Pro--1
@@ -28,7 +28,7 @@ XXXX
 /index.php/vod/search/page/#PN#/wd/#KEY#.html
 **UA
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50
-XXXX
+
 ####网页-4
 **模板类型
 网页-MX(采集站)
@@ -38,7 +38,7 @@ XXXX
 /index.php/vod/search/page/#PN#/wd/#KEY#.html
 **UA
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50
-XXXX
+
 ####采集接口-5
 **模板类型
 接口-CMS(json)
@@ -48,7 +48,7 @@ XXXX
 ?ac=videolist&wd=#KEY#&pg=#PN#
 **UA
 Dalvik/2.1.0
-XXXX
+
 ####采集接口-6
 **模板类型
 接口-CMS(xml)
@@ -58,7 +58,7 @@ XXXX
 ?ac=videolist&wd=#KEY#&pg=#PN#
 **UA
 Dalvik/2.1.0
-XXXX
+
 ####采集接口-7
 **模板类型
 接口-CMS(mc10)
@@ -68,7 +68,7 @@ XXXX
 ?ac=videolist&wd=#KEY#&pg=#PN#
 **UA
 Dalvik/2.1.0
-XXXX
+
 ####APP-8
 **模板类型
 接口-APP(app)
@@ -78,7 +78,7 @@ video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#
 search?test=#KEY#&pg=#PN#
 **UA
 Dart/2.14 (dart:io)
-XXXX
+
 ####APP-9
 **模板类型
 接口-APP(v1)
@@ -88,7 +88,7 @@ video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#
 search?test=#KEY#&pg=#PN#
 **UA
 Dart/2.14 (dart:io)
-XXXX
+
 ####APP-10
 **模板类型
 接口-APP(v2)
@@ -98,7 +98,7 @@ video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#
 search?test=#KEY#&pg=#PN#
 **UA
 Dart/2.14 (dart:io)
-XXXX
+
 ####APP-11
 **模板类型
 接口-APP(vod)
@@ -108,7 +108,7 @@ XXXX
 ?wd=#KEY#&page=#PN#
 **UA
 okhttp/4.1.0
-XXXX
+
 ####APP-12
 **模板类型
 接口-iptv(zm)
@@ -118,7 +118,7 @@ XXXX
 ?ac=list&zm=#KEY#&page=#PN#
 **UA
 Dalvik/2.1.0
-XXXX
+
 ####APP
 **模板类型
 接口-iptv(wd)
@@ -128,7 +128,7 @@ XXXX
 ?ac=list&wd=#KEY#&page=#PN#
 **UA
 Dalvik/2.1.0
-XXXX
+
 ######UA列表2
 
 ######本地新增3
