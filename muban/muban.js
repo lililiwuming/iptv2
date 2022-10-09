@@ -166,7 +166,7 @@ if(类型.indexOf("xml")!=-1){
     头部导航();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".css(ul.drop-content-items.grid-items>li.grid-item).or().css(div.nav ul>li)");
+    var 列表=e2Arr(源码,".get(div.nav-menu-item a[href~=/vod/type/.+]).or().css(div.nav ul>li)");
     var 标题规则=".css(a).t()";
     var 地址规则=".css(a).a(href)";
     var 前="/index.php/vod/show/id/";
@@ -464,12 +464,12 @@ if(类型.indexOf("xml")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).css(div.module-item-note).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("MX Pro")!=-1){
-    var 列表=e2Arr(源码,".css(div.module-items div.module-item)");
-    var 标题规则=".css(div.module-item-style.video-name a).t()";
-    var 地址规则=".css(div.module-item-style.video-name a).a(href)";
-    var 图片规则=".css(img).a(data-src)";
-    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_play_from).ct(</b></font><br>)';
-    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).css(div.module-item-text).t().ct(</font></p>)';
+    var 列表=e2Arr(源码,".get(div.module module-wrapper)");
+    var 标题规则=".get(h2).t()";
+    var 地址规则=".get(a).a(href)";
+    var 图片规则=".get(img).a(data-src)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(psan.video-class).t().ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-text).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("MX")!=-1){
     var 列表=e2Arr(源码,".css(ul.stui-vodlist.clearfix li).i(1,-1)");
