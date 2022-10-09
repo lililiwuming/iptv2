@@ -103,8 +103,8 @@ function 头部导航(){
         for(var j=0;j<列表.length;j++){
             var 标题=e2Rex(列表[j],标题规则);
             var ID=e2Rex(列表[j],地址规则);
-            var 分类地址=首页地址+分类url;
-            items.push({title:标题,ID:ID,url:分类地址,mode:"JSOUP",翻页后:翻页后});
+            var 分类地址=首页地址+分类url.replace('#ID',ID).split('#PN#')[0]+分类url.split('#PN#')[1].split('.html')[0];
+            items.push({title:标题,url:分类地址,mode:"JSOUP",翻页后:翻页后});
         }
     }
     res.data=items;
@@ -180,21 +180,21 @@ if(类型.indexOf("xml")!=-1){
     var 列表=e2Arr(源码,".get(div.sidebar a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vodtype/.+]).or().get(div.sidebar a[href~=/type/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则='.get(a).a(href)';
-    var 翻页后='';
+    var 翻页后='.html';
     头部导航();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     var 列表=e2Arr(源码,".get(div.nav-menu-item a[href~=/vod/type/.+]).or().get(div.nav ul>li)");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 翻页后='';
+    var 翻页后='.html';
     头部导航();
 }else if(类型.indexOf("MX(采集站)")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     var 列表=e2Arr(源码,".get(div.container div ul.stui-header__menu.clearfix>li)");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 翻页后='';
+    var 翻页后='.html';
     头部导航();
 }
 ######筛选条件5
