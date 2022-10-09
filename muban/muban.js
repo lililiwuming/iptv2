@@ -7,7 +7,7 @@
 **搜索地址
 /index.php/vod/search/page/#PN#/wd/#KEY#.html
 **UA
-Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50
+Mozilla/5.0
 
 ####网页-2
 **模板类型
@@ -17,7 +17,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 **搜索地址
 /vodsearch/#KEY#----------#PN#---.html
 **UA
-Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50
+Mozilla/5.0
 
 ####网页-3
 **模板类型
@@ -27,7 +27,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 **搜索地址
 /index.php/vod/search/page/#PN#/wd/#KEY#.html
 **UA
-Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50
+Mozilla/5.0
 
 ####网页-4
 **模板类型
@@ -37,7 +37,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 **搜索地址
 /index.php/vod/search/page/#PN#/wd/#KEY#.html
 **UA
-Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50
+Mozilla/5.0
 
 ####采集接口-5
 **模板类型
