@@ -658,16 +658,17 @@ if(类型.indexOf("xml")!=-1){
     var 列表规则='.z(\\{.*?\\})';
     var 选集规则='.json(title)';
     var 选集地址规则='.json(url)';
-    选集列表();  
+    选集列表();
 }else if(类型.search("MXone Pro")!=-1){
     var 简介=e2Arr(源,'.json(intro)');
-    var 分类=e2Arr(源,'.get(div.module-play-list)');
+    //var 分类=e2Arr(源,'.get(div.module-play-list)');
+    var 分类=e2Arr(源,'.get(div.content).z(id="panel")');
     var 线路=e2Arr(源,'.z(data-dropdown-value=".+?")');
     var 标题规则='.ty(").tz(")';
     var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+])';
     var 选集规则='.get(span).t()';
     var 选集地址规则='.get(a).a(href)';
-    选集列表();  
+    选集列表();
 }
 ######播放规则10
 var uu=getVar("地址");
