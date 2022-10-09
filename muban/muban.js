@@ -1,13 +1,6 @@
 ######模板列表1
 ####网页-1
-@@模板类型
-网页-MXone Pro-1
-@@分类地址
-/index.php/vod/show/id/#ID#/page/#PN#.html
-@@搜索地址
-/index.php/vod/search/page/#PN#/wd/#KEY#.html
-@@UA
-Mozilla/5.0
+@@网页-MXone Pro-1@@@@/index.php/vod/show/id/#ID#/page/#PN#.html@@@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@Mozilla/5.0@@
 
 ####网页-2
 @@模板类型
