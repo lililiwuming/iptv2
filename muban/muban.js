@@ -107,7 +107,7 @@ function 头部导航(){
             var ID=e2Rex(列表[j],地址规则).match(/[0-9]/);
             var 分类地址=首页地址+分类url.replace('#ID#',ID);
             分类地址=分类地址.split('#PN#')[0]+分类url.split('#PN#')[1].split('.html')[0];
-            items.push({title:标题,ID:ID,url:分类地址,mode:"JSOUP",翻页后:翻页后});
+            items.push({title:标题,url:分类地址,mode:"JSOUP",翻页后:翻页后});
         }
     }
     res.data=items;
@@ -232,6 +232,7 @@ function 通用列表(){
     res.data=items;
     return JSON.stringify(res);
 }
+alert(res);
 if(类型.indexOf("xml")!=-1){
     var 列表=e2Arr(源码,'.xml(list video)');
     var 标题规则='.xml(name).ty(CDATA[).tz2(]])';
