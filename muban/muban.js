@@ -128,25 +128,8 @@ $$$$APP
 ?ac=list&wd=#KEY#&page=#PN#
 **UA
 Dalvik/2.1.0
-
-
-网页-MXone Pro：/index.php/vod/search/page/#PN#/wd/#KEY#.html
-网页-MX Pro：/index.php/vod/search/page/#PN#/wd/#KEY#.html
-网页-MX(采集站)：/index.php/vod/search/page/#PN#/wd/#KEY#.html
-接口-CMS(json)：?ac=videolist&wd=#KEY#&pg=#PN#
-接口-CMS(xml)：?ac=videolist&wd=#KEY#&pg=#PN#
-接口-CMS(mc10)：?ac=videolist&wd=#KEY#&pg=#PN#
-接口-APP(vod)：?wd=#KEY#&page=#PN#
-接口-APP(app)：search?test=#KEY#&pg=#PN#
-接口-APP(v1)：search?test=#KEY#&pg=#PN#
-接口-APP(v2)：search?test=#KEY#&pg=#PN#
-接口-iptv(zm)：?ac=list&zm=#KEY#&page=#PN#
-接口-iptv(wd)：?ac=list&wd=#KEY#&page=#PN#
 ######UA列表2
-网页：Mozilla/5.0
-接口(cms/iptv)：Dalvik/2.1.0
-接口(vod)：okhttp/4.1.0
-接口(app/v1/v2)：Dart/2.14 (dart:io)
+
 ######本地新增3
 var key=getVar("输入内容");
 var 记录=[];
