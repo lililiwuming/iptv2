@@ -587,7 +587,7 @@ if(类型.indexOf("xml")!=-1){
 }
 ######重组搜索8
 var KEY=getVar("KEY");
-var PN=getVar("PN")
+var PN=getVar("PN");
 var NEXTPAGE=Number(getVar("PN"))+1;
 var LASTPAGE=Number(getVar("PN"))-1;
 var UA=getVar("UA");
@@ -606,8 +606,8 @@ function 搜索列表(){
         }else if(预图片.indexOf("mac:")!=-1){
             var 图片="http:"+预图片.split("mac:")[1];
         }else if(预图片.indexOf(".test.com")!=-1||预图片.indexOf(".maccms.com")!=-1||预图片.indexOf(".maccms.pro")!=-1){
-            var 图片=getVar("地址").match(/https?:\/\/.+?\//)[0]+预图片.split(/img\.[a-z]+?\.[a-z]+/)[1];
-            var 图片=图片.match(/.*(http.*)/)[1];
+            var 图片=地址.match(/https?:\/\/.+?\//)[0]+预图片.split(/img\.[a-z]+?\.[a-z]+/)[1];
+            //var 图片=图片.match(/.*(http.*)/)[1];
         }else if(预图片.indexOf("http")!=-1){
             var 图片=预图片.match(/.*(http.*[a-zA-Z])/)[1];
         }else if(预图片==""){
