@@ -98,7 +98,7 @@ function 头部导航(){
             var 地址=e2Rex(列表[j],地址规则);
             var ID=e2Rex(列表[j],地址规则);
             var 分类地址=首页地址+分类url.replace('#ID#',ID);
-            分类地址=分类地址.split('#PN#')[0]+分类url.split('#PN#')[1];
+            //分类地址=分类地址.split('#PN#')[0]+分类url.split('#PN#')[1];
             if(类型.indexOf("vod")!=-1){
                 var str="";
                 var 分类筛选=JSON.parse(String(列表[j])).type_extend;
