@@ -596,6 +596,7 @@ var 首页地址=getVar("首页地址");
 var 搜索地址=getVar("搜索地址").replace("#KEY#",KEY).replace("#PN#",PN);
 var 源码=getHttp(JSON.stringify({url:首页地址+搜索地址,redirect:false,head:{"User-Agent":UA}}));
 alert(首页地址+搜索地址);
+alert(源码);
 function 搜索列表(){
     var res={};var items=[];var LIST=[];
     var LIMIT=列表.length;
