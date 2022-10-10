@@ -150,7 +150,6 @@ function 头部导航(){
     res.data=items;
     return JSON.stringify(res);
 }
-//var 源码=getVar("源");
 if(类型.indexOf("xml")!=-1){
     var URL=首页地址+"?ac=list";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
@@ -381,6 +380,8 @@ if(类型.indexOf("xml")!=-1){
 var 首页地址=getVar("首页地址");
 var 类型=getVar("类型");
 var UA=getVar("UA");
+var NEXTPAGE=Number(getVar("PN"))+1;
+var LASTPAGE=Number(getVar("PN"))-1;
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<分类.length;j++){
@@ -410,10 +411,20 @@ function 通用列表(){
         items.push(play_);
     }
     res.data=items;
+    if(类型.indexOf("CMS")!=-1){
+        res.nextpage=URL+NEXTPAGE;
+        res.lastpage=URL+LASTPAGE;
+    }else if(类型.indexOf("iptv")!=-1){
+        res.nextpage=首页地址+"?ac=list&class=&area=&type=&start=&page="+NEXTPAGE;
+        res.lastpage=首页地址+"?ac=list&class=&area=&type=&start=&page="+LASTPAGE;
+    }else{
+        res.nextpage="";
+        res.lastpage="";
+    }
     return JSON.stringify(res);
 }
 if(类型.indexOf("xml")!=-1){
-    var URL=首页地址+"?ac=videolist";
+    var URL=首页地址+"?ac=videolist&pg=";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));;
     var 分类=e2Arr(源码,".c()");
     var 分类标题规则="最新";
@@ -429,7 +440,7 @@ if(类型.indexOf("xml")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).xml(type).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("json")!=-1){
-    var URL=首页地址+"?ac=videolist";
+    var URL=首页地址+"?ac=videolist&pg=";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码.replace(/<.*?>/g,""),".c()");
     var 分类标题规则="最新";
@@ -441,7 +452,7 @@ if(类型.indexOf("xml")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("mc10")!=-1){
-    var URL=首页地址+"?ac=videolist";
+    var URL=首页地址+"?ac=videolist&pg=";
     var 源码=getHttp(JSON.stringify({url:URL,redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码.replace(/<.*?>/g,""),".c()");
     var 分类标题规则="最新";
