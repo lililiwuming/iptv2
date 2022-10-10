@@ -39,13 +39,14 @@
 @@接口-iptv(wd)@@?ac=list&class=#ID#&area=#地区#&type=#类型#&start=#年份#&page=#PN#@@?ac=list&wd=#KEY#&page=#PN#@@Dalvik/2.1.0@@
 
 ######删除规则2
+var 站名=getVar("站名");
 var 类别=getVar("类别");
 var 首页地址=getVar("首页地址");
 var filename='站源.json';
 var 记录=getVar("源");
 var 新记录=JSON.parse(readStr(filename));
 let res=新记录.some(item=>{
-    if(item.title == JSON.parse(记录).类别){
+    if(item.类别 == JSON.parse(记录).类别){
         item.data=item.data.filter(a=>a.首页地址!=JSON.parse(记录).首页地址);
         return true
     }
