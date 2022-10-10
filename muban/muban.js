@@ -21,22 +21,22 @@
 @@接口-CMS(mc10)@@?ac=videolist&t=#ID#&pg=#PN#@@?ac=videolist&wd=#KEY#&pg=#PN#@@Dalvik/2.1.0@@
 
 ####APP-8
-@@接口-APP(app)@@video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#@@search?test=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
+@@接口-APP(app)@@video?tid=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&limit=&pg=#PN#@@search?test=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
 
 ####APP-9
-@@接口-APP(v1)@@video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#@@search?test=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
+@@接口-APP(v1)@@video?tid=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&limit=&pg=#PN#@@search?test=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
 
 ####APP-10
-@@接口-APP(v2)@@video?tid=#ID#&class=&area=&lang=&year=&limit=&pg=#PN#@@search?test=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
+@@接口-APP(v2)@@video?tid=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&limit=&pg=#PN#@@search?test=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
 
 ####APP-11
-@@接口-APP(vod)@@?type=#ID#&class=&area=&lang=&year=&by=hits&limit=&page=#PN#@@?wd=#KEY#&page=#PN#@@okhttp/4.1.0@@
+@@接口-APP(vod)@@?type=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&by=#排序#&limit=&page=#PN#@@?wd=#KEY#&page=#PN#@@okhttp/4.1.0@@
 
 ####APP-12
-@@接口-iptv(zm)@@?ac=list&class=#ID#&area=&type=&start=&page=#PN#@@?ac=list&zm=#KEY#&page=#PN#@@Dalvik/2.1.0@@
+@@接口-iptv(zm)@@?ac=list&class=#ID#&area=#地区#&type=#类型#&start=#年份#&page=#PN#@@?ac=list&zm=#KEY#&page=#PN#@@Dalvik/2.1.0@@
 
 ####APP-13
-@@接口-iptv(wd)@@?ac=list&class=#ID#&area=&type=&start=&page=#PN#@@?ac=list&wd=#KEY#&page=#PN#@@Dalvik/2.1.0@@
+@@接口-iptv(wd)@@?ac=list&class=#ID#&area=#地区#&type=#类型#&start=#年份#&page=#PN#@@?ac=list&wd=#KEY#&page=#PN#@@Dalvik/2.1.0@@
 
 ######切割列表2
 网页：#IOS
@@ -110,7 +110,7 @@ function 头部导航(){
                 str+"\r\n"+"排序+全部=+最新=time+最热=hits+评分=score";
             }else if(类型.indexOf("app")!=-1||类型.indexOf("v1")!=-1||类型.indexOf("v2")!=-1){
                 var str="";
-                var 分类筛选=e2Arr(列表[j],'.json(type_extend)');
+                var 分类筛选=JSON.parse(String(列表[j])).type_extend;
                 for(var key in 分类筛选){
                     if(key=="class"||key=="area"||key=="lang"||key=="year"){
                         str=str+"筛选"+key+"+全部=+"+分类筛选[key].replace(/,/g,"+")+"\r\n";
