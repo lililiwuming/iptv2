@@ -99,6 +99,7 @@ function 头部导航(){
             var ID=e2Rex(列表[j],地址规则);
             var 分类地址=首页地址+分类url.replace('#ID#',ID);
             分类地址=分类地址.split('#PN#')[0]+分类url.split('#PN#')[1];
+            alert(JSON.parse(源码));
             var 分类筛选=JSON.parse(源码).type_extend;
             var str="";
             for(var key in 分类筛选){
