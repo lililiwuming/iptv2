@@ -555,7 +555,98 @@ if(类型.indexOf("xml")!=-1){
     通用列表();
 }
 ######重组搜索8
+var 源码=getVar("源");
+var URL=getVar("地址");
+var 类型=getVar("类型");
+var NEXTPAGE=Number(getVar("PN"))+1;
+var LASTPAGE=Number(getVar("PN"))-1;
+function 搜索列表(){
+    var res={};var items=[];var LIST=[];
+    var LIMIT=列表.length;
+    for(var j=0;j<LIMIT;j++){
+        var CODE=列表[j];
+        var 地址=e2Rex(CODE,地址规则).indexOf("http")==0?e2Rex(CODE,地址规则):URL+e2Rex(CODE,地址规则);
+        var 标题=e2Rex(CODE,标题规则);
+        var 预图片=e2Rex(CODE,图片规则);
+        if(预图片.indexOf("/mac:")!=-1){
+            var 图片="http:"+预图片.split("mac:")[1];
+        }else if(预图片.indexOf("mac:")!=-1){
+            var 图片="http:"+预图片.split("mac:")[1];
+        }else if(预图片.indexOf(".test.com")!=-1||预图片.indexOf(".maccms.com")!=-1||预图片.indexOf(".maccms.pro")!=-1){
+            var 图片=getVar("地址").match(/https?:\/\/.+?\//)[0]+预图片.split(/img\.[a-z]+?\.[a-z]+/)[1];
+            var 图片=图片.match(/.*(http.*)/)[1];
+        }else if(预图片.indexOf("http")!=-1){
+            var 图片=预图片.match(/.*(http.*[a-zA-Z])/)[1];
+        }else if(预图片==""){
+            var 图片="http://43.140.205.222:4433/mxtheme/images/load.gif";
+        }else if(预图片.indexOf("//")!=-1){
+            var 图片="http:"+预图片;
+        }else{
+            var 图片=getVar("地址").match(/https?:\/\/.+?\//)[0]+预图片;
+        }
+        var 简介=e2Rex(CODE,简介规则);
+        var 作者=e2Rex(CODE,作者规则);
+        LIST.push({title:标题,url:地址,img:图片,content:简介,actor:作者,type:类型});
+    }
+    var play_={};
+    play_.list=LIST;
+    items.push(play_);
+    res.data=items;
+    res.nextpage=URL.replace(getVar("PN"),NEXTPAGE);
+    res.lastpage=URL.replace(getVar("PN"),LASTPAGE);
+    return JSON.stringify(res);
+}
+if(类型.indexOf("xml")!=-1){
+    var 列表=e2Arr(源码,".xml(video)");
+    var 标题规则=".xml(name).ty(CDATA).tz2(])";
+    var 地址规则=".c(?ac=videolist&ids=).xml(id).z(\\d+)";
+    var 图片规则=".xml(pic).t().z(http.*\\S).th( ##%20)";
+    var 简介规则=".xml(last).t()";
+    var 作者规则='.xml(dl).ty(flag=").tz(">).tx(·).xml(type).t()';
+    搜索列表();
+}else if(类型.indexOf("CMS")!=-1){
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list)");
+    var 标题规则=".json(vod_name)";
+    var 地址规则=".c(?ac=videolist&ids=).json(vod_id)";
+    var 图片规则=".json(vod_pic)";
+    var 简介规则=".json(vod_actor)";
+    var 作者规则=".json(vod_remarks).tx(·).json(vod_play_from).tx(·).json(vod_class)";
+    搜索列表();
+}else if(类型.indexOf("app")!=-1){
+    var 列表=e2Arr(源码,".json(list)");
+    var 标题规则=".json(vod_name)";
+    var 地址规则=".c(video_detail?id=).json(vod_id)";
+    var 图片规则=".json(vod_pic)";
+    var 简介规则=".json(vod_acctor).tx(\n).json(vod_socre)";
+    var 作者规则=".json(vod_remarks)";
+    搜索列表();
+}else if(类型.indexOf("v1")!=-1||类型.indexOf("v2")!=-1){
+    var 列表=e2Arr(源码,".json(data)");
+    var 标题规则=".json(vod_name)";
+    var 地址规则=".c(video_detail?id=).json(vod_id)";
+    var 图片规则=".json(vod_pic)";
+    var 简介规则=".json(vod_acctor).tx(\n).json(vod_socre)";
+    var 作者规则=".json(vod_remarks)";
+    搜索列表();
+}else if(类型.indexOf("vod")!=-1){
+    var 列表=e2Arr(源码,".json(data).json(list)");
+    var 标题规则=".json(vod_name)";
+    var 地址规则=".c(/detail?vod_id=).json(vod_id)";
+    var 图片规则=".json(vod_pic)";
+    var 简介规则=".json(vod_actor).tx(\n).json(vod_socre)";
+    var 作者规则=".json(vod_remarks).tx(·).json(vod_play_from)"
+    搜索列表();
+}else if(类型.indexOf("iptv")!=-1){
+    var 列表=e2Arr(源码,".json(data)");
+    var 标题规则=".json(title)";
+    var 地址规则=".json(nextlink)";
+    var 图片规则=".json(pic)";
+    var 简介规则="";
+    var 作者规则=".json(state).tx(·).json(type)";
+    搜索列表();
+}else{
 
+}
 ######重组选集9
 var 类型=getVar("类型");
 var 首页地址=getVar("首页地址");
