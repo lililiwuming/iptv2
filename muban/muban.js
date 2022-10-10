@@ -71,12 +71,12 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-iptv")!=-1)){
         }else{
             let res=新记录.some(item=>{
                 if(item.title==记录[i].类型){
-                    item.data=当前条目.concat(item.data.filter(d=>d.首页地址!=记录[i].首页地址))+"\n";
+                    item.data=当前条目.concat(item.data.filter(d=>d.首页地址!=记录[i].首页地址));
                     return true
                 }
             });
             if(!res){
-                新记录.push({title:记录[i].类型,data:当前条目})+"\n";
+                新记录.push({title:记录[i].类型,data:当前条目});
             }
         }
     }
