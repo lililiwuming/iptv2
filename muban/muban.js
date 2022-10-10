@@ -101,13 +101,13 @@ function 头部导航(){
             分类地址=分类地址.split('#PN#')[0]+分类url.split('#PN#')[1];
             if(类型.indexOf("vod")!=-1){
                 var str="";
-                var 分类筛选=e2Arr(列表[j],'.json(type_extend)');
+                var 分类筛选=JSON.parse(列表[j]).type_extend;alert(分类筛选);
                 for(var key in 分类筛选){
                     if(key=="class"||key=="area"||key=="lang"||key=="year"){
                         str=str+"筛选"+key+"+全部=+"+分类筛选[key].replace(/,/g,"+")+"\r\n";
                     }
                 }
-                str+"\r\n"+"排序+全部=+最新=time+最热=hits+评分=score";alert(str);
+                str+"\r\n"+"排序+全部=+最新=time+最热=hits+评分=score";
             }else if(类型.indexOf("app")!=-1||类型.indexOf("v1")!=-1||类型.indexOf("v2")!=-1){
                 var str="";
                 var 分类筛选=e2Arr(列表[j],'.json(type_extend)');
@@ -191,7 +191,6 @@ if(类型.indexOf("xml")!=-1){
     var 标题规则=".json(type_name)";
     var 地址规则=".json(type_id)";
     var 翻页后='';
-    //var 分类筛选=e2Arr(源码.replace(/<.*?>/g,""),".json(data).json(list).json(type_extend)");
     头部导航();
 }else if(类型.indexOf("iptv")!=-1){
     var URL=首页地址+"?ac=flitter";
