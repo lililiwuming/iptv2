@@ -99,16 +99,16 @@ function 头部导航(){
             var ID=e2Rex(列表[j],地址规则);
             var 分类地址=首页地址+分类url.replace('#ID#',ID);
             分类地址=分类地址.split('#PN#')[0]+分类url.split('#PN#')[1];
-            var 分类筛选=JSON.parse(源码[j]).type_extend;
+            var 分类筛选=JSON.parse(源码).type_extend;
             var str="";
-            for(var key in 分类筛选){
+            for(var key in 分类筛选[j]){
                 if(key=="class"||key=="area"||key=="lang"||key=="year"){
                     str=str+"筛选"+key+"+全部=+"+分类筛选[key].replace(/,/g,"+")+"\r\n";
                 }
             }
-            if(URL.indexOf(".vod")!=-1){
+            if(首页地址.indexOf(".vod")!=-1){
                 str+"\r\n"+"排序+全部=+最新=time+最热=hits+评分=score";
-            }else if(URL.indexOf("api.php/app")!=-1||URL.indexOf("xgapp")!=-1||URL.indexOf("xgtv")!=-1){
+            }else if(首页地址.indexOf("api.php/app")!=-1||首页地址.indexOf("xgapp")!=-1||首页地址.indexOf("xgtv")!=-1){
                 str;
             }else{
                 "类型+全部=+喜剧+爱情+恐怖+动作+科幻+剧情+战争+警匪+犯罪+动画+奇幻+武侠+冒险+枪战+恐怖+悬疑+惊悚+经典+青春+文艺+微电影+古装+历史+运动+农村+惊悚+惊悚+伦理+情色+福利+三级+儿童+网络电影\n地区+全部=+大陆+香港+台湾+美国+英国+法国+日本+韩国+德国+泰国+印度+西班牙+加拿大+其他\n年份+全部=+2022+2021+2020+2019+2018+2017+2016+2015+2014+2013+2012+2011+2010+2009+2008+2007+2006+2005+2004+2003+2002+2001+2000";
