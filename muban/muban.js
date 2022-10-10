@@ -91,6 +91,7 @@ var 分类url=getVar("分类地址");
 var 类型=getVar("类型");
 var UA=getVar("UA");
 function 头部导航(){
+    var 分类筛选=JSON.parse(源码).type_extend;
     var res={};var items=[];
     if(类型.indexOf("接口")!=-1){
         for(var j=0;j<列表.length;j++){
@@ -99,7 +100,6 @@ function 头部导航(){
             var ID=e2Rex(列表[j],地址规则);
             var 分类地址=首页地址+分类url.replace('#ID#',ID);
             分类地址=分类地址.split('#PN#')[0]+分类url.split('#PN#')[1];
-            var 分类筛选=JSON.parse(源码).type_extend;
             var str="";
             for(var key in 分类筛选[j]){
                 if(key=="class"||key=="area"||key=="lang"||key=="year"){
