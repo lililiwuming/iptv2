@@ -555,13 +555,14 @@ if(类型.indexOf("xml")!=-1){
     通用列表();
 }
 ######重组搜索8
-var 类型=getVar("类型");
-var UA=getVar("UA");
-var 首页地址=getVar("首页地址");
-var 搜索地址=getVar("搜索地址");
-var 源码=getHttp(JSON.stringify({url:首页地址+搜索地址,redirect:false,head:{"User-Agent":UA}}));
+var KEY=getVar("KEY");
+var PN=getVar("PN")
 var NEXTPAGE=Number(getVar("PN"))+1;
 var LASTPAGE=Number(getVar("PN"))-1;
+var UA=getVar("UA");
+var 类型=getVar("类型");
+var 搜索地址=getVar("首页地址")+getVar("搜索地址").replace("#KEY#",KEY).replace("#PN#",PN);
+var 源码=getHttp(JSON.stringify({url:首页地址+搜索地址,redirect:false,head:{"User-Agent":UA}}));
 function 搜索列表(){
     var res={};var items=[];var LIST=[];
     var LIMIT=列表.length;
@@ -594,8 +595,8 @@ function 搜索列表(){
     play_.list=LIST;
     items.push(play_);
     res.data=items;
-    res.nextpage=URL.replace(getVar("PN"),NEXTPAGE);
-    res.lastpage=URL.replace(getVar("PN"),LASTPAGE);
+    res.nextpage=搜索地址.replace(getVar("PN"),NEXTPAGE);
+    res.lastpage=搜索地址.replace(getVar("PN"),LASTPAGE);
     return JSON.stringify(res);
 }
 if(类型.indexOf("xml")!=-1){
