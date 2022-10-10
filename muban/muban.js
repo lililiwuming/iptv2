@@ -38,9 +38,21 @@
 ####APP-13
 @@接口-iptv(wd)@@?ac=list&class=#ID#&area=#地区#&type=#类型#&start=#年份#&page=#PN#@@?ac=list&wd=#KEY#&page=#PN#@@Dalvik/2.1.0@@
 
-######切割列表2
-网页：#IOS
-其它：?
+######删除规则2
+var 类别=getVar("类别");
+var 首页地址=getVar("首页地址");
+var filename='站源.json';
+var 记录=getVar("源");
+var 新记录=JSON.parse(readStr(filename));
+let res=新记录.some(item=>{
+    if(item.title == JSON.parse(记录).类别){
+        item.data=item.data.filter(a=>a.首页地址!=JSON.parse(记录).首页地址);
+        return true
+    }
+});
+var AppName=e2Rex(记录,".json(站名)");
+writeStr(filename,JSON.stringify(新记录));
+alert(AppName+"\n删除成功");
 ######本地新增3
 var key=getVar("输入内容");
 var 记录=[];
