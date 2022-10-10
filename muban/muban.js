@@ -21,13 +21,13 @@
 @@接口-CMS(mc10)@@?ac=videolist&t=#ID#&pg=#PN#@@?ac=videolist&wd=#KEY#&pg=#PN#@@Dalvik/2.1.0@@
 
 ####APP-8
-@@接口-APP(app)@@video?tid=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&limit=&pg=#PN#@@search?test=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
+@@接口-APP(app)@@video?tid=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&limit=&pg=#PN#@@search?text=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
 
 ####APP-9
-@@接口-APP(v1)@@video?tid=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&limit=&pg=#PN#@@search?test=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
+@@接口-APP(v1)@@video?tid=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&limit=&pg=#PN#@@search?text=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
 
 ####APP-10
-@@接口-APP(v2)@@video?tid=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&limit=&pg=#PN#@@search?test=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
+@@接口-APP(v2)@@video?tid=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&limit=&pg=#PN#@@search?text=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
 
 ####APP-11
 @@接口-APP(vod)@@?type=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&by=#排序#&limit=&page=#PN#@@?wd=#KEY#&page=#PN#@@okhttp/4.1.0@@
