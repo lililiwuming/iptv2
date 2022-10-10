@@ -555,9 +555,11 @@ if(类型.indexOf("xml")!=-1){
     通用列表();
 }
 ######重组搜索8
-var 源码=getVar("源");
-var URL=getVar("地址");
 var 类型=getVar("类型");
+var UA=getVar("UA");
+var 首页地址=getVar("首页地址");
+var 搜索地址=getVar("搜索地址");
+var 源码=getHttp(JSON.stringify({url:首页地址+搜索地址,redirect:false,head:{"User-Agent":UA}}));
 var NEXTPAGE=Number(getVar("PN"))+1;
 var LASTPAGE=Number(getVar("PN"))-1;
 function 搜索列表(){
@@ -565,7 +567,7 @@ function 搜索列表(){
     var LIMIT=列表.length;
     for(var j=0;j<LIMIT;j++){
         var CODE=列表[j];
-        var 地址=e2Rex(CODE,地址规则).indexOf("http")==0?e2Rex(CODE,地址规则):URL+e2Rex(CODE,地址规则);
+        var 地址=e2Rex(CODE,地址规则);
         var 标题=e2Rex(CODE,标题规则);
         var 预图片=e2Rex(CODE,图片规则);
         if(预图片.indexOf("/mac:")!=-1){
