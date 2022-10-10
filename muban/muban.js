@@ -590,7 +590,12 @@ function 搜索列表(){
         }
         var 简介=e2Rex(CODE,简介规则);
         var 作者=e2Rex(CODE,作者规则);
-        LIST.push({title:标题,url:地址,img:图片,content:简介,actor:作者,type:类型});
+        if(类型.indexOf("接口")!=-1){
+            var mode="OKHTTP";
+        }else if(类型.indexOf("网页")!=-1){
+            var mode="JSOUP";
+        }
+        LIST.push({title:标题,url:地址,img:图片,content:简介,actor:作者,mode:mode});
     }
     var play_={};
     play_.list=LIST;
