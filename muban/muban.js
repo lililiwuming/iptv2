@@ -267,7 +267,23 @@ function 通用列表(){
           var 地址=首页地址+e2Rex(CODE,地址规则);
         }
         var 标题=e2Rex(CODE,标题规则);
-        var 图片=e2Rex(CODE,图片规则);
+        var 预图片=e2Rex(CODE,图片规则);
+        if (预图片.indexOf("/mac:") != -1) {
+          var 图片 = "http:" + 预图片.split("mac:")[1];
+        } else if (预图片.indexOf("mac:") != -1) {
+          var 图片 = "http:" + 预图片.split("mac:")[1];
+        } else if (预图片.indexOf(".test.com") != -1 || 预图片.indexOf(".maccms.com") != -1 || 预图片.indexOf(".maccms.pro") != -1) {
+          var 图片 = getVar("地址").match(/https?:\/\/.+?\//)[0] + 预图片.split(/img\.[a-z]+?\.[a-z]+/)[1];
+          var 图片 = 图片.match(/.*(http.*)/)[1];
+        } else if (预图片.indexOf("http") != -1) {
+          var 图片 = 预图片.match(/.*(http.*[a-zA-Z])/)[1];
+        } else if (预图片 == "") {
+          var 图片 = "http://43.140.205.222:4433/mxtheme/images/load.gif";
+        } else if (预图片.indexOf("//") != -1) {
+          var 图片 = "http:" + 预图片;
+        } else {
+          var 图片 = getVar("地址").match(/https?:\/\/.+?\//)[0] + 预图片;
+        }
         var 播放源=e2Rex(CODE,播放源规则);
         var 状态=e2Rex(CODE,状态规则);
         if(类型.indexOf("网页")!=-1){
@@ -393,7 +409,23 @@ function 通用列表(){
                 var 地址=首页地址+e2Rex(列表[i],地址规则);
             }
             var 标题=e2Rex(列表[i],标题规则);
-            var 图片=e2Rex(列表[i],图片规则);
+            var 预图片=e2Rex(列表[i],图片规则);
+            if (预图片.indexOf("/mac:") != -1) {
+              var 图片 = "http:" + 预图片.split("mac:")[1];
+            } else if (预图片.indexOf("mac:") != -1) {
+              var 图片 = "http:" + 预图片.split("mac:")[1];
+            } else if (预图片.indexOf(".test.com") != -1 || 预图片.indexOf(".maccms.com") != -1 || 预图片.indexOf(".maccms.pro") != -1) {
+              var 图片 = getVar("地址").match(/https?:\/\/.+?\//)[0] + 预图片.split(/img\.[a-z]+?\.[a-z]+/)[1];
+              var 图片 = 图片.match(/.*(http.*)/)[1];
+            } else if (预图片.indexOf("http") != -1) {
+              var 图片 = 预图片.match(/.*(http.*[a-zA-Z])/)[1];
+            } else if (预图片 == "") {
+              var 图片 = "http://43.140.205.222:4433/mxtheme/images/load.gif";
+            } else if (预图片.indexOf("//") != -1) {
+              var 图片 = "http:" + 预图片;
+            } else {
+              var 图片 = getVar("地址").match(/https?:\/\/.+?\//)[0] + 预图片;
+            }
             var 播放源=e2Rex(列表[i],播放源规则);
             var 状态=e2Rex(列表[i],状态规则);
             if(类型.indexOf("网页")!=-1){
