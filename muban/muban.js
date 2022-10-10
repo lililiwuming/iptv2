@@ -99,7 +99,7 @@ function 头部导航(){
           var ID=e2Rex(列表[j],地址规则);
           var 分类地址=首页地址+分类url.replace('#ID#',ID);
           分类地址=分类地址.split('#PN#')[0]+分类url.split('#PN#')[1];
-          var 筛选数据=筛选数据;
+          var 筛选数据=str;
           items.push({title:标题,url:分类地址,mode:"OKHTTP",翻页后:翻页后,type_extend:筛选数据});
         }
     }else if(类型.indexOf("网页")!=-1){
@@ -169,7 +169,7 @@ if(类型.indexOf("xml")!=-1){
     var 标题规则=".json(type_name)";
     var 地址规则=".json(type_id)";
     var 翻页后='';
-    var 筛选数据=JSON.parse(源码).type_extend;
+    var 分类筛选=JSON.parse(源码).type_extend;
     var str="";
     for(var key in 分类筛选){
         if(key=="class"||key=="area"||key=="lang"||key=="year"){
