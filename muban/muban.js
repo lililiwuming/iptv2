@@ -101,7 +101,7 @@ function 头部导航(){
             分类地址=分类地址.split('#PN#')[0]+分类url.split('#PN#')[1];
             if(类型.indexOf("vod")!=-1){
                 var str="";
-                var 分类筛选=String(列表[j]);
+                var 分类筛选=JSON.parse(String(列表[j])).type_extend;
                 for(var key in 分类筛选){
                     if(key=="class"||key=="area"||key=="lang"||key=="year"){
                         str=str+"筛选"+key+"+全部=+"+分类筛选[key].replace(/,/g,"+")+"\r\n";
