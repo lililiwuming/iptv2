@@ -57,7 +57,7 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-iptv")!=-1)){
         var searchurl=e2Rex(输入条目[j],".ty(@@).tz(€€)");
         var type=e2Rex(输入条目[j],".ty(€€).tz(**)");
         var UA=e2Rex(输入条目[j],".ty(**)");
-        记录.push({"站名":title,"首页地址":indexurl,"分类地址":typeurl,"搜索地址":searchurl,"类型":type,"UA":UA});
+        记录.push({"站名":title,"首页地址":indexurl,"分类地址":typeurl,"搜索地址":searchurl,"类型":type,"UA":UA}+"\n");
     }
     if(readStr(filename)){
         var 新记录=JSON.parse(readStr(filename));
@@ -67,7 +67,7 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-iptv")!=-1)){
     for(var i in 记录){
         var 当前条目=[];当前条目.push(记录[i]);
         if(新记录.length==0){
-            新记录.push({title:记录[i].类型+"\n",data:当前条目+"\n"});
+            新记录.push({title:记录[i].类型,data:当前条目});
         }else{
             let res=新记录.some(item=>{
                 if(item.title==记录[i].类型){
@@ -76,7 +76,7 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-iptv")!=-1)){
                 }
             });
             if(!res){
-                新记录.push({title:记录[i].类型+"\n",data:当前条目+"\n"});
+                新记录.push({title:记录[i].类型,data:当前条目});
             }
         }
     }
