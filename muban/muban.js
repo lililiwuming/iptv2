@@ -408,19 +408,19 @@ function 通用列表(){
         var play_={};
         play_.list=LIST;
         play_.title=分类标题;
+        if(类型.indexOf("CMS")!=-1){
+            play_.nextpage=URL+NEXTPAGE;
+            play_.lastpage=URL+LASTPAGE;
+        }else if(类型.indexOf("iptv")!=-1){
+            play_.nextpage=首页地址+"?ac=list&class=&area=&type=&start=&page="+NEXTPAGE;
+            play_.lastpage=首页地址+"?ac=list&class=&area=&type=&start=&page="+LASTPAGE;
+        }else{
+            play_.nextpage="";
+            play_.lastpage="";
+        }
         items.push(play_);
     }
     res.data=items;
-    if(类型.indexOf("CMS")!=-1){
-        res.nextpage=URL+NEXTPAGE;
-        res.lastpage=URL+LASTPAGE;
-    }else if(类型.indexOf("iptv")!=-1){
-        res.nextpage=首页地址+"?ac=list&class=&area=&type=&start=&page="+NEXTPAGE;
-        res.lastpage=首页地址+"?ac=list&class=&area=&type=&start=&page="+LASTPAGE;
-    }else{
-        res.nextpage="";
-        res.lastpage="";
-    }
     return JSON.stringify(res);
 }
 if(类型.indexOf("xml")!=-1){
