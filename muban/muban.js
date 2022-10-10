@@ -595,16 +595,12 @@ var 类型=getVar("类型");
 var 首页地址=getVar("首页地址");
 var 搜索地址=getVar("搜索地址").replace("#KEY#",KEY).replace("#PN#",PN);
 var 源码=getHttp(JSON.stringify({url:首页地址+搜索地址,redirect:false,head:{"User-Agent":UA}}));
-alert(首页地址+搜索地址);
-alert(源码);
 function 搜索列表(){
     var res={};var items=[];var LIST=[];
-    var LIMIT=列表.length;
-    for(var j=0;j<LIMIT;j++){
-        var CODE=列表[j];
-        var 地址=首页地址+e2Rex(CODE,地址规则);
-        var 标题=e2Rex(CODE,标题规则);
-        var 预图片=e2Rex(CODE,图片规则);
+    for(var j=0;j<列表.length;j++){
+        var 地址=首页地址+e2Rex(列表[j],地址规则);
+        var 标题=e2Rex(列表[j],标题规则);
+        var 预图片=e2Rex(列表[j],图片规则);
         if(预图片.indexOf("/mac:")!=-1){
             var 图片="http:"+预图片.split("mac:")[1];
         }else if(预图片.indexOf("mac:")!=-1){
@@ -621,8 +617,8 @@ function 搜索列表(){
         }else{
             var 图片=getVar("地址").match(/https?:\/\/.+?\//)[0]+预图片;
         }
-        var 简介=e2Rex(CODE,简介规则);
-        var 作者=e2Rex(CODE,作者规则);
+        var 简介=e2Rex(列表[j],简介规则);
+        var 作者=e2Rex(列表[j],作者规则);
         if(类型.indexOf("接口")!=-1){
             var mode="OKHTTP";
         }else if(类型.indexOf("网页")!=-1){
