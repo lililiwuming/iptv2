@@ -380,8 +380,6 @@ if(类型.indexOf("xml")!=-1){
 var 首页地址=getVar("首页地址");
 var 类型=getVar("类型");
 var UA=getVar("UA");
-var NEXTPAGE=Number(getVar("PN"))+1;
-var LASTPAGE=Number(getVar("PN"))-1;
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<分类.length;j++){
@@ -408,16 +406,6 @@ function 通用列表(){
         var play_={};
         play_.list=LIST;
         play_.title=分类标题;
-        if(类型.indexOf("CMS")!=-1){
-            play_.nextpage=URL+NEXTPAGE;
-            play_.lastpage=URL+LASTPAGE;
-        }else if(类型.indexOf("iptv")!=-1){
-            play_.nextpage=首页地址+"?ac=list&class=&area=&type=&start=&page="+NEXTPAGE;
-            play_.lastpage=首页地址+"?ac=list&class=&area=&type=&start=&page="+LASTPAGE;
-        }else{
-            play_.nextpage="";
-            play_.lastpage="";
-        }
         items.push(play_);
     }
     res.data=items;
