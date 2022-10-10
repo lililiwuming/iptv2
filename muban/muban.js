@@ -951,5 +951,5 @@ var name=e2Rex(getVar("QMINFO"),".xml(name).t()").replace(/\s/g,"");
 if(version==NewVersion&&sign==NewSign&&name==NewName){
     "0";
 }else{
-    "1";
+    "mapi:qm/http://43.140.205.222:3000/InMemory/iptv/raw/branch/master/mkz/APP影视.mkz";
 }
