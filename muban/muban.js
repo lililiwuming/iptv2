@@ -278,7 +278,6 @@ function 通用列表(){
             var 图片="http:"+预图片.split("mac:")[1];
         }else if(预图片.indexOf(".test.com")!=-1||预图片.indexOf(".maccms.com")!=-1||预图片.indexOf(".maccms.pro")!=-1){
             var 图片=地址.match(/http?:\/\/.+?\//)[0]+预图片.match(/http?:\/\/.+?\//)[1];
-            //var 图片=图片.match(/.*(http.*)/)[1];
         }else if(预图片==""){
             var 图片="http://43.140.205.222:4433/mxtheme/images/load.gif";
         }else if(预图片.indexOf("http")!=-1){
@@ -302,7 +301,7 @@ function 通用列表(){
     items.push(play_);
     res.data=items;
     return JSON.stringify(res);
-}
+}alert(data);
 if(类型.indexOf("xml")!=-1){
     var 列表=e2Arr(源码,'.xml(list video)');
     var 标题规则='.xml(name).ty(CDATA[).tz2(]])';
@@ -387,7 +386,7 @@ if(类型.indexOf("xml")!=-1){
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(psan.video-class).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-text).t().ct(</font></p>)';
     通用列表();
-}else if(类型.indexOf("MX")!=-1){
+}else if(类型.indexOf("MX(采集站)")!=-1){
     var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li).i(1,-1)");
     var 标题规则=".get(h3 a).a(title)";
     var 地址规则=".get(h3 a).a(href)";
