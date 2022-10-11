@@ -268,7 +268,7 @@ function 通用列表(){
         }
         var 标题=e2Rex(CODE,标题规则);
         var 预图片=e2Rex(CODE,图片规则);
-        if(预图片.indexOf("img.php?url").length>1){
+        if(预图片.indexOf("img.php?url")!=-1){
           var 图片=预图片.split("url=")[1];
         }else if(预图片.indexOf("http").length>1){
           var 图片=预图片.match(/.*(http.*[a-zA-Z].*)/)[1];
@@ -414,7 +414,7 @@ function 通用列表(){
             }
             var 标题=e2Rex(列表[i],标题规则);
             var 预图片=e2Rex(列表[i],图片规则);
-            if(预图片.indexOf("img.php?url").length>1){
+            if(预图片.indexOf("img.php?url")!=-1){
                 var 图片=预图片.split("url=")[1];
             }else if(预图片.indexOf("http").length>1){
                 var 图片=预图片.match(/.*(http.*[a-zA-Z].*)/)[1];
@@ -609,7 +609,7 @@ function 搜索列表(){
         var 地址=首页地址+e2Rex(列表[j],地址规则);
         var 标题=e2Rex(列表[j],标题规则);
         var 预图片=e2Rex(列表[j],图片规则);
-        if(预图片.indexOf("img.php?url").length>1){
+        if(预图片.indexOf("img.php?url")!=-1){
           var 图片=预图片.split("url=")[1];
         }else if(预图片.indexOf("http").length>1){
           var 图片=预图片.match(/.*(http.*[a-zA-Z].*)/)[1];
