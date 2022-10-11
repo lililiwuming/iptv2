@@ -230,7 +230,7 @@ if(类型.indexOf("xml")!=-1){
     头部导航();
 }else if(类型.indexOf("MX(采集站)")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".get(div.container div ul.stui-header__menu.clearfix>li)");
+    var 列表=e2Arr(源码,".get(a[href~=/vod/type/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     var 翻页后='.html';
