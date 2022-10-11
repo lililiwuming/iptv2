@@ -689,8 +689,8 @@ if(类型.indexOf("xml")!=-1){
     var 作者规则=".json(state).tx(·).json(type)";
     搜索列表();
 }else if(类型.indexOf("MXone Pro")!=-1){
-    var 列表=e2Arr(源码,".get(a[href~=/vod/detail/.+]).or().get(a[href~=/voddetail/.+]).or().get(div.sidebar a[href~=/vod/.+])");
-    var 标题规则=".get(img).a(alt)";
+    var 列表=e2Arr(源码,".get(div.module-card-item.module-item)");
+    var 标题规则=".get(div.module-card-item-title).t()";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original)";
     var 简介规则=".get(div.module-info-item-content).t()";
