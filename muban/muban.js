@@ -301,7 +301,7 @@ function 通用列表(){
     items.push(play_);
     res.data=items;
     return JSON.stringify(res);
-}alert(data);
+}alert(LIST);
 if(类型.indexOf("xml")!=-1){
     var 列表=e2Arr(源码,'.xml(list video)');
     var 标题规则='.xml(name).ty(CDATA[).tz2(]])';
