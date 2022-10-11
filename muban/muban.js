@@ -1,12 +1,12 @@
 ######模板列表1
 ####网页-1
-@@网页-MXone Pro-1@@/index.php/vod/show/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
+@@网页-MXone Pro-1@@/index.php/vod/show/area/#地区#/by/#排序#/class/#类型#/id/#ID#/year/#年份#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
 
 ####网页-2
-@@网页-MXone Pro-2@@/vodshow/#ID#--------#PN#---.html@@/vodsearch/#KEY#----------#PN#---.html@@Mozilla/5.0@@
+@@网页-MXone Pro-2@@/vodshow/#ID#-#地区#-#排序#-#类型#-----#PN#---#年份#.html@@/vodsearch/#KEY#----------#PN#---.html@@Mozilla/5.0@@
 
 ####网页-3
-@@网页-MX Pro-1@@/index.php/vod/show/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
+@@网页-MX Pro-1@@/index.php/vod/show/area/#地区#/by/#排序#/class/#类型#/id/#ID#/year/#年份#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
 
 ####网页-4
 @@网页-MX(采集站)@@/index.php/vod/type/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
@@ -134,8 +134,8 @@ function 头部导航(){
             str;
         }else if(类型.indexOf("iptv")!=-1){
             var str="类型+全部=+喜剧+爱情+恐怖+动作+科幻+剧情+战争+警匪+犯罪+动画+奇幻+武侠+冒险+枪战+恐怖+悬疑+惊悚+经典+青春+文艺+微电影+古装+历史+运动+农村+惊悚+惊悚+伦理+情色+福利+三级+儿童+网络电影\n地区+全部=+大陆+香港+台湾+美国+英国+法国+日本+韩国+德国+泰国+印度+西班牙+加拿大+其他\n年份+全部=+2022+2021+2020+2019+2018+2017+2016+2015+2014+2013+2012+2011+2010+2009+2008+2007+2006+2005+2004+2003+2002+2001+2000";
-        }else if(类型.indexOf("网页")!=-1){
-            var str="类型+全部=+喜剧+爱情+恐怖+动作+科幻+剧情+战争+警匪+犯罪+动画+奇幻+武侠+冒险+枪战+恐怖+悬疑+惊悚+经典+青春+文艺+微电影+古装+历史+运动+农村+惊悚+惊悚+伦理+情色+福利+三级+儿童+网络电影\n地区+全部=+大陆+香港+台湾+美国+英国+法国+日本+韩国+德国+泰国+印度+西班牙+加拿大+其他\n年份+全部=+2022+2021+2020+2019+2018+2017+2016+2015+2014+2013+2012+2011+2010+2009+2008+2007+2006+2005+2004+2003+2002+2001+2000";
+        }else if(类型.indexOf("MX")!=-1){
+            var str="类型+全部=+喜剧+爱情+恐怖+动作+科幻+剧情+战争+警匪+犯罪+动画+奇幻+武侠+冒险+枪战+恐怖+悬疑+惊悚+经典+青春+文艺+微电影+古装+历史+运动+农村+惊悚+惊悚+伦理+情色+福利+三级+儿童+网络电影\n地区+全部=+大陆+香港+台湾+美国+英国+法国+日本+韩国+德国+泰国+印度+西班牙+加拿大+其他\n年份+全部=+2022+2021+2020+2019+2018+2017+2016+2015+2014+2013+2012+2011+2010+2009+2008+2007+2006+2005+2004+2003+2002+2001+2000\n排序+全部=+按时间=time+按人气=hits+按评分=score";
         }else{
             var str="";
         }
@@ -223,7 +223,7 @@ if(类型.indexOf("xml")!=-1){
     头部导航();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".get(div.nav a[href~=/vod/type/.+]).or().get(div.nav ul>li)");
+    var 列表=e2Arr(源码,".get(a[href~=/vod/type/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     var 翻页后='.html';
