@@ -223,7 +223,7 @@ if(类型.indexOf("xml")!=-1){
     头部导航();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".get(a[href~=/vod/type/.+]).or().get(div.nav ul>li)");
+    var 列表=e2Arr(源码,".get(div.nav a[href~=/vod/type/.+]).or().get(div.nav ul>li)");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     var 翻页后='.html';
