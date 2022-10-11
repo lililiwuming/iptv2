@@ -105,46 +105,46 @@ var 类型=getVar("类型");
 var UA=getVar("UA");
 function 头部导航(){
     var res={};var items=[];
-    if(类型.indexOf("接口")!=-1){
-        for(var j=0;j<列表.length;j++){
-            var 标题=e2Rex(列表[j],标题规则);
-            var 地址=e2Rex(列表[j],地址规则);
+    for(var j=0;j<列表.length;j++){
+        var 标题=e2Rex(列表[j],标题规则);
+        var 地址=e2Rex(列表[j],地址规则);
+        if(类型.indexOf("接口")!=-1){
             var ID=e2Rex(列表[j],地址规则);
-            var 分类地址=首页地址+分类url.replace('#ID#',ID);
-            //分类地址=分类地址.split('#PN#')[0]+分类url.split('#PN#')[1];
-            if(类型.indexOf("vod")!=-1){
-                var str="";
-                var 分类筛选=JSON.parse(String(列表[j])).type_extend;
-                for(var key in 分类筛选){
-                    if(key=="class"||key=="area"||key=="lang"||key=="year"){
-                        str=str+"筛选"+key+"+全部=+"+分类筛选[key].replace(/,/g,"+")+"\r\n";
-                    }
-                }
-                str+"\r\n"+"排序+全部=+最新=time+最热=hits+评分=score";
-            }else if(类型.indexOf("app")!=-1||类型.indexOf("v1")!=-1||类型.indexOf("v2")!=-1){
-                var str="";
-                var 分类筛选=JSON.parse(String(列表[j])).type_extend;
-                for(var key in 分类筛选){
-                    if(key=="class"||key=="area"||key=="lang"||key=="year"){
-                        str=str+"筛选"+key+"+全部=+"+分类筛选[key].replace(/,/g,"+")+"\r\n";
-                    }
-                }
-                str;
-            }else if(类型.indexOf("iptv")!=-1){
-                var str="类型+全部=+喜剧+爱情+恐怖+动作+科幻+剧情+战争+警匪+犯罪+动画+奇幻+武侠+冒险+枪战+恐怖+悬疑+惊悚+经典+青春+文艺+微电影+古装+历史+运动+农村+惊悚+惊悚+伦理+情色+福利+三级+儿童+网络电影\n地区+全部=+大陆+香港+台湾+美国+英国+法国+日本+韩国+德国+泰国+印度+西班牙+加拿大+其他\n年份+全部=+2022+2021+2020+2019+2018+2017+2016+2015+2014+2013+2012+2011+2010+2009+2008+2007+2006+2005+2004+2003+2002+2001+2000";
-            }else{
-                var str="";
-            }
-            items.push({title:标题,url:分类地址,mode:"OKHTTP",翻页后:翻页后,type_extend:str});
-        }
-    }else if(类型.indexOf("网页")!=-1){
-        for(var j=0;j<列表.length;j++){
-            var 标题=e2Rex(列表[j],标题规则);
+        }else if(类型.indexOf("网页")!=-1){
             var ID=e2Rex(列表[j],地址规则).match(/[0-9]/);
-            var 分类地址=首页地址+分类url.replace('#ID#',ID);
-            //分类地址=分类地址.split('#PN#')[0]+分类url.split('#PN#')[1].split('.html')[0];
-            items.push({title:标题,url:分类地址,mode:"JSOUP",翻页后:翻页后});
         }
+        var 分类地址=首页地址+分类url.replace('#ID#',ID);
+        if(类型.indexOf("vod")!=-1){
+            var str="";
+            var 分类筛选=JSON.parse(String(列表[j])).type_extend;
+            for(var key in 分类筛选){
+                if(key=="class"||key=="area"||key=="lang"||key=="year"){
+                    str=str+"筛选"+key+"+全部=+"+分类筛选[key].replace(/,/g,"+")+"\r\n";
+                }
+            }
+            str+"\r\n"+"排序+全部=+最新=time+最热=hits+评分=score";
+        }else if(类型.indexOf("app")!=-1||类型.indexOf("v1")!=-1||类型.indexOf("v2")!=-1){
+            var str="";
+            var 分类筛选=JSON.parse(String(列表[j])).type_extend;
+            for(var key in 分类筛选){
+                if(key=="class"||key=="area"||key=="lang"||key=="year"){
+                    str=str+"筛选"+key+"+全部=+"+分类筛选[key].replace(/,/g,"+")+"\r\n";
+                }
+            }
+            str;
+        }else if(类型.indexOf("iptv")!=-1){
+            var str="类型+全部=+喜剧+爱情+恐怖+动作+科幻+剧情+战争+警匪+犯罪+动画+奇幻+武侠+冒险+枪战+恐怖+悬疑+惊悚+经典+青春+文艺+微电影+古装+历史+运动+农村+惊悚+惊悚+伦理+情色+福利+三级+儿童+网络电影\n地区+全部=+大陆+香港+台湾+美国+英国+法国+日本+韩国+德国+泰国+印度+西班牙+加拿大+其他\n年份+全部=+2022+2021+2020+2019+2018+2017+2016+2015+2014+2013+2012+2011+2010+2009+2008+2007+2006+2005+2004+2003+2002+2001+2000";
+        }else if(类型.indexOf("网页")!=-1){
+            var str="类型+全部=+喜剧+爱情+恐怖+动作+科幻+剧情+战争+警匪+犯罪+动画+奇幻+武侠+冒险+枪战+恐怖+悬疑+惊悚+经典+青春+文艺+微电影+古装+历史+运动+农村+惊悚+惊悚+伦理+情色+福利+三级+儿童+网络电影\n地区+全部=+大陆+香港+台湾+美国+英国+法国+日本+韩国+德国+泰国+印度+西班牙+加拿大+其他\n年份+全部=+2022+2021+2020+2019+2018+2017+2016+2015+2014+2013+2012+2011+2010+2009+2008+2007+2006+2005+2004+2003+2002+2001+2000";
+        }else{
+            var str="";
+        }
+        if(类型.indexOf("接口")!=-1){
+            var mode="OKHTTP";
+        }else if(类型.indexOf("网页")!=-1){
+            var mode="JSOUP";
+        }
+        items.push({title:标题,url:分类地址,mode:mode,type_extend:str});
     }
     res.url=URL;
     res.data=items;
