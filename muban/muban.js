@@ -1002,7 +1002,7 @@ if(类型.indexOf("接口")!=-1){
 写站源的详情请查看群
 有问题及适配模板请反馈
 ######检测更新12
-var NewVersion="221010";
+var NewVersion="221011";
 var version=e2Rex(getVar("QMINFO"),".xml(version).t()").replace(/\s/g,"");
 var NewSign="f6dc3d89035d1db7edead60443414542";
 var sign=e2Rex(getVar("QMINFO"),".xml(sign).t()").replace(/\s/g,"");
