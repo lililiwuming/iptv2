@@ -38,23 +38,7 @@
 ####APP-13
 @@接口-iptv(wd)@@?ac=list&class=#ID#&area=#地区#&type=#类型#&start=#年份#&page=#PN#@@?ac=list&wd=#KEY#&page=#PN#@@Dalvik/2.1.0@@
 
-######删除规则2
-var 站名=getVar("站名");
-var 类别=getVar("类别");
-var 首页地址=getVar("首页地址");
-var filename='站源.json';
-var 记录=getVar("源");
-var 新记录=JSON.parse(readStr(filename));
-let res=新记录.some(item=>{
-    if(item.类别 == JSON.parse(记录).类别){
-        item.data=item.data.filter(a=>a.首页地址!=JSON.parse(记录).首页地址);
-        return true
-    }
-});
-var AppName=e2Rex(记录,".json(站名)");
-writeStr(filename,JSON.stringify(新记录));
-alert(AppName+"\n删除成功");
-######本地新增3
+######本地新增2
 var key=getVar("输入内容");
 var 记录=[];
 if(key.indexOf("==http")!=-1&&key.indexOf("#KEY#")!=-1&&(key.indexOf("网页-MXone Pro")!=-1||key.indexOf("网页-MX Pro")!=-1||
@@ -98,7 +82,39 @@ key.indexOf("接口-APP(v2)")!=-1||key.indexOf("接口-iptv")!=-1)){
 }else{
     alert("输入格式错误，请重新输入");
 }
-######站源分类4
+######修改数据3
+var URL=getVar("地址");
+var 分类筛选=JSON.parse(getVar("源")).type_extend;
+var str="";
+for(var key in 分类筛选){
+    if(key=="class"||key=="area"||key=="lang"||key=="year"){
+        str=str+"筛选"+key+"+全部=+"+分类筛选[key].replace(/,/g,"+")+"\r\n";
+    }
+}
+if(URL.indexOf(".vod")!=-1){
+  str+"\r\n"+"排序+全部=+最新=time+最热=hits+评分=score";
+}else if(URL.indexOf("api.php/app")!=-1||URL.indexOf("xgapp")!=-1||URL.indexOf("xgtv")!=-1){
+  str;
+}else{
+    "类型+全部=+喜剧+爱情+恐怖+动作+科幻+剧情+战争+警匪+犯罪+动画+奇幻+武侠+冒险+枪战+恐怖+悬疑+惊悚+经典+青春+文艺+微电影+古装+历史+运动+农村+惊悚+惊悚+伦理+情色+福利+三级+儿童+网络电影\n地区+全部=+大陆+香港+台湾+美国+英国+法国+日本+韩国+德国+泰国+印度+西班牙+加拿大+其他\n年份+全部=+2022+2021+2020+2019+2018+2017+2016+2015+2014+2013+2012+2011+2010+2009+2008+2007+2006+2005+2004+2003+2002+2001+2000";
+}
+######删除规则4
+var 站名=getVar("站名");
+var 类别=getVar("类别");
+var 首页地址=getVar("首页地址");
+var filename='站源.json';
+var 记录=getVar("源");
+var 新记录=JSON.parse(readStr(filename));
+let res=新记录.some(item=>{
+    if(item.类别 == JSON.parse(记录).类别){
+        item.data=item.data.filter(a=>a.首页地址!=JSON.parse(记录).首页地址);
+        return true
+    }
+});
+var AppName=e2Rex(记录,".json(站名)");
+writeStr(filename,JSON.stringify(新记录));
+alert(AppName+"\n删除成功");
+######站源分类5
 var 首页地址=getVar("首页地址");
 var 分类url=getVar("分类地址");
 var 类型=getVar("类型");
@@ -233,22 +249,6 @@ if(类型.indexOf("xml")!=-1){
     var 地址规则=".get(a).a(href)";
     var 翻页后='.html';
     头部导航();
-}
-######筛选条件5
-var URL=getVar("地址");
-var 分类筛选=JSON.parse(getVar("源")).type_extend;
-var str="";
-for(var key in 分类筛选){
-    if(key=="class"||key=="area"||key=="lang"||key=="year"){
-        str=str+"筛选"+key+"+全部=+"+分类筛选[key].replace(/,/g,"+")+"\r\n";
-    }
-}
-if(URL.indexOf(".vod")!=-1){
-  str+"\r\n"+"排序+全部=+最新=time+最热=hits+评分=score";
-}else if(URL.indexOf("api.php/app")!=-1||URL.indexOf("xgapp")!=-1||URL.indexOf("xgtv")!=-1){
-  str;
-}else{
-    "类型+全部=+喜剧+爱情+恐怖+动作+科幻+剧情+战争+警匪+犯罪+动画+奇幻+武侠+冒险+枪战+恐怖+悬疑+惊悚+经典+青春+文艺+微电影+古装+历史+运动+农村+惊悚+惊悚+伦理+情色+福利+三级+儿童+网络电影\n地区+全部=+大陆+香港+台湾+美国+英国+法国+日本+韩国+德国+泰国+印度+西班牙+加拿大+其他\n年份+全部=+2022+2021+2020+2019+2018+2017+2016+2015+2014+2013+2012+2011+2010+2009+2008+2007+2006+2005+2004+2003+2002+2001+2000";
 }
 ######筛选列表6
 var 源码=getVar("源");
