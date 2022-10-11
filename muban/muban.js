@@ -294,7 +294,7 @@ function 通用列表(){
         }else{
             var mode="OKHTTP";
         }
-        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态,mode:mode});alert(LIST);
+        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态,mode:mode});
     }
     var play_={};
     play_.list=LIST;
