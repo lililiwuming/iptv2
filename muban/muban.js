@@ -382,7 +382,7 @@ if(类型.indexOf("xml")!=-1){
     var 标题规则=".get(div.module-item-style.video-name a).t()";
     var 地址规则=".get(div.module-item-style.video-name a).a(href)";
     var 图片规则=".get(img).a(data-src)";
-    var 播放源规则='.c(<font color=\"#0997F7\"><b>).json(vod_play_from).ct(</b></font><br>)';
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(psan.video-class).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-text).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("MX")!=-1){
@@ -688,8 +688,30 @@ if(类型.indexOf("xml")!=-1){
     var 简介规则="";
     var 作者规则=".json(state).tx(·).json(type)";
     搜索列表();
-}else{
-
+}else if(类型.indexOf("MXone Pro")!=-1){
+    var 列表=e2Arr(源码,".get(a[href~=/vod/detail/.+]).or().get(a[href~=/voddetail/.+])");
+    var 标题规则=".get(a).a(title)";
+    var 地址规则=".get(a).a(href)";
+    var 图片规则=".get(img).a(data-original)";
+    var 简介规则=".get(div.module-item-douban).t()";
+    var 作者规则=".get(div.module-item-note).t()";
+    搜索列表();
+}else if(类型.indexOf("MX Pro")!=-1){
+    var 列表=e2Arr(源码,".get(div.module-items div.module-item)");
+    var 标题规则=".get(div.module-item-style.video-name a).t()";
+    var 地址规则=".get(a).a(href)";//.get(div.module-item-style.video-name a).a(href)
+    var 图片规则=".get(img).a(data-src)";
+    var 简介规则=".get(psan.video-class).t()";
+    var 作者规则=".get(div.module-item-text).t()";
+    搜索列表();
+}else if(类型.indexOf("MX(采集站)")!=-1){
+    var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li).i(1,-1)");
+    var 标题规则=".get(h3 a).a(title)";
+    var 地址规则=".get(h3 a).a(href)";
+    var 图片规则="http://43.140.205.222:4433/mxtheme/images/load.gif";
+    var 简介规则=".get(span.time).t()";
+    var 作者规则=".get(em).t()";
+    搜索列表();
 }
 ######重组选集9
 var 类型=getVar("类型");
