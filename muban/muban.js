@@ -690,10 +690,10 @@ if(类型.indexOf("xml")!=-1){
     搜索列表();
 }else if(类型.indexOf("MXone Pro")!=-1){
     var 列表=e2Arr(源码,".get(a[href~=/vod/detail/.+]).or().get(a[href~=/voddetail/.+]).or().get(div.sidebar a[href~=/vod/.+])");
-    var 标题规则=".get(a).a(title)";
+    var 标题规则=".get(img).a(alt)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original)";
-    var 简介规则=".get(div.module-item-douban).t()";
+    var 简介规则=".get(div.module-info-item-content).t()";
     var 作者规则=".get(div.module-item-note).t()";
     搜索列表();
 }else if(类型.indexOf("MX Pro")!=-1){
