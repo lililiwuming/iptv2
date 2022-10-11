@@ -703,12 +703,12 @@ if(类型.indexOf("xml")!=-1){
     var 作者规则=".get(div.module-item-note).t()";
     搜索列表();
 }else if(类型.indexOf("MX Pro")!=-1){
-    var 列表=e2Arr(源码,".get(div.module-items div.module-item)");
-    var 标题规则=".get(div.module-item-style.video-name a).t()";
-    var 地址规则=".get(a).a(href)";//.get(div.module-item-style.video-name a).a(href)
+    var 列表=e2Arr(源码,".get(div.module-search-item)");
+    var 标题规则=".get(h3).t()";
+    var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-src)";
-    var 简介规则=".get(psan.video-class).t()";
-    var 作者规则=".get(div.module-item-text).t()";
+    var 简介规则=".get(div.video-info-main).t()";
+    var 作者规则=".get(div.video-info-aux).t()";
     搜索列表();
 }else if(类型.indexOf("MX(采集站)")!=-1){
     var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li).i(1,-1)");
