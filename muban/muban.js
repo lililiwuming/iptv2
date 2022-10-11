@@ -1,12 +1,12 @@
 ######模板列表1
 ####网页-1
-@@网页-MXone Pro-1@@/index.php/vod/show/area/#地区#/by/#排序#/class/#类型#/id/#ID#/year/#年份#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
+@@网页-MXone Pro-1@@/index.php/vod/show/area/#地区#/by/#排序#/class/#类型#/id/#ID#/page/#PN#/year/#年份#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
 
 ####网页-2
 @@网页-MXone Pro-2@@/vodshow/#ID#-#地区#-#排序#-#类型#-----#PN#---#年份#.html@@/vodsearch/#KEY#----------#PN#---.html@@Mozilla/5.0@@
 
 ####网页-3
-@@网页-MX Pro-1@@/index.php/vod/show/area/#地区#/by/#排序#/class/#类型#/id/#ID#/year/#年份#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
+@@网页-MX Pro-1@@/index.php/vod/show/area/#地区#/by/#排序#/class/#类型#/id/#ID#/page/#PN#/year/#年份#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
 
 ####网页-4
 @@网页-MX(采集站)@@/index.php/vod/type/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
