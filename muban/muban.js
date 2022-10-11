@@ -1,15 +1,15 @@
 ######模板列表1
 ####网页-1
-@@网页-MXone Pro-1@@/index.php/vod/show/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
+@@网页-MXone Pro-1@@/index.php/vod/show/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@
 
 ####网页-2
-@@网页-MXone Pro-2@@/vodshow/#ID#--------#PN#---.html@@/vodsearch/#KEY#----------#PN#---.html@@Mozilla/5.0@@
+@@网页-MXone Pro-2@@/vodshow/#ID#--------#PN#---.html@@/vodsearch/#KEY#----------#PN#---.html@@@@
 
 ####网页-3
-@@网页-MX Pro-1@@/index.php/vod/show/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
+@@网页-MX Pro-1@@/index.php/vod/show/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@
 
 ####网页-4
-@@网页-MX(采集站)@@/index.php/vod/type/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0@@
+@@网页-MX(采集站)@@/index.php/vod/type/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@
 
 ####采集接口-5
 @@接口-CMS(json)@@?ac=videolist&t=#ID#&pg=#PN#@@?ac=videolist&wd=#KEY#&pg=#PN#@@Dalvik/2.1.0@@
