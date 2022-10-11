@@ -294,14 +294,14 @@ function 通用列表(){
         }else{
             var mode="OKHTTP";
         }
-        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态,mode:mode});
+        LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态,mode:mode});alert(LIST);
     }
     var play_={};
     play_.list=LIST;
     items.push(play_);
     res.data=items;
     return JSON.stringify(res);
-}alert(LIST);
+}
 if(类型.indexOf("xml")!=-1){
     var 列表=e2Arr(源码,'.xml(list video)');
     var 标题规则='.xml(name).ty(CDATA[).tz2(]])';
