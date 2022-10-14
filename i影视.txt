@@ -286,7 +286,7 @@ if(类型.indexOf("接口-CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("接口-iptv")!=-1){
-    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
+    var 列表=e2Arr(源码,".json(data)");
     var 标题规则=".json(title)";
     var 地址规则=".json(nextlink)";
     var 图片规则=".json(pic)";
