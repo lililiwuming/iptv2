@@ -569,7 +569,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 标题规则=".json(title)";
     var 地址规则=".json(nextlink)";
     var 图片规则=".json(pic)";
-    var 简介规则="";
+    var 简介规则=".json(tjendtime)";
     var 作者规则=".json(state).tx(·).json(type)";
     搜索列表();
 }else if(类型.indexOf("MXone Pro")!=-1){
