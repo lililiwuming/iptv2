@@ -204,7 +204,7 @@ if(类型.indexOf("接口-CMS(xml)")!=-1){
 ######筛选列表6
 var 源码=getVar("源");
 var 首页地址=getVar("首页地址");
-var 类型=getVar("类型");
+var 类型=getVar("类型");alert(类型);
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<列表.length;j++){
@@ -287,7 +287,7 @@ if(类型.indexOf("接口-CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(vod_remarks).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("接口-iptv")!=-1){
-    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");alert(列表);
+    var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
     var 标题规则=".json(title)";
     var 地址规则=".json(nextlink)";
     var 图片规则=".json(pic)";
