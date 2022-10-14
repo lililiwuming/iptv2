@@ -862,7 +862,7 @@ if(类型.indexOf("接口")!=-1){
 有问题及适配模板请反馈
 ######检测更新12
 var aaa=readStr("站源.json");
-var bbb=aaa.replace("网页-MXone Pro-","网页-MXone Pro-1");
+var bbb=aaa.replace("网页-网页-MXone Pro-112","网页-MXone Pro-2");
 writeStr("站源.json",bbb)
 var NewVersion="221011";
 var version=e2Rex(getVar("QMINFO"),".xml(version).t()").replace(/\s/g,"");
