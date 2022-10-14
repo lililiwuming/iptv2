@@ -27,7 +27,7 @@
 @@接口-iptv(zm)@@?ac=list&class=#ID#&area=#地区#&type=#筛选type#&start=#年份#&page=#PN#@@?ac=list&zm=#KEY#&page=#PN#@@Dalvik/2.1.0@@
 
 ####APP-12
-@@接口-iptv(wd)@@?ac=list&class=#ID#&area=#地区#&type=#类型#&start=#年份#&page=#PN#@@?ac=list&wd=#KEY#&page=#PN#@@Dalvik/2.1.0@@
+@@接口-iptv(wd)@@?ac=list&class=#ID#&area=#地区#&type=#筛选type#&start=#年份#&page=#PN#@@?ac=list&wd=#KEY#&page=#PN#@@Dalvik/2.1.0@@
 
 ######本地新增2
 var key=getVar("输入内容");
