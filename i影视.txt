@@ -208,7 +208,6 @@ var 类型=getVar("类型");alert(类型);
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<列表.length;j++){
-        alert(列表[j]);
         if(类型.indexOf("接口-iptv")!=-1){
           var 地址=e2Rex(列表[j],地址规则);
         }else{
