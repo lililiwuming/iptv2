@@ -204,7 +204,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
 ######筛选列表6
 var 源码=getVar("源");
 var 首页地址=getVar("首页地址");
-var 类型=getVar("类型");alert(类型);
+var 类型=getVar("类型");
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<列表.length;j++){
