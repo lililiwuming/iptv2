@@ -309,7 +309,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.time).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(em).t().ct(</font></p>)';
     通用列表();
-}else{
+}else if(类型.indexOf("iptv")!=-1){
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data)");
     var 标题规则=".json(title)";
     var 地址规则=".json(nextlink)";
