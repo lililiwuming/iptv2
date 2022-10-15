@@ -181,7 +181,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     头部导航();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".get(.mxprofoot a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vodtype/.+]).or().get(div.sidebar a[href~=/type/.+])");
+    var 列表=e2Arr(源码,".get(div.mxprofoot a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vodtype/.+]).or().get(div.sidebar a[href~=/type/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则='.get(a).a(href)';
     var 翻页后='.html';
@@ -451,7 +451,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
         var 分类=e2Arr(源码,".get(div.content div.module)");
     }
     var 分类标题规则=".get(h2).t()";
-    var 列表规则=".get(div.module-items a)";
+    var 列表规则=".get(div.module-items>a)";
     var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original)";
