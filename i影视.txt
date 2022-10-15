@@ -102,7 +102,7 @@ function 头部导航(){
         if(类型.indexOf("接口")!=-1){
             var ID=e2Rex(列表[j],地址规则);
         }else if(类型.indexOf("网页")!=-1){
-            var ID=e2Rex(列表[j],地址规则).match(/[0-9].+/);
+            var ID=e2Rex(列表[j],地址规则).match(/[0-9].+/).split(".html")[0];
         }
         var 分类地址=首页地址+分类url.replace('#ID#',ID);
         if(类型.indexOf("APP(vod)")!=-1){
