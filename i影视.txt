@@ -451,7 +451,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
         var 分类=e2Arr(源码,".get(div.content div.module)");
     }
     var 分类标题规则=".get(h2).t()";
-    var 列表规则=".get(div.module-items > a)";
+    var 列表规则=".get(a[href~=/vod/detail/.+]).or().get(a[href~=/voddetail/.+]).or().get(div.sidebar a[href~=/vod/.+])";
     var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original)";
