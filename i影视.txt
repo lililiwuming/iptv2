@@ -38,7 +38,7 @@
 ######本地新增2
 var key=getVar("输入内容");
 var 记录=[];
-if(key.indexOf("=http")!=-1&&key.indexOf("#KEY#")!=-1&&(key.indexOf("MX Pro")!=-1||key.indexOf("MXone")!=-1||key.indexOf("首途")!=-1||
+if(key.indexOf("=http")!=-1&&(key.indexOf("MX Pro")!=-1||key.indexOf("MXone")!=-1||key.indexOf("首途")!=-1||
 key.indexOf("网页-v10(采集站)")!=-1||key.indexOf("CMS(json)")!=-1||key.indexOf("CMS(xml)")!=-1||key.indexOf("APP(vod)")!=-1||key.indexOf("APP(小龟)")!=-1||key.indexOf("iptv(wd)")!=-1||key.indexOf("iptv(zm)")!=-1||key.indexOf("直播(e4a)")!=-1)){
     var filename='站源.json';
     var 输入条目=key.match(/.+=http.+/g);
@@ -206,7 +206,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     头部导航();
 }else if(类型.indexOf("直播(e4a)")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表="";
+    var 列表=".c()";
     var 标题规则="全部";
     var 地址规则=首页地址;
     头部导航();
