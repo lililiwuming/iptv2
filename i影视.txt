@@ -33,13 +33,13 @@
 @@接口-iptv(wd)@@?ac=list&class=#ID#&area=#筛选area#&type=#筛选type#&start=#筛选year#&page=#PN#@@?ac=list&wd=#KEY#&page=#PN#@@Dalvik/2.1.0@@
 
 ####直播
-@@接口-直播(e4a)@@@@@@@@
+@@接口-e4a@@@@@@@@
 
 ######本地新增2
 var key=getVar("输入内容");
 var 记录=[];
 if(key.indexOf("=http")!=-1&&(key.indexOf("MX Pro")!=-1||key.indexOf("MXone")!=-1||key.indexOf("首途")!=-1||
-key.indexOf("网页-v10(采集站)")!=-1||key.indexOf("CMS(json)")!=-1||key.indexOf("CMS(xml)")!=-1||key.indexOf("APP(vod)")!=-1||key.indexOf("APP(小龟)")!=-1||key.indexOf("iptv(wd)")!=-1||key.indexOf("iptv(zm)")!=-1||key.indexOf("直播(e4a)")!=-1)){
+key.indexOf("网页-v10(采集站)")!=-1||key.indexOf("CMS(json)")!=-1||key.indexOf("CMS(xml)")!=-1||key.indexOf("APP(vod)")!=-1||key.indexOf("APP(小龟)")!=-1||key.indexOf("iptv(wd)")!=-1||key.indexOf("iptv(zm)")!=-1||key.indexOf("e4a")!=-1)){
     var filename='站源.json';
     var 输入条目=key.match(/.+=http.+/g);
     for(var j=0;j<输入条目.length;j++){
@@ -204,7 +204,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
-}else if(类型.indexOf("直播(e4a)")!=-1){
+}else if(类型.indexOf("e4a")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     var 列表="全";
     var 标题规则="全部";
@@ -220,7 +220,7 @@ function 通用列表(){
     for(var j=0;j<列表.length;j++){
         if(类型.indexOf("iptv")!=-1){
           var 地址=e2Rex(列表[j],地址规则);
-        }else if(类型.indexOf("直播(e4a)")!=-1){
+        }else if(类型.indexOf("e4a")!=-1){
           var 后=e2Rex(列表[j],地址规则);
           var 地址=e2Rex(首页地址,".t().tz2(/).ct(/)")+后;
         }else{
@@ -342,7 +342,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.time).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(em).t().ct(</font></p>)';
     通用列表();
-}else if(类型.indexOf("直播(e4a)")!=-1){
+}else if(类型.indexOf("e4a")!=-1){
     var 列表=e2Arr(源码,".json(pingtai)");
     var 标题规则=".json(title)";
     var 地址规则=".json(address)";
@@ -364,7 +364,7 @@ function 通用列表(){
         for(var i=0;i<列表.length;i++){
             if(类型.indexOf("iptv")!=-1){
                 var 地址=e2Rex(列表[i],地址规则);
-            }else if(类型.indexOf("直播(e4a)")!=-1){
+            }else if(类型.indexOf("e4a")!=-1){
                 var 后=e2Rex(列表[i],地址规则);
                 var 地址=e2Rex(首页地址,".t().tz2(/).ct(/)")+后;
             }else{
@@ -527,7 +527,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.time).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(em).t().ct(</font></p>)';
     通用列表();
-}else if(类型.indexOf("直播(e4a)")!=-1){
+}else if(类型.indexOf("e4a")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码,".c()");
     var 分类标题规则="全部";
@@ -852,7 +852,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 选集规则='.get(a.copy_text).t().tz($)';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
-}else if(类型.indexOf("直播(e4a)")!=-1){
+}else if(类型.indexOf("e4a")!=-1){
     var 简介="无";
     var 分类=e2Arr(源,'.c()');
     var 标题规则='全部';
