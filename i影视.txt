@@ -191,7 +191,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     头部导航();
 }else if(类型.indexOf("首途-1")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".get(div.row a[href~=/vodtype/.+])");
+    var 列表=e2Arr(源码,".get(ul.dropdown a[href~=/vodtype/.+]).or().get(div.row a[href~=/vodtype/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
