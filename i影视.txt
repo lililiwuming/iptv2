@@ -228,7 +228,7 @@ function 通用列表(){
         }
         var 标题=e2Rex(列表[j],标题规则);
         var 预图片=e2Rex(列表[j],图片规则);
-        if(预图片.indexOf("zbjk.qyrunda.com")!=-1{
+        if(预图片.indexOf("zbjk.qyrunda.com")!=-1){
           var 图片=预图片.replace('zbjk.qyrunda.com','api.zbjk.live');
         }else if(预图片.indexOf("img.php?url")!=-1){
           var 图片=预图片.split("url=")[1];
@@ -372,7 +372,7 @@ function 通用列表(){
             }
             var 标题=e2Rex(列表[i],标题规则);
             var 预图片=e2Rex(列表[i],图片规则);
-            if(预图片.indexOf("zbjk.qyrunda.com")!=-1{
+            if(预图片.indexOf("zbjk.qyrunda.com")!=-1){
                 var 图片=预图片.replace('zbjk.qyrunda.com','api.zbjk.live');
             }else if(预图片.indexOf("img.php?url")!=-1){
                 var 图片=预图片.split("url=")[1];
