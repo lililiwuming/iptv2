@@ -206,8 +206,8 @@ if(类型.indexOf("CMS(xml)")!=-1){
     头部导航();
 }else if(类型.indexOf("直播(e4a)")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=".json()";
-    var 标题规则="全部";
+    var 列表="全部";
+    var 标题规则="";
     var 地址规则=首页地址;
     头部导航();
 }
