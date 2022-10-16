@@ -463,7 +463,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表规则=".get(div.module-main).i(0).get(a[href~=/vod/detail/.+]).or().get(div.module-main).i(0).get(a[href~=/voddetail/.+]).or().get(div.sidebar a[href~=/vod/.+])";
     var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(img).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).img(data-original)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(div.module-item-douban).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-note).t().ct(</font></p>)';
     通用列表();
