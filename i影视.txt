@@ -222,7 +222,7 @@ function 通用列表(){
           var 地址=e2Rex(列表[j],地址规则);
         }else if(类型.indexOf("直播(e4a)")!=-1){
           var 后=e2Rex(列表[j],地址规则);
-          var 地址=e2Rex(首页地址,".t().tz2(/)")+后;
+          var 地址=e2Rex(首页地址,".t().tz2(/).ct(/)")+后;
         }else{
           var 地址=首页地址+e2Rex(列表[j],地址规则);
         }
@@ -364,7 +364,7 @@ function 通用列表(){
                 var 地址=e2Rex(列表[i],地址规则);
             }else if(类型.indexOf("直播(e4a)")!=-1){
                 var 后=e2Rex(列表[j],地址规则);
-                var 地址=e2Rex(首页地址,".t().tz2(/)")+后;
+                var 地址=e2Rex(首页地址,".t().tz2(/).ct(/)")+后;
             }else{
                 var 地址=首页地址+e2Rex(列表[i],地址规则);
             }
