@@ -1,32 +1,35 @@
 ######模板列表1
-####网页-1
-@@网页-MX Pro-1@@/index.php/vod/show/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@
+####网页
+@@网页-MX Pro-1@@/index.php/vod/show/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36@@
 
-####网页-2
-@@网页-MX Pro-2@@/vodshow/#ID#--------#PN#---.html@@/vodsearch/#KEY#----------#PN#---.html@@@@
+####网页
+@@网页-MX Pro-2@@/vodshow/#ID#--------#PN#---.html@@/vodsearch/#KEY#----------#PN#---.html@@Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36@@
 
-####网页-3
-@@网页-MXone-1@@/index.php/vod/show/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@
+####网页
+@@网页-MXone-1@@/index.php/vod/show/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36@@
 
-####网页-4
-@@网页-v10(采集站)@@/index.php/vod/type/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@
+####网页
+@@网页-首途-1@@/vodshow/#ID#--------#PN#---/@@/vodsearch/#KEY#----------#PN#---/@@Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36@@
 
-####采集接口-5
+####网页
+@@网页-v10(采集站)@@/index.php/vod/type/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36@@
+
+####采集接口
 @@接口-CMS(json)@@?ac=videolist&t=#ID#&pg=#PN#@@?ac=videolist&wd=#KEY#&pg=#PN#@@Dalvik/2.1.0@@
 
-####采集接口-6
+####采集接口
 @@接口-CMS(xml)@@?ac=videolist&t=#ID#&pg=#PN#@@?ac=videolist&wd=#KEY#&pg=#PN#@@Dalvik/2.1.0@@
 
-####APP-7
+####APP
 @@接口-APP(小龟)@@video?tid=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&limit=&pg=#PN#@@search?text=#KEY#&pg=#PN#@@Dart/2.14 (dart:io)@@
 
-####APP-10
+####APP
 @@接口-APP(vod)@@?type=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&by=#排序#&limit=&page=#PN#@@?wd=#KEY#&page=#PN#@@okhttp/4.1.0@@
 
-####APP-11
+####APP
 @@接口-iptv(zm)@@?ac=list&class=#ID#&area=#筛选area#&type=#筛选type#&start=#筛选year#&page=#PN#@@?ac=list&zm=#KEY#&page=#PN#@@Dalvik/2.1.0@@
 
-####APP-12
+####APP
 @@接口-iptv(wd)@@?ac=list&class=#ID#&area=#筛选area#&type=#筛选type#&start=#筛选year#&page=#PN#@@?ac=list&wd=#KEY#&page=#PN#@@Dalvik/2.1.0@@
 
 ######本地新增2
@@ -145,7 +148,6 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表=e2Arr(源码,".xml(class ty)");
     var 标题规则=".t()";
     var 地址规则=".a(id)";
-    var 翻页后='';
     头部导航();
 }else if(类型.indexOf("CMS(json)")!=-1){
     var URL=首页地址+"?ac=list";
@@ -153,7 +155,6 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(class)");
     var 标题规则=".json(type_name)";
     var 地址规则=".json(type_id)";
-    var 翻页后='';
     头部导航();
 }else if(类型.indexOf("APP(小龟)")!=-1){
     var URL=首页地址+"nav";
@@ -161,7 +162,6 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(list).or().json(data)");
     var 标题规则=".json(type_name)";
     var 地址规则=".json(type_id)";
-    var 翻页后='';
     头部导航();
 }else if(类型.indexOf("APP(vod)")!=-1){
     var URL=首页地址+"/types";
@@ -169,7 +169,6 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),".json(data).json(list)");
     var 标题规则=".json(type_name)";
     var 地址规则=".json(type_id)";
-    var 翻页后='';
     头部导航();
 }else if(类型.indexOf("iptv")!=-1){
     var URL=首页地址+"?ac=flitter";
@@ -177,28 +176,30 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表=e2Arr(源码.replace(/<.*?>/g,""),'.z(\".*?\\]\\}\\])');
     var 标题规则='.z2(\"\\(.*?\\)\")';
     var 地址规则='.z2(\"\\(.*?\\)\")';
-    var 翻页后='';
     头部导航();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     var 列表=e2Arr(源码,".get(div.nav a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vodtype/.+]).or().get(div.sidebar a[href~=/type/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则='.get(a).a(href)';
-    var 翻页后='.html';
     头部导航();
 }else if(类型.indexOf("MXone")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     var 列表=e2Arr(源码,".get(div.nav a[href~=/vod/type/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 翻页后='.html';
+    头部导航();
+}else if(类型.indexOf("首途-1")!=-1){
+    var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
+    var 列表=e2Arr(源码,".get(div.row a[href~=/vodtype/.+])");
+    var 标题规则=".get(a).t()";
+    var 地址规则=".get(a).a(href)";
     头部导航();
 }else if(类型.indexOf("v10(采集站)")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     var 列表=e2Arr(源码,".get(ul.stui-header__menu.clearfix a[href~=/vod/type/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 翻页后='.html';
     头部导航();
 }
 ######筛选列表6
@@ -310,6 +311,14 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 图片规则=".get(img).a(data-src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(psan.video-class).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-text).t().ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("首途-1")!=-1){
+    var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li)");
+    var 标题规则=".get(a).a(title)";
+    var 地址规则=".get(a).a(href)";
+    var 图片规则=".get(a).a(data-original)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(psan.play.hidden-xs).t().ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("v10(采集站)")!=-1){
     var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li).i(1,-1)");
@@ -469,6 +478,17 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(psan.video-class).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-text).t().ct(</font></p>)';
     通用列表();
+}else if(类型.indexOf("首途-1")!=-1){
+    var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
+    var 分类=e2Arr(源码,".get(div.row > div.stui-pannel.stui-pannel-bg.clearfix)");
+    var 分类标题规则=".get(h3).t()";
+    var 列表规则=".get(ul.stui-vodlist.clearfix li)";
+    var 标题规则=".get(a).a(title)";
+    var 地址规则=".get(a).a(href)";
+    var 图片规则=".get(a).a(data-original)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(psan.play.hidden-xs).t().ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
+    通用列表();
 }else if(类型.indexOf("v10(采集站)")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     var 分类=e2Arr(源码,".get(ul.stui-vodlist.clearfix)");
@@ -589,6 +609,14 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 图片规则=".get(img).a(data-src)";
     var 简介规则=".get(div.video-info-main).t()";
     var 作者规则=".get(div.video-info-aux).t()";
+    搜索列表();
+}else if(类型.indexOf("首途-1")!=-1){
+    var 列表=e2Arr(源码,".get(ul.stui-vodlist__media.col-pd clearfix li)");
+    var 标题规则=".get(a).a(title)";
+    var 地址规则=".get(a).a(href)";
+    var 图片规则=".get(a).a(data-original)";
+    var 简介规则=".get(span.pic-text.text-right).t()";
+    var 作者规则=".get(span.play.hidden-xs).t()";
     搜索列表();
 }else if(类型.indexOf("v10(采集站)")!=-1){
     var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li).i(1,-1)");
@@ -767,6 +795,14 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 线路=e2Arr(源,'.z(data-dropdown-value=".+?")');
     var 标题规则='.ty(").tz(")';
     var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+])';
+    var 选集规则='.get(a).t()';
+    var 选集地址规则='.get(a).a(href)';
+    选集列表();
+}else if(类型.indexOf("首途-1")!=-1){
+    var 简介=e2Arr(源,'.get(div.video-info-items).t()');
+    var 分类=e2Arr(源,'.get(div.stui-pannel-box.b.playlist.mb)');
+    var 标题规则='.get(h3).t()';
+    var 列表规则='.get(ul li)';
     var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
