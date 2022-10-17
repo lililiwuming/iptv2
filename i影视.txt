@@ -9,6 +9,9 @@
 @@网页-MXone-1@@/index.php/vod/show/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@
 
 ####网页
+@@网页-v10(影视站)@@/type/#ID#-#PN#.html@@/search/#KEY#----------#PN#---.html@@@@
+
+####网页
 @@网页-首途-1@@/vodshow/#ID#--------#PN#---/@@/vodsearch/#KEY#----------#PN#---/@@@@
 
 ####网页
@@ -201,6 +204,12 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
+}else if(类型.indexOf("v10(影视站)")!=-1){
+    var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
+    var 列表=e2Arr(源码,".get(ul.stui-header__menu a[href~=/vod/type/.+]).or().get(ul.stui-header__menu a[href~=/vodtype/.+]).or().get(ul.stui-header__menu a[href~=/type/.+]).or().get(ul.stui-header__menu li)");
+    var 标题规则=".get(a).t()";
+    var 地址规则=".get(a).a(href)";
+    头部导航();
 }else if(类型.indexOf("首途-1")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     var 列表=e2Arr(源码,".get(div.row ul.dropdown a[href~=/vodtype/.+]).or().get(div.row a[href~=/vodtype/.+]).or().get(div.row a[href~=/vod/type/.+]).or().get(div.row a[href~=/type/.+])");
@@ -209,7 +218,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     头部导航();
 }else if(类型.indexOf("v10(采集站)")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".get(ul.stui-header__menu.clearfix a[href~=/vod/type/.+])");
+    var 列表=e2Arr(源码,".get(ul.stui-header__menu a[href~=/vod/type/.+]).or().get(ul.stui-header__menu a[href~=/vodtype/.+]).or().get(ul.stui-header__menu a[href~=/type/.+]).or().get(ul.stui-header__menu li)");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
@@ -332,6 +341,14 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 图片规则=".get(img).a(data-src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(psan.video-class).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-text).t().ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("v10(影视站)")!=-1){
+    var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li)");
+    var 标题规则=".get(h4 a).a(title)";
+    var 地址规则=".get(h4 a).a(href)";
+    var 图片规则=".get(a).a(data-original)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.pic-tag.pic-tag-top).t().ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("首途-1")!=-1){
     var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li)");
@@ -497,7 +514,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表规则=".get(div.module-main).i(0).get(a[href~=/vod/detail/.+]).or().get(div.module-main).i(0).get(a[href~=/voddetail/.+]).or().get(div.module-main).i(0).get(a[href~=/vod/.+]).or().get(div.module-main).i(0).get(div>a)";
     var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(img).a(data-original).or().get(img).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(a).a(data-original)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(div.module-item-douban).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-note).t().ct(</font></p>)';
     通用列表();
@@ -511,6 +528,17 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 图片规则=".get(img).a(data-src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(psan.video-class).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-text).t().ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("v10(影视站)")!=-1){
+    var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
+    var 分类=e2Arr(源码,".get(ul.stui-vodlist.clearfix)");
+    var 分类标题规则="最新";
+    var 列表规则=".get(li)";
+    var 标题规则=".get(h4 a).t()";
+    var 地址规则=".get(h3 a).a(href)";
+    var 图片规则=".get(img).a(data-original).or().get(a).a(data-original)";
+    var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.pic-tag.pic-tag-top).t().ct(</b></font><br>)';
+    var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("首途-1")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
@@ -654,6 +682,14 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 图片规则=".get(img).a(data-src)";
     var 简介规则=".get(div.video-info-main).t()";
     var 作者规则=".get(div.video-info-aux).t()";
+    搜索列表();
+}else if(类型.indexOf("v10(影视站)")!=-1){
+    var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li)");
+    var 标题规则=".get(h4 a).a(title)";
+    var 地址规则=".get(h4 a).a(href)";
+    var 图片规则=".get(a).a(data-original)";
+    var 简介规则=".get(span.pic-tag.pic-tag-top).t()";
+    var 作者规则=".get(span.pic-text.text-right).t()";
     搜索列表();
 }else if(类型.indexOf("首途-1")!=-1){
     var 列表=e2Arr(源码,".get(ul.stui-vodlist__media.col-pd clearfix li)");
