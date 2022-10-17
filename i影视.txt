@@ -84,13 +84,13 @@ key.indexOf("网页-v10")!=-1||key.indexOf("接口-CMS")!=-1||key.indexOf("接�
 
 ######删除规则4
 var 站名=getVar("站名");
-var 类别=getVar("类别");
+var 类型=getVar("类型");
 var 首页地址=getVar("首页地址");
 var filename='站源.json';
 var 记录=getVar("源");
 var 新记录=JSON.parse(readStr(filename));
 let res=新记录.some(item=>{
-    if(item.类别 == JSON.parse(记录).类别){
+    if(item.类型 == JSON.parse(记录).类型){
         item.data=item.data.filter(a=>a.首页地址!=JSON.parse(记录).首页地址);
         return true
     }
