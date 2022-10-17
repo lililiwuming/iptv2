@@ -9,10 +9,10 @@
 @@网页-MXone-1@@/index.php/vod/show/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@
 
 ####网页
-@@网页-v10(影视站)@@/type/#ID#-#PN#.html@@/search/#KEY#----------#PN#---.html@@@@
+@@网页-首途-1@@/vodshow/#ID#--------#PN#---/@@/vodsearch/#KEY#----------#PN#---/@@@@
 
 ####网页
-@@网页-首途-1@@/vodshow/#ID#--------#PN#---/@@/vodsearch/#KEY#----------#PN#---/@@@@
+@@网页-v10(影视站)@@/type/#ID#-#PN#.html@@/search/#KEY#----------#PN#---.html@@@@
 
 ####网页
 @@网页-v10(采集站)@@/index.php/vod/type/id/#ID#/page/#PN#.html@@/index.php/vod/search/page/#PN#/wd/#KEY#.html@@@@
