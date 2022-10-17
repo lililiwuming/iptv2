@@ -108,7 +108,15 @@ function 头部导航(){
         if(类型.indexOf("接口")!=-1){
             var ID=e2Rex(列表[j],地址规则);
         }else if(类型.indexOf("网页")!=-1){
-            var ID=e2Rex(列表[j],地址规则).match(/\d+/);
+            if(地址规则[j].match(/\d+/)){
+                var ID=e2Rex(列表[j],地址规则).match(/\d+/);
+            }else{
+                if(地址规则[j].indexOf(".html")==-1){
+                    var ID=e2Rex(地址规则[j],'.t().tz2(/).ty2(/)');
+                }else{
+                    var ID=e2Rex(地址规则[j],'.t().ty2(/).tz(.html)');
+                }
+            }
         }
         var 分类地址=首页地址+分类url.replace('#ID#',ID);
         if(类型.indexOf("APP(vod)")!=-1){
