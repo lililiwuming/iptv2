@@ -112,7 +112,7 @@ function 头部导航(){
                 var ID=e2Rex(列表[j],地址规则).match(/\d+/);
             }else{
                 if(地址规则[j].indexOf(".html")==-1){
-                    var ID=e2Rex(地址规则[j],'.t().tz2(/).ty2(/)');
+                    var ID=e2Rex(地址规则[j],'.t().ty2(/).tz2(/)');
                 }else{
                     var ID=e2Rex(地址规则[j],'.t().ty2(/).tz(.html)');
                 }
