@@ -90,7 +90,7 @@ var filename='站源.json';
 var 记录=getVar("源");
 var 新记录=JSON.parse(readStr(filename));
 let res=新记录.some(item=>{
-    if(item.类型 == JSON.parse(记录).类型){
+    if(item.title == JSON.parse(记录).类型){
         item.data=item.data.filter(a=>a.首页地址!=JSON.parse(记录).首页地址);
         return true
     }
