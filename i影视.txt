@@ -111,10 +111,11 @@ function 头部导航(){
             if(地址规则[j].match(/\d+/)){
                 var ID=e2Rex(列表[j],地址规则).match(/\d+/);
             }else{
-                if(地址规则[j].indexOf(".html")!=-1){
-                    var ID=e2Rex(地址规则[j],'.t().ty2(/).tz(.html)');
+                var 后=e2Rex(列表[j],地址规则);
+                if(后.indexOf(".html")!=-1){
+                    var ID=e2Rex(后,'.t().ty2(/).tz(.html)');
                 }else{
-                    var ID=e2Rex(地址规则[j],'.t().tz2(/).ty2(/)');
+                    var ID=e2Rex(后,'.t().tz2(/).ty2(/)');
                 }
             }
         }
