@@ -182,19 +182,19 @@ if(类型.indexOf("CMS(xml)")!=-1){
     头部导航();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".get(div.nav a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vodtype/.+]).or().get(div.sidebar a[href~=/type/.+])");
+    var 列表=e2Arr(源码,".get(div.nav a[href~=/vod/type/.+]).or().get(div.nav a[href~=/vodtype/.+]).or().get(div.nav a[href~=/type/.+]).or().get(div.sidebar a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vodtype/.+]).or().get(div.sidebar a[href~=/type/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则='.get(a).a(href)';
     头部导航();
 }else if(类型.indexOf("MXone")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".get(div.nav a[href~=/vod/type/.+]).or().get(div.nav ul li)");
+    var 列表=e2Arr(源码,".get(div.nav a[href~=/vod/type/.+]).or().get(div.nav a[href~=/vodtype/.+]).or().get(div.nav a[href~=/type/.+]).or().get(div.nav ul li).or().get(a[href~=/vod/type/.+]).or().get(a[href~=/vodtype/.+]).or().get(a[href~=/type/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
 }else if(类型.indexOf("首途-1")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
-    var 列表=e2Arr(源码,".get(div.row ul.dropdown a[href~=/vodtype/.+]).or().get(div.row a[href~=/vodtype/.+])");
+    var 列表=e2Arr(源码,".get(div.row ul.dropdown a[href~=/vodtype/.+]).or().get(div.row a[href~=/vodtype/.+]).or().get(div.row a[href~=/vod/type/.+]).or().get(div.row a[href~=/type/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
@@ -309,7 +309,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(state).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("MXone Pro")!=-1){
-    var 列表=e2Arr(源码,".get(a[href~=/vod/detail/.+]).or().get(a[href~=/voddetail/.+]).or().get(div.sidebar a[href~=/vod/.+]).or().get(div.content div.module>a)");
+    var 列表=e2Arr(源码,".get(a[href~=/vod/detail/.+]).or().get(a[href~=/voddetail/.+]).or().get(a[href~=/vod/.+]).or().get(a[href~=/.+/.+html.+])");
 }else if(类型.indexOf("MX Pro")!=-1){
     var 列表=e2Arr(源码,".get(a[href~=/vod/detail/.+]).or().get(a[href~=/voddetail/.+]).or().get(div.sidebar a[href~=/vod/.+])");
     var 标题规则=".get(a).a(title)";
