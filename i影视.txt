@@ -250,21 +250,26 @@ function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<列表.length;j++){
         if(类型.indexOf("iptv")!=-1){
-          var 地址=e2Rex(列表[j],地址规则);
+            var 地址=e2Rex(列表[j],地址规则);
         }else if(类型.indexOf("e4a")!=-1){
-          var 后=e2Rex(列表[j],地址规则);
-          var 地址=e2Rex(首页地址,".t().tz2(/).ct(/)")+后;
+            var 后=e2Rex(列表[j],地址规则);
+            var 地址=e2Rex(首页地址,".t().tz2(/).ct(/)")+后;
         }else{
-          var 地址=首页地址+e2Rex(列表[j],地址规则);
+            if(首页地址.indexOf(".php")!=-1){
+                首页地址=e2Rex(首页地址,'.t().tz2(/)');
+            }else{
+                首页地址=首页地址;
+            }
+            var 地址=首页地址+e2Rex(列表[j],地址规则);
         }
         var 标题=e2Rex(列表[j],标题规则);
         var 预图片=e2Rex(列表[j],图片规则);
         if(预图片.indexOf("zbjk.qyrunda.com")!=-1){
-          var 图片=预图片.replace('zbjk.qyrunda.com','api.zbjk.live');
+            var 图片=预图片.replace('zbjk.qyrunda.com','api.zbjk.live');
         }else if(预图片.indexOf("img.php?url")!=-1){
-          var 图片=预图片.split("url=")[1];
+            var 图片=预图片.split("url=")[1];
         }else if(预图片.indexOf("http").length>1){
-          var 图片=预图片.match(/.*(http.*[a-zA-Z].*)/)[1];
+            var 图片=预图片.match(/.*(http.*[a-zA-Z].*)/)[1];
         }else if(预图片.indexOf("/mac:")!=-1){
             var 图片="http:"+预图片.split("mac:")[1];
         }else if(预图片.indexOf("mac:")!=-1){
@@ -405,6 +410,11 @@ function 通用列表(){
                 var 后=e2Rex(列表[i],地址规则);
                 var 地址=e2Rex(首页地址,".t().tz2(/).ct(/)")+后;
             }else{
+                if(首页地址.indexOf(".php")!=-1){
+                    首页地址=e2Rex(首页地址,'.t().tz2(/)');
+                }else{
+                    首页地址=首页地址;
+                }
                 var 地址=首页地址+e2Rex(列表[i],地址规则);
             }
             var 标题=e2Rex(列表[i],标题规则);
@@ -600,6 +610,11 @@ var 源码=getHttp(JSON.stringify({url:首页地址+搜索地址,redirect:false,
 function 搜索列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<列表.length;j++){
+        if(类型.indexOf("网页")!=-1&&首页地址.indexOf(".php")!=-1){
+            首页地址=e2Rex(首页地址,'.t().tz2(/)');
+        }else{
+            首页地址=首页地址;
+        }
         var 地址=首页地址+e2Rex(列表[j],地址规则);
         var 标题=e2Rex(列表[j],标题规则);
         var 预图片=e2Rex(列表[j],图片规则);
@@ -792,11 +807,6 @@ function 选集列表(){
                 }
             }else if(类型.indexOf("网页")!=-1){
                 var 选集=e2Rex(列表[j],选集规则);
-                if(首页地址.indexOf(".php")!=-1){
-                    首页地址=e2Rex(首页地址,'.t().tz2(/)');
-                }else{
-                    首页地址=首页地址;
-                }
                 var 选集地址=首页地址+e2Rex(列表[j],选集地址规则);
                 var 接口="";
             }
