@@ -606,8 +606,8 @@ var UA=getVar("UA");
 var 类型=getVar("类型");
 var 首页地址=getVar("首页地址");
 var 搜索地址=getVar("搜索地址").replace("#KEY#",KEY).replace("#PN#",PN);
-//var 源码=getHttp(JSON.stringify({url:首页地址+搜索地址,redirect:false,head:{"User-Agent":UA}}));
-var 源码=getVar("源");
+var 源码=getHttp(JSON.stringify({url:首页地址+搜索地址,redirect:false,head:{"User-Agent":UA}}));
+//var 源码=getVar("源");
 function 搜索列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<列表.length;j++){
