@@ -255,7 +255,7 @@ function 通用列表(){
             var 后=e2Rex(列表[j],地址规则);
             var 地址=e2Rex(首页地址,".t().tz2(/).ct(/)")+后;
         }else{
-            if(首页地址.indexOf(".php")!=-1){
+            if(类型.indexOf("网页")!=-1&&首页地址.indexOf(".php")!=-1){
                 首页地址=e2Rex(首页地址,'.t().tz2(/)');
             }else{
                 首页地址=首页地址;
@@ -410,7 +410,7 @@ function 通用列表(){
                 var 后=e2Rex(列表[i],地址规则);
                 var 地址=e2Rex(首页地址,".t().tz2(/).ct(/)")+后;
             }else{
-                if(首页地址.indexOf(".php")!=-1){
+                if(类型.indexOf("网页")!=-1&&首页地址.indexOf(".php")!=-1){
                     首页地址=e2Rex(首页地址,'.t().tz2(/)');
                 }else{
                     首页地址=首页地址;
