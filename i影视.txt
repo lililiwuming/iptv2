@@ -124,7 +124,7 @@ function 头部导航(){
         if(类型.indexOf("接口")!=-1){
             var ID=e2Rex(列表[j],地址规则);
         }else if(类型.indexOf("网页")!=-1){
-            if(地址规则[j].match(/\d+/)){
+            if(地址.match(/\d+/)){
                 var ID=e2Rex(列表[j],地址规则).match(/\d+/);
             }else{
                 var 后=e2Rex(列表[j],地址规则);
