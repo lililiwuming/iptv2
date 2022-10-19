@@ -960,8 +960,8 @@ if(类型.indexOf("CMS(xml)")!=-1){
 }else if(类型.indexOf("新海螺")!=-1){
     var 简介=e2Arr(源,'.get(li.hl-col-xs-12.blurb).t()');
     var 分类=e2Arr(源,'.get(ul[id~=hl-plays-list.*])');
-    var 线路=e2Arr(源,'.get(div.hl-play-source.hl-hidden)');
-    var 标题规则='.get(a).t()';
+    var 线路=e2Arr(源,'.get(a.hl-tabs-btn)');
+    var 标题规则='.t()';
     var 列表规则='.get(li)';
     var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
