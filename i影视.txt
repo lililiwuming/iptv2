@@ -749,7 +749,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 作者规则=".get(span.play.hidden-xs).t()";
     搜索列表();
 }else if(类型.indexOf("新海螺")!=-1){
-    var 列表=e2Arr(源码,".get(div.hl-list-wrap ul li)");
+    var 列表=e2Arr(源码,".get(div.hl-list-wrap ul.hl-one-list li)");
     var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(a).a(data-original)";
