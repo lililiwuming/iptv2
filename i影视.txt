@@ -582,9 +582,9 @@ if(类型.indexOf("CMS(xml)")!=-1){
     通用列表();
 }else if(类型.indexOf("新海螺")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址}));
-    var 分类=e2Arr(源码,".get(div.container)");
+    var 分类=e2Arr(源码,".get(div.container>div.row)");
     var 分类标题规则=".get(h2).t()";
-    var 列表规则=".get(div.row div ul li)";
+    var 列表规则=".get(div ul li)";
     var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(a).a(data-original)";
