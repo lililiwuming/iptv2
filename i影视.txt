@@ -754,7 +754,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(a).a(data-original)";
     var 简介规则=".get(p.hl-item-sub.hl-text-muted.hl-lc-2).t()";
-    var 作者规则=".get(p.hl-item-sub hl-lc-1).t()";
+    var 作者规则=".get(span.hl-lc-1.remarks).t()";
     搜索列表();
 }else if(类型.indexOf("v10(影视站)")!=-1){
     var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li)");
