@@ -541,7 +541,9 @@ if(类型.indexOf("CMS(xml)")!=-1){
     通用列表();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址}));
-    if(源码.indexOf("label/hot.html")!=-1){
+    if(源码.indexOf("label/topic")!=-1&&源码.indexOf("label/hot")!=-1){
+        var 分类=e2Arr(源码,".get(div.content div.module).i(0,-3)");
+    }else if(源码.indexOf("label/hot")!=-1||源码.indexOf("label/topic")!=-1){
         var 分类=e2Arr(源码,".get(div.content div.module).i(0,-2)");
     }else{
         var 分类=e2Arr(源码,".get(div.content div.module)");
