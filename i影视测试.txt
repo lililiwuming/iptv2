@@ -473,8 +473,9 @@ function 通用列表(){
         play_.title=分类标题;
         items.push(play_);
     }
+    }
     res.data=items;
-    return JSON.stringify(res);}
+    return JSON.stringify(res);
 }
 if(类型.indexOf("CMS(xml)")!=-1){
     var URL=首页地址+"?ac=videolist&pg=";
