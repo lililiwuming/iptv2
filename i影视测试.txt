@@ -420,7 +420,7 @@ function 通用列表(){
         var 分类标题=e2Rex(分类[j],分类标题规则);
         var 列表=e2Arr(分类[j],列表规则);
         var LIST=[];
-        for(var i=0;i<列表.length;i++){
+        for(var i=0;i<列表.length&&(列表.indexOf("topic")==-1||列表.indexOf("label/hot"==-1);i++){
             if(类型.indexOf("iptv")!=-1){
                 var 地址=e2Rex(列表[i],地址规则);
             }else if(类型.indexOf("e4a")!=-1){
@@ -541,13 +541,14 @@ if(类型.indexOf("CMS(xml)")!=-1){
     通用列表();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址}));
-    if(源码.indexOf("/topic")!=-1&&源码.indexOf("label/hot")!=-1){
+    /*if(源码.indexOf("/topic")!=-1&&源码.indexOf("label/hot")!=-1){
         var 分类=e2Arr(源码,".get(div.content div.module).i(0,-3)");
     }else if(源码.indexOf("label/hot")!=-1||源码.indexOf("/topic")!=-1){
         var 分类=e2Arr(源码,".get(div.content div.module).i(0,-2)");
     }else{
         var 分类=e2Arr(源码,".get(div.content div.module)");
-    }
+    }*/
+    var 分类=e2Arr(源码,".get(div.content div.module)");
     var 分类标题规则=".get(h2).t()";
     var 列表规则=".get(div.module-main).i(0).get(a[href~=/detail/.+]).or().get(div.module-main).i(0).get(a[href~=/voddetail/.+]).or().get(div.module-main).i(0).get(a[href~=/play/.+]).or().get(div.module-main).i(0).get(a[href~=/vod/.+]).or().get(div.module-main).i(0).get(a[href~=/video/.+]).or().get(div.module-main).i(0).get(a[href~=detail.+])";
     var 标题规则=".get(a).a(title)";
