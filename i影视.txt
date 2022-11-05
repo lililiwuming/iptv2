@@ -354,7 +354,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(state).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("MX Pro")!=-1){
-    var 列表=e2Arr(源码,".get(div.content div.module a[href~=/detail/.+]).or().get(div.content div.module a[href~=/voddetail/.+]).or().get(div.content div.module a[href~=/play/.+]).or().get(div.content div.module a[href~=/vod/.+]).or().get(div.content div.module>a)");
+    var 列表=e2Arr(源码,".get(div.content div.module a[href~=/detail/.+]).or().get(div.content div.module a[href~=/voddetail/.+]).or().get(div.content div.module a[href~=/play/.+]).or().get(div.content div.module a[href~=/vod/.+]).or().get(div.content div.module a[href~=detail.+]).or().get(div.content div.module>a)");
     var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original)";
