@@ -417,7 +417,7 @@ var UA=getVar("UA");
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<分类.length;j++){
-    if(分类[j]&&(String(分类[j]).indexOf("/topic")==-1||String(分类[j]).indexOf("label/hot")==-1||String(分类[j]).indexOf("/arttype")==-1)){
+    if(String(分类[j]).indexOf("/topic")==-1&&String(分类[j]).indexOf("label/hot")==-1&&String(分类[j]).indexOf("/arttype")==-1){
         var 分类标题=e2Rex(分类[j],分类标题规则);
         var 列表=e2Arr(分类[j],列表规则);
         var LIST=[];
