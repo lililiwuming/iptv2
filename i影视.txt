@@ -759,7 +759,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 作者规则=".get(span.pic-text.text-right).t()";
     搜索列表();
 }else if(类型.indexOf("v10(采集站)")!=-1){
-    var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li).i(1,-1)");
+    var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li)");
     var 标题规则=".get(h3 a).a(title)";
     var 地址规则=".get(h3 a).a(href)";
     var 图片规则="http://43.140.205.222/load.gif";
