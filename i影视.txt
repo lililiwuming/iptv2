@@ -417,6 +417,7 @@ var UA=getVar("UA");
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<分类.length;j++){
+    if(分类[j].indexOf("/topic")==-1&&分类[j].indexOf("label/hot")==-1&&分类[j].indexOf("/arttype")==-1&&分类[j].indexOf("week")==-1){
         var 分类标题=e2Rex(分类[j],分类标题规则);
         var 列表=e2Arr(分类[j],列表规则);
         var LIST=[];
@@ -471,6 +472,7 @@ function 通用列表(){
         play_.list=LIST;
         play_.title=分类标题;
         items.push(play_);
+    }
     }
     res.data=items;
     return JSON.stringify(res);
@@ -541,13 +543,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     通用列表();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址}));
-    if(源码.indexOf("/topic")!=-1&&源码.indexOf("label/hot")!=-1){
-        var 分类=e2Arr(源码,".get(div.content div.module).i(0,-3)");
-    }else if(源码.indexOf("label/hot")!=-1||源码.indexOf("/topic")!=-1){
-        var 分类=e2Arr(源码,".get(div.content div.module).i(0,-2)");
-    }else{
-        var 分类=e2Arr(源码,".get(div.content div.module)");
-    }
+    var 分类=e2Arr(源码,".get(div.content div.module)");
     var 分类标题规则=".get(h2).t()";
     var 列表规则=".get(div.module-main).i(0).get(a[href~=/detail/.+]).or().get(div.module-main).i(0).get(a[href~=/voddetail/.+]).or().get(div.module-main).i(0).get(a[href~=/play/.+]).or().get(div.module-main).i(0).get(a[href~=/vod/.+]).or().get(div.module-main).i(0).get(a[href~=/video/.+]).or().get(div.module-main).i(0).get(a[href~=detail.+])";
     var 标题规则=".get(a).a(title)";
@@ -632,8 +628,8 @@ var UA=getVar("UA");
 var 类型=getVar("类型");
 var 首页地址=getVar("首页地址");
 var 搜索地址=getVar("搜索地址").replace("#KEY#",KEY).replace("#PN#",PN);
-var 源码=getHttp(JSON.stringify({url:首页地址+搜索地址,redirect:false,head:{"User-Agent":UA}}));
-//var 源码=getVar("源");
+//var 源码=getHttp(JSON.stringify({url:首页地址+搜索地址,redirect:false,head:{"User-Agent":UA}}));
+var 源码=getVar("源");
 function 搜索列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<列表.length;j++){
@@ -1069,12 +1065,12 @@ if(类型.indexOf("接口")!=-1){
 ######更新内容11
 【更新内容】
 
-管站源：新增修改站源数据
+搜索：由js爬虫重组数据改为轻站爬虫再重组数据，以便于搜索要验证的网页，原网页搜索一次后再用本轻站搜索应该可以搜索
 
 
 Tips：有问题及适配模板请反馈
 ######检测更新12
-var NewVersion="221018";
+var NewVersion="221106";
 var version=e2Rex(getVar("QMINFO"),".xml(version).t()").replace(/\s/g,"");
 var NewSign="f6dc3d89035d1db7edead60443414542";
 var sign=e2Rex(getVar("QMINFO"),".xml(sign).t()").replace(/\s/g,"");
