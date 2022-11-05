@@ -417,7 +417,7 @@ var UA=getVar("UA");
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<分类.length;j++){
-    if(分类[j].indexOf("/topic")==-1||分类[j].indexOf("label/hot")==-1||分类[j].indexOf("arttype")==-1){
+    if(分类[j].indexOf("/topic")==-1||分类[j].indexOf("label/hot")==-1||分类[j].indexOf("/arttype")==-1){
         var 分类标题=e2Rex(分类[j],分类标题规则);
         var 列表=e2Arr(分类[j],列表规则);
         var LIST=[];
@@ -472,9 +472,9 @@ function 通用列表(){
         play_.list=LIST;
         play_.title=分类标题;
         items.push(play_);
-    } }
+    }
     res.data=items;
-    return JSON.stringify(res);
+    return JSON.stringify(res);}
 }
 if(类型.indexOf("CMS(xml)")!=-1){
     var URL=首页地址+"?ac=videolist&pg=";
