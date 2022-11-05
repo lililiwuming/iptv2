@@ -416,7 +416,7 @@ var 类型=getVar("类型");
 var UA=getVar("UA");
 function 通用列表(){
     var res={};var items=[];var LIST=[];
-    for(var j=0;j<分类.length&&(分类.indexOf("topic")!=-1||分类.indexOf("label/hot")!=-1);j++){
+    for(var j=0;j<分类.length&&(分类[j].indexOf("/topic")==-1||分类[j].indexOf("label/hot")==-1);j++){
         var 分类标题=e2Rex(分类[j],分类标题规则);
         var 列表=e2Arr(分类[j],列表规则);
         var LIST=[];
