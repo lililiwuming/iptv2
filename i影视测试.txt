@@ -420,7 +420,7 @@ function 通用列表(){
         var 分类标题=e2Rex(分类[j],分类标题规则);
         var 列表=e2Arr(分类[j],列表规则);
         var LIST=[];
-        for(var i=0;i<列表.length&&(列表.indexOf("topic")==-1||列表.indexOf("label/hot")==-1);i++){
+        for(var i=0;i<列表.length;列表.indexOf("topic")==-1||列表.indexOf("label/hot")==-1;i++){
             if(类型.indexOf("iptv")!=-1){
                 var 地址=e2Rex(列表[i],地址规则);
             }else if(类型.indexOf("e4a")!=-1){
