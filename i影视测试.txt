@@ -163,7 +163,7 @@ function 头部导航(){
             var type_url=分类地址.replace("#PN","1");
             var open_type=getHttp(type_url);
             var type_code=e2Arr(open_type,".get(div.module-item-box>a)");
-            var type_name=e2Arr(open_type,".get(div.module-class-item div.module-item-title).t()");
+            var type_name=e2Arr(open_type,".get(div.module-item-title).t()");
             var str="";
             for(var v=0;v<type_code.length;v++){
               if(type_name.indexOf("剧情")!=-1&&type_name.indexOf("年份")!=-1&&type_name.indexOf("地区")!=-1){
