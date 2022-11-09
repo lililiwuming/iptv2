@@ -962,7 +962,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     选集列表();
 }else if(类型.indexOf("v10(影视站)")!=-1){
     var 简介=e2Arr(源,'.get(span.detail-sketch).t()');
-    var 分类=e2Arr(源,'.get(div[id~=playlist.*] ul).or().get(div.stui-vodlist__head ul)');
+    var 分类=e2Arr(源,'.get(div[id~=playlist.*] ul).or().get(ul.stui-content__playlist).or().get(div.stui-vodlist__head ul)');
     var 线路=e2Arr(源,'.get(a[href~=#playlist.+]).or().get(h3)');
     var 标题规则='.t()';
     var 列表规则='.get(li)';
