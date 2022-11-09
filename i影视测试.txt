@@ -163,13 +163,13 @@ function 头部导航(){
             var uurl=分类地址.replace("#PN","1");
             var open_type=getHttp(uurl);
             var ts=e2Arr(open_type,".get(div.module-item-box>a)");
-            var type_extend="";
+            var str="";
             for(var v=0;v<ts.length;v++){
                 var 标题=e2Rex(ts[v],".get(a).t()");
                 var 地址=e2Rex(ts[v],".get(a).href()");
-                type_extend+=标题+"="+地址+"\n";
+                str+=标题+"="+地址+"\n";
             }
-            type_extend;
+            str;
         }else{
             var str="";
         }
