@@ -163,7 +163,7 @@ function 头部导航(){
             var type_url=分类地址.replace("#PN","1");
             var open_type=getHttp(type_url);
             var type_code=e2Arr(open_type,".get(div.module-item-box>a)");
-            var type_name_code=e2Arr(open_type,".get(div.module-item-title)");
+            var type_name_code=e2Arr(open_type,".get(div.module-class-item >div.module-item-title)");
             var str="";
             for(var v=0;v<type_code.length;v++){
               var type_name=e2Rex(type_name_code[v],".t()");
