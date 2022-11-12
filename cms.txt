@@ -869,7 +869,7 @@ if(uu.indexOf("player.4kya.com")!=-1||uu.indexOf("netflixvip.4kya.com")!=-1){
     }
 }else if(uu.indexOf("dxcc.meijutt.top")!=-1){
     JSON.stringify({name:"真实播放地址",url:uu,head:{"User-Agent":"Mozilla/5.0","Referer":"https://www.psinu.com/"}});
-}else if(uu.indexOf(".m3u8")!=-1||uu.indexOf(".mp4")!=-1||uu.indexOf("/obj/tos")!=-1||uu.indexOf("gw.crustapps.net")!=-1||uu.indexOf("node1.1anime.club")!=-1){
+}else if(uu.indexOf(".m3u8")!=-1||uu.indexOf(".mp4")!=-1||uu.indexOf("/obj/tos")!=-1||uu.indexOf("gw.crustapps.net")!=-1||uu.indexOf("1anime.club")!=-1){
     JSON.stringify({name:"真实播放地址",url:uu});
 }else{
     "web="+uu;
