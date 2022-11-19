@@ -574,7 +574,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表规则=".get(ul).i(1).get(li).or().get(ul.stui-vodlist.clearfix li).or().get(ul li)";
     var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src).or().get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.play.hidden-xs).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
     通用列表();
