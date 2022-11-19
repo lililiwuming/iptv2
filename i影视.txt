@@ -375,7 +375,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     通用列表();
 }else if(类型.indexOf("首途-1")!=-1){
     var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li).or().get(ul.myui-vodlist.clearfix li)");
-    var 标题规则=".get(a).a(title)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.play.hidden-xs).t().ct(</b></font><br>)';
@@ -383,7 +383,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     通用列表();
 }else if(类型.indexOf("新海螺")!=-1){
     var 列表=e2Arr(源码,".get(div.row div ul li)");
-    var 标题规则=".get(a).a(title)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(div.hl-pic-tag).t().ct(</b></font><br>)';
@@ -561,7 +561,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 分类=e2Arr(源码,".get(div.content div.module.module-wrapper).or().get(div.content div.module)");
     var 分类标题规则=".get(h2).t()";
     var 列表规则=".get(div.module-item)";
-    var 标题规则=".get(a).a(title)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.video-class).t().ct(</b></font><br>)';
@@ -571,8 +571,8 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 源码=getHttp(首页地址);
     var 分类=e2Arr(源码,".get(div.row).i(1).get(div.stui-pannel.stui-pannel-bg.clearfix).or().get(div.container).i(2).get(div.myui-panel-box.clearfix)");
     var 分类标题规则=".get(h3).t()";
-    var 列表规则=".get(ul.stui-vodlist.clearfix li).or().get(ul li)";
-    var 标题规则=".get(a).a(title)";
+    var 列表规则=".get(ul).i(1).get(li).or().get(ul.stui-vodlist.clearfix li).or().get(ul li)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.play.hidden-xs).t().ct(</b></font><br>)';
@@ -583,7 +583,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 分类=e2Arr(源码,".get(div.container div div div.row)");
     var 分类标题规则=".get(h2.hl-rb-title).t()";
     var 列表规则=".get(div ul li)";
-    var 标题规则=".get(a).a(title)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(div.hl-pic-tag).t().ct(</b></font><br>)';
@@ -739,7 +739,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     搜索列表();
 }else if(类型.indexOf("首途-1")!=-1){
     var 列表=e2Arr(源码,".get(ul[id~=searchList.*] li).or().get(ul.myui-vodlist.clearfix li)");
-    var 标题规则=".get(a).a(title)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 简介规则=".get(span.pic-text.text-right).t()";
@@ -747,7 +747,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     搜索列表();
 }else if(类型.indexOf("新海螺")!=-1){
     var 列表=e2Arr(源码,".get(div.hl-list-wrap ul.hl-one-list li)");
-    var 标题规则=".get(a).a(title)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 简介规则=".get(p.hl-item-sub.hl-text-muted.hl-lc-2).t()";
