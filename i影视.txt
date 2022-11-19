@@ -363,7 +363,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     通用列表();
 }else if(类型.indexOf("MXone")!=-1){
     var 列表=e2Arr(源码,".get(div.module-items div.module-item)");
-    var 标题规则=".get(div.module-item-style.video-name a).t().or().get(div).i(1).get(a).t()";
+    var 标题规则=".get(div.module-item-style.video-name a).t().or().get(a).a(title)";
     var 地址规则=".get(div.module-item-style.video-name a).a(href)";
     var 图片规则=".get(img).a(data-src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.video-class).t().ct(</b></font><br>)';
@@ -557,7 +557,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 分类=e2Arr(源码,".get(div.content div.module.module-wrapper).or().get(div.content div.module)");
     var 分类标题规则=".get(h2).t()";
     var 列表规则=".get(div.module-item)";
-    var 标题规则=".get(a).a(title).or().get(div).i(1).get(a).t()";
+    var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.video-class).t().ct(</b></font><br>)';
