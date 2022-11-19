@@ -569,9 +569,9 @@ if(类型.indexOf("CMS(xml)")!=-1){
     通用列表();
 }else if(类型.indexOf("首途-1")!=-1){
     var 源码=getHttp(首页地址);
-    var 分类=e2Arr(源码,".get(div.stui-pannel.stui-pannel-bg.clearfix>div.stui-pannel-box).or().get(div.myui-panel.myui-panel-bg.clearfix>div.myui-panel-box.clearfix>div.myui-panel_bd.clearfix)");
+    var 分类=e2Arr(源码,".get(div.stui-pannel.stui-pannel-bg.clearfix div.stui-pannel-box).or().get(div.myui-panel.myui-panel-bg.clearfix div.myui-panel-box.clearfix div.myui-panel_bd.clearfix)");
     var 分类标题规则=".get(h3).t()";
-    var 列表规则=".get(ul).i(1).get(li).or().get(ul.stui-vodlist.clearfix>li).or().get(ul li)";
+    var 列表规则=".get(ul.stui-vodlist.clearfix li).or().get(ul.myui-vodlist.clearfix li)";
     var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
