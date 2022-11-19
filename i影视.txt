@@ -580,7 +580,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     通用列表();
 }else if(类型.indexOf("新海螺")!=-1){
     var 源码=getHttp(首页地址);
-    var 分类=e2Arr(源码,".get(div.container div.hl-row-box div.hl-rb-vod.clearfix).i(0,0)");
+    var 分类=e2Arr(源码,".get(div.container).i(0,0).get(div.hl-row-box div.hl-rb-vod.clearfix)");
     var 分类标题规则=".get(h2).t()";
     var 列表规则=".get(div.row div.hl-list-wrap ul).i(0).get(li)";
     var 标题规则=".get(a).a(title).or().get(a).t()";
