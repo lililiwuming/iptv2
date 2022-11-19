@@ -132,7 +132,7 @@ function 头部导航(){
                 if(ID.length>0){
                     ID=ID[1];
                 }else{
-                    ID;
+                    ID[0];
                 }
             }else{
                 var 后=e2Rex(列表[j],地址规则);
