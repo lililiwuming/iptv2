@@ -640,7 +640,7 @@ function 选集列表(){
             var PARSE2=e2Rex(分类CODE,".json(player_info).json(parse2)").split(",");
             var 总接口=PARSE2.concat(PARSE).filter(item => item.search(/\/.+\?.+=/)!=-1);
             var 过滤规则=[
-                /jx\.+huimaojia\.+com\/player/,/py\.+789pan\.+cn\/player\/tm\.php\?url=/,/ztys\.+waruanzy\.+com\/player\/\?url=/,/yingshi\.+waruanzy\.+com\/789pan\/\?url=/,/vip\.+parwix\.+com:4433\/player\/\?url=/,/api\.+cxitco\.+cn/,/\/vip\.+renrenmi.cc/,/yanbing\.+parwix\.+com:4433\/player/,/json\.+cantin\.+cc\/apijson\.php/,/ffdm\.+miaoletv\.+com\/\?url=/,/vip\.+sylwl\.+cn\/api\/\?key=/,/jx\.+dikotv\.+com\/\?url=/,/zly\.+xjqxz\.+top\/player\/\?url=/,/5znn\.+xyz\/m3u8\.+php/,/uid=1735&my=/,/api\.+xkvideo\.+design\/m3u8\.+php\?url=/,/play\.+szbodankyy\.+com\/xxoocnmb/,/vip\.+fj6080\.+xyz\/player\/\?url=/,/a\.+dxzj88\.+com\/jiexi/,/host\.+q-q\.+wang\/api/,/qpsvipr\.+naifeimi\.+com/,/mogai_api\.+php/,/lvdou_api\.+php/,/nfuxs\.+com/,/vip123kan\.+vip/,/zjmiao\.+com/,/nfuxs\.+club/,/cygc\.+xyz/,/vip6488502121\.+bibilili\.+vip/,/lg\.+umkan/,/yuml\.+vip/,/newjiexi\.+gotka\.+top/,/保佑/
+                /jx\.+huimaojia\.+com\/player/,/py\.+789pan\.+cn\/player\/tm\.php\?url=/,/ztys\.+waruanzy\.+com\/player\/\?url=/,/yingshi\.+waruanzy\.+com\/789pan\/\?url=/,/vip\.+parwix\.+com:4433\/player\/\?url=/,/api\.+cxitco\.+cn/,/\/vip\.+renrenmi.cc/,/yanbing\.+parwix\.+com:4433\/player/,/json\.+cantin\.+cc\/apijson\.php/,/ffdm\.+miaoletv\.+com\/\?url=/,/vip\.+sylwl\.+cn\/api\/\?key=/,/jx\.+dikotv\.+com\/\?url=/,/zly\.+xjqxz\.+top\/player\/\?url=/,/5znn\.+xyz\/m3u8\.+php/,/uid=1735&my=/,/api\.+xkvideo\.+design\/m3u8\.+php\?url=/,/play\.+szbodankyy\.+com\/xxoocnmb/,/vip\.+fj6080\.+xyz\/player\/\?url=/,/a\.+dxzj88\.+com\/jiexi/,/host\.+q-q\.+wang\/api/,/qpsvipr\.+naifeimi\.+com/,/mogai_api\.+php/,/lvdou_api\.+php/,/nfuxs\.+com/,/vip123kan\.+vip/,/zjmiao\.+com/,/nfuxs\.+club/,/cygc\.+xyz/,/vip6488502121\.+bibilili\.+vip/,/lg\.+umkan/,/yuml\.+vip/,/newjiexi\.+gotka\.+top/,/5555\.+vid/,/保佑/
             ];
             var 可用接口=总接口.filter(function (text) {return !过滤规则.some(function (regex) {return regex.test(text);});});
             if(JSON.stringify(可用接口).indexOf("=")!=-1){
@@ -680,11 +680,7 @@ function 选集列表(){
                     if(选集地址.match(/.*(url|v|vid|php\?id)=/)){
                         var 接口=选集地址.match(/.*(url|v|vid|php\?id)=/)[0];
                         var 选集地址=选集地址.split(接口)[1];
-                        if(URL.indexOf("168.qxzm.cc")!=-1||URL.indexOf("xiaochou.bjhu")!=-1||URL.indexOf("8.142.23.147")!=-1||URL.indexOf("zjj.life")!=-1||URL.indexOf("yhzy")!=-1||URL.indexOf("zhenfy")!=-1||URL.indexOf("cztv")!=-1||URL.indexOf("1.14.63.101")!=-1||URL.indexOf("fit:8")!=-1||URL.indexOf("diliktv.xyz")!=-1||URL.indexOf("ppzhu.vip")!=-1||URL.indexOf("api.8d8q.com")!=-1||URL.indexOf("haokanju1.cc")!=-1||URL.indexOf("cztv")!=-1){
-                            var 选集地址=选集地址+"&app=10000&account=272775028&password=qq272775028";
-                        }else{
-                            var 选集地址=选集地址;
-                        }
+                        接口="";
                     }else{
                         var 选集地址=选集地址;
                         var 接口="";
@@ -829,12 +825,8 @@ if(uu.indexOf("player.4kya.com")!=-1||uu.indexOf("netflixvip.4kya.com")!=-1){
             JSON.stringify({name:"真实播放地址",url:realurl});
         }
     }else{
-        "web=http://1.117.152.239:39000/?url="+uu.split("url=")[1];
+        "web=http://43.140.205.222/jiexi.php?url="+uu.split("url=")[1];
     }
-}else if(uu.indexOf("ruifenglb.com")!=-1){
-    var resp=JZ(JSON.stringify({url:"https://jx.yjhan.com:4488/home/api?type=ys&uid=243669&key=adnqrtwyFJLOW04444&url="+uu}));
-    var realurl=e2Rex(resp.code,".json(url)");
-    JSON.stringify({name:"真实播放地址",url:realurl});
 }else if(uu.match(/.*(url|v|u|vid|pid|php\?id)=/)){
     var resp=JZ(JSON.stringify({url:uu,redirect:false,head:{"User-Agent":"Mozilla/5.0 Android"}}));
     if(resp.code.indexOf("<html")!=-1){
@@ -870,7 +862,7 @@ if(uu.indexOf("player.4kya.com")!=-1||uu.indexOf("netflixvip.4kya.com")!=-1){
     }
 }else if(uu.indexOf("dxcc.meijutt.top")!=-1){
     JSON.stringify({name:"真实播放地址",url:uu,head:{"User-Agent":"Mozilla/5.0","Referer":"https://www.psinu.com/"}});
-}else if(uu.indexOf(".m3u8")!=-1||uu.indexOf(".mp4")!=-1||uu.indexOf("/obj/tos")!=-1||uu.indexOf("gw.crustapps.net")!=-1){
+}else if(uu.indexOf(".m3u8")!=-1||uu.indexOf(".mp4")!=-1||uu.indexOf("/obj/tos")!=-1||uu.indexOf("gw.crustapps.net")!=-1||uu.indexOf("1anime.club")!=-1){
     JSON.stringify({name:"真实播放地址",url:uu});
 }else{
     "web="+uu;

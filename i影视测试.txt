@@ -128,7 +128,11 @@ function 头部导航(){
             var ID=e2Rex(列表[j],地址规则);
         }else if(类型.indexOf("网页")!=-1){
             if(地址.match(/\d+/)){
-                var ID=e2Rex(列表[j],地址规则).match(/\d+/);
+                if(地址.indexOf(".php")!=-1){
+                    var ID=e2Rex(列表[j],地址规则).split("php")[1].match(/\d+/);
+                }else{
+                    var ID=e2Rex(列表[j],地址规则).match(/\d+/);
+                }
             }else{
                 var 后=e2Rex(列表[j],地址规则);
                 if(后.indexOf(".html")!=-1){
@@ -209,37 +213,37 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 地址规则='.z2(\"\\(.*?\\)\")';
     头部导航();
 }else if(类型.indexOf("MX Pro")!=-1){
-    var 源码=getHttp(JSON.stringify({url:首页地址}));
+    var 源码=getHttp(首页地址);
     var 列表=e2Arr(源码,".get(div.nav a[href~=/vod/type/.+]).or().get(div.nav a[href~=/vodtype/.+]).or().get(div.nav a[href~=/type/.+]).or().get(div.nav a[href~=/list.+]).or().get(div.sidebar a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vodtype/.+]).or().get(div.sidebar a[href~=/type/.+]).or().get(div.sidebar a[href~=/list.+]).or().get(div.mxprofoot a[href~=/vod/type/.+]).or().get(div.mxprofoot a[href~=/vodtype/.+]).or().get(div.mxprofoot a[href~=/type/.+]).or().get(div.mxprofoot a[href~=/list.+]).or().get(div.sidebar a[href~=type.+]).or().get(div.mxprofoot a[href~=type.+])");
     var 标题规则=".get(a).t()";
     var 地址规则='.get(a).a(href)';
     头部导航();
 }else if(类型.indexOf("MXone")!=-1){
-    var 源码=getHttp(JSON.stringify({url:首页地址}));
+    var 源码=getHttp(首页地址);
     var 列表=e2Arr(源码,".get(div.nav a[href~=/vod/type/.+]).or().get(div.nav a[href~=/vodtype/.+]).or().get(div.nav a[href~=/type/.+]).or().get(div.nav a[href~=/type.+]).or().get(a[href~=/vod/type/.+]).or().get(a[href~=/vodtype/.+]).or().get(a[href~=/type/.+]).or().get(a[href~=/type.+]).or().get(div.nav ul li)");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
 }else if(类型.indexOf("首途-1")!=-1){
-    var 源码=getHttp(JSON.stringify({url:首页地址}));
-    var 列表=e2Arr(源码,".get(div.row ul.dropdown a[href~=/vodtype/.+]).or().get(div.row a[href~=/vodtype/.+]).or().get(div.row a[href~=/vod/type/.+]).or().get(div.row a[href~=/type/.+])");
+    var 源码=getHttp(首页地址);
+    var 列表=e2Arr(源码,".get(div.myui-nav__tabbar a).or().get(div.row ul.dropdown a[href~=/vodtype/.+]).or().get(div.row a[href~=/vodtype/.+]).or().get(div.row a[href~=/vod/type/.+]).or().get(div.row a[href~=/type/.+])");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
 }else if(类型.indexOf("新海螺")!=-1){
-    var 源码=getHttp(JSON.stringify({url:首页地址}));
+    var 源码=getHttp(首页地址);
     var 列表=e2Arr(源码,".get(div.conch-nav ul li a[href~=/vod/type/.+]).or().get(div.conch-nav ul li a[href~=/vodtype/.+]).or().get(div.conch-nav ul li a[href~=/type/.+]).or().get(div.conch-nav ul li a[href~=type/.+]).or().get(div.conch-nav ul li a[href~=/type.+])");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
 }else if(类型.indexOf("v10(影视站)")!=-1){
-    var 源码=getHttp(JSON.stringify({url:首页地址}));
-    var 列表=e2Arr(源码,".get(ul.stui-header__menu a[href~=/vod/type/.+]).or().get(ul.stui-header__menu a[href~=/vodtype/.+]).or().get(ul.stui-header__menu a[href~=/type/.+]).or().get(ul.stui-header__menu li)");
+    var 源码=getHttp(首页地址);
+    var 列表=e2Arr(源码,".get(ul[class~=type.+]).get(li a[href~=list.+]).or().get(ul.stui-header__menu a[href~=/vod/type/.+]).or().get(ul.stui-header__menu a[href~=/vodtype/.+]).or().get(ul.stui-header__menu a[href~=/type/.+]).or().get(ul.stui-header__menu li)");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
 }else if(类型.indexOf("v10(采集站)")!=-1){
-    var 源码=getHttp(JSON.stringify({url:首页地址}));
+    var 源码=getHttp(首页地址);
     var 列表=e2Arr(源码,".get(ul.stui-header__menu a[href~=/vod/type/.+]).or().get(ul.stui-header__menu a[href~=/vodtype/.+]).or().get(ul.stui-header__menu a[href~=/type/.+]).or().get(ul.stui-header__menu li)");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
@@ -275,7 +279,7 @@ function 通用列表(){
         var 预图片=e2Rex(列表[j],图片规则);
         if(预图片.indexOf("zbjk.qyrunda.com")!=-1){
             var 图片=预图片.replace('zbjk.qyrunda.com','api.zbjk.live');
-        }else if(预图片.indexOf("img.php?url")!=-1){
+        }else if(预图片.indexOf("php?url")!=-1){
             var 图片=预图片.split("url=")[1];
         }else if(预图片.indexOf("http").length>1){
             var 图片=预图片.match(/.*(http.*[a-zA-Z].*)/)[1];
@@ -354,8 +358,8 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(state).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("MX Pro")!=-1){
-    var 列表=e2Arr(源码,".get(a[href~=/detail/.+]).or().get(a[href~=/voddetail/.+]).or().get(a[href~=/play/.+]).or().get(a[href~=/vod/.+]).or().get(a[href~=detail.+])");
-    var 标题规则=".get(a).a(title)";
+    var 列表=e2Arr(源码,".get(a[href~=/Moviedetail/.+]).or().get(a[href~=/detail/.+]).or().get(a[href~=/voddetail/.+]).or().get(a[href~=/play/.+]).or().get(a[href~=/vod/.+]).or().get(a[href~=detail.+]).or().get(a[href~=vod.+])");
+    var 标题规则=".get(.module-poster-item-title).t().or().get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(div.module-item-douban).t().ct(</b></font><br>)';
@@ -363,14 +367,14 @@ if(类型.indexOf("CMS(xml)")!=-1){
     通用列表();
 }else if(类型.indexOf("MXone")!=-1){
     var 列表=e2Arr(源码,".get(div.module-items div.module-item)");
-    var 标题规则=".get(div.module-item-style.video-name a).t()";
-    var 地址规则=".get(div.module-item-style.video-name a).a(href)";
+    var 标题规则=".get(div.module-item-style.video-name a).t().or().get(a).a(title)";
+    var 地址规则=".get(div.module-item-style.video-name a).a(href).or().get(a).a(href)";
     var 图片规则=".get(img).a(data-src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.video-class).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-text).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("首途-1")!=-1){
-    var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li)");
+    var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li).or().get(ul.myui-vodlist.clearfix li)");
     var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(a).a(data-original)";
@@ -439,7 +443,7 @@ function 通用列表(){
             var 预图片=e2Rex(列表[i],图片规则);
             if(预图片.indexOf("zbjk.qyrunda.com")!=-1){
                 var 图片=预图片.replace('zbjk.qyrunda.com','api.zbjk.live');
-            }else if(预图片.indexOf("img.php?url")!=-1){
+            }else if(预图片.indexOf("php?url")!=-1){
                 var 图片=预图片.split("url=")[1];
             }else if(预图片.indexOf("http").length>1){
                 var 图片=预图片.match(/.*(http.*[a-zA-Z].*)/)[1];
@@ -542,19 +546,19 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(state).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("MX Pro")!=-1){
-    var 源码=getHttp(JSON.stringify({url:首页地址}));
+    var 源码=getHttp(首页地址);
     var 分类=e2Arr(源码,".get(div.content div.module)");
     var 分类标题规则=".get(h2).t()";
     var 列表规则=".get(div.module-main).i(0).get(a[href~=/detail/.+]).or().get(div.module-main).i(0).get(a[href~=/voddetail/.+]).or().get(div.module-main).i(0).get(a[href~=/play/.+]).or().get(div.module-main).i(0).get(a[href~=/vod/.+]).or().get(div.module-main).i(0).get(a[href~=/video/.+]).or().get(div.module-main).i(0).get(a[href~=detail.+])";
-    var 标题规则=".get(a).a(title)";
+    var 标题规则=".get(.module-poster-item-title).t().or().get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original).or().get(a).a(data-original)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(div.module-item-douban).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-note).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("MXone")!=-1){
-    var 源码=getHttp(JSON.stringify({url:首页地址}));
-    var 分类=e2Arr(源码,".get(div.content div.module.module-wrapper)");
+    var 源码=getHttp(首页地址);
+    var 分类=e2Arr(源码,".get(div.content div.module.module-wrapper).or().get(div.content div.module)");
     var 分类标题规则=".get(h2).t()";
     var 列表规则=".get(div.module-item)";
     var 标题规则=".get(a).a(title)";
@@ -564,10 +568,10 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-text).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("首途-1")!=-1){
-    var 源码=getHttp(JSON.stringify({url:首页地址}));
-    var 分类=e2Arr(源码,".get(div.row > div.stui-pannel.stui-pannel-bg.clearfix).i(1,-3)");
+    var 源码=getHttp(首页地址);
+    var 分类=e2Arr(源码,".get(div.row > div.stui-pannel.stui-pannel-bg.clearfix).i(1,-3).or().get(div.myui-panel_bd.clearfix)");
     var 分类标题规则=".get(h3).t()";
-    var 列表规则=".get(ul.stui-vodlist.clearfix li)";
+    var 列表规则=".get(ul.stui-vodlist.clearfix li).or().get(ul li)";
     var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(a).a(data-original)";
@@ -575,7 +579,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("新海螺")!=-1){
-    var 源码=getHttp(JSON.stringify({url:首页地址}));
+    var 源码=getHttp(首页地址);
     var 分类=e2Arr(源码,".get(div.container div div div.row)");
     var 分类标题规则=".get(h2.hl-rb-title).t()";
     var 列表规则=".get(div ul li)";
@@ -586,7 +590,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.hl-pic-text).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("v10(影视站)")!=-1){
-    var 源码=getHttp(JSON.stringify({url:首页地址}));
+    var 源码=getHttp(首页地址);
     var 分类=e2Arr(源码,".get(ul.stui-vodlist.clearfix)");
     var 分类标题规则=".get(h3).t()";
     var 列表规则=".get(li)";
@@ -597,7 +601,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("v10(采集站)")!=-1){
-    var 源码=getHttp(JSON.stringify({url:首页地址}));
+    var 源码=getHttp(首页地址);
     var 分类=e2Arr(源码,".get(ul.stui-vodlist.clearfix)");
     var 分类标题规则="最新";
     var 列表规则=".get(li).i(1,-1)";
@@ -628,7 +632,6 @@ var UA=getVar("UA");
 var 类型=getVar("类型");
 var 首页地址=getVar("首页地址");
 var 搜索地址=getVar("搜索地址").replace("#KEY#",KEY).replace("#PN#",PN);
-//var 源码=getHttp(JSON.stringify({url:首页地址+搜索地址,redirect:false,head:{"User-Agent":UA}}));
 var 源码=getVar("源");
 function 搜索列表(){
     var res={};var items=[];var LIST=[];
@@ -641,7 +644,7 @@ function 搜索列表(){
         var 地址=首页地址+e2Rex(列表[j],地址规则);
         var 标题=e2Rex(列表[j],标题规则);
         var 预图片=e2Rex(列表[j],图片规则);
-        if(预图片.indexOf("img.php?url")!=-1){
+        if(预图片.indexOf("php?url")!=-1){
           var 图片=预图片.split("url=")[1];
         }else if(预图片.indexOf("http").length>1){
           var 图片=预图片.match(/.*(http.*[a-zA-Z].*)/)[1];
@@ -735,7 +738,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 作者规则=".get(div.video-info-aux).t()";
     搜索列表();
 }else if(类型.indexOf("首途-1")!=-1){
-    var 列表=e2Arr(源码,".get(ul.stui-vodlist__media.col-pd clearfix li)");
+    var 列表=e2Arr(源码,".get(ul[id~=searchList.*] li).or().get(ul.myui-vodlist.clearfix li)");
     var 标题规则=".get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(a).a(data-original)";
@@ -936,16 +939,16 @@ if(类型.indexOf("CMS(xml)")!=-1){
     选集列表();
 }else if(类型.indexOf("MXone")!=-1){
     var 简介=e2Arr(源,'.get(div.video-info-items).t()');
-    var 分类=e2Arr(源,'.get(div[id~=glist.*])');
-    var 线路=e2Arr(源,'.z(data-dropdown-value=".+?")');
-    var 标题规则='.ty(").tz(")';
+    var 分类=e2Arr(源,'.get(div[id~=glist.*]).or().get(div[class~=playlist.*])');
+    var 线路=e2Arr(源,'.z(data-dropdown-value=".+?").or().get(span.module-tab-value)');
+    var 标题规则='.ty(").tz(").or().t()';
     var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+]).or().get(div[id~=sort-item.*]).get(a[href~=/play/.+])';
     var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
 }else if(类型.indexOf("首途-1")!=-1){
     var 简介=e2Arr(源,'.get(div.video-info-items).t()');
-    var 分类=e2Arr(源,'.get(div.stui-pannel-box.b.playlist.mb)');
+    var 分类=e2Arr(源,'.get(div[id~=playlist.*]).or().get(div.stui-pannel-box.b.playlist.mb)');
     var 标题规则='.get(h3).t()';
     var 列表规则='.get(ul li)';
     var 选集规则='.get(a).t()';
@@ -962,7 +965,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     选集列表();
 }else if(类型.indexOf("v10(影视站)")!=-1){
     var 简介=e2Arr(源,'.get(span.detail-sketch).t()');
-    var 分类=e2Arr(源,'.get(div[id~=playlist.*] ul).or().get(div.stui-vodlist__head ul)');
+    var 分类=e2Arr(源,'.get(div[id~=playlist.*] ul).or().get(ul.stui-content__playlist).or().get(div.stui-vodlist__head ul)');
     var 线路=e2Arr(源,'.get(a[href~=#playlist.+]).or().get(h3)');
     var 标题规则='.t()';
     var 列表规则='.get(li)';
@@ -1013,12 +1016,8 @@ if(类型.indexOf("接口")!=-1){
                 JSON.stringify({name:"真实播放地址",url:realurl});
             }
         }else{
-            "web=http://1.117.152.239:39000/?url="+uu.split("url=")[1];
+            "web=http://43.140.205.222/jiexi.php?url="+uu.split("url=")[1];
         }
-    }else if(uu.indexOf("ruifenglb.com")!=-1){
-        var resp=JZ(JSON.stringify({url:"https://jx.yjhan.com:4488/home/api?type=ys&uid=243669&key=adnqrtwyFJLOW04444&url="+uu}));
-        var realurl=e2Rex(resp.code,".json(url)");
-        JSON.stringify({name:"真实播放地址",url:realurl});
     }else if(uu.match(/.*(url|v|u|vid|pid|php\?id)=/)){
         var resp=JZ(JSON.stringify({url:uu,redirect:false,head:{"User-Agent":"Mozilla/5.0 Android"}}));
         if(resp.code.indexOf("<html")!=-1){
@@ -1054,7 +1053,7 @@ if(类型.indexOf("接口")!=-1){
         }
     }else if(uu.indexOf("dxcc.meijutt.top")!=-1){
         JSON.stringify({name:"真实播放地址",url:uu,head:{"User-Agent":"Mozilla/5.0","Referer":"https://www.psinu.com/"}});
-    }else if(uu.indexOf(".m3u8")!=-1||uu.indexOf(".mp4")!=-1||uu.indexOf("/obj/tos")!=-1||uu.indexOf("gw.crustapps.net")!=-1){
+    }else if(uu.indexOf(".m3u8")!=-1||uu.indexOf(".mp4")!=-1||uu.indexOf("/obj/tos")!=-1||uu.indexOf("gw.crustapps.net")!=-1||uu.indexOf("1anime.club")!=-1){
         JSON.stringify({name:"真实播放地址",url:uu});
     }else{
         "web="+uu;
@@ -1065,12 +1064,12 @@ if(类型.indexOf("接口")!=-1){
 ######更新内容11
 【更新内容】
 
-搜索：由js爬虫重组数据改为轻站爬虫再重组数据，以便于搜索要验证的网页，原网页搜索一次后再用本轻站搜索应该可以搜索
+搜索：网页类型加入了获取cookie
 
 
 Tips：有问题及适配模板请反馈
 ######检测更新12
-var NewVersion="221106";
+var NewVersion="221109";
 var version=e2Rex(getVar("QMINFO"),".xml(version).t()").replace(/\s/g,"");
 var NewSign="f6dc3d89035d1db7edead60443414542";
 var sign=e2Rex(getVar("QMINFO"),".xml(sign).t()").replace(/\s/g,"");
