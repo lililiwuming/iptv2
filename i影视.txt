@@ -382,7 +382,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("新海螺")!=-1){
-    var 列表=e2Arr(源码,".get(div.row div ul li)");
+    var 列表=e2Arr(源码,".get(div.row div.hl-list-wrap ul).i(0).get(li)");
     var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
