@@ -421,7 +421,7 @@ var UA=getVar("UA");
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<分类.length;j++){
-        if(类型.indexOf("接口")!=-1||(类型.indexOf("网页")!=-1&&分类[j].indexOf("/topic")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("label/hot")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("/arttype")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("week")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("专题")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("榜单")==-1)){
+        if(类型.indexOf("接口")!=-1||(类型.indexOf("网页")!=-1&&分类[j].indexOf("/topic")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("label/hot")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("/arttype")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("week")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("专题")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("资讯")==-1)){
             var 分类标题=e2Rex(分类[j],分类标题规则);
             var 列表=e2Arr(分类[j],列表规则);
             var LIST=[];
@@ -569,12 +569,12 @@ if(类型.indexOf("CMS(xml)")!=-1){
     通用列表();
 }else if(类型.indexOf("首途-1")!=-1){
     var 源码=getHttp(首页地址);
-    var 分类=e2Arr(源码,".get(div.row > div.stui-pannel.stui-pannel-bg.clearfix).i(1,-1).or().get(div.myui-panel_bd.clearfix)");
+    var 分类=e2Arr(源码,".get(div.stui-pannel.stui-pannel-bg.clearfix).i(1,-2).or().get(div.container).i(2).get(div.myui-panel.myui-panel-bg.clearfix).i(0,-6)");
     var 分类标题规则=".get(h3).t()";
     var 列表规则=".get(ul.stui-vodlist.clearfix li).or().get(ul li)";
     var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
+    var 图片规则=".get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src).or().get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.play.hidden-xs).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
     通用列表();
