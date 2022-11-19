@@ -128,12 +128,7 @@ function 头部导航(){
             var ID=e2Rex(列表[j],地址规则);
         }else if(类型.indexOf("网页")!=-1){
             if(地址.match(/\d+/)){
-                var ID=e2Arr(列表[j],地址规则).match(/\d+/);
-                if(ID.length>0){
-                    ID=ID[1];
-                }else{
-                    ID[0];
-                }
+                var ID=e2Rex(列表[j],地址规则).match(/\d+/)[1]||e2Rex(列表[j],地址规则).match(/\d+/)[0];
             }else{
                 var 后=e2Rex(列表[j],地址规则);
                 if(后.indexOf(".html")!=-1){
