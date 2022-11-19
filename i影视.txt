@@ -569,7 +569,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     通用列表();
 }else if(类型.indexOf("首途-1")!=-1){
     var 源码=getHttp(首页地址);
-    var 分类=e2Arr(源码,".get(div.row > div.stui-pannel.stui-pannel-bg.clearfix).i(1,-3).or().get(div.myui-panel_bd.clearfix)");
+    var 分类=e2Arr(源码,".get(div.row > div.stui-pannel.stui-pannel-bg.clearfix).i(1,-3).or().get(div.myui-panel_bd.clearfix div.myui-panel_bd.clearfix)");
     var 分类标题规则=".get(h3).t()";
     var 列表规则=".get(ul.stui-vodlist.clearfix li).or().get(ul li)";
     var 标题规则=".get(a).a(title)";
