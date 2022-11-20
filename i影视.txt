@@ -605,7 +605,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 分类=e2Arr(源码,".get(ul.stui-vodlist.clearfix)");
     var 分类标题规则="最新";
     var 列表规则=".get(li).i(1,-1)";
-    var 标题规则=".get(h3).a(title)";
+    var 标题规则=".get(h3 a).a(title)";
     var 地址规则=".get(h3 a).a(href)";
     var 图片规则="http://43.140.205.222/load.gif";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.time).t().ct(</b></font><br>)';
