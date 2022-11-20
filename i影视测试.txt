@@ -98,7 +98,7 @@ let res=新记录.some(item=>{
 });
 var AppName=e2Rex(记录,".json(站名)");
 writeStr(filename,JSON.stringify(新记录));
-######删除规则4
+######删除站源4
 var 站名=getVar("站名");
 var 类型=getVar("类型");
 var 首页地址=getVar("首页地址");
@@ -114,7 +114,7 @@ let res=新记录.some(item=>{
 var AppName=e2Rex(记录,".json(站名)");
 writeStr(filename,JSON.stringify(新记录));
 alert(AppName+"\n删除成功");
-######站源分类5
+######分类列表5
 var 首页地址=getVar("首页地址");
 var 分类url=getVar("分类地址");
 var 类型=getVar("类型");
@@ -232,7 +232,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     头部导航();
 }else if(类型.indexOf("新海螺")!=-1){
     var 源码=getHttp(首页地址);
-    var 列表=e2Arr(源码,".get(div.conch-nav ul li a[href~=/vod/type/.+]).or().get(div.conch-nav ul li a[href~=/vodtype/.+]).or().get(div.conch-nav ul li a[href~=/type/.+]).or().get(div.conch-nav ul li a[href~=type/.+]).or().get(div.conch-nav ul li a[href~=/type.+])");
+    var 列表=e2Arr(源码,".get(ul.hl-menus.clearfix a[href~=/vod/type/.+]).or().get(ul.hl-menus.clearfix a[href~=/vodtype/.+]).or().get(ul.hl-menus.clearfix a[href~=/type/.+]).or().get(ul.hl-menus.clearfix a[href~=type/.+]).or().get(ul.hl-menus.clearfix a[href~=/type.+])");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
@@ -361,7 +361,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表=e2Arr(源码,".get(a[href~=/Moviedetail/.+]).or().get(a[href~=/detail/.+]).or().get(a[href~=/voddetail/.+]).or().get(a[href~=/play/.+]).or().get(a[href~=/vod/.+]).or().get(a[href~=detail.+]).or().get(a[href~=vod.+])");
     var 标题规则=".get(.module-poster-item-title).t().or().get(a).a(title)";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(img).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(div.module-item-douban).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-note).t().ct(</font></p>)';
     通用列表();
@@ -369,23 +369,23 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表=e2Arr(源码,".get(div.module-items div.module-item)");
     var 标题规则=".get(div.module-item-style.video-name a).t().or().get(a).a(title)";
     var 地址规则=".get(div.module-item-style.video-name a).a(href).or().get(a).a(href)";
-    var 图片规则=".get(img).a(data-src)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.video-class).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-text).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("首途-1")!=-1){
     var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li).or().get(ul.myui-vodlist.clearfix li)");
-    var 标题规则=".get(a).a(title)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(a).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.play.hidden-xs).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("新海螺")!=-1){
-    var 列表=e2Arr(源码,".get(div.row div ul li)");
-    var 标题规则=".get(a).a(title)";
+    var 列表=e2Arr(源码,".get(div.row div.hl-list-wrap ul).i(0).get(li)");
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(a).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(div.hl-pic-tag).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.hl-pic-text).t().ct(</font></p>)';
     通用列表();
@@ -393,7 +393,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li)");
     var 标题规则=".get(h4 a).a(title)";
     var 地址规则=".get(h4 a).a(href)";
-    var 图片规则=".get(a).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.pic-tag.pic-tag-top).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
     通用列表();
@@ -414,69 +414,69 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(Number).ct(</font></p>)';
     通用列表();
 }
-######首页推荐7
+######推荐列表7
 var 首页地址=getVar("首页地址");
 var 类型=getVar("类型");
 var UA=getVar("UA");
 function 通用列表(){
     var res={};var items=[];var LIST=[];
     for(var j=0;j<分类.length;j++){
-    if(分类[j].indexOf("/topic")==-1&&分类[j].indexOf("label/hot")==-1&&分类[j].indexOf("/arttype")==-1&&分类[j].indexOf("week")==-1){
-        var 分类标题=e2Rex(分类[j],分类标题规则);
-        var 列表=e2Arr(分类[j],列表规则);
-        var LIST=[];
-        for(var i=0;i<列表.length;i++){
-            if(类型.indexOf("iptv")!=-1){
-                var 地址=e2Rex(列表[i],地址规则);
-            }else if(类型.indexOf("e4a")!=-1){
-                var 后=e2Rex(列表[i],地址规则);
-                var 地址=e2Rex(首页地址,".t().tz2(/).ct(/)")+后;
-            }else{
-                if(类型.indexOf("网页")!=-1&&首页地址.indexOf(".php")!=-1){
-                    首页地址=e2Rex(首页地址,'.t().tz2(/)');
+        if(类型.indexOf("接口")!=-1||(类型.indexOf("网页")!=-1&&分类[j].indexOf("/topic")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("label/hot")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("/arttype")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("week")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("专题")==-1)&&(类型.indexOf("网页")!=-1&&分类[j].indexOf("资讯")==-1)){
+            var 分类标题=e2Rex(分类[j],分类标题规则);
+            var 列表=e2Arr(分类[j],列表规则);
+            var LIST=[];
+            for(var i=0;i<列表.length;i++){
+                if(类型.indexOf("iptv")!=-1){
+                    var 地址=e2Rex(列表[i],地址规则);
+                }else if(类型.indexOf("e4a")!=-1){
+                    var 后=e2Rex(列表[i],地址规则);
+                    var 地址=e2Rex(首页地址,".t().tz2(/).ct(/)")+后;
                 }else{
-                    首页地址=首页地址;
+                    if(类型.indexOf("网页")!=-1&&首页地址.indexOf(".php")!=-1){
+                        首页地址=e2Rex(首页地址,'.t().tz2(/)');
+                    }else{
+                        首页地址=首页地址;
+                    }
+                    var 地址=首页地址+e2Rex(列表[i],地址规则);
                 }
-                var 地址=首页地址+e2Rex(列表[i],地址规则);
+                var 标题=e2Rex(列表[i],标题规则);
+                var 预图片=e2Rex(列表[i],图片规则);
+                if(预图片.indexOf("zbjk.qyrunda.com")!=-1){
+                    var 图片=预图片.replace('zbjk.qyrunda.com','api.zbjk.live');
+                }else if(预图片.indexOf("php?url")!=-1){
+                    var 图片=预图片.split("url=")[1];
+                }else if(预图片.indexOf("http").length>1){
+                    var 图片=预图片.match(/.*(http.*[a-zA-Z].*)/)[1];
+                }else if(预图片.indexOf("/mac:")!=-1){
+                    var 图片="http:"+预图片.split("mac:")[1];
+                }else if(预图片.indexOf("mac:")!=-1){
+                    var 图片="http:"+预图片.split("mac:")[1];
+                }else if(预图片.indexOf(".test.com")!=-1||预图片.indexOf(".maccms.com")!=-1||预图片.indexOf(".maccms.pro")!=-1){
+                    var 图片=地址.match(/http?:\/\/.+?\//)[0]+预图片.match(/http?:\/\/.+?\//)[1];
+                    //var 图片=图片.match(/.*(http.*)/)[1];
+                }else if(预图片==""){
+                    var 图片="http://43.140.205.222/load.gif";
+                }else if(预图片.indexOf("http")!=-1){
+                    var 图片=预图片;
+                }else if(预图片.indexOf("//")!=-1){
+                    var 图片="http:"+预图片;
+                }else{
+                    var 图片=地址.match(/https?:\/\/.+?\//)[0]+预图片;
+                }
+                var 播放源=e2Rex(列表[i],播放源规则);
+                var 状态=e2Rex(列表[i],状态规则);
+                if(类型.indexOf("网页")!=-1){
+                    var mode="JSOUP";
+                }else{
+                    var mode="OKHTTP";
+                }
+                LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态,mode:mode});
             }
-            var 标题=e2Rex(列表[i],标题规则);
-            var 预图片=e2Rex(列表[i],图片规则);
-            if(预图片.indexOf("zbjk.qyrunda.com")!=-1){
-                var 图片=预图片.replace('zbjk.qyrunda.com','api.zbjk.live');
-            }else if(预图片.indexOf("php?url")!=-1){
-                var 图片=预图片.split("url=")[1];
-            }else if(预图片.indexOf("http").length>1){
-                var 图片=预图片.match(/.*(http.*[a-zA-Z].*)/)[1];
-            }else if(预图片.indexOf("/mac:")!=-1){
-                var 图片="http:"+预图片.split("mac:")[1];
-            }else if(预图片.indexOf("mac:")!=-1){
-                var 图片="http:"+预图片.split("mac:")[1];
-            }else if(预图片.indexOf(".test.com")!=-1||预图片.indexOf(".maccms.com")!=-1||预图片.indexOf(".maccms.pro")!=-1){
-                var 图片=地址.match(/http?:\/\/.+?\//)[0]+预图片.match(/http?:\/\/.+?\//)[1];
-                //var 图片=图片.match(/.*(http.*)/)[1];
-            }else if(预图片==""){
-                var 图片="http://43.140.205.222/load.gif";
-            }else if(预图片.indexOf("http")!=-1){
-                var 图片=预图片;
-            }else if(预图片.indexOf("//")!=-1){
-                var 图片="http:"+预图片;
-            }else{
-                var 图片=地址.match(/https?:\/\/.+?\//)[0]+预图片;
-            }
-            var 播放源=e2Rex(列表[i],播放源规则);
-            var 状态=e2Rex(列表[i],状态规则);
-            if(类型.indexOf("网页")!=-1){
-                var mode="JSOUP";
-            }else{
-                var mode="OKHTTP";
-            }
-            LIST.push({title:标题,url:地址,img:图片,from:播放源,state:状态,mode:mode});
+            var play_={};
+            play_.list=LIST;
+            play_.title=分类标题;
+            items.push(play_);
         }
-        var play_={};
-        play_.list=LIST;
-        play_.title=分类标题;
-        items.push(play_);
-    }
     }
     res.data=items;
     return JSON.stringify(res);
@@ -552,7 +552,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表规则=".get(div.module-main).i(0).get(a[href~=/detail/.+]).or().get(div.module-main).i(0).get(a[href~=/voddetail/.+]).or().get(div.module-main).i(0).get(a[href~=/play/.+]).or().get(div.module-main).i(0).get(a[href~=/vod/.+]).or().get(div.module-main).i(0).get(a[href~=/video/.+]).or().get(div.module-main).i(0).get(a[href~=detail.+])";
     var 标题规则=".get(.module-poster-item-title).t().or().get(a).a(title)";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(img).a(data-original).or().get(a).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(div.module-item-douban).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-note).t().ct(</font></p>)';
     通用列表();
@@ -561,31 +561,31 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 分类=e2Arr(源码,".get(div.content div.module.module-wrapper).or().get(div.content div.module)");
     var 分类标题规则=".get(h2).t()";
     var 列表规则=".get(div.module-item)";
-    var 标题规则=".get(a).a(title)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(img).a(data-src)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.video-class).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.module-item-text).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("首途-1")!=-1){
     var 源码=getHttp(首页地址);
-    var 分类=e2Arr(源码,".get(div.row > div.stui-pannel.stui-pannel-bg.clearfix).i(1,-3).or().get(div.myui-panel_bd.clearfix)");
+    var 分类=e2Arr(源码,".get(div.stui-pannel.stui-pannel-bg.clearfix div.stui-pannel-box).or().get(div.myui-panel.myui-panel-bg.clearfix div.myui-panel-box.clearfix div.myui-panel_bd.clearfix)");
     var 分类标题规则=".get(h3).t()";
-    var 列表规则=".get(ul.stui-vodlist.clearfix li).or().get(ul li)";
-    var 标题规则=".get(a).a(title)";
+    var 列表规则=".get(ul.stui-vodlist.clearfix li).or().get(ul.myui-vodlist.clearfix li)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(a).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.play.hidden-xs).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("新海螺")!=-1){
     var 源码=getHttp(首页地址);
-    var 分类=e2Arr(源码,".get(div.container div div div.row)");
-    var 分类标题规则=".get(h2.hl-rb-title).t()";
-    var 列表规则=".get(div ul li)";
-    var 标题规则=".get(a).a(title)";
+    var 分类=e2Arr(源码,".get(div.container div.hl-row-box div.hl-rb-vod.clearfix)");
+    var 分类标题规则=".get(h2).t()";
+    var 列表规则=".get(div.row div ul).i(0).get(li)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(a).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(div.hl-pic-tag).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(div.hl-pic-text).t().ct(</font></p>)';
     通用列表();
@@ -596,7 +596,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表规则=".get(li)";
     var 标题规则=".get(h4 a).t()";
     var 地址规则=".get(h4 a).a(href)";
-    var 图片规则=".get(img).a(data-original).or().get(a).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.pic-tag.pic-tag-top).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(span.pic-text.text-right).t().ct(</font></p>)';
     通用列表();
@@ -605,7 +605,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 分类=e2Arr(源码,".get(ul.stui-vodlist.clearfix)");
     var 分类标题规则="最新";
     var 列表规则=".get(li).i(1,-1)";
-    var 标题规则=".get(h3).a(title)";
+    var 标题规则=".get(h3 a).a(title)";
     var 地址规则=".get(h3 a).a(href)";
     var 图片规则="http://43.140.205.222/load.gif";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.time).t().ct(</b></font><br>)';
@@ -623,7 +623,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(Number).ct(</font></p>)';
     通用列表();
 }
-######重组搜索8
+######搜索列表8
 var KEY=getVar("KEY");
 var PN=getVar("PN");
 var NEXTPAGE=Number(getVar("PN"))+1;
@@ -725,7 +725,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表=e2Arr(源码,".get(div.module-card-item.module-item)");
     var 标题规则=".get(div.module-card-item-title).t()";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(img).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 简介规则=".get(div.module-info-item-content).t()";
     var 作者规则=".get(div.module-item-note).t()";
     搜索列表();
@@ -733,23 +733,23 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表=e2Arr(源码,".get(div.module-search-item)");
     var 标题规则=".get(h3).t()";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(img).a(data-src)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 简介规则=".get(div.video-info-main).t()";
     var 作者规则=".get(div.video-info-aux).t()";
     搜索列表();
 }else if(类型.indexOf("首途-1")!=-1){
     var 列表=e2Arr(源码,".get(ul[id~=searchList.*] li).or().get(ul.myui-vodlist.clearfix li)");
-    var 标题规则=".get(a).a(title)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(a).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 简介规则=".get(span.pic-text.text-right).t()";
     var 作者规则=".get(span.play.hidden-xs).t()";
     搜索列表();
 }else if(类型.indexOf("新海螺")!=-1){
     var 列表=e2Arr(源码,".get(div.hl-list-wrap ul.hl-one-list li)");
-    var 标题规则=".get(a).a(title)";
+    var 标题规则=".get(a).a(title).or().get(a).t()";
     var 地址规则=".get(a).a(href)";
-    var 图片规则=".get(a).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 简介规则=".get(p.hl-item-sub.hl-text-muted.hl-lc-2).t()";
     var 作者规则=".get(span.hl-lc-1.remarks).t()";
     搜索列表();
@@ -757,7 +757,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 列表=e2Arr(源码,".get(ul.stui-vodlist.clearfix li)");
     var 标题规则=".get(h4 a).a(title)";
     var 地址规则=".get(h4 a).a(href)";
-    var 图片规则=".get(a).a(data-original)";
+    var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
     var 简介规则=".get(span.pic-tag.pic-tag-top).t()";
     var 作者规则=".get(span.pic-text.text-right).t()";
     搜索列表();
@@ -770,7 +770,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 作者规则=".get(em).t()";
     搜索列表();
 }
-######重组选集9
+######选集列表9
 var 类型=getVar("类型");
 var 首页地址=getVar("首页地址");
 var URL=getVar("地址");
@@ -789,7 +789,7 @@ function 选集列表(){
             var PARSE2=e2Rex(分类CODE,".json(player_info).json(parse2)").split(",");
             var 总接口=PARSE2.concat(PARSE).filter(item => item.search(/\/.+\?.+=/)!=-1);
             var 过滤规则=[
-                /jx\.+huimaojia\.+com\/player/,/py\.+789pan\.+cn\/player\/tm\.php\?url=/,/ztys\.+waruanzy\.+com\/player\/\?url=/,/yingshi\.+waruanzy\.+com\/789pan\/\?url=/,/vip\.+parwix\.+com:4433\/player\/\?url=/,/api\.+cxitco\.+cn/,/\/vip\.+renrenmi.cc/,/yanbing\.+parwix\.+com:4433\/player/,/json\.+cantin\.+cc\/apijson\.php/,/ffdm\.+miaoletv\.+com\/\?url=/,/vip\.+sylwl\.+cn\/api\/\?key=/,/jx\.+dikotv\.+com\/\?url=/,/zly\.+xjqxz\.+top\/player\/\?url=/,/5znn\.+xyz\/m3u8\.+php/,/uid=1735&my=/,/api\.+xkvideo\.+design\/m3u8\.+php\?url=/,/play\.+szbodankyy\.+com\/xxoocnmb/,/vip\.+fj6080\.+xyz\/player\/\?url=/,/a\.+dxzj88\.+com\/jiexi/,/host\.+q-q\.+wang\/api/,/qpsvipr\.+naifeimi\.+com/,/mogai_api\.+php/,/lvdou_api\.+php/,/nfuxs\.+com/,/vip123kan\.+vip/,/zjmiao\.+com/,/nfuxs\.+club/,/cygc\.+xyz/,/vip6488502121\.+bibilili\.+vip/,/lg\.+umkan/,/yuml\.+vip/,/newjiexi\.+gotka\.+top/,/保佑/
+                /jx\.+huimaojia\.+com\/player/,/py\.+789pan\.+cn\/player\/tm\.php\?url=/,/ztys\.+waruanzy\.+com\/player\/\?url=/,/yingshi\.+waruanzy\.+com\/789pan\/\?url=/,/vip\.+parwix\.+com:4433\/player\/\?url=/,/api\.+cxitco\.+cn/,/\/vip\.+renrenmi.cc/,/yanbing\.+parwix\.+com:4433\/player/,/json\.+cantin\.+cc\/apijson\.php/,/ffdm\.+miaoletv\.+com\/\?url=/,/vip\.+sylwl\.+cn\/api\/\?key=/,/jx\.+dikotv\.+com\/\?url=/,/zly\.+xjqxz\.+top\/player\/\?url=/,/5znn\.+xyz\/m3u8\.+php/,/uid=1735&my=/,/api\.+xkvideo\.+design\/m3u8\.+php\?url=/,/play\.+szbodankyy\.+com\/xxoocnmb/,/vip\.+fj6080\.+xyz\/player\/\?url=/,/a\.+dxzj88\.+com\/jiexi/,/host\.+q-q\.+wang\/api/,/qpsvipr\.+naifeimi\.+com/,/mogai_api\.+php/,/lvdou_api\.+php/,/nfuxs\.+com/,/vip123kan\.+vip/,/zjmiao\.+com/,/nfuxs\.+club/,/cygc\.+xyz/,/vip6488502121\.+bibilili\.+vip/,/lg\.+umkan/,/yuml\.+vip/,/newjiexi\.+gotka\.+top/,/5555\/\?vid/,/保佑/
             ];
             var 可用接口=总接口.filter(function (text) {return !过滤规则.some(function (regex) {return regex.test(text);});});
             if(JSON.stringify(可用接口).indexOf("=")!=-1){
@@ -989,7 +989,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 选集地址规则='.json(address)';
     选集列表();
 }
-######播放规则10
+######嗅探规则10
 var uu=getVar("地址");
 var 类型=getVar("类型");
 if(uu.indexOf("wd=")!=-1){
