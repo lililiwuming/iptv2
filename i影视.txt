@@ -232,7 +232,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     头部导航();
 }else if(类型.indexOf("新海螺")!=-1){
     var 源码=getHttp(首页地址);
-    var 列表=e2Arr(源码,".get(div.conch-nav ul li a[href~=/vod/type/.+]).or().get(div.conch-nav ul li a[href~=/vodtype/.+]).or().get(div.conch-nav ul li a[href~=/type/.+]).or().get(div.conch-nav ul li a[href~=type/.+]).or().get(div.conch-nav ul li a[href~=/type.+])");
+    var 列表=e2Arr(源码,".get(ul.hl-menus.clearfix a[href~=/vod/type/.+]).or().get(ul.hl-menus.clearfix a[href~=/vodtype/.+]).or().get(ul.hl-menus.clearfix a[href~=/type/.+]).or().get(ul.hl-menus.clearfix a[href~=type/.+]).or().get(ul.hl-menus.clearfix a[href~=/type.+])");
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
