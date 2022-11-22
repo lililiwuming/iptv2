@@ -38,12 +38,6 @@
 ####APP
 @@接口-iptv(wd)@@?ac=list&class=#ID#&area=#筛选area#&type=#筛选type#&start=#筛选year#&page=#PN#@@?ac=list&wd=#KEY#&page=#PN#@@Dalvik/2.1.0@@
 
-####直播
-@@接口-直播订阅@@@@@@@@
-
-####直播
-@@接口-e4a@@@@@@@@
-
 ######本地新增2
 var key=getVar("输入内容");
 var 记录=[];
