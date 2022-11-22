@@ -1017,7 +1017,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 选集地址规则='.get(a).a(href)';
     选集列表();
 }else if(类型.indexOf("直播订阅")!=-1){
-    eval(getVar("qjs"));
+    eval(readStr("总代码.txt").split(/######.+/)[13]);
     if(源码.indexOf("#genre#")!=-1){
         var 分类=源码.split(/.+?#genre#.*/).filter(item=>item.indexOf("://")!=-1);
         var 线路=源码.match(/.+?#genre#.*/g);
