@@ -803,7 +803,6 @@ if(类型.indexOf("CMS(xml)")!=-1){
     搜索列表();
 }
 ######选集列表9
-eval(getVar("qjs"));
 var 类型=getVar("类型");
 var 首页地址=getVar("首页地址");
 var URL=getVar("地址");
@@ -1018,6 +1017,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 选集地址规则='.get(a).a(href)';
     选集列表();
 }else if(类型.indexOf("直播订阅")!=-1){
+    eval(getVar("qjs"));
     if(源码.indexOf("#genre#")!=-1){
         var 分类=源码.split(/.+?#genre#.*/).filter(item=>item.indexOf("://")!=-1);
         var 线路=源码.match(/.+?#genre#.*/g);
