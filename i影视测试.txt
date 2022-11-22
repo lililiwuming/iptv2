@@ -415,9 +415,9 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(em).t().ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("直播订阅")!=-1){
-    var 列表规则=".z(.+?,.+)";
-    var 标题规则=".ty(,)";
-    var 地址规则=".tz(,)";
+    var 列表=e2Arr(源码,".z(.+?,.+)");
+    var 标题规则=".tz(,)";
+    var 地址规则=".ty(,)";
     var 图片规则="http://43.140.205.222/load.gif";
     var 播放源规则='';
     var 状态规则='';
@@ -633,8 +633,8 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 分类=e2Arr(源码,".c()");
     var 分类标题规则="全部";
     var 列表规则=".z(.+?,.+)";
-    var 标题规则=".ty(,)";
-    var 地址规则=".tz(,)";
+    var 标题规则=".tz(,)";
+    var 地址规则=".ty(,)";
     var 图片规则="http://43.140.205.222/load.gif";
     var 播放源规则='';
     var 状态规则='';
