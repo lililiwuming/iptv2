@@ -39,13 +39,16 @@
 @@接口-iptv(wd)@@?ac=list&class=#ID#&area=#筛选area#&type=#筛选type#&start=#筛选year#&page=#PN#@@?ac=list&wd=#KEY#&page=#PN#@@Dalvik/2.1.0@@
 
 ####直播
+@@接口-直播订阅@@@@@@@@
+
+####直播
 @@接口-e4a@@@@@@@@
 
 ######本地新增2
 var key=getVar("输入内容");
 var 记录=[];
 if(key.indexOf("=http")!=-1&&(key.indexOf("网页-MX")!=-1||key.indexOf("网页-首途")!=-1||key.indexOf("海螺")!=-1||
-key.indexOf("网页-v10")!=-1||key.indexOf("接口-CMS")!=-1||key.indexOf("接口-APP")!=-1||key.indexOf("接口-iptv")!=-1||key.indexOf("e4a")!=-1)){
+key.indexOf("网页-v10")!=-1||key.indexOf("接口-CMS")!=-1||key.indexOf("接口-APP")!=-1||key.indexOf("接口-iptv")!=-1||key.indexOf("直播订阅")!=-1||key.indexOf("e4a")!=-1)){
     var filename='站源.json';
     var 输入条目=key.match(/.+=http.+/g);
     for(var j=0;j<输入条目.length;j++){
@@ -248,6 +251,12 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 标题规则=".get(a).t()";
     var 地址规则=".get(a).a(href)";
     头部导航();
+}else if(类型.indexOf("直播订阅")!=-1){
+    var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
+    var 列表="全";
+    var 标题规则="全部";
+    var 地址规则=首页地址;
+    头部导航();
 }else if(类型.indexOf("e4a")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
     var 列表="全";
@@ -404,6 +413,14 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 图片规则="http://43.140.205.222/load.gif";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.time).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(em).t().ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("直播订阅")!=-1){
+    var 列表规则=".z(.+?,.+)";
+    var 标题规则=".ty(,)";
+    var 地址规则=".tz(,)";
+    var 图片规则="http://43.140.205.222/load.gif";
+    var 播放源规则='';
+    var 状态规则='';
     通用列表();
 }else if(类型.indexOf("e4a")!=-1){
     var 列表=e2Arr(源码,".json(pingtai)");
@@ -610,6 +627,17 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 图片规则="http://43.140.205.222/load.gif";
     var 播放源规则='.c(<font color=\"#0997F7\"><b>).get(span.time).t().ct(</b></font><br>)';
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).get(em).t().ct(</font></p>)';
+    通用列表();
+}else if(类型.indexOf("直播订阅")!=-1){
+    var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
+    var 分类=e2Arr(源码,".c()");
+    var 分类标题规则="全部";
+    var 列表规则=".z(.+?,.+)";
+    var 标题规则=".ty(,)";
+    var 地址规则=".tz(,)";
+    var 图片规则="http://43.140.205.222/load.gif";
+    var 播放源规则='';
+    var 状态规则='';
     通用列表();
 }else if(类型.indexOf("e4a")!=-1){
     var 源码=getHttp(JSON.stringify({url:首页地址,redirect:false,head:{"User-Agent":UA}}));
@@ -822,6 +850,10 @@ function 选集列表(){
                 }else{
                     选集=j+1;
                 }
+            }else if(类型.indexOf("直播订阅")!=-1){
+                var 选集=e2Rex(列表[j],选集规则);
+                var 选集地址=e2Rex(列表[j],选集地址规则);
+                var 接口="";
             }else if(类型.indexOf("接口")!=-1){
                 if(类型.indexOf("接口-iptv")!=-1){
                     var 选集=e2Rex(列表[j],选集规则);
@@ -886,100 +918,202 @@ function 选集列表(){
     res.desc=detail;
     return JSON.stringify(res);
 }
-var 源=getVar("源");
+var 源码=getVar("源");
 if(类型.indexOf("CMS(xml)")!=-1){
-    var 简介=e2Rex(源,".c(类型:).xml(type).c(<br>演员表:).xml(actor).c(<br>简介:).xml(des)");
-    var 分类=e2Arr(源,".get(dd)");
+    var 简介=e2Rex(源码,".c(类型:).xml(type).c(<br>演员表:).xml(actor).c(<br>简介:).xml(des)");
+    var 分类=e2Arr(源码,".get(dd)");
     var 标题规则=".a(flag)";
     var 列表规则=".z2(CDATA\\[\\([\\s\\S]*?\\)[#]*?\\]).fg(#)";
     var 选集规则=".tz($)";
     var 选集地址规则=".z2(\\$\\([^\$|&]*\\)).or().z(.*)";
     选集列表();
 }else if(类型.indexOf("CMS(json)")!=-1){
-    var 简介=e2Rex(源,".c(演员表:).json(list).json(vod_actor).c(<br>简介:).json(list).json(vod_content)");
-    var 分类=e2Arr(源.replace(/<.*?>/g,""),".json(list).json(vod_play_url).fg(\\$\\$\\$)");
-    var 线路=e2Arr(源.replace(/<.*?>/g,""),".json(list).json(vod_play_from).fg(\\$\\$\\$)");
+    var 简介=e2Rex(源码,".c(演员表:).json(list).json(vod_actor).c(<br>简介:).json(list).json(vod_content)");
+    var 分类=e2Arr(源码.replace(/<.*?>/g,""),".json(list).json(vod_play_url).fg(\\$\\$\\$)");
+    var 线路=e2Arr(源码.replace(/<.*?>/g,""),".json(list).json(vod_play_from).fg(\\$\\$\\$)");
     var 标题规则=".t()";
     var 列表规则=".fg(#)";
     var 选集规则=".tz($)";
     var 选集地址规则=".z2(\\$\\(.*\\)).or().z(.*)";
     选集列表();
 }else if(类型.indexOf("APP(小龟)")!=-1){
-    var 简介=e2Rex(源,'.json(data).json(vod_content).or().json(data).json(vod_info).json(vod_content)');
-    var 分类=e2Arr(源,'.json(data).json(vod_url_with_player).or().json(data).json(vod_info).json(vod_url_with_player)');
+    var 简介=e2Rex(源码,'.json(data).json(vod_content).or().json(data).json(vod_info).json(vod_content)');
+    var 分类=e2Arr(源码,'.json(data).json(vod_url_with_player).or().json(data).json(vod_info).json(vod_url_with_player)');
     var 标题规则='.json(name).c(-).json(code)';
     var 列表规则='.json(url).ct(#).z(.*?\\$.*?#)';
     var 选集规则='.z2(\\(.+?\\)\\$)';
     var 选集地址规则='.z2(\\$\(.+?\\)[#|\"])';
     选集列表();
 }else if(类型.indexOf("APP(vod)")!=-1){
-    var 简介=e2Rex(源,'.json(data).json(vod_content)');
-    var 分类=e2Arr(源.replace(/\s+/g,""),'.json(data).json(vod_play_list)');
+    var 简介=e2Rex(源码,'.json(data).json(vod_content)');
+    var 分类=e2Arr(源码.replace(/\s+/g,""),'.json(data).json(vod_play_list)');
     var 标题规则='.json(player_info).json(show).c(-).json(player_info).json(from)';
     var 列表规则='.json(url).ct(#).z(.*?\\$.*?#)';
     var 选集规则='.z2(\\(.+?\\)\\$)';
     var 选集地址规则='.z2(\\$\\(.+?\\)[#|\"])';
     选集列表();
 }else if(类型.indexOf("iptv")!=-1){
-    var 简介=e2Arr(源,'.json(intro)');
-    var 分类=e2Arr(源,'.json(videolist).z(\".*?\\])');
+    var 简介=e2Arr(源码,'.json(intro)');
+    var 分类=e2Arr(源码,'.json(videolist).z(\".*?\\])');
     var 标题规则='.z2(\"\\(.*?\\)\")';
     var 列表规则='.z(\\{.*?\\})';
     var 选集规则='.json(title)';
     var 选集地址规则='.json(url)';
     选集列表();
 }else if(类型.indexOf("MX Pro")!=-1){
-    var 简介=e2Arr(源,'.get(div.module-info-introduction-content).t()');
-    var 分类=e2Arr(源,'.get(div[id~=panel.*]).or().get(div#panel1)');
-    var 线路=e2Arr(源,'.z(data-dropdown-value=".+?")');
+    var 简介=e2Arr(源码,'.get(div.module-info-introduction-content).t()');
+    var 分类=e2Arr(源码,'.get(div[id~=panel.*]).or().get(div#panel1)');
+    var 线路=e2Arr(源码,'.z(data-dropdown-value=".+?")');
     var 标题规则='.ty(").tz(")';
     var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+]).or().get(a[href~=/play/.+]).or().get(a[href~=/vod/.+]).or().get(a[href~=/player/.+]).or().get(a[href~=play.+])';
     var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
 }else if(类型.indexOf("MXone")!=-1){
-    var 简介=e2Arr(源,'.get(div.video-info-items).t()');
-    var 分类=e2Arr(源,'.get(div[id~=glist.*]).or().get(div[class~=playlist.*])');
-    var 线路=e2Arr(源,'.z(data-dropdown-value=".+?").or().get(span.module-tab-value)');
+    var 简介=e2Arr(源码,'.get(div.video-info-items).t()');
+    var 分类=e2Arr(源码,'.get(div[id~=glist.*]).or().get(div[class~=playlist.*])');
+    var 线路=e2Arr(源码,'.z(data-dropdown-value=".+?").or().get(span.module-tab-value)');
     var 标题规则='.ty(").tz(").or().t()';
     var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+]).or().get(div[id~=sort-item.*]).get(a[href~=/play/.+])';
     var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
 }else if(类型.indexOf("首途-1")!=-1){
-    var 简介=e2Arr(源,'.get(div.video-info-items).t()');
-    var 分类=e2Arr(源,'.get(div[id~=playlist.*]).or().get(div.stui-pannel-box.b.playlist.mb)');
+    var 简介=e2Arr(源码,'.get(div.video-info-items).t()');
+    var 分类=e2Arr(源码,'.get(div[id~=playlist.*]).or().get(div.stui-pannel-box.b.playlist.mb)');
     var 标题规则='.get(h3).t()';
     var 列表规则='.get(ul li)';
     var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
 }else if(类型.indexOf("新海螺")!=-1){
-    var 简介=e2Arr(源,'.get(li.hl-col-xs-12.blurb).t()');
-    var 分类=e2Arr(源,'.get(ul[id~=hl-plays-list.*])');
-    var 线路=e2Arr(源,'.get(a.hl-tabs-btn)');
+    var 简介=e2Arr(源码,'.get(li.hl-col-xs-12.blurb).t()');
+    var 分类=e2Arr(源码,'.get(ul[id~=hl-plays-list.*])');
+    var 线路=e2Arr(源码,'.get(a.hl-tabs-btn)');
     var 标题规则='.t()';
     var 列表规则='.get(li)';
     var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
 }else if(类型.indexOf("v10(影视站)")!=-1){
-    var 简介=e2Arr(源,'.get(span.detail-sketch).t()');
-    var 分类=e2Arr(源,'.get(div[id~=playlist.*] ul).or().get(ul.stui-content__playlist).or().get(div.stui-vodlist__head ul)');
-    var 线路=e2Arr(源,'.get(a[href~=#playlist.+]).or().get(h3)');
+    var 简介=e2Arr(源码,'.get(span.detail-sketch).t()');
+    var 分类=e2Arr(源码,'.get(div[id~=playlist.*] ul).or().get(ul.stui-content__playlist).or().get(div.stui-vodlist__head ul)');
+    var 线路=e2Arr(源码,'.get(a[href~=#playlist.+]).or().get(h3)');
     var 标题规则='.t()';
     var 列表规则='.get(li)';
     var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
 }else if(类型.indexOf("v10(采集站)")!=-1){
-    var 简介=e2Arr(源,'.get(div[id~=desc.*]).t()');
-    var 分类=e2Arr(源,'.get(div[id~=playlist.*])');
+    var 简介=e2Arr(源码,'.get(div[id~=desc.*]).t()');
+    var 分类=e2Arr(源码,'.get(div[id~=playlist.*])');
     var 标题规则='.get(h3).t()';
     var 列表规则='.get(li)';
     var 选集规则='.get(a.copy_text).t().tz($)';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
+}else if(类型.indexOf("直播订阅")!=-1){
+    if(源码.indexOf("#genre#")!=-1){
+        var 分类=源码.split(/.+?#genre#.*/).filter(item=>item.indexOf("://")!=-1);
+        var 线路=源码.match(/.+?#genre#.*/g);
+        var 列表规则=".z(.+?,.+?://.+)";
+        var 标题规则=".tz(,#genre#)";
+        var 选集地址规则=".c(http://ip111.cn/?wd=).ty(,)";
+        var 选集规则=".tz(,)";选集列表();
+    }else if(源码.indexOf("#EXTINF:")!=-1){
+        var code=源码.match(/#EXTINF:.+[\s]+[^#"]+?:\/\/.+/g);
+        var res={};var items=[];var d=[];
+        for(let index=0;index<code.length;index++){
+            function fn(i){
+                return function(){
+                    if(code[i].indexOf(",")!=-1){
+                        var 选集=code[i].match(/,(.*)/)[1]||"无选集名称";var 选集地址=code[i].match(/,.*[\s]+(.+)/)[1]||"无播放地址";
+                    }else{
+                        var 选集=code[i].match(/.+"(.*)/)[1]||"无选集名称";var 选集地址=code[i].match(/.+[\s]+(.+)/)[1]||"无播放地址";
+                    }
+                    if(code[i].search(/group-title=".*?"/)!=-1){
+                        var type=code[i].match(/group-title="(.*?)"/)[1]||"不规范分类";
+                    }else{
+                        var type="未分类";
+                    }
+                    var 当前条目=[];当前条目.push({title:选集,url:"http://ip111.cn/?wd="+选集地址});
+                    return {title:type,list:当前条目};
+                };
+            }
+            d.push(fn(index));
+        }
+        var s=_.submit(d, code.length); //n 改为你想开启的线程数
+        for(let i=0;i<s.length;i++){
+            for(let z of s[i].get()){
+                if(items.length==0){
+                    items.push(z);
+                }else{
+                    let 寻找=items.some(item=>{
+                        //判断类型，有就添加到当前项
+                        if(item.title == z.title&&item.list.length<100){
+                            item.list=item.list.concat(z.list);
+                            return true
+                        }
+                    });
+                    if(!寻找){
+                        //如果没找相同类型添加一个类型
+                        items.push(z);
+                    }
+                }
+            }
+        }
+        res.data=items;
+        JSON.stringify(res);
+    }else if(源码.search(/\$c_start.+?\$c_end/)!=-1){
+        var 分类=源码.split(/\$c_start.+?\$c_end/).filter(item=>item.indexOf("://")!=-1);
+        var 线路=源码.match(/\$c_start.+?\$c_end/g);
+        var 列表规则=".z(.+?,.+?://.+)";
+        var 标题规则=".ty(c_start).tz($c_end)";
+        var 选集地址规则=".c(http://ip111.cn/?wd=).ty(,)";
+        var 选集规则=".tz(,)";选集列表();
+    }else{
+        var code=源码.match(/.+?,.+?:\/\/.+/g);
+        var res={};var items=[];var d=[];
+        for(let index=0;index<code.length;index++){
+            function fn(i){
+                return function(){
+                    var 选集=code[i].match(/(.+),/)[1];var 选集地址=code[i].match(/,[\s]*?(.+)/)[1];
+                    if(code[i].indexOf("|")!=-1){
+                        var type=选集.split("|")[0];
+                        var 选集标题=选集.split("|")[1];
+                    }else{
+                        var type=getVar("name")+"-无子分类";
+                        var 选集标题=选集;
+                    }
+                    var 当前条目=[];当前条目.push({title:选集标题,url:"http://ip111.cn/?wd="+选集地址});
+                    return {title:type,list:当前条目};
+                };
+            }
+            d.push(fn(index));
+        }
+        var s=_.submit(d, code.length); //n 改为你想开启的线程数
+        for(let i=0;i<s.length;i++){
+            for (let z of s[i].get()){
+                if(items.length==0){
+                    items.push(z);
+                }else{
+                    let 寻找=items.some(item=>{
+                        //判断类型，有就添加到当前项
+                        if(item.title == z.title&&item.list.length<100){
+                            item.list=item.list.concat(z.list);
+                            return true
+                        }
+                    });
+                    if(!寻找){
+                        //如果没找相同类型添加一个类型
+                        items.push(z);
+                    }
+                }
+            }
+        }
+        res.data=items;
+        JSON.stringify(res);
+    }
 }else if(类型.indexOf("e4a")!=-1){
     var 简介="无";
     var 分类=e2Arr(源,'.c()');
@@ -1057,6 +1191,42 @@ if(类型.indexOf("接口")!=-1){
         JSON.stringify({name:"真实播放地址",url:uu});
     }else{
         "web="+uu;
+    }
+}else if(类型.indexOf("直播订阅")!=-1){
+    if(uu.indexOf("#")!=-1){
+        var urls=uu.split("#");
+        var items=[];
+        for(var i=0;i<urls.length;i++){
+            if(urls[i].indexOf(".php")!=-1){
+                var resp = JZ(JSON.stringify({ url: urls[i], redirect: false }));
+                var u = resp.head.Location || resp.head.location;
+                if(!u){
+                    u=uu+"&type=.m3u8";
+                }
+            }else if(urls[i].indexOf("mitv://")!=-1){
+                var u=urls[i].replace("mitv://","P2p://");
+            }else{
+                var u=urls[i];
+            }
+            items.push({name:"地址"+(i+1),url:u}); 
+        }
+        JSON.stringify(items);
+    }else{
+        if(uu.indexOf(".php")!=-1){
+            var resp=JZ(JSON.stringify({url:uu,redirect:false}));
+            var u=resp.head.Location||resp.head.location;
+            if(!u){
+                u=uu+"&type=.m3u8";
+            }
+        }else if(uu.indexOf("mitv://")!=-1){
+            var u=uu.replace("mitv://","P2p://");
+        }else if(uu.indexOf("www.youtube.com/watch?v=")!=-1){
+            var resp=getHttp(JSON.stringify({url:"https://www.azrotv.com/extras/youtube/",post:{"url":uu}}));
+            var u=e2Rex(resp,".get(textarea).t()");
+        }else{
+            var u=uu;
+        }
+        JSON.stringify({name:"地址",url:u});
     }
 }else{
     "web="+uu;
