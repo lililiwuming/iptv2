@@ -1168,6 +1168,8 @@ if(类型.indexOf("直播订阅")!=-1){
         }
         JSON.stringify({name:"地址",url:u});
     }
+}else if(类型.indexOf("e4a")!=-1){
+    JSON.stringify({name:"真实播放地址",url:uu});
 }else if(类型.indexOf("接口")!=-1){
     if(uu.indexOf("player.4kya.com")!=-1||uu.indexOf("netflixvip.4kya.com")!=-1){
         "web="+uu+'@{"Referer":"https://netflix.mom/"}';
