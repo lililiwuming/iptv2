@@ -913,7 +913,7 @@ function 选集列表(){
     }
     detail.push({desc:简介});
     res.data=items;
-    res.desc=detail;
+    res.desc=detail;alert(res);
     return JSON.stringify(res);
 }
 var 源码=getVar("源");
