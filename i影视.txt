@@ -911,9 +911,10 @@ function 选集列表(){
         play_.list=LIST;
         items.push(play_);
     }
+    alert(play_);
     detail.push({desc:简介});
     res.data=items;
-    res.desc=detail;alert(res);
+    res.desc=detail;
     return JSON.stringify(res);
 }
 var 源码=getVar("源");
