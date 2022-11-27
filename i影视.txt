@@ -907,7 +907,7 @@ function 选集列表(){
         }
         var play_={};
         play_.from=URL;
-        play_.title=标题;alert(标题);
+        play_.title=标题;
         play_.list=LIST;
         items.push(play_);
     }
