@@ -946,7 +946,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 简介=e2Rex(源码,'.json(data).json(vod_content)');
     var 分类=e2Arr(源码.replace(/\s+/g,""),'.json(data).json(vod_play_list)');
     var 标题规则='.json(player_info).json(show).c(-).json(player_info).json(from)';
-    var 列表规则='.json(url).ct(#).z(.*?\\$.*?#).or().json(urls)';
+    var 列表规则='.json(urls).or().json(url).ct(#).z(.*?\\$.*?#)';
     var 选集规则='.json(name).or().z2(\\(.+?\\)\\$)';
     var 选集地址规则='.json(url).or().z2(\\$\\(.+?\\)[#|\"])';
     选集列表();
