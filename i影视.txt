@@ -972,7 +972,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 分类=e2Arr(源码,'.get(div[id~=glist.*]).or().get(div[class~=playlist.*])');
     var 线路=e2Arr(源码,'.z(data-dropdown-value=".+?").or().get(span.module-tab-value)');
     var 标题规则='.ty(").tz(").or().t()';
-    var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+]).or().get(div[id~=sort-item.*]).get(a[href~=/play/.+]).or().get(a[href~=/vplay/.+]).or().get(div[id~=glist.+] div.scroll-content>a)';
+    var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+]).or().get(div[id~=sort-item.*]).get(a[href~=/play/.+]).or().get(div.scroll-content a[href~=/vplay/.+]).or().get(div[id~=glist.+] div.scroll-content>a)';
     var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
