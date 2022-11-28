@@ -1,3 +1,4 @@
+忧伤的肥羊,https://ghproxy.com/https://raw.githubusercontent.com/youshandefeiyang/IPTV/main/main/IPTV.m3u
 探索TV,https://t.tansuo.tv/tv.txt
 用心,http://hiker.nokia.press/hikerule/rulelist.json?id=5388
 iptv-org,https://gitlab.com/iptv-org/iptv/-/raw/master/public/index.country.m3u
