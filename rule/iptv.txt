@@ -9,6 +9,8 @@ Ltang,https://agit.ai/Ltang/Tvsy/raw/branch/master/TV/shengqi.txt
 anxwl,http://wp.anxwl.cn/down.php/ecbbf8c5e677b8d2f6c938de1da6579c.txt
 xdl53r,https://files.catbox.moe/xdl53r.txt
 
+广播电台,https://gcore.jsdelivr.net/gh/imDazui/Tvlist-awesome-m3u-m3u8@master/m3u/广播电台2021.m3u
+
 YanG-1989,https://ghproxy.com/https://raw.githubusercontent.com/YanG-1989/m3u/main/Adult.m3u
 gjwj666,https://ghproxy.com/https://raw.githubusercontent.com/gjwj666/jichang/main/chuanmei.m3u
 Adultiptv,http://adultiptv.net/lists/all.m3u
