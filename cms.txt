@@ -673,6 +673,9 @@ function 选集列表(){
                 }else{
                     选集=j+1;
                 }
+                if(URL.indexOf("xkvtv.com")!=-1){
+                    选集地址="https://ts1.xkjx7khuycovhy.com/"+选集地址;
+                }
             }else{
                 if(URL.indexOf(".vod")!=-1||URL.indexOf("php/app")!=-1||URL.indexOf("php/v")!=-1){
                     var 选集=e2Rex(列表[j],选集规则);
