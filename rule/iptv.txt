@@ -1,7 +1,7 @@
+//一些收集
 忧伤的肥羊,https://ghproxy.com/https://raw.githubusercontent.com/youshandefeiyang/IPTV/main/main/IPTV.m3u
 探索TV,https://t.tansuo.tv/tv.txt
 用心,http://hiker.nokia.press/hikerule/rulelist.json?id=5388
-jundie,http://home.jundie.top:81/ray/tvlive.txt
 iptv-org,https://gitlab.com/iptv-org/iptv/-/raw/master/public/index.country.m3u
 ks,https://1771245847.github.io/ks.txt
 gh,https://cdn.staticaly.com/gh/tvbw/mytv/main/tv88
@@ -11,8 +11,21 @@ Ltang,https://agit.ai/Ltang/Tvsy/raw/branch/master/TV/shengqi.txt
 anxwl,http://wp.anxwl.cn/down.php/ecbbf8c5e677b8d2f6c938de1da6579c.txt
 xdl53r,https://files.catbox.moe/xdl53r.txt
 
+//tvbox
+神器每日推送,https://xn--m7r412advb92j21st65a.tk/live.txt
+kds2,https://kds2.coding.net/p/k/d/k/git/raw/master/maolive.txt
+raw,http://home.jundie.top:81/ray/tvlive.txt
+Cat,http://home.jundie.top:81/Cat/tv/live.txt
+mytv,http://9xi4o.tk/sub/mytv.txt
+maolive,http://f.cyao.tk/maolive.txt
+Yoursmile7,https://agit.ai/Yoursmile7/TVBox/raw/branch/master/live.txt
+mmmgit,http://freed.yuanhsing.cf/tv/live.txt
+0903zh,https://agit.ai/138001380000/MHQTV/raw/branch/master/TV/0903zh.txt
+
+//音乐电台
 广播电台,https://gcore.jsdelivr.net/gh/imDazui/Tvlist-awesome-m3u-m3u8@master/m3u/广播电台2021.m3u
 
+//18+
 YanG-1989,https://ghproxy.com/https://raw.githubusercontent.com/YanG-1989/m3u/main/Adult.m3u
 gjwj666,https://ghproxy.com/https://raw.githubusercontent.com/gjwj666/jichang/main/chuanmei.m3u
 Adultiptv,http://adultiptv.net/lists/all.m3u
