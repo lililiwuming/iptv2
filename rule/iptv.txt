@@ -16,9 +16,9 @@ xdl53r,https://files.catbox.moe/xdl53r.txt
 raw,http://home.jundie.top:81/ray/tvlive.txt
 Cat,http://home.jundie.top:81/Cat/tv/live.txt
 mytv,https://9xi4o.tk/sub/mytv.txt
-maolive,http://f.cyao.tk/maolive.txt
+maolive,https://f.cyao.tk/maolive.txt
 Yoursmile7,https://agit.ai/Yoursmile7/TVBox/raw/branch/master/live.txt
-mmmgit,http://freed.yuanhsing.cf/tv/live.txt
+mmmgit,https://freed.yuanhsing.cf/tv/live.txt
 0903zh,https://agit.ai/138001380000/MHQTV/raw/branch/master/TV/0903zh.txt
 
 //音乐电台
