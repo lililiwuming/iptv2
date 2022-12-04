@@ -13,10 +13,9 @@ xdl53r,https://files.catbox.moe/xdl53r.txt
 
 //tvbox
 神器每日推送,https://xn--m7r412advb92j21st65a.tk/live.txt
-kds2,https://kds2.coding.net/p/k/d/k/git/raw/master/maolive.txt
 raw,http://home.jundie.top:81/ray/tvlive.txt
 Cat,http://home.jundie.top:81/Cat/tv/live.txt
-mytv,http://9xi4o.tk/sub/mytv.txt
+mytv,https://9xi4o.tk/sub/mytv.txt
 maolive,http://f.cyao.tk/maolive.txt
 Yoursmile7,https://agit.ai/Yoursmile7/TVBox/raw/branch/master/live.txt
 mmmgit,http://freed.yuanhsing.cf/tv/live.txt
