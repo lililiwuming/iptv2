@@ -675,6 +675,10 @@ function 选集列表(){
                 }
                 if(URL.indexOf("xkvtv.com")!=-1){
                     选集地址="https://ts1.xkjx7khuycovhy.com/"+选集地址;
+                }else if(标题=="y2"){
+                    选集地址="https://m69.d6fu.com"+选集地址;
+                }else if(标题=="bei2")!=-1{
+                    选集地址="https://q2.77-ee.homes"+选集地址;
                 }
             }else{
                 if(URL.indexOf(".vod")!=-1||URL.indexOf("php/app")!=-1||URL.indexOf("php/v")!=-1){
