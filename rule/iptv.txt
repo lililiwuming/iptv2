@@ -26,7 +26,7 @@ mmmgit,https://freed.yuanhsing.cf/tv/live.txt
 广播电台,https://gcore.jsdelivr.net/gh/imDazui/Tvlist-awesome-m3u-m3u8@master/m3u/广播电台2021.m3u
 
 //18+
-道长(base64),https://gitcode.net/qq_32394351/dr_py/-/raw/master/txt/lives/苹果艾薇.txt
+道长(base64)，https://gitcode.net/qq_32394351/dr_py/-/raw/master/txt/lives/苹果艾薇.txt
 YanG-1989,https://ghproxy.com/https://raw.githubusercontent.com/YanG-1989/m3u/main/Adult.m3u
 gjwj666,https://ghproxy.com/https://raw.githubusercontent.com/gjwj666/jichang/main/chuanmei.m3u
 Adultiptv,http://adultiptv.net/lists/all.m3u
