@@ -14,7 +14,7 @@ xdl53r,https://files.catbox.moe/xdl53r.txt
 
 //tvbox
 神器每日推送,https://xn--m7r412advb92j21st65a.tk/live.txt
-raw,http://home.jundie.top:81/ray/tvlive.txt
+ray,http://home.jundie.top:81/ray/tvlive.txt
 Cat,http://home.jundie.top:81/Cat/tv/live.txt
 mytv,https://9xi4o.tk/sub/mytv.txt
 maolive,https://f.cyao.tk/maolive.txt
