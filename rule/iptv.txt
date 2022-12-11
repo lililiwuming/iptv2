@@ -32,4 +32,4 @@ Adultiptv,http://adultiptv.net/lists/all.m3u
 喵公子,http://shuyuan.miaogongzi.net/shuyuan/1670747660.txt
 
 //加密
-道长(base64)，https://gitcode.net/qq_32394351/dr_py/-/raw/master/txt/lives/%E8%8B%B9%E6%9E%9C%E7%88%B1%E8%96%87.txt
+道长(base64)，https://gitcode.net/qq_32394351/dr_py/-/raw/master/txt/lives/苹果爱薇.txt
