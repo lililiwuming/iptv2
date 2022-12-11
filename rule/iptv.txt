@@ -30,3 +30,4 @@ mmmgit,https://freed.yuanhsing.cf/tv/live.txt
 YanG-1989,https://ghproxy.com/https://raw.githubusercontent.com/YanG-1989/m3u/main/Adult.m3u
 gjwj666,https://ghproxy.com/https://raw.githubusercontent.com/gjwj666/jichang/main/chuanmei.m3u
 Adultiptv,http://adultiptv.net/lists/all.m3u
+喵公子,http://shuyuan.miaogongzi.net/shuyuan/1670747660.txt
