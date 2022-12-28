@@ -1055,7 +1055,7 @@ if(key.length>10){
         writeStr(filename,JSON.stringify(新记录));
         alert(title+"\n规则写入成功");
     }else if(key.indexOf("@")!=-1&&key.indexOf("=")!=-1&&key.indexOf("#")!=-1){
-        if(key.indexOf("php/app/")!=-1||key.indexOf("v1")!=-1||key.indexOf("v2")!=-1||key.indexOf("v3")!=-1||key.indexOf(".vod")!=-1||key.search(/api\.php\/.+?\/vod\//)!=-1){
+        if(key.indexOf("php/app/")!=-1||key.indexOf("/v1/")!=-1||key.indexOf("/v2/")!=-1||key.indexOf("/v3/")!=-1||key.indexOf(".vod")!=-1||key.search(/api\.php\/.+?\/vod\//)!=-1){
             if(getVar("文件名")!="null"){
                 var filename=getVar("文件名");
             }else{
@@ -1080,7 +1080,7 @@ if(key.length>10){
                 }
                 if(e2Rex(输入条目[j],".tz(@)")!=""){
                     var type=e2Rex(输入条目[j],".tz(@)");
-                }else if(url.indexOf("php/app/")!=-1||url.indexOf("v1")!=-1||url.indexOf("v2")!=-1||url.indexOf("v3")!=-1){
+                }else if(url.indexOf("php/app/")!=-1||url.indexOf("/v1/")!=-1||url.indexOf("/v2/")!=-1||url.indexOf("/v3/")!=-1){
                     var type="小龟";
                 }else if(url.indexOf(".vod")!=-1){
                     var type="萝卜";
@@ -1145,7 +1145,7 @@ if(key.length>10){
             }
             if(e2Rex(输入条目[j],".tz(@)")!=""){
                 var type=e2Rex(输入条目[j],".tz(@)");
-            }else if(url.indexOf("php/app/")!=-1||url.indexOf("v1")!=-1||url.indexOf("v2")!=-1||url.indexOf("v3")!=-1){
+            }else if(url.indexOf("php/app/")!=-1||url.indexOf("/v1/")!=-1||url.indexOf("/v2/")!=-1||url.indexOf("/v3/")!=-1){
                 var type="小龟";
             }else if(url.indexOf(".vod")!=-1){
                 var type="萝卜/白菜/木白/绿豆";
