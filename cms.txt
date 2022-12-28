@@ -922,7 +922,7 @@ if(key.length>10){
                     }
                     if(e2Rex(输入条目[j],".tz(@)")!=""){
                         var type=e2Rex(输入条目[j],".tz(@)");
-                    }else if(url.indexOf("php/app/")!=-1||URL.indexOf("php/v")!=-1){
+                    }else if(url.indexOf("php/app/")!=-1||url.indexOf("php/v")!=-1){
                         var type="小龟";
                     }else if(url.indexOf(".vod")!=-1){
                         var type="萝卜/白菜/木白/绿豆";
@@ -1080,7 +1080,7 @@ if(key.length>10){
                 }
                 if(e2Rex(输入条目[j],".tz(@)")!=""){
                     var type=e2Rex(输入条目[j],".tz(@)");
-                }else if(url.indexOf("php/app/")!=-1||URL.indexOf("php/v")!=-1){
+                }else if(url.indexOf("php/app/")!=-1||url.indexOf("php/v")!=-1){
                     var type="小龟";
                 }else if(url.indexOf(".vod")!=-1){
                     var type="萝卜";
@@ -1145,7 +1145,7 @@ if(key.length>10){
             }
             if(e2Rex(输入条目[j],".tz(@)")!=""){
                 var type=e2Rex(输入条目[j],".tz(@)");
-            }else if(url.indexOf("php/app/")!=-1||URL.indexOf("php/v")!=-1){
+            }else if(url.indexOf("php/app/")!=-1||url.indexOf("php/v")!=-1){
                 var type="小龟";
             }else if(url.indexOf(".vod")!=-1){
                 var type="萝卜/白菜/木白/绿豆";
