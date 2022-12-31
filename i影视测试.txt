@@ -211,7 +211,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     头部导航();
 }else if(类型.indexOf("MX Pro")!=-1){
     var 源码=getHttp(首页地址);
-    var 列表=e2Arr(源码,".get(div.nav a[href~=/vod/type/.+]).or().get(div.nav a[href~=/vodtype/.+]).or().get(div.nav a[href~=/type/.+]).or().get(div.nav a[href~=/list.+]).or().get(div.sidebar a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vodtype/.+]).or().get(div.sidebar a[href~=/type/.+]).or().get(div.sidebar a[href~=/list.+]).or().get(div.mxprofoot a[href~=/vod/type/.+]).or().get(div.mxprofoot a[href~=/vodtype/.+]).or().get(div.mxprofoot a[href~=/type/.+]).or().get(div.mxprofoot a[href~=/list.+]).or().get(div.sidebar a[href~=type.+]).or().get(div.mxprofoot a[href~=type.+])");
+    var 列表=e2Arr(源码,".get(div.nav a[href~=/vod/type/.+]).or().get(div.nav a[href~=/vodtype/.+]).or().get(div.nav a[href~=/type/.+]).or().get(div.nav a[href~=/list.+]).or().get(div.sidebar a[href~=/vod/type/.+]).or().get(div.sidebar a[href~=/vodtype/.+]).or().get(div.sidebar a[href~=/type/.+]).or().get(div.sidebar a[href~=/list.+]).or().get(div.mxprofoot a[href~=/vod/type/.+]).or().get(div.mxprofoot a[href~=/vodtype/.+]).or().get(div.mxprofoot a[href~=/type/.+]).or().get(div.mxprofoot a[href~=/list.+]).or().get(div.sidebar a[href~=type.+]).or().get(div.mxprofoot a[href~=type.+]).or().get(div.mxprofoot a[href~=html.+]).or().get(ul.navbar-items li a[href~=html.+])");
     var 标题规则=".get(a).t()";
     var 地址规则='.get(a).a(href)';
     头部导航();
@@ -363,7 +363,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 状态规则='.tx(<p style=\"background-color:#CC00FF\"><font color=\"#FFFFFF\">).json(state).ct(</font></p>)';
     通用列表();
 }else if(类型.indexOf("MX Pro")!=-1){
-    var 列表=e2Arr(源码,".get(a[href~=/Moviedetail/.+]).or().get(a[href~=/detail/.+]).or().get(a[href~=/voddetail/.+]).or().get(a[href~=/play/.+]).or().get(a[href~=/vod/.+]).or().get(a[href~=detail.+]).or().get(a[href~=vod.+])");
+    var 列表=e2Arr(源码,".get(a[href~=/Moviedetail/.+]).or().get(a[href~=/detail/.+]).or().get(a[href~=/voddetail/.+]).or().get(a[href~=/play/.+]).or().get(a[href~=/vod/.+]).or().get(a[href~=detail.+]).or().get(a[href~=/v/.+]).or().get(div.main div.content div.module > a)");
     var 标题规则=".get(.module-poster-item-title).t().or().get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
@@ -564,7 +564,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 源码=getHttp(首页地址);
     var 分类=e2Arr(源码,".get(div.content div.module)");
     var 分类标题规则=".get(h2).t()";
-    var 列表规则=".get(div.module-main).i(0).get(a[href~=/detail/.+]).or().get(div.module-main).i(0).get(a[href~=/voddetail/.+]).or().get(div.module-main).i(0).get(a[href~=/play/.+]).or().get(div.module-main).i(0).get(a[href~=/vod/.+]).or().get(div.module-main).i(0).get(a[href~=/video/.+]).or().get(div.module-main).i(0).get(a[href~=detail.+])";
+    var 列表规则=".get(div.module-main).i(0).get(a[href~=/detail/.+]).or().get(div.module-main).i(0).get(a[href~=/voddetail/.+]).or().get(div.module-main).i(0).get(a[href~=/play/.+]).or().get(div.module-main).i(0).get(a[href~=/vod/.+]).or().get(div.module-main).i(0).get(a[href~=/video/.+]).or().get(div.module-main).i(0).get(a[href~=detail.+]).or().get(div.module-main).i(0).get(a[href~=/v/.+]).or().get(div.module-main).i(0).get(a)";
     var 标题规则=".get(.module-poster-item-title).t().or().get(a).a(title)";
     var 地址规则=".get(a).a(href)";
     var 图片规则=".get(img).a(data-original).or().get(img).a(data-src).or().get(img).a(src).or().get(a).a(data-original).or().get(a).a(data-src).or().get(a).a(src)";
@@ -946,9 +946,9 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 简介=e2Rex(源码,'.json(data).json(vod_content)');
     var 分类=e2Arr(源码.replace(/\s+/g,""),'.json(data).json(vod_play_list)');
     var 标题规则='.json(player_info).json(show).c(-).json(player_info).json(from)';
-    var 列表规则='.json(url).ct(#).z(.*?\\$.*?#)';
-    var 选集规则='.z2(\\(.+?\\)\\$)';
-    var 选集地址规则='.z2(\\$\\(.+?\\)[#|\"])';
+    var 列表规则='.json(urls).or().json(url).ct(#).z(.*?\\$.*?#)';
+    var 选集规则='.json(name).or().z2(\\(.+?\\)\\$)';
+    var 选集地址规则='.json(url).or().z2(\\$\\(.+?\\)[#|\"])';
     选集列表();
 }else if(类型.indexOf("iptv")!=-1){
     var 简介=e2Arr(源码,'.json(intro)');
@@ -963,7 +963,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 分类=e2Arr(源码,'.get(div[id~=panel.*]).or().get(div#panel1)');
     var 线路=e2Arr(源码,'.z(data-dropdown-value=".+?")');
     var 标题规则='.ty(").tz(")';
-    var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+]).or().get(a[href~=/play/.+]).or().get(a[href~=/vod/.+]).or().get(a[href~=/player/.+]).or().get(a[href~=play.+])';
+    var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+]).or().get(a[href~=/play/.+]).or().get(a[href~=/vod/.+]).or().get(a[href~=/player/.+]).or().get(a[href~=play.+]).or().get(div.module-play-list > a).or().get(div > a)';
     var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
@@ -972,7 +972,7 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 分类=e2Arr(源码,'.get(div[id~=glist.*]).or().get(div[class~=playlist.*])');
     var 线路=e2Arr(源码,'.z(data-dropdown-value=".+?").or().get(span.module-tab-value)');
     var 标题规则='.ty(").tz(").or().t()';
-    var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+]).or().get(div[id~=sort-item.*]).get(a[href~=/play/.+])';
+    var 列表规则='.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+]).or().get(div[id~=sort-item.*]).get(a[href~=/play/.+]).or().get(div.scroll-content a[href~=/vplay/.+]).or().get(div[id~=glist.+] div.scroll-content>a)';
     var 选集规则='.get(a).t()';
     var 选集地址规则='.get(a).a(href)';
     选集列表();
@@ -1236,13 +1236,16 @@ if(类型.indexOf("直播订阅")!=-1){
 }
 ######更新内容11
 【更新内容】
+2022/12/20：
+写站源/修改站源：修复长按选择模板
+
 2022/11/09：
 搜索：网页类型加入了获取cookie
 
 
 Tips：有问题及适配模板请反馈
 ######检测更新12
-var NewVersion="221109";
+var NewVersion="221220";
 var version=e2Rex(getVar("QMINFO"),".xml(version).t()").replace(/\s/g,"");
 var NewSign="f6dc3d89035d1db7edead60443414542";
 var sign=e2Rex(getVar("QMINFO"),".xml(sign).t()").replace(/\s/g,"");
