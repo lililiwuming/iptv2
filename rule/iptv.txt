@@ -45,7 +45,6 @@ YanG-1989,https://ghproxy.com/https://raw.githubusercontent.com/YanG-1989/m3u/ma
 gjwj666,https://ghproxy.com/https://raw.githubusercontent.com/gjwj666/jichang/main/chuanmei.m3u
 Adultiptv,http://adultiptv.net/lists/all.m3u
 喵公子,http://shuyuan.miaogongzi.net/shuyuan/1670747660.txt
-爱薇,http://43.140.205.222:3000/InMemory/iptv/raw/branch/master/rule/yanse.txt
 
 //加密
 道长(base64)，https://gitcode.net/qq_32394351/dr_py/-/raw/master/txt/lives/苹果爱薇.txt
