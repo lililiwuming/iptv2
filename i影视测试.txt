@@ -876,6 +876,8 @@ function 选集列表(){
             }
         }else if(类型.indexOf("APP(小龟)")!=-1){
             var 接口=e2Rex(分类CODE,".json(parse_api)");
+        }else if(类型.indexOf("APP(小龟)")!=-1){
+            var 接口=e2Rex(分类CODE,".json(parse)");
         }else{
             var 接口="";
         }
