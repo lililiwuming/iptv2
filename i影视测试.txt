@@ -33,7 +33,7 @@
 @@接口-APP(vod)@@?type=#ID#&class=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&by=#排序#&limit=&page=#PN#@@?wd=#KEY#&page=#PN#@@okhttp/4.1.0@@
 
 ####App
-@@接口-APP(小主题)@@vod/getLists?type_id=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&order=#排序#&type_name=&page=#PN#&pageSize=21@@vod/getVodSearch?wd=#KEY#page=#PN#&type@@Dart/2.19 (dart:io)
+@@接口-APP(小主题)@@vod/getLists?type_id=#筛选class#&area=#筛选area#&lang=#筛选lang#&year=#筛选year#&order=#排序#&type_name=&page=#PN#&pageSize=21@@vod/getVodSearch?wd=#KEY#page=#PN#&type@@Dart/2.19 (dart:io)@@
 
 ####APP
 @@接口-iptv(zm)@@?ac=list&class=#ID#&area=#筛选area#&type=#筛选type#&start=#筛选year#&page=#PN#@@?ac=list&zm=#KEY#&page=#PN#@@Dalvik/2.1.0@@
