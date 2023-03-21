@@ -855,7 +855,7 @@ function 选集列表(){
         }else{
             var 标题=e2Rex(分类CODE,标题规则);
         }
-        if(类型.indexOf("APP(vod)")!=-1){
+        if(类型.indexOf("APP(vod)")!=-1||类型.indexOf("小主题")!=-1){
             var PARSE=e2Rex(分类CODE,".json(player_info).json(parse)").split(",");
             var PARSE2=e2Rex(分类CODE,".json(player_info).json(parse2)").split(",");
             var 总接口=PARSE2.concat(PARSE).filter(item => item.search(/\/.+\?.+=/)!=-1);
@@ -876,7 +876,7 @@ function 选集列表(){
             }
         }else if(类型.indexOf("APP(小龟)")!=-1){
             var 接口=e2Rex(分类CODE,".json(parse_api)");
-        }else if(类型.indexOf("APP(小龟)")!=-1){
+        }else if(类型.indexOf("小主题")!=-1){
             var 接口=e2Rex(分类CODE,".json(parse)");
         }else{
             var 接口="";
