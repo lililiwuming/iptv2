@@ -156,9 +156,7 @@ function 头部导航(){
             var str="";
             var 分类筛选=JSON.parse(String(列表[j])).type_extend;
             for(var key in 分类筛选){
-                if(key=="class"||key=="area"||key=="lang"||key=="year"){
-                    str=str+"筛选"+key+"+全部=+"+分类筛选[key].replace(/,/g,"+")+"\r\n";
-                }
+                str=str+"筛选"+key+"+全部=+"+分类筛选[key].replace(/,/g,"+")+"\r\n";
             }
             str+"\r\n"+"排序+全部=+最新=time+最热=hits+评分=score";
         }else if(类型.indexOf("APP(小龟)")!=-1){
