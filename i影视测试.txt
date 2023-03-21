@@ -783,8 +783,8 @@ if(类型.indexOf("CMS(xml)")!=-1){
     var 标题规则=".json(vod_name)";
     var 地址规则=".c(vod/getVod?id=).json(vod_id)";
     var 图片规则=".json(vod_pic)";
-    var 简介规则=".json(vod_actor).tx(\n).json(vod_socre)";
-    var 作者规则=".json(vod_remarks).tx(·).json(vod_play_from)";
+    var 简介规则=".json(vod_socre)";
+    var 作者规则=".json(vod_remarks).tx(·).or().json(blurb)";
     搜索列表();
 }else if(类型.indexOf("iptv")!=-1){
     var 列表=e2Arr(源码,".json(data)");
