@@ -21,6 +21,7 @@ maolive,https://f.cyao.tk/maolive.txt
 Yoursmile7,https://agit.ai/Yoursmile7/TVBox/raw/branch/master/live.txt
 mmmgit,https://freed.yuanhsing.cf/tv/live.txt
 0903zh,https://agit.ai/138001380000/MHQTV/raw/branch/master/TV/0903zh.txt
+yml,https://gitee.com/ymlTV/yml329/raw/master/TV/TVbox/yml/TVlive.txt
 
 //tvbox一些收集(无名)
 1,http://home.jundie.top:81/Cat/tv/live.txt
