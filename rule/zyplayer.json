@@ -1,7 +1,7 @@
 {
-  "sites": { // 站点源
-    "default": 38, // 默认值：需为data中需要设置的id
-    "data":[ // 所有数据
+  "sites": {
+    "default": 38,
+    "data":[
   {
     "key": "liangzi",
     "name": "量子资源",
@@ -1672,16 +1672,16 @@
   }
 ]
   },
-  "iptv": { // 直播源
-    "default": 2, // 默认值：需为data中需要设置的id
+  "iptv": {
+    "default": 2,
     "data": [
       {
-        "id": 1, // id 唯一值不可重复
-        "name": "APTV", // 名称
-        "url": "https://raw.kgithub.com/Kimentanm/aptv/master/m3u/iptv.m3u", // 直播源地址
-        "epg": "", // 电子节目单地址
-        "type": "remote", // remote为远程m3u local本地m3u文件路径
-        "isActive": true // 是否启用 true启用 false 禁用
+        "id": 1,
+        "name": "APTV",
+        "url": "https://raw.kgithub.com/Kimentanm/aptv/master/m3u/iptv.m3u",
+        "epg": "",
+        "type": "remote",
+        "isActive": true
       },
       {
         "id": 2,
@@ -1973,20 +1973,20 @@
     }
     ]
   },
-  "analyzes": { // 解析源
-    "default": 2, // 默认值：需为data中需要设置的id
+  "analyzes": {
+    "default": 2,
     "data": [
       {
-        "id": 1, // id 唯一值不可重复
-        "name": "爱豆", // 名称
-        "url": "https://jx.aidouer.net/?url=", // 解析源地址
-        "isActive": true // 是否启用 true启用 false 禁用
+        "id": 1,
+        "name": "爱豆",
+        "url": "https://jx.aidouer.net/?url=",
+        "isActive": true
       },
       {
         "id": 2,
         "name": "jsonplayer",
         "url": "https://jx.jsonplayer.com/player/?url=",
-        "isActive": true // 是否启用 true启用 false 禁用
+        "isActive": true
       },
       {
         "id": 3,
