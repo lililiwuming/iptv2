@@ -1684,12 +1684,36 @@
         "isActive": true // 是否启用 true启用 false 禁用
       },
       {
+        "id": 2,
+        "name": "多多直播",
+        "url": "https://yydsys.top/duo/txt/v.txt",
+        "epg": "",
+        "type": "remote",
+        "isActive": true
+      },
+      {
+        "id": 36,
+        "name": "饭太硬",
+        "url": "http://ftyyy.tk/live.txt",
+        "epg": "",
+        "type": "remote",
+        "isActive": true
+      },
+      {
+        "id": 37,
+        "name": "俊宇直播",
+        "url": "http://home.jundie.top:81/Cat/tv/live.tx",
+        "epg": "",
+        "type": "remote",
+        "isActive": true
+      },
+      {
       "name": "蓝鲸直播",
       "url": "https://cdn.jsdelivr.net/gh/Cyril0563/lanjing_live@main/TVbox_Free/LIVE/Free/tvbox_live.txt",
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 1
+      "id": 3
     },
     {
       "name": "探索TV",
@@ -1697,7 +1721,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 2
+      "id": 4
     },
     {
       "name": "用心大佬(海阔视界)",
@@ -1705,7 +1729,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 3
+      "id": 5
     },
     {
       "name": "忧伤的肥羊",
@@ -1713,7 +1737,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 4
+      "id": 6
     },
     {
       "name": "iptv-org",
@@ -1721,7 +1745,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 5
+      "id": 7
     },
     {
       "name": "ks",
@@ -1729,7 +1753,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 6
+      "id": 8
     },
     {
       "name": "gh",
@@ -1737,7 +1761,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 7
+      "id": 9
     },
     {
       "name": "vamoschuck",
@@ -1745,7 +1769,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 8
+      "id": 10
     },
     {
       "name": "kuukey",
@@ -1753,7 +1777,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 9
+      "id": 11
     },
     {
       "name": "Ltang",
@@ -1761,7 +1785,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 10
+      "id": 12
     },
     {
       "name": "anxwl",
@@ -1769,7 +1793,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 11
+      "id": 13
     },
     {
       "name": "xdl53r",
@@ -1777,7 +1801,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 12
+      "id": 14
     },
     {
       "name": "神器每日推送",
@@ -1785,7 +1809,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 13
+      "id": 15
     },
     {
       "name": "ray",
@@ -1793,7 +1817,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 14
+      "id": 16
     },
     {
       "name": "cat",
@@ -1801,7 +1825,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 15
+      "id": 17
     },
     {
       "name": "mytv",
@@ -1809,7 +1833,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 16
+      "id": 18
     },
     {
       "name": "maolive",
@@ -1817,7 +1841,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 17
+      "id": 19
     },
     {
       "name": "Yoursmile7",
@@ -1825,7 +1849,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 18
+      "id": 20
     },
     {
       "name": "mmmgit",
@@ -1833,7 +1857,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 19
+      "id": 21
     },
     {
       "name": "0903zh",
@@ -1841,7 +1865,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 20
+      "id": 22
     },
     {
       "name": "yml329",
@@ -1849,7 +1873,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 21
+      "id": 23
     },
     {
       "name": "Cat",
@@ -1857,7 +1881,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 22
+      "id": 24
     },
     {
       "name": "heroaku",
@@ -1865,7 +1889,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 23
+      "id": 25
     },
     {
       "name": "zhanghong1983",
@@ -1873,7 +1897,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 24
+      "id": 26
     },
     {
       "name": "sub",
@@ -1881,7 +1905,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 25
+      "id": 27
     },
     {
       "name": "OneClickRun",
@@ -1889,7 +1913,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 26
+      "id": 28
     },
     {
       "name": "tv",
@@ -1897,7 +1921,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 27
+      "id": 29
     },
     {
       "name": "shuyuantv",
@@ -1905,7 +1929,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 28
+      "id": 30
     },
     {
       "name": "1w+",
@@ -1913,7 +1937,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 29
+      "id": 31
     },
     {
       "name": "广播电台",
@@ -1921,7 +1945,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 30
+      "id": 32
     },
     {
       "name": "YanG-1989",
@@ -1929,7 +1953,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 31
+      "id": 33
     },
     {
       "name": "gjwj666",
@@ -1937,7 +1961,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 32
+      "id": 34
     },
     {
       "name": "adultiptv",
@@ -1945,7 +1969,7 @@
       "epg": "",
       "type": "remote",
       "isActive": true,
-      "id": 33
+      "id": 35
     }
     ]
   },
@@ -1959,10 +1983,16 @@
         "isActive": true // 是否启用 true启用 false 禁用
       },
       {
-        "id": 2, // id 唯一值不可重复
-        "name": "jsonplayer", // 名称
-        "url": "https://jx.jsonplayer.com/player/?url=", // 解析源地址
+        "id": 2,
+        "name": "jsonplayer",
+        "url": "https://jx.jsonplayer.com/player/?url=",
         "isActive": true // 是否启用 true启用 false 禁用
+      },
+      {
+        "id": 3,
+        "name": "夜幕",
+        "url": "https://www.yemu.xyz/?url=",
+        "isActive": true
       }
     ]
   }
