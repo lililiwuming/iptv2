@@ -7,7 +7,7 @@
     "name": "量子资源",
     "api": "http://cj.lziapi.com/api.php/provide/vod/",
     "download": "",
-    "jiexiUrl": "https://www.itvbox.cc/fflz.php?url=",
+    "jiexiUrl": "https://lziplayer.com/?url=",
     "group": "优质",
     "status": true,
     "isActive": true,
@@ -19,7 +19,7 @@
     "name": "非凡资源",
     "api": "http://cj.ffzyapi.com/api.php/provide/vod/",
     "download": "",
-    "jiexiUrl": "https://www.itvbox.cc/fflz.php?url=",
+    "jiexiUrl": "https://ffzyplayer.com/?url=",
     "group": "优质",
     "status": true,
     "isActive": true,
@@ -836,12 +836,6 @@
   "analyzes": {
     "default": 2,
     "data": [
-      {
-        "id": 1,
-        "name": "爱豆",
-        "url": "https://jx.aidouer.net/?url=",
-        "isActive": true
-      },
       {
         "id": 2,
         "name": "jsonplayer",
