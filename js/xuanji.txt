@@ -77,7 +77,7 @@ function 选集列表(){
                 eval(jxdm);
             }else if(modecode.indexOf("InMemory")!=-1){
                 if(选集地址.indexOf("sigu-")!=-1||选集地址.indexOf("sigu.tv")!=-1||选集地址.indexOf(".html")!=-1||选集地址.indexOf("wuduyun-")!=-1||选集地址.indexOf("LT-")!=-1||选集地址.indexOf("renrenmi-")!=-1||选集地址.indexOf("Naifeimi-")!=-1||选集地址.indexOf("RongXingVR-")!=-1||选集地址.indexOf("-yanaifei.html")!=-1||选集地址.indexOf(".ruifenglb.com")!=-1||选集地址.indexOf("canglan-")!=-1||选集地址.indexOf("m3u8.cache.suoyo.cc")!=-1||选集地址.indexOf("muxm3u8")!=-1||选集地址.indexOf("xueren-")!=-1||标题.indexOf("ddzy")!=-1||标题.indexOf("duoduo")!=-1||标题.indexOf("dd")!=-1||标题.indexOf("OJBK")!=-1||标题.indexOf("LINE405")!=-1||标题.indexOf("LINE406")!=-1){
-                    接口="http://43.140.205.222/cms/jiexi.php?url=";
+                    接口="http://38.207.17.58/cms/jiexi.php?url=";
                 }else{
                     接口=接口;
                 }

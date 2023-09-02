@@ -40,9 +40,9 @@ if(uu.indexOf("player.4kya.com")!=-1||uu.indexOf("netflixvip.4kya.com")!=-1){
             if(uu.match(/.*(url|v|u|vid|pid|php\?id)=/)!=-1){
                 var uuu=uu.match(/.*(url|v|u|vid|pid|php\?id)=/)[0];
                 var uuuu=uu.split(uuu)[1];
-                "web=http://43.140.205.222/cms/jiexi.php?url="+uuuu;
+                "web=http://38.207.17.58/cms/jiexi.php?url="+uuuu;
             }else{
-                "web=http://43.140.205.222/cms/jiexi.php?url="+uu;
+                "web=http://38.207.17.58/cms/jiexi.php?url="+uu;
             }
         }
     }else if(resp.code.search(/"code":/)!=-1&&resp.code.search(/"url":/)!=-1){
@@ -59,9 +59,9 @@ if(uu.indexOf("player.4kya.com")!=-1||uu.indexOf("netflixvip.4kya.com")!=-1){
         if(uu.match(/.*(url|v|u|vid|pid|php\?id)=/)!=-1){
             var uuu=uu.match(/.*(url|v|u|vid|pid|php\?id)=/)[0];
             var uuuu=uu.split(uuu)[1];
-            "web=http://43.140.205.222/cms/jiexi.php?url="+uuuu;
+            "web=http://38.207.17.58/cms/jiexi.php?url="+uuuu;
         }else{
-            "web=http://43.140.205.222/cms/jiexi.php?url="+uu;
+            "web=http://38.207.17.58/cms/jiexi.php?url="+uu;
         }
     }
 }else{
