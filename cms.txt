@@ -97,7 +97,7 @@ if(type.indexOf("小龟")!=-1){
 var code=getVar("源");
 var URL=e2Rex(code,".json(url)");
 if(URL.indexOf("豆瓣")!=-1){
-    "host=frodo.douban.com&accept=*/*";
+    "host=frodo.douban.com";
 }else{
     "";
 }
