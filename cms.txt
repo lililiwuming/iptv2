@@ -98,8 +98,6 @@ var code=getVar("源");
 var URL=e2Rex(code,".json(url)");
 if(URL.indexOf("豆瓣")!=-1){
     "host=frodo.douban.com&accept=*/*";
-}else if(URL.indexOf("豆瓣")!=-1){
-  'bid=d9W4UzZU4TU; ll="118308"';
 }else{
     "";
 }
@@ -108,6 +106,8 @@ var code=getVar("源");
 var URL=e2Rex(code,".json(url)");
 if(URL.indexOf("搜狗")!=-1){
     "ABTEST=3|1615358299|v1; IPLOC=CN4403; SUV=00F0551665E97E5C6048695B5B6E5290; VIDEO_DEBUG=off";
+}else if(URL.indexOf("豆瓣")!=-1){
+  'bid=d9W4UzZU4TU; ll="118308"';
 }else{
     "";
 }
