@@ -98,6 +98,8 @@ var code=getVar("源");
 var URL=e2Rex(code,".json(url)");
 if(URL.indexOf("豆瓣")!=-1){
     "host=frodo.douban.com&accept=*/*";
+}else if(URL.indexOf("豆瓣")!=-1){
+  'bid=d9W4UzZU4TU; ll="118308"';
 }else{
     "";
 }
