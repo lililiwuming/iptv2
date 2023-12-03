@@ -1,0 +1,16 @@
+{
+    线路列表:
+'.get(div[id~=playlist.*]).or().get(div[id~=panel.*]).or().get(div[id~=glist.*]).or().get(div[class~=playlist.*]).or().get(div[id~=playlist.*] > ul).or().get(ul[id~=hl-plays-list.*]).or().get(ul.anthology-list-play).or().get(ul[class~=.+play.*]).or().get(div.stui-pannel-box.b.playlist.mb).or().get(ul.stui-content__playlist).or().get(div.stui-vodlist__head ul)',
+    线路标题:
+'.get(#playlist div.stui-pannel__head h3.title).or().get(#playlist div.stui-pannel__head h3).or().get(.module-tab-item.tab-item).or().get(#mobile-tab-box > a).or().get(.swiper-slide).or().z(data-dropdown-value=".+?").or().get(a.hl-tabs-btn).or().get(a[href~=#playlist.+]).or().get(h3.title).or().get(h3)',
+    选集列表:
+'.get(a[href~=/vodplay/.+]).or().get(a[href~=/vod/play/.+]).or().get(a[href~=/player/.+]).or().get(a[href~=/play/.+]).or().get(a[href~=play.+]).or().get(a[href~=/vod/.+]).or().get(div[id~=glist.+] div.scroll-content > a).or().get(div.module-play-list > a).or().get(div.scroll-content > a).or().get(ul > li).or().get(li)',
+    选集标题:
+'.get(a.copy_text).t().tz($).or().get(a).t()',
+    选集地址:
+'.get(a).a(href)',
+    嗅探正则:
+'http((?!(http|.71edge.com|data.video.iqiyi.com)).){20,}\\.(m3u8|mp4|MP4|flv|f4v|mkv|rmvb|wmv|3gp|mov|mp3|m4a|m4v|wav|ape|flac|wma)[\\?/].*|http((?!(http|.71edge.com|data.video.iqiyi.com)).){20,}\\.(m3u8|mp4|MP4|flv|f4v|mkv|rmvb|wmv|3gp|mov|mp3|m4a|m4v|wav|ape|flac|wma)(?<=\\?)[&].*|http((?!(http|.71edge.com|data.video.iqiyi.com)).){20,}\\.(m3u8|mp4|MP4|flv|f4v|mkv|rmvb|wmv|3gp|mov|mp3|m4a|m4v|wav|ape|flac|wma)|http((?!http).){20,}?/m3u8\\?pt=m3u8.*|http.*?/player/.*?[pP]lay\\.php\\?url=.*|http.*?/download\\.aspx\\?.*|http.*?/playlist/m3u8/\\?vid=.*|http.*?\\.php\\?type=m3u8&.*|http.*?/hls/play/.*|http.*?/play.*?\\?video_id=.*|http((?!http).){26,}?/video/tos/.*|http.*?api/siyou_m3u8\\.php\\?.*|http.+?m3u8\\.php.+|http.+?issfbdbcdn\\.tyfo\\.com:8106/.+|https.*?live\\.douyin\\.com/\\d+|http.+?\\.huya\\.com/\\d+|http.+?\\.douyu\\.com/\\d+|http.+?/ipfs/.+|http.+?/ftn_handler/.+?\\?fname=.+|http.+?-data\\.ali.+?x-oss-signature=.+|http.+?123pan\\.cn:30443/download-cdn\\.123pan\\.cn.+|http.+mcloud\\.139\\.com/storageWeb/servlet/downloadServlet.+',
+    扩展版本:
+    '20230902'
+}
