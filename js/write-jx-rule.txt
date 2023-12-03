@@ -1,0 +1,34 @@
+eval(getVar("qjs"));
+var jkurl=getVar("JKURL");
+var jxurl=getVar("JXURL");
+var bftitle=getVar("BFTITLE");
+var bfurl=getVar("BFURL");
+var thurl=getVar("THURL");
+var filename="解析接口.txt";
+if(jkurl.length>1&&thurl.indexOf("http")!=-1){
+    var 记录="if(URL.indexOf(\""+jkurl+"\")!=-1)\{接口=\""+thurl+"\";\}";
+}else if(jxurl.length>1&&thurl.indexOf("http")!=-1){
+    var 记录="if(接口.indexOf(\""+jxurl+"\")!=-1)\{接口=\""+thurl+"\";\}";
+}else if(bftitle.length>1&&thurl.indexOf("http")!=-1){
+    var 记录="if(标题.indexOf(\""+bftitle+"\")!=-1)\{接口=\""+thurl+"\";\}";
+}else if(bfurl.length>1&&thurl.indexOf("http")!=-1){
+    var 记录="if(选集地址.indexOf(\""+bfurl+"\")!=-1)\{接口=\""+thurl+"\";\}";
+}else{
+    var 记录="";
+}
+if(记录.indexOf("http")!=-1){
+    if(_.read(filename)){
+        var 旧记录=_.read(filename).match(/.+http.+/g);
+        var 新记录=记录.concat("else "+旧记录.filter(item=>item!=记录[0]));
+        _.write(新记录,filename);
+        alert("解析规则添加成功，退出轻站重新进入才生效")
+        记录+"\n添加成功";
+    }else{
+        var 新记录=记录;
+        _.write(新记录,filename);
+        alert("解析规则添加成功，退出轻站重新进入才生效")
+        记录+"\n添加成功";
+    }
+}else{
+    alert("解析规则添加失败，请输入最终解析接口以及前四个输入框选择一个输入")
+}

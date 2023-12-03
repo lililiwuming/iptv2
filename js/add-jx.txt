@@ -1,0 +1,38 @@
+if(选集地址.indexOf("HR-")!=-1||选集地址.indexOf("HR2-")!=-1||选集地址.indexOf("HR3-")!=-1||选集地址.indexOf("RongXingVR-")!=-1||选集地址.indexOf("sigi.tv")!=-1||选集地址.indexOf("sigu-")!=-1||选集地址.indexOf("renrenmi-")!=-1||选集地址.indexOf("TwrV")!=-1||选集地址.indexOf("pRoo")!=-1||选集地址.indexOf("qPeP")!=-1||选集地址.indexOf("m3u8.cache.suoyo.cc")!=-1||选集地址.indexOf("canglan-")!=-1||选集地址.indexOf("xueren-")!=-1||选集地址.indexOf("Good-")!=-1||选集地址.indexOf("-yanaifei.html")!=-1||选集地址.indexOf("h5.rr.tv")!=-1||选集地址.indexOf("fanhou-")!=-1||选集地址.indexOf("aliyundrive.com")!=-1||选集地址.indexOf("AQIOQ-")!=-1||选集地址.indexOf(".html")!=-1||选集地址.indexOf("www.bilibili.com")!=-1||选集地址.indexOf("share.weiyun.")!=-1||选集地址.indexOf("xianren-")!=-1||选集地址.indexOf("netflixmom-")!=-1||选集地址.indexOf("tv365-")!=-1||选集地址.indexOf("yekong-")!=-1||选集地址.indexOf("BYGA-")!=-1||选集地址.indexOf("xbys-")!=-1||选集地址.indexOf("UUJS.ML-")!=-1||选集地址.indexOf("UMZM.ML-")!=-1||选集地址.indexOf("beichuan-")!=-1||选集地址.indexOf("XT-")!=-1||选集地址.indexOf("xinluan-")!=-1||选集地址.indexOf("omofun-")!=-1||选集地址.indexOf("moefun-")!=-1||选集地址.indexOf("yajuchang-")!=-1||选集地址.indexOf("woaikan67")!=-1||选集地址.indexOf("Naifeimi-")!=-1||选集地址.indexOf("AMWNm")!=-1||选集地址.indexOf("dd-")!=-1||选集地址.indexOf("tc-")!=-1||选集地址.indexOf("XRJX-")!=-1||选集地址.indexOf("TiMi-")!=-1||选集地址.indexOf("bjhu-")!=-1||选集地址.indexOf("Gudis-")!=-1||选集地址.indexOf("MMAL-")!=-1||选集地址.indexOf("XC-")!=-1||选集地址.indexOf("kanleme-")!=-1||选集地址.indexOf("ALI-beiyan")!=-1){
+    接口="http://38.207.17.58/jiexi.php?url=";
+}else if(选集地址.indexOf("NFUXS")!=-1){
+    接口="https://tv.nfuxs.com/ht/nfuxs.php?app=10000&account=272775028&password=qq272775028&url=";
+}else if(标题.indexOf("NetflixGC")!=-1){
+    接口="https://netflixvip.4kya.com/?url=";
+}else if(URL.indexOf("yanetflix.live")!=-1&&标题.indexOf("dplayer")!=-1){
+    接口="https://player.aikanya.live/?url=";
+}else if(选集地址.indexOf("huaduo_")!=-1||选集地址.indexOf("weikan_")!=-1||选集地址.indexOf("wolong-")!=-1){
+    接口="http://110.42.246.2:9096/yunos.php?url=";
+}else if(选集地址.indexOf("LeYun_")!=-1){
+    接口="http://jx1.wjbk.org/dp/?uid=3128340&key=dhlnpruvwzDEPXY158&url=";
+}else if(URL.indexOf("omofun")!=-1&&标题.indexOf("jx")!=-1||URL.indexOf("103.91.210.141")!=-1&&标题.indexOf("jx")!=-1){
+    接口="https://omofun.tv/addons/dp/player/index.php?key=0&id=5981&from=mp4&url=";
+}else if(标题.indexOf("ojbk")!=-1){
+    接口="https://www.hfyrw.com/json.php?url=";
+}else if(选集地址.indexOf(":6688/player")!=-1){
+    var hash=选集地址.split("player/")[1];
+    var dd=hash.substring(0,2);
+    选集地址="https://qq.iqiyi3.b555b.com:7777/"+dd+"/"+hash+"/hd.m3u8";
+}else if(选集地址.indexOf("FQ:")!=-1){
+    接口="https://jiexi.fqplayer.com/json.php?url=";
+}else if(选集地址.indexOf("m3u8_")!=-1){
+    接口="https://yparse.jn1.cc/index.php?url=";
+}else if(选集地址.indexOf("u_")!=-1){
+    接口="https://www.dmplay.xyz/d?url=";
+}else if(标题.indexOf("rrm3u8")!=-1){
+    接口="https://www.meiju11.com/ckplayerx/m3u8.php?url=";
+}else if(标题.indexOf("leduo")!=-1){
+    接口="https://api.ldyun.cc/wp-api/ifr.php?vid=";
+    选集地址=选集地址+'@{"Referer":"http://leduozy.net/"}';
+}else if(标题.indexOf("mdm3u8")!=-1){
+    接口="https://m3u8.mudan01.online/?url=";
+}else if(URL.indexOf("travelbooking.cc")!=-1){
+    接口="https://player.travelbooking.cc/player?vid=";
+}else if(选集地址.indexOf("mogu-")!=-1){
+    接口="https://player.mogujx.com/parse/index.php?vid=";
+}
