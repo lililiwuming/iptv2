@@ -1,5 +1,5 @@
 [
-    {"name":"i影视","info":"","icon":"t:影视#0B2FAE","sign":"f6dc3d89035d1db7edead60443414542","version":20231111,"type":"轻站","url":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/mkz/i影视.mkz"},
-    {"name":"JustLive","info":"","icon":"t:直播#0B2FAE","sign":"d6cebcee6d3fc4a58b7b4151df1abdb0","version":20231107,"type":"轻站","url":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/mkz/JustLive.mkz"},
-    {"name":"动漫花园资源网","info":"","icon":"t:磁力#0B2FAE","sign":"b1b2a8ca426035ccd4317487298d2980","version":20231107,"type":"轻站","url":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/mkz/动漫花园资源网.mkz"}
+    {"name":"i影视","info":"","icon":"t:影视#0B2FAE","sign":"f6dc3d89035d1db7edead60443414542","version":20231111,"type":"轻站","url":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/mkz/i影视.mkz"},
+    {"name":"JustLive","info":"","icon":"t:直播#0B2FAE","sign":"d6cebcee6d3fc4a58b7b4151df1abdb0","version":20231107,"type":"轻站","url":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/mkz/JustLive.mkz"},
+    {"name":"动漫花园资源网","info":"","icon":"t:磁力#0B2FAE","sign":"b1b2a8ca426035ccd4317487298d2980","version":20231107,"type":"轻站","url":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/mkz/动漫花园资源网.mkz"}
 ]

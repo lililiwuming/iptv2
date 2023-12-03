@@ -5,7 +5,7 @@ https://gitcode.net/egwang186/iptv/-/raw/master/rss.json
 白公子
 https://gitcode.net/breeze_me/qdb/-/raw/master/qdb.json
 .
-http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/rss.json
+http://git.llzy.xyz/InMemory/iptv/raw/branch/main/rss.json
 
 
 轻站：(带mapi的土狗主页搜索框搜索)
@@ -35,12 +35,12 @@ https://7cc7cc.com/thread-1335.htm
 https://7cc7cc.com/thread-1369.htm
 
 APP影视
-mapi:qm/http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/mkz/APP影视.mkz
+mapi:qm/http://git.llzy.xyz/InMemory/iptv/raw/branch/main/mkz/APP影视.mkz
 APP影视内的订阅
-内置,http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/rule/app.txt#
+内置,http://git.llzy.xyz/InMemory/iptv/raw/branch/main/rule/app.txt#
 
 i影视
-mapi:qm/http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/mkz/i影视.mkz
+mapi:qm/http://git.llzy.xyz/InMemory/iptv/raw/branch/main/mkz/i影视.mkz
 
 直播源搜索
-mapi:qm/http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/mkz/直播源搜索.mkz
+mapi:qm/http://git.llzy.xyz/InMemory/iptv/raw/branch/main/mkz/直播源搜索.mkz

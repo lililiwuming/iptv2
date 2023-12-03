@@ -2,14 +2,14 @@
 {
     "data":[
         {
-        "url":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/教程.txt",
+        "url":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/教程.txt",
         "title":"本地规则教程，请认真看",
-        "img":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/Icon/封印者1.jpg"
+        "img":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/Icon/封印者1.jpg"
         },
         {
         "url":"https://7cc7cc.com/thread-902.htm",
         "title":"轻创社区反馈",
-        "img":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/Icon/封印者3.jpg"
+        "img":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/Icon/封印者3.jpg"
         }
     ]
 }
@@ -20,39 +20,39 @@
     "list":[
         {
         "url":"q:订阅.mk",
-        "img":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/Icon/订阅.png"
+        "img":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/Icon/订阅.png"
         },
         {
         "url":"q:首页-豆瓣片库.mk",
-        "img":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/Icon/豆瓣.png"
+        "img":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/Icon/豆瓣.png"
         },
         {
         "url":"q:写入TAB.mk",
-        "img":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/Icon/写入.png"
+        "img":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/Icon/写入.png"
         },
         {
         "url":"q:首页-豆瓣片单.mk",
-        "img":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/Icon/片单.png"
+        "img":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/Icon/片单.png"
         },
         {
         "url":"q:首页-搜狗片库.mk",
-        "img":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/Icon/搜狗.png"
+        "img":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/Icon/搜狗.png"
         },
         {
         "url":"q:首页-豆瓣榜单.mk",
-        "img":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/Icon/榜单.png"
+        "img":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/Icon/榜单.png"
         }
     ]
     },
     {
     "list":[
         {
-        "url":"mapi:qm/http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/mkz/APP影视.mkz",
-        "img":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/Icon/更新.png"
+        "url":"mapi:qm/http://git.llzy.xyz/InMemory/iptv/raw/branch/main/mkz/APP影视.mkz",
+        "img":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/Icon/更新.png"
         },
         {
         "url":"https://7cc7cc.com/thread-902.htm",
-        "img":"http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/Icon/反馈.png"
+        "img":"http://git.llzy.xyz/InMemory/iptv/raw/branch/main/Icon/反馈.png"
         }
     ]
     }
@@ -135,7 +135,7 @@ for (var i in code){
     if(img){
         var img=img;
     }else{
-        var img="http://45.145.228.86/tupian.php?text="+title;
+        var img="http://www.llzy.xyz/tupian.php?text="+title;
     }
     var readfile=readStr(title+".json");
     var types=e2Arr(readfile,".json()");
@@ -252,7 +252,7 @@ function 通用列表(){
         }else if(预图片.indexOf("http")!=-1){
             var 图片=预图片;
         }else if(预图片==""){
-            var 图片="http://45.145.228.86:4433/mxtheme/images/load.gif";
+            var 图片="http://www.llzy.xyz/load.gif";
         }else if(预图片.indexOf("//")!=-1){
             var 图片="http:"+预图片;
         }else{
@@ -505,7 +505,7 @@ function 搜索列表(){
         }else if(预图片.indexOf("http")!=-1){
             var 图片=预图片.match(/.*(http.*[a-zA-Z])/)[1];
         }else if(预图片==""){
-            var 图片="http://45.145.228.86:4433/mxtheme/images/load.gif";
+            var 图片="http://www.llzy.xyz/load.gif";
         }else if(预图片.indexOf("//")!=-1){
             var 图片="http:"+预图片;
         }else{
@@ -825,7 +825,7 @@ if(uu.indexOf("player.4kya.com")!=-1||uu.indexOf("netflixvip.4kya.com")!=-1){
             JSON.stringify({name:"真实播放地址",url:realurl});
         }
     }else{
-        "web=http://45.145.228.86/jiexi.php?url="+uu.split("url=")[1];
+        "web=http://www.llzy.xyz/jiexi.php?url="+uu.split("url=")[1];
     }
 }else if(uu.match(/.*(url|v|u|vid|pid|php\?id)=/)){
     var resp=JZ(JSON.stringify({url:uu,redirect:false,head:{"User-Agent":"Mozilla/5.0 Android"}}));
@@ -836,9 +836,9 @@ if(uu.indexOf("player.4kya.com")!=-1||uu.indexOf("netflixvip.4kya.com")!=-1){
             if(uu.match(/.*(url|v|u|vid|pid|php\?id)=/)){
                 var uuu=uu.match(/.*(url|v|u|vid|pid|php\?id)=/)[0];
                 var uuuu=uu.split(uuu)[1];
-                "web=http://45.145.228.86/jiexi.php?url="+uuuu;
+                "web=http://www.llzy.xyz/jiexi.php?url="+uuuu;
             }else{
-                "web=http://45.145.228.86/jiexi.php?url="+uu;
+                "web=http://www.llzy.xyz/jiexi.php?url="+uu;
             }
         }
     }else if(resp.code.indexOf('\"code\":')!=-1&&resp.code.indexOf('\"url\":')!=-1){
@@ -855,9 +855,9 @@ if(uu.indexOf("player.4kya.com")!=-1||uu.indexOf("netflixvip.4kya.com")!=-1){
         if(uu.match(/.*(url|v|u|vid|pid|php\?id)=/)){
             var uuu=uu.match(/.*(url|v|u|vid|pid|php\?id)=/)[0];
             var uuuu=uu.split(uuu)[1];
-            "web=http://45.145.228.86/jiexi.php?url="+uuuu;
+            "web=http://www.llzy.xyz/jiexi.php?url="+uuuu;
         }else{
-            "web=http://45.145.228.86/jiexi.php?url="+uu;
+            "web=http://www.llzy.xyz/jiexi.php?url="+uu;
         }
     }
 }else if(uu.indexOf("dxcc.meijutt.top")!=-1){
@@ -904,9 +904,9 @@ if(key.length>10){
                     if(img.indexOf("http")!=-1){
                         var img=img;
                     }else if(img==""){
-                        var img="http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/AppIcon/通用图标.png"
+                        var img="http://git.llzy.xyz/InMemory/iptv/raw/branch/main/AppIcon/通用图标.png"
                     }else{
-                        var img="http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/AppIcon/"+img+".png";
+                        var img="http://git.llzy.xyz/InMemory/iptv/raw/branch/main/AppIcon/"+img+".png";
                     }
                     if(url.search(/api\.php\/.*?\/vod/)!=-1){
                         var murl="q:TV影视.mk";
@@ -932,7 +932,7 @@ if(key.length>10){
                     for(var j=0;j<输入条目.length;j++){
                         var title=e2Rex(输入条目[j],".tz(,)");
                         var url=e2Rex(输入条目[j],".ty(,)");
-                        var img="http://45.145.228.86/tupian.php?text="+title;
+                        var img="http://www.llzy.xyz/tupian.php?text="+title;
                         var murl="q:资源采集.mk";
                         var type=分类标题;
                         记录.push({title:title,url:url,img:img,murl:murl,type:type});
@@ -980,7 +980,7 @@ if(key.length>10){
             for(var j=0;j<输入条目.length;j++){
                 var title=e2Rex(输入条目[j],".tz(,)");
                 var url=e2Rex(输入条目[j],".ty(,)");
-                var img="http://45.145.228.86/tupian.php?text="+title;
+                var img="http://www.llzy.xyz/tupian.php?text="+title;
                 var murl="q:资源采集.mk";
                 var type=分类标题;
                 记录.push({title:title,url:url,img:img,murl:murl,type:type});
@@ -1019,7 +1019,7 @@ if(key.length>10){
         for(var j=0;j<输入条目.length;j++){
             var title=e2Rex(输入条目[j],".tz(,)");
             var url=e2Rex(输入条目[j],".ty(,)");
-            var img="http://45.145.228.86/tupian.php?text="+title;
+            var img="http://www.llzy.xyz/tupian.php?text="+title;
             var murl="q:资源采集.mk";
             var type="资源采集";
             记录.push({title:title,url:url,img:img,murl:murl,type:type});
@@ -1062,9 +1062,9 @@ if(key.length>10){
                 if(img.indexOf("http")!=-1){
                     var img=img;
                 }else if(img==""){
-                    var img="http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/AppIcon/通用图标.png"
+                    var img="http://git.llzy.xyz/InMemory/iptv/raw/branch/main/AppIcon/通用图标.png"
                 }else{
-                    var img="http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/AppIcon/"+img+".png";
+                    var img="http://git.llzy.xyz/InMemory/iptv/raw/branch/main/AppIcon/"+img+".png";
                 }
                 if(url.search(/api\.php\/.*?\/vod/)!=-1){
                     var murl="q:TV影视.mk";
@@ -1127,9 +1127,9 @@ if(key.length>10){
             if(img.indexOf("http")!=-1){
                 var img=img;
             }else if(img==""){
-                var img="http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/AppIcon/通用图标.png"
+                var img="http://git.llzy.xyz/InMemory/iptv/raw/branch/main/AppIcon/通用图标.png"
             }else{
-                var img="http://45.145.228.86:3000/InMemory/iptv/raw/branch/main/AppIcon/"+img+".png";
+                var img="http://git.llzy.xyz/InMemory/iptv/raw/branch/main/AppIcon/"+img+".png";
             }
             if(url.search(/api\.php\/.*?\/vod/)!=-1){
                 var murl="q:TV影视.mk";
@@ -1155,7 +1155,7 @@ if(key.length>10){
             for(var j=0;j<输入条目.length;j++){
                 var title=e2Rex(输入条目[j],".tz(,)");
                 var url=e2Rex(输入条目[j],".ty(,)");
-                var img="http://45.145.228.86/tupian.php?text="+title;
+                var img="http://www.llzy.xyz/tupian.php?text="+title;
                 var murl="q:资源采集.mk";
                 var type=分类标题;
                 记录.push({title:title,url:url,img:img,murl:murl,type:type});
@@ -1189,7 +1189,7 @@ if(key.length>10){
     alert(getVar("标题")+"\n订阅更新成功");
     readStr(filename);
 }else if(url.indexOf("192.168.1.1")!=-1){
-    var rule=e2Rex(rule,".th(https://gitcode.net/InMemory/iptv/-/raw/master/AppFile##http://45.145.228.86:3000/InMemory/iptv/raw/branch/master).th(http://1.117.152.239:39000/tupian.php##http://45.145.228.86/tupian.php).th(http://45.145.228.86/iptv/AppFile##http://45.145.228.86:3000/InMemory/iptv/raw/branch/master)");
+    var rule=e2Rex(rule,".t()");
     writeStr(rtitle+".json",rule);
     alert("本地规则无法更新订阅，已更新图片地址");
 }else{
