@@ -1304,13 +1304,13 @@ if(类型.indexOf("直播订阅")!=-1){
 ######更新内容11
 【更新内容】
 
-2023/11/11：
+2023/12/03：
 适应新版M浏览器更新
 
 
 Tips：有问题及适配模板请反馈
 ######检测更新12
-var NewVersion="20231111";
+var NewVersion="20231203";
 var version=e2Rex(getVar("QMINFO"),".xml(version).t()").replace(/\s/g,"");
 var NewSign="f6dc3d89035d1db7edead60443414542";
 var sign=e2Rex(getVar("QMINFO"),".xml(sign).t()").replace(/\s/g,"");
