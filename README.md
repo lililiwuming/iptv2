@@ -1,2 +1,2 @@
-# iptv
+# MBrowser extend
 
