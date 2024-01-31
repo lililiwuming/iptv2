@@ -11,6 +11,7 @@ kuukey,https://gitcode.net/kuukey/a/-/raw/master/tvlive.txt
 Ltang,https://agit.ai/Ltang/Tvsy/raw/branch/master/TV/shengqi.txt
 anxwl,http://wp.anxwl.cn/down.php/ecbbf8c5e677b8d2f6c938de1da6579c.txt
 xdl53r,https://files.catbox.moe/xdl53r.txt
+fanmingming,https://ghproxy.net/https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u
 
 //tvbox
 神器每日推送,https://xn--m7r412advb92j21st65a.tk/live.txt
